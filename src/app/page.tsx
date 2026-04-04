@@ -9,9 +9,9 @@ import ContactSection from "@/components/contact/ContactSection";
 
 export default function Home() {
   return (
-    <>
+    <div className="max-w-[1520px] mx-auto p-4 sm:p-8 md:p-10 xl:p-12 pb-0 flex flex-col gap-10 sm:gap-12 lg:gap-14">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex flex-col gap-12 sm:gap-16 w-full">
         <HeroSection />
         <TeamSection />
         <ProjectsSection />
@@ -20,6 +20,6 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

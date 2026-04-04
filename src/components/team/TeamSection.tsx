@@ -77,58 +77,39 @@ const TEAM_MEMBERS = [
 
 export default function TeamSection() {
   return (
-    <section id="team" className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-12 sm:py-24">
+    <section id="team" className="max-w-full mx-auto px-4 sm:px-12 py-12 sm:py-24 border-t-2 border-[#1A1C1A]">
       {/* Header */}
       <header className="mb-12 sm:mb-20">
-        <p className="font-mono text-[0.75rem] uppercase tracking-widest text-[#A33B3C] mb-2">
-          cidc_version_04
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#A33B3C] mb-4">
+          CIDC_VERSION_04
         </p>
-        <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none mb-4 sm:mb-6">
+        <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase leading-[0.8] mb-8">
           TEAM<br />
           <span className="text-[#006565]">MODULES</span>
         </h2>
-        <div className="w-16 sm:w-24 h-2 bg-[#1A1C1A] mb-6 sm:mb-8" />
-        <p className="text-base sm:text-xl max-w-2xl text-[#3e4949] leading-relaxed">
+        <p className="text-base sm:text-lg max-w-xl text-[#1A1C1A] font-medium leading-tight">
           A multidisciplinary collective of engineers and designers operating at
           the intersection of technical rigidity and digital entropy.
         </p>
       </header>
 
       {/* Team Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border-2 border-[#1A1C1A] bg-[#1A1C1A] shadow-[4px_4px_0px_0px_rgba(0,101,101,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,101,101,1)]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-2 border-[#1A1C1A]">
         {TEAM_MEMBERS.map((member) => (
           <TeamMemberCard key={member.ref_id} {...member} />
         ))}
       </div>
 
-      {/* CTA Banner */}
-      <section className="mt-12 sm:mt-24 border-2 sm:border-4 border-[#1A1C1A] p-6 sm:p-12 bg-[#008080] relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-30 pointer-events-none"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, #0000001a 1px, transparent 1px)",
-            backgroundSize: "4px 4px",
-          }}
-        />
-        <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 sm:gap-8">
-          <div>
-            <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#e3fffe] mb-2 sm:mb-4">
-              cidc student chapter
-            </h2>
-            <p className="text-[#e3fffe] max-w-xl opacity-90 text-sm sm:text-base">
-              We are always scouting for engineers and visual thinkers. Share
-              your ideas, showcase your project, join us to build AIT smarter.
-            </p>
-          </div>
-          <a
-            href="#contact"
-            className="bg-[#1A1C1A] text-[#faf9f6] px-8 sm:px-10 py-4 sm:py-5 font-black uppercase tracking-widest text-sm border-2 border-[#faf9f6] shadow-[4px_4px_0px_0px_rgba(163,59,60,1)] sm:shadow-[8px_8px_0px_0px_rgba(163,59,60,1)] hover:-translate-x-2 hover:-translate-y-2 active:translate-x-0 active:translate-y-0 transition-all flex-shrink-0"
-          >
-            JOIN
-          </a>
+      {/* Chapter Banner */}
+      <div className="mt-12 bg-[#006565] border-2 border-[#1A1C1A] p-8 sm:p-12 flex flex-col sm:flex-row justify-between items-center gap-8">
+        <div>
+          <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mb-2">CIDC STUDENT CHAPTER</h3>
+          <p className="text-white/80 text-sm max-w-lg">We are always scouting for engineers and visual thinkers. Share your ideas, showcase your project. Join us to build the AIT smart, ping us builders. </p>
         </div>
-      </section>
+        <a href="#contact" className="bg-[#1A1C1A] text-white px-10 py-4 font-bold uppercase tracking-widest text-xs border-2 border-[#1A1C1A] hover:bg-white hover:text-[#1A1C1A] transition-colors">
+          JOIN
+        </a>
+      </div>
     </section>
   );
 }
