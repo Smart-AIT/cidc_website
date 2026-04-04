@@ -2,81 +2,64 @@
 import { useState } from "react";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Our Team", href: "#team" },
-  { label: "Projects", href: "#projects" },
-  { label: "About Us", href: "#about" },
-  { label: "Events", href: "#events" },
-  { label: "Contact", href: "#contact" },
+  { label: "HOME", href: "#home" },
+  { label: "OUR TEAM", href: "#team" },
+  { label: "PROJECTS", href: "#projects" },
+  { label: "ABOUT US", href: "#about" },
+  { label: "EVENTS", href: "#events" },
+  { label: "CONTACT", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
+  const [activeLink, setActiveLink] = useState("HOME");
 
   return (
-    <nav
-      id="navbar"
-      className="sticky top-0 z-50 bg-[#FAF9F6] border-2 border-[#1A1C1A] mx-2 sm:mx-4 mt-2 sm:mt-4 flex justify-between items-center px-4 sm:px-8 py-3 sm:py-4 shadow-[4px_4px_0px_0px_rgba(26,28,26,1)]"
+    <div
+      className="w-full flex justify-center"
+      style={{ marginTop: "20px", marginBottom: "17px" }}
     >
-      {/* Logo */}
-      <div className="text-sm sm:text-xl font-black tracking-tight text-[#1A1C1A] uppercase leading-none">
-        College Innovation<br />
-        <span className="text-[#006565]">&amp; Development Club</span>
-      </div>
-
-      {/* Desktop Nav */}
-      <div className="hidden lg:flex gap-6 xl:gap-8 items-center">
-        {navLinks.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            onClick={() => setActiveLink(link.label)}
-            className={`uppercase tracking-[0.05em] text-xs transition-transform duration-75 hover:-translate-x-1 hover:-translate-y-1 ${
-              activeLink === link.label
-                ? "text-[#006565] border-b-2 border-[#A33B3C]"
-                : "text-[#1A1C1A]"
-            }`}
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-
-      {/* Mobile Menu Button */}
-      <button
-        className="lg:hidden p-2 border-2 border-[#1A1C1A]"
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
-        type="button"
+      <nav
+        style={{
+          paddingTop: "25px",
+          paddingBottom: "25px",
+          paddingLeft: "30px",
+          paddingRight: "30px",
+        }}
+        className="w-[95%] max-w-7xl bg-[#F5F4F1] border-[3px] border-black shadow-[6px_6px_0px_black] flex justify-between items-center"
       >
-        <span className="material-symbols-outlined">
-          {menuOpen ? "close" : "menu"}
-        </span>
-      </button>
+        {/* Logo */}
+        <div className="text-xl font-extrabold tracking-[0.02em] text-black">
+          COLLEGE INNOVATION & DEVELOPMENT CLUB
+        </div>
 
-      {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-[#FAF9F6] border-2 border-[#1A1C1A] border-t-0 shadow-[4px_4px_0px_0px_rgba(26,28,26,1)] flex flex-col lg:hidden z-50">
+        {/* Nav Links */}
+        <div className="hidden lg:flex gap-10 xl:gap-12 items-center">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              onClick={() => {
-                setActiveLink(link.label);
-                setMenuOpen(false);
-              }}
-              className={`px-6 sm:px-8 py-4 uppercase tracking-[0.05em] text-xs border-b border-[#1A1C1A]/20 transition-colors hover:bg-[#efeeeb] ${
+              onClick={() => setActiveLink(link.label)}
+              className={`relative text-[12px] font-bold tracking-[0.05em] transition duration-200 ${
                 activeLink === link.label
-                  ? "text-[#006565] font-bold"
-                  : "text-[#1A1C1A]"
+                  ? "text-[#2F8F8F]"
+                  : "text-black/70 hover:text-black"
               }`}
             >
               {link.label}
+
+              {/* Active underline */}
+              {activeLink === link.label && (
+                <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#A33B3C]"></span>
+              )}
             </a>
           ))}
         </div>
-      )}
-    </nav>
+
+        {/* Mobile button (leave it simple for now) */}
+        <button className="lg:hidden border-2 border-black px-2 py-1">
+          ☰
+        </button>
+      </nav>
+    </div>
   );
 }
