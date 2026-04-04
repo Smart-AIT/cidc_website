@@ -25,7 +25,7 @@ export default function Navbar() {
           paddingLeft: "30px",
           paddingRight: "30px",
         }}
-        className="w-[95%] max-w-7xl bg-[#F5F4F1] border-[3px] border-black shadow-[6px_6px_0px_black] flex justify-between items-center"
+        className="w-[98%] max-w-[1400px] bg-[#F5F4F1] border-[3px] border-black shadow-[6px_6px_0px_black] flex justify-between items-center"
       >
         {/* Logo */}
         <div className="text-xl font-extrabold tracking-[0.02em] text-black">

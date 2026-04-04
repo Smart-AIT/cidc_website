@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/hero/HeroSection";
+import HeroStats from "@/components/hero/HeroStats";
 import AboutSection from "@/components/about/AboutSection";
 import TeamSection from "@/components/team/TeamSection";
 import ProjectsSection from "@/components/projects/ProjectsSection";
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-col gap-12 sm:gap-16 w-full">
         <HeroSection />
+        <HeroStats />
         <TeamSection />
         <ProjectsSection />
         <AboutSection />
