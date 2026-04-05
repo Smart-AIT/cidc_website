@@ -1,0 +1,164 @@
+/* ═══════════════════════════════════════════════════════════
+   CONTAINER
+   ═══════════════════════════════════════════════════════════ */
+
+.scroll-stack-container {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.scroll-stack-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 600px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARDS
+   ═══════════════════════════════════════════════════════════ */
+
+.scroll-stack-card {
+  /* sticky + top set by JS */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(135deg, #faf9f6 0%, #ffffff 100%);
+  border: 2px solid #1A1C1A;
+  border-radius: 14px;
+  padding: 48px;
+
+  /* Smooth transition for scale + opacity changes from JS */
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+
+  box-shadow:
+    0 2px 4px rgba(26, 28, 26, 0.04),
+    0 8px 16px rgba(26, 28, 26, 0.08),
+    0 20px 40px rgba(26, 28, 26, 0.12);
+
+  will-change: transform, opacity;
+  transform-origin: top center;
+}
+
+/* Card is stuck (at its sticky position) */
+.scroll-stack-card.active {
+  box-shadow:
+    0 4px 8px rgba(26, 28, 26, 0.08),
+    0 14px 28px rgba(26, 28, 26, 0.14),
+    0 32px 64px rgba(26, 28, 26, 0.18);
+}
+
+/* Card is stuck AND buried under other cards */
+.scroll-stack-card.underneath {
+  box-shadow:
+    0 1px 2px rgba(26, 28, 26, 0.04),
+    0 4px 8px rgba(26, 28, 26, 0.06);
+}
+
+/* Hover */
+.scroll-stack-card:hover {
+  border-color: #006565;
+  box-shadow:
+    0 6px 12px rgba(26, 28, 26, 0.1),
+    0 16px 32px rgba(26, 28, 26, 0.16),
+    0 36px 72px rgba(26, 28, 26, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARD CONTENT
+   ═══════════════════════════════════════════════════════════ */
+
+.scroll-stack-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #e8e7e5, #f5f4f2);
+  border: 2px solid #1A1C1A;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.scroll-stack-card-title {
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #1A1C1A;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.scroll-stack-card-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #A33B3C, #d4505f);
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+.scroll-stack-card-desc {
+  font-size: 16px;
+  color: #1A1C1A;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  max-width: 700px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .scroll-stack-wrapper {
+    padding-top: 60px;
+    padding-bottom: 500px;
+  }
+  .scroll-stack-card {
+    width: 95%;
+    padding: 36px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-stack-wrapper {
+    padding-top: 50px;
+    padding-bottom: 400px;
+  }
+  .scroll-stack-card {
+    width: calc(100% - 30px);
+    max-width: 100%;
+    padding: 28px;
+    margin: 0 15px;
+    border-radius: 10px;
+  }
+  .scroll-stack-card-image {
+    aspect-ratio: 4/3;
+    margin-bottom: 28px;
+  }
+  .scroll-stack-card-title {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-stack-card {
+    transition: none;
+  }
+}
