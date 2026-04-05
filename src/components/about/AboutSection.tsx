@@ -73,7 +73,12 @@ export default function AboutSection() {
 
       {/* Upcoming Section Footer */}
       <div style={{ marginTop: "96px", display: "flex", flexDirection: "column", gap: "24px" }}>
-        <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "0px", letterSpacing: "-0.01em", color: "#1A1C1A" }}>UPCOMING PROJECTS</h3>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "32px", alignItems: "center" }}>
+          <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "0px", letterSpacing: "-0.01em", color: "#1A1C1A" }}>UPCOMING PROJECTS</h3>
+          <button style={{ backgroundColor: "#006565", color: "white", padding: "8px 20px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "10px", border: "2px solid #1A1C1A", cursor: "pointer", transition: "all 0.2s ease", whiteSpace: "nowrap", height: "fit-content" }} className="hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1A1C1A]">
+            WANT TO CONTRIBUTE ?
+          </button>
+        </div>
         
         <style dangerouslySetInnerHTML={{__html: `
           @keyframes marqueeScroll {
@@ -112,19 +117,14 @@ export default function AboutSection() {
             ))}
           </div>
           
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "48px", alignItems: "flex-end" }}>
-            <div>
-              <button style={{ backgroundColor: "#006565", color: "white", padding: "12px 32px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", border: "2px solid #1A1C1A", cursor: "pointer", transition: "all 0.2s ease" }} className="hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1A1C1A]">
-                WANT TO CONTRIBUTE ? CLICK
-              </button>
-            </div>
-            <div style={{ border: "2px solid #1A1C1A", padding: "16px", backgroundColor: "#f4f3f1", minWidth: "250px" }}>
-              <div style={{ fontFamily: "monospace", fontSize: "9px", display: "flex", flexDirection: "column", gap: "8px", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.08em", color: "#1A1C1A" }}>
-                <div style={{ display: "flex", justifyContent: "space-between" }}><span>Latest_Log_v04</span></div>
-                <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; CIDC_CODE: INITIALIZED</span></div>
-                <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; PROJECT_PIPELINE: ACTIVE</span></div>
-                <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; TEAM_MODULE_CONNECTED</span></div>
-                <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; SYSTEM_STATUS: RUNNING</span></div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ backgroundColor: "#006565", padding: "20px 24px", color: "white", minWidth: "280px" }}>
+              <h3 style={{ fontSize: "11px", fontWeight: "900", textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.15em", opacity: "0.7" }}>SYSTEM STATUS</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", fontFamily: "monospace", fontSize: "9px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                <div>&gt; PROJECT_PIPELINE: ACTIVE</div>
+                <div>&gt; STUDENT_MODULE_RESERVED</div>
+                <div>&gt; MENTORSHIP_LAYER: ON</div>
+                <div>&gt; STATUS: STABLE</div>
               </div>
             </div>
           </div>

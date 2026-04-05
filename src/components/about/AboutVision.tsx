@@ -53,15 +53,15 @@ export default function AboutVision() {
         </div>
 
         {/* Core System Stats */}
-        <div style={{ backgroundColor: "#006565", padding: "36px 40px", color: "white" }}>
-          <h3 style={{ fontSize: "14px", fontWeight: "900", textTransform: "uppercase", marginBottom: "24px", letterSpacing: "0.15em", opacity: "0.7" }}>SYSTEM STATUS</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", fontFamily: "monospace", fontSize: "12px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-            <div style={{ padding: "14px 16px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "8px" }}>&gt; PROJECT_PIPELINE: ACTIVE</div>
-            <div style={{ padding: "14px 16px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "8px" }}>&gt; STUDENT_MODULE_RESERVED</div>
-            <div style={{ padding: "14px 16px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "8px" }}>&gt; MENTORSHIP_LAYER: ON</div>
-            <div style={{ padding: "14px 16px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "8px" }}>&gt; STATUS: STABLE</div>
+        {/* <div style={{ backgroundColor: "#006565", padding: "20px 24px", color: "white" }}>
+          <h3 style={{ fontSize: "11px", fontWeight: "900", textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.15em", opacity: "0.7" }}>SYSTEM STATUS</h3>
+          <div style={{ display: "flex", flexDirection: "column", gap: "6px", fontFamily: "monospace", fontSize: "9px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+            <div>&gt; PROJECT_PIPELINE: ACTIVE</div>
+            <div>&gt; STUDENT_MODULE_RESERVED</div>
+            <div>&gt; MENTORSHIP_LAYER: ON</div>
+            <div>&gt; STATUS: STABLE</div>
           </div>
-        </div>
+        </div> */}
       </div>
 
     </div>
