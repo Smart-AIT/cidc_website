@@ -24,6 +24,7 @@ export default function Navbar() {
 
   // Scroll-triggered navbar width animation and logo text change
   useGSAP(() => {
+    /* Temporarily disabled navbar compression logic per user request
     const startPoint = window.innerHeight * 0.4;
     const endPoint = window.innerHeight * 0.55;
 
@@ -63,6 +64,7 @@ export default function Navbar() {
         },
       },
     });
+    */
   });
 
 
@@ -81,7 +83,7 @@ export default function Navbar() {
       `}</style>
       
       <div
-        className="sticky top-1.5 left-0 right-0 w-full flex justify-center nav-entry z-50"
+        className="relative top-1.5 left-0 right-0 w-full flex justify-center nav-entry z-50"
         style={{ marginTop: "20px", marginBottom: "5px"}}
       >
         <nav
