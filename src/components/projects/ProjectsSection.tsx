@@ -20,7 +20,7 @@ export default function ProjectsSection() {
             ACTIVE<br />MANIFESTO<br />
             <span style={{ color: "#006565" }}>PROJECTS</span>
           </h2>
-          <p style={{ fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.2em", color: "#1A1C1A", opacity: "0.4", maxWidth: "500px", lineHeight: "1.8" }}>
+          <p style={{ fontSize: "14px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.15em", color: "#1A1C1A", maxWidth: "600px", lineHeight: "1.8" }}>
             A COLLECTION OF REAL-WORLD PROJECTS BUILT BY CIDC COMMUNITY. FOCUSED ON LEARNING, BUILDING, AND DELIVERING IMPACTFUL SOLUTIONS.
             <br />
             <span style={{ marginTop: "16px", display: "block" }}>System version 0.4</span>
@@ -32,15 +32,15 @@ export default function ProjectsSection() {
           <ScrollStack gap={500}>
             {PROJECT_LIST.map((proj, i) => (
               <ScrollStackItem key={i}>
-                {/* Full-width image block */}
-                <div className="scroll-stack-card-image">
-                  <span style={{ fontFamily: "monospace", fontSize: "14px", color: "rgba(26,28,26,0.25)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.15em" }}>PROJECT_IMAGE_{String(i + 1).padStart(2, "0")}</span>
-                </div>
-
-                {/* Title and description below */}
+                {/* Title and description on top */}
                 <div className="scroll-stack-card-title">{proj.name}</div>
                 <div className="scroll-stack-card-divider" />
                 <div className="scroll-stack-card-desc">{proj.desc}</div>
+
+                {/* Full-width image block below */}
+                <div className="scroll-stack-card-image" style={{ marginTop: "40px", marginBottom: "0" }}>
+                  <span style={{ fontFamily: "monospace", fontSize: "14px", color: "rgba(26,28,26,0.25)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.15em" }}>PROJECT_IMAGE_{String(i + 1).padStart(2, "0")}</span>
+                </div>
               </ScrollStackItem>
             ))}
           </ScrollStack>

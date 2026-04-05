@@ -6,6 +6,8 @@
   position: relative;
   width: 100%;
   overflow: visible;
+  /* 3D context for perspective transforms */
+  perspective: 1200px;
 }
 
 .scroll-stack-wrapper {
@@ -15,7 +17,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 80px;
-  padding-bottom: 600px;
+  padding-bottom: 80px;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -23,78 +25,83 @@
    ═══════════════════════════════════════════════════════════ */
 
 .scroll-stack-card {
-  /* sticky + top set by JS */
-  width: 90%;
+  width: 92%;
   max-width: 1200px;
   margin: 0 auto;
 
   display: flex;
   flex-direction: column;
 
-  background: linear-gradient(135deg, #faf9f6 0%, #ffffff 100%);
+  background: linear-gradient(145deg, #faf9f6 0%, #ffffff 50%, #f8f7f4 100%);
   border: 2px solid #1A1C1A;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 48px;
 
-  /* Smooth transition for scale + opacity changes from JS */
+  /* The key to smoothness: long, organic cubic-bezier */
   transition:
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.3s ease;
 
+  /* Default shadow */
   box-shadow:
-    0 2px 4px rgba(26, 28, 26, 0.04),
-    0 8px 16px rgba(26, 28, 26, 0.08),
-    0 20px 40px rgba(26, 28, 26, 0.12);
+    0 2px 4px rgba(26, 28, 26, 0.03),
+    0 6px 12px rgba(26, 28, 26, 0.06),
+    0 16px 32px rgba(26, 28, 26, 0.08);
 
   will-change: transform, opacity;
   transform-origin: top center;
+  transform-style: preserve-3d;
 }
 
-/* Card is stuck (at its sticky position) */
+/* ── Active: card is stuck at its sticky position ── */
 .scroll-stack-card.active {
   box-shadow:
-    0 4px 8px rgba(26, 28, 26, 0.08),
-    0 14px 28px rgba(26, 28, 26, 0.14),
-    0 32px 64px rgba(26, 28, 26, 0.18);
+    0 4px 8px rgba(26, 28, 26, 0.06),
+    0 12px 24px rgba(26, 28, 26, 0.1),
+    0 28px 56px rgba(26, 28, 26, 0.14),
+    0 40px 80px rgba(26, 28, 26, 0.06);
 }
 
-/* Card is stuck AND buried under other cards */
+/* ── Underneath: card is buried under other stuck cards ── */
 .scroll-stack-card.underneath {
   box-shadow:
-    0 1px 2px rgba(26, 28, 26, 0.04),
-    0 4px 8px rgba(26, 28, 26, 0.06);
+    0 1px 2px rgba(26, 28, 26, 0.02),
+    0 2px 4px rgba(26, 28, 26, 0.04);
+  border-color: rgba(26, 28, 26, 0.5);
 }
 
-/* Hover */
-.scroll-stack-card:hover {
+/* ── Hover: interactive feel ── */
+.scroll-stack-card:hover:not(.underneath) {
   border-color: #006565;
   box-shadow:
-    0 6px 12px rgba(26, 28, 26, 0.1),
-    0 16px 32px rgba(26, 28, 26, 0.16),
-    0 36px 72px rgba(26, 28, 26, 0.2);
+    0 6px 12px rgba(0, 101, 101, 0.08),
+    0 16px 32px rgba(0, 101, 101, 0.12),
+    0 32px 64px rgba(26, 28, 26, 0.1);
 }
 
 /* ═══════════════════════════════════════════════════════════
    CARD CONTENT
    ═══════════════════════════════════════════════════════════ */
 
+/* Image placeholder */
 .scroll-stack-card-image {
   width: 100%;
-  aspect-ratio: 16/9;
-  background: linear-gradient(135deg, #e8e7e5, #f5f4f2);
+  aspect-ratio: 2.5 / 1;
+  background: linear-gradient(135deg, #eae9e7, #f5f4f2 40%, #e3e2e0);
   border: 2px solid #1A1C1A;
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
   overflow: hidden;
 }
 
+/* Title — large and commanding */
 .scroll-stack-card-title {
-  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
   font-weight: 900;
   text-transform: uppercase;
   color: #1A1C1A;
@@ -103,21 +110,23 @@
   margin-bottom: 20px;
 }
 
+/* Divider */
 .scroll-stack-card-divider {
   width: 80px;
   height: 4px;
   background: linear-gradient(90deg, #A33B3C, #d4505f);
   border-radius: 2px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
+/* Description — prominent and readable */
 .scroll-stack-card-desc {
-  font-size: 16px;
-  color: #1A1C1A;
-  line-height: 1.7;
-  font-weight: 400;
-  letter-spacing: 0.3px;
-  max-width: 700px;
+  font-size: 18px;
+  color: #2a2c2a;
+  line-height: 1.8;
+  font-weight: 450;
+  letter-spacing: 0.01em;
+  max-width: 720px;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -133,6 +142,9 @@
     width: 95%;
     padding: 36px;
     border-radius: 12px;
+  }
+  .scroll-stack-card-desc {
+    font-size: 16px;
   }
 }
 
@@ -154,6 +166,9 @@
   }
   .scroll-stack-card-title {
     font-size: clamp(1.2rem, 5vw, 2rem);
+  }
+  .scroll-stack-card-desc {
+    font-size: 15px;
   }
 }
 

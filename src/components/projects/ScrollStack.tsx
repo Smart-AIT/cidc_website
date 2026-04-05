@@ -31,8 +31,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   children,
   className = "",
   stickyTop = 60,
-  cardPeek = 16,
-  gap = 600,
+  cardPeek = 18,
+  gap = 500,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
@@ -45,7 +45,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       container.querySelectorAll(".scroll-stack-card")
     ) as HTMLElement[];
 
-    // Set each card's sticky top and BASE z-index (ascending = later cards on top)
+    // Set sticky positions and z-index
     cards.forEach((card, i) => {
       card.style.position = "sticky";
       card.style.top = `${stickyTop + i * cardPeek}px`;
@@ -53,7 +53,9 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     });
 
     const update = () => {
-      // Pass 1: find the highest-index card that is currently stuck
+      const viewportH = window.innerHeight;
+
+      // Pass 1: find the topmost stuck card index
       let topStuckIndex = -1;
       for (let i = 0; i < cards.length; i++) {
         const rect = cards[i].getBoundingClientRect();
@@ -63,32 +65,42 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         }
       }
 
-      // Pass 2: apply depth effects
+      // Pass 2: apply effects
       for (let i = 0; i < cards.length; i++) {
         const rect = cards[i].getBoundingClientRect();
         const stickAt = stickyTop + i * cardPeek;
         const isStuck = rect.top <= stickAt + 2;
 
+        // ── Entrance pop: card transitions from below viewport ──
+        // Calculate how far the card is into the viewport (0 = just entered bottom, 1 = fully in)
+        const enterProgress = Math.min(1, Math.max(0, (viewportH - rect.top) / (viewportH * 0.4)));
+
         if (isStuck && topStuckIndex > i) {
-          // This card is UNDERNEATH other stuck cards — push it back
+          // ── UNDERNEATH: pushed back into the screen with 3D depth ──
           const depth = topStuckIndex - i;
-          const scale = 1 - depth * 0.018;
-          cards[i].style.transform = `scale(${scale})`;
-          cards[i].style.opacity = `${Math.max(0.55, 1 - depth * 0.12)}`;
-          cards[i].classList.add("active");
-          cards[i].classList.add("underneath");
+          const pushBack = depth * 30;   // translateZ depth
+          const scale = 1 - depth * 0.025;
+          const opacity = Math.max(0.4, 1 - depth * 0.15);
+
+          cards[i].style.transform = `perspective(1200px) translateZ(-${pushBack}px) scale(${scale})`;
+          cards[i].style.opacity = `${opacity}`;
+          cards[i].classList.add("active", "underneath");
         } else if (isStuck) {
-          // This IS the topmost stuck card — full size, full visibility
-          cards[i].style.transform = "scale(1)";
+          // ── TOP CARD: fully visible, no distortion ──
+          cards[i].style.transform = "perspective(1200px) translateZ(0) scale(1)";
           cards[i].style.opacity = "1";
           cards[i].classList.add("active");
           cards[i].classList.remove("underneath");
         } else {
-          // Not stuck yet — reset
-          cards[i].style.transform = "scale(1)";
-          cards[i].style.opacity = "1";
-          cards[i].classList.remove("active");
-          cards[i].classList.remove("underneath");
+          // ── NOT STUCK YET: entrance animation ──
+          // Pop in: start slightly below + scaled down, ease to natural position
+          const popScale = 0.92 + enterProgress * 0.08;  // 0.92 → 1.0
+          const popY = (1 - enterProgress) * 40;          // 40px → 0px
+          const popOpacity = 0.3 + enterProgress * 0.7;   // 0.3 → 1.0
+
+          cards[i].style.transform = `perspective(1200px) translateY(${popY}px) scale(${popScale})`;
+          cards[i].style.opacity = `${popOpacity}`;
+          cards[i].classList.remove("active", "underneath");
         }
       }
     };
@@ -102,7 +114,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    update(); // initial run
+    update();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
