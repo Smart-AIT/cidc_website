@@ -1,4 +1,38 @@
+"use client";
+import { useState, useEffect } from "react";
+
 export default function HeroSection() {
+  const [displayedText, setDisplayedText] = useState("");
+  const [displayedStatus, setDisplayedStatus] = useState("");
+  const fullText = ">>GIT_INIT_CIDC";
+  const fullStatus = "STATUS: OPERATIONAL";
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      currentIndex++;
+      if (currentIndex > fullText.length) {
+        currentIndex = 0;
+      }
+      setDisplayedText(fullText.substring(0, currentIndex));
+    }, 200);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      currentIndex++;
+      if (currentIndex > fullStatus.length) {
+        currentIndex = 0;
+      }
+      setDisplayedStatus(fullStatus.substring(0, currentIndex));
+    }, 250);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="home" className="w-full flex justify-center" style={{ marginTop: "0px", marginBottom: "0px" }}>
       {/* Main Hero Card */}
@@ -7,7 +41,8 @@ export default function HeroSection() {
           <div className="lg:col-span-12 xl:col-span-7 flex flex-col items-start justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-[#1A1C1A] relative z-20 bg-[#faf9f6]" style={{ padding: "60px 0 60px 80px" }}>
             {/* Label */}
             <div className="absolute top-6 left-10 font-mono text-[10px] sm:text-xs tracking-widest text-[#1A1C1A]/40 uppercase font-bold">
-              &gt;&gt;GIT_INIT_CIDC
+              {displayedText}
+              {displayedText.length < fullText.length && <span className="animate-pulse">|</span>}
             </div>
 
             {/* Headline */}
@@ -115,7 +150,8 @@ export default function HeroSection() {
             {/* Bottom right floating status labels */}
             <div className="absolute bottom-8 right-8 lg:bottom-12 lg:right-12 text-right z-20 space-y-1.5">
               <div className="font-mono text-[11px] sm:text-[12px] tracking-widest text-[#A33B3C] font-bold uppercase">
-                STATUS: OPERATIONAL
+                {displayedStatus}
+                {displayedStatus.length < fullStatus.length && <span className="animate-pulse">|</span>}
               </div>
               <div className="font-mono text-[11px] sm:text-[12px] tracking-widest text-[#1A1C1A]/60 uppercase font-bold">
                 COLLEGE INNOVATION &amp; DEVELOPMENT

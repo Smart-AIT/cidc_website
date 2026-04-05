@@ -1,7 +1,23 @@
 import AboutVision from "./AboutVision";
 import ScrollStack, { ScrollStackItem } from "../projects/ScrollStack";
+import { useState, useEffect } from "react";
 
 export default function AboutSection() {
+  const [displayedAboutText, setDisplayedAboutText] = useState("");
+  const fullAboutText = "ABOUT US";
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      currentIndex++;
+      if (currentIndex > fullAboutText.length) {
+        currentIndex = 0;
+      }
+      setDisplayedAboutText(fullAboutText.substring(0, currentIndex));
+    }, 300);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section id="about" style={{ width: "100%", paddingLeft: "40px", paddingRight: "40px", paddingTop: "80px", paddingBottom: "60px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
 
@@ -9,7 +25,7 @@ export default function AboutSection() {
       <header style={{ marginBottom: "80px", maxWidth: "100%" }}>
         <div style={{ width: "80px", height: "4px", background: "linear-gradient(90deg, #A33B3C, #d4505f)", borderRadius: "2px", marginBottom: "32px" }} />
         <h2 style={{ fontSize: "clamp(2.5rem, 12vw, 5.5rem)", fontWeight: "900", lineHeight: "0.85", letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: "40px", color: "#1A1C1A" }}>
-          WANT TO<br />KNOW ABOUT <span style={{ color: "#006565" }}>US</span> ?
+          WANT TO<br />KNOW {displayedAboutText.substring(0, 6)}<span style={{ color: "#006565" }}>{displayedAboutText.substring(6)}</span>{displayedAboutText.length < fullAboutText.length && displayedAboutText.length > 0 && <span className="animate-pulse">|</span>} ?
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", maxWidth: "1000px" }}>
           <p style={{ fontSize: "16px", fontWeight: "500", lineHeight: "1.8", color: "#2a2c2a", margin: "0" }}>

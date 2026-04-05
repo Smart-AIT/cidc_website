@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import EventCard from "./EventCard";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -49,6 +49,21 @@ export default function EventsSection() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const progressLineRef = useRef<HTMLDivElement>(null);
   const eventCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [displayedPlaceholder, setDisplayedPlaceholder] = useState("");
+  const fullPlaceholder = ">> Fill you calendars";
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      currentIndex++;
+      if (currentIndex > fullPlaceholder.length) {
+        currentIndex = 0;
+      }
+      setDisplayedPlaceholder(fullPlaceholder.substring(0, currentIndex));
+    }, 300);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useGSAP(() => {
     if (!timelineRef.current || !progressLineRef.current) return;
@@ -167,7 +182,7 @@ export default function EventsSection() {
             <p style={{ fontSize: "10px", fontFamily: "monospace", marginTop: "8px", color: "#1A1C1A", opacity: "0.6", fontWeight: "bold", letterSpacing: "0.08em" }}>BE THE PART OF SYSTEM. JOIN THE NETWORK.</p>
           </div>
           <div style={{ display: "flex", gap: "0" }}>
-            <input type="text" placeholder=">> Fill you calendars" style={{ flex: "1", backgroundColor: "#e3e2e0", border: "2px solid #1A1C1A", padding: "16px 24px", fontFamily: "monospace", fontSize: "14px", outline: "none" }} />
+            <input type="text" placeholder={displayedPlaceholder} style={{ flex: "1", backgroundColor: "#e3e2e0", border: "2px solid #1A1C1A", padding: "16px 24px", fontFamily: "monospace", fontSize: "14px", outline: "none" }} />
             <button style={{ backgroundColor: "#1A1C1A", color: "white", padding: "16px 32px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", border: "2px solid #1A1C1A", cursor: "pointer", whiteSpace: "nowrap" }}>
               JOIN_US_FOR_COOKIE
             </button>
