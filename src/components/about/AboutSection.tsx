@@ -2,90 +2,70 @@ import AboutVision from "./AboutVision";
 
 export default function AboutSection() {
   return (
-    <section style={{ width: "100%", paddingLeft: "40px", paddingRight: "40px", paddingTop: "60px", paddingBottom: "60px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
-      {/* Hero Header */}
-      <header style={{ marginBottom: "80px", position: "relative", maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}>
-        <h2 style={{ fontSize: "clamp(2.5rem, 12vw, 5.5rem)", fontWeight: "900", lineHeight: "0.8", letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: "32px", position: "relative", zIndex: "10", color: "#1A1C1A" }}>
-          WANT TO<br />KNOW ABOUT US ?
+    <section style={{ width: "100%", paddingLeft: "40px", paddingRight: "40px", paddingTop: "80px", paddingBottom: "60px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
+
+      {/* ── Hero Header ── */}
+      <header style={{ marginBottom: "80px", maxWidth: "100%" }}>
+        <div style={{ width: "80px", height: "4px", background: "linear-gradient(90deg, #A33B3C, #d4505f)", borderRadius: "2px", marginBottom: "32px" }} />
+        <h2 style={{ fontSize: "clamp(2.5rem, 12vw, 5.5rem)", fontWeight: "900", lineHeight: "0.85", letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: "40px", color: "#1A1C1A" }}>
+          WANT TO<br />KNOW ABOUT <span style={{ color: "#006565" }}>US</span> ?
         </h2>
-        <div style={{ width: "120px", height: "3px", backgroundColor: "#A33B3C", marginBottom: "32px" }}></div>
-        <p style={{ maxWidth: "900px", fontSize: "14px", fontWeight: "500", lineHeight: "1.7", color: "#1A1C1A", marginBottom: "16px" }}>
-          CIDC is a student-driven development community focused on building
-          real-world systems for the college ecosystem.
-          <br />
-          We follow a project-based learning approach where students don&apos;t just
-          learn — they <strong>build, deploy, and solve actual problems</strong>{" "}
-          within the institute.
-        </p>
-        <p style={{ maxWidth: "900px", fontSize: "14px", fontWeight: "500", lineHeight: "1.7", color: "#1A1C1A", opacity: "0.6" }}>
-          From day one, members are exposed to practical development workflows,
-          collaborative environments, and production-level thinking.
-        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", maxWidth: "1000px" }}>
+          <p style={{ fontSize: "16px", fontWeight: "500", lineHeight: "1.8", color: "#2a2c2a", margin: "0" }}>
+            CIDC is a student-driven development community focused on building
+            real-world systems for the college ecosystem.
+            We follow a project-based learning approach where students don&apos;t just
+            learn — they <strong>build, deploy, and solve actual problems</strong>{" "}
+            within the institute.
+          </p>
+          <p style={{ fontSize: "16px", fontWeight: "450", lineHeight: "1.8", color: "#2a2c2a", margin: "0" }}>
+            From day one, members are exposed to practical development workflows,
+            collaborative environments, and production-level thinking.
+            Every contribution matters and every line of code ships.
+          </p>
+        </div>
       </header>
 
-      {/* Bento Grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "0", border: "2px solid #1A1C1A", marginBottom: "48px" }}>
+      {/* ── Bento Grid: Vision + Image + Stats ── */}
+      <div style={{ border: "2px solid #1A1C1A", borderRadius: "16px", overflow: "hidden", marginBottom: "64px" }}>
         <AboutVision />
-
-        {/* Right Column */}
-        <div style={{ gridColumn: "span 5", display: "flex", flexDirection: "column", borderLeft: "2px solid #1A1C1A" }}>
-          {/* Circuit board image */}
-          <div style={{ aspectRatio: "1", position: "relative", filter: "grayscale(1)", borderBottom: "2px solid #1A1C1A", backgroundColor: "#d0d0d0" }}>
-            <img
-              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=600&fit=crop"
-              alt="Visionary Tech"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-            <div style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(255, 255, 255, 0.2)", backdropFilter: "blur(4px)", color: "#1A1C1A", padding: "6px 8px", fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", border: "1px solid #1A1C1A" }}>
-              IMAGE_SOURCE_404
-            </div>
-          </div>
-
-          {/* System Architecture card */}
-          <div style={{ backgroundColor: "#006565", padding: "32px", color: "white", flex: "1", display: "flex", flexDirection: "column" }}>
-            <h3 style={{ fontSize: "20px", fontWeight: "900", textTransform: "uppercase", marginBottom: "24px", letterSpacing: "0.08em" }}>CORE</h3>
-            <ul style={{ fontFamily: "monospace", fontSize: "10px", display: "flex", flexDirection: "column", gap: "12px", fontWeight: "bold", letterSpacing: "0.08em", textTransform: "uppercase", opacity: "0.8", listStyle: "none", padding: "0", margin: "0" }}>
-              <li>&gt; PROJECT_PIPELINE: ACTIVE</li>
-              <li>&gt; STUDENT_MODULE_RESERVED</li>
-              <li>&gt; MENTORSHIP_LAYER: ENABLED</li>
-              <li>&gt; STATUS: STABLE</li>
-            </ul>
-          </div>
-        </div>
       </div>
 
-      {/* Mission Statement — Full width */}
-      <div style={{ marginTop: "48px", border: "2px solid #1A1C1A", backgroundColor: "#FAF9F6", padding: "64px", display: "grid", gridTemplateColumns: "1fr 2fr", gap: "48px", alignItems: "center" }}>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <span className="material-symbols-outlined" style={{ fontSize: "clamp(8rem, 20vw, 10rem)", color: "#1A1C1A" }}>
+      {/* ── Mission Statement ── */}
+      <div style={{ marginBottom: "48px", backgroundColor: "#fff", border: "2px solid #1A1C1A", borderRadius: "16px", overflow: "hidden", display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: "0" }}>
+
+        {/* Left: Icon + Label */}
+        <div style={{ padding: "64px 48px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", backgroundColor: "#faf9f6", borderRight: "2px solid #1A1C1A" }}>
+          <span className="material-symbols-outlined" style={{ fontSize: "clamp(6rem, 14vw, 8rem)", color: "#1A1C1A", marginBottom: "24px" }}>
             settings
+          </span>
+          <span style={{ fontFamily: "monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", fontWeight: "700" }}>
+            OPERATIONAL_MISSION
           </span>
         </div>
 
-        <div style={{ width: "100%" }}>
-          <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", marginBottom: "16px", display: "block", fontWeight: "bold" }}>
-            OPERATIONAL_MISSION
-          </span>
-          <h2 style={{ fontSize: "44px", fontWeight: "900", textTransform: "uppercase", marginBottom: "32px", lineHeight: "1", color: "#1A1C1A" }}>
+        {/* Right: Content */}
+        <div style={{ padding: "64px 56px" }}>
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: "900", textTransform: "uppercase", marginBottom: "28px", lineHeight: "1", color: "#1A1C1A" }}>
             CIDC Precision
           </h2>
-          <p style={{ fontSize: "14px", fontWeight: "500", lineHeight: "1.8", marginBottom: "32px", color: "#1A1C1A" }}>
-            focuses on execution<br />
-            builds production systems<br />
-            delivers working solutions<br />
-            <span style={{ marginTop: "16px", display: "block", color: "#1A1C1A", opacity: "0.6", fontWeight: "500" }}>
+          <p style={{ fontSize: "16px", fontWeight: "500", lineHeight: "1.8", marginBottom: "40px", color: "#2a2c2a", maxWidth: "560px" }}>
+            Focuses on execution. Builds production systems. Delivers working solutions.
+            <br /><br />
+            <span style={{ color: "#555" }}>
               It is not just a club—it&apos;s a development ecosystem contributing
               directly to the college&apos;s digital growth.
             </span>
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", paddingTop: "32px", borderTop: "1px solid rgba(26, 28, 26, 0.1)" }}>
+
+          <div style={{ borderTop: "2px solid rgba(26, 28, 26, 0.08)", paddingTop: "32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
             <div>
-              <p style={{ fontFamily: "monospace", fontSize: "10px", textTransform: "uppercase", fontWeight: "900", marginBottom: "8px", color: "#1A1C1A" }}>01. INTENTIONALITY</p>
-              <p style={{ fontSize: "12px", color: "#1A1C1A", opacity: "0.6", fontWeight: "500" }}>Every pixel on our grid serves a structural purpose. We reject decorative fluff.</p>
+              <p style={{ fontFamily: "monospace", fontSize: "12px", textTransform: "uppercase", fontWeight: "900", marginBottom: "10px", color: "#006565" }}>01. INTENTIONALITY</p>
+              <p style={{ fontSize: "14px", color: "#2a2c2a", fontWeight: "450", lineHeight: "1.7" }}>Every pixel on our grid serves a structural purpose. We reject decorative fluff.</p>
             </div>
             <div>
-              <p style={{ fontFamily: "monospace", fontSize: "10px", textTransform: "uppercase", fontWeight: "900", marginBottom: "8px", color: "#1A1C1A" }}>02. PERSISTENCE</p>
-              <p style={{ fontSize: "12px", color: "#1A1C1A", opacity: "0.6", fontWeight: "500" }}>Designing for longevity through heavy weights and high-contrast accessibility.</p>
+              <p style={{ fontFamily: "monospace", fontSize: "12px", textTransform: "uppercase", fontWeight: "900", marginBottom: "10px", color: "#006565" }}>02. PERSISTENCE</p>
+              <p style={{ fontSize: "14px", color: "#2a2c2a", fontWeight: "450", lineHeight: "1.7" }}>Designing for longevity through heavy weights and high-contrast accessibility.</p>
             </div>
           </div>
         </div>
