@@ -3,7 +3,7 @@ import ScrollStack, { ScrollStackItem } from "../projects/ScrollStack";
 
 export default function AboutSection() {
   return (
-    <section style={{ width: "100%", paddingLeft: "40px", paddingRight: "40px", paddingTop: "80px", paddingBottom: "60px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
+    <section id="about" style={{ width: "100%", paddingLeft: "40px", paddingRight: "40px", paddingTop: "80px", paddingBottom: "60px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
 
       {/* ── Hero Header ── */}
       <header style={{ marginBottom: "80px", maxWidth: "100%" }}>

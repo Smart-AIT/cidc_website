@@ -13,7 +13,7 @@ const navLinks = [
   { label: "PROJECTS", href: "#projects" },
   { label: "ABOUT", href: "#about" },
   { label: "EVENTS", href: "#events" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "CONTACT", href: "#footer" },
 ];
 
 export default function Navbar() {
@@ -67,6 +67,17 @@ export default function Navbar() {
     */
   });
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, label: string, href: string) => {
+    setActiveLink(label);
+    
+    const sectionId = href.replace("#", "");
+    const targetElement = document.getElementById(sectionId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
 
 
   return (
@@ -110,7 +121,7 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              onClick={() => setActiveLink(link.label)}
+              onClick={(e) => handleNavClick(e, link.label, link.href)}
               className={`relative text-[11px] font-bold tracking-[0.05em] transition duration-200 whitespace-nowrap ${
                 activeLink === link.label
                   ? "text-[#2F8F8F]"

@@ -11,36 +11,36 @@ gsap.registerPlugin(ScrollTrigger);
 const EVENTS = [
   {
     ref_id: "REF_LOG",
-    status: "ACTIVE" as const,
+    status: "UPCOMING" as const,
     title: "SYSTEM DESIGN BATTLE",
-    date: "Dates will be declared soon",
+    date: "Dates: coming soon",
     description:
       "A deep-dive into system design concepts. Teams will be given a real-world system design problem inspired by large tech platforms.",
-    ctaLabel: "RSVP_LINK",
+    ctaLabel: "Join_Battle",
     side: "left",
     variant: "default" as const,
   },
   {
     ref_id: "REF_LOG",
-    status: "PENDING" as const,
+    status: "UPCOMING" as const,
     title: "AGENTIC ARENA HACKATHON",
     date: "Dates: coming soon",
     description:
       "Build for the void. 24 hours of collaborative technical friction. No excuses, no shortcuts. Just raw execution and zero sleep to build autonomous AI agents based on real-world scenarios.",
-    ctaLabel: "JOIN_WAITLIST",
+    ctaLabel: "JOIN_Arena",
     side: "right",
     variant: "light" as const,
   },
   {
     ref_id: "REF_LOG",
-    status: "Upcoming" as const,
+    status: "UPCOMING" as const,
     title: "CAMPUS CATALYST",
     date: "Dates: coming soon",
     description:
       "Physical interface exchange. Bring your modified synthesizers, pitch your ideas, get approvals, start working on it to contribute in college innovation and make AIT smarter.",
-    ctaLabel: "REGISTER_UNIT",
+    ctaLabel: "Join_Catalyst",
     side: "left",
-    variant: "teal" as const,
+    variant: "light" as const,
   },
 ];
 
@@ -48,10 +48,12 @@ export default function EventsSection() {
   const containerRef = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const progressLineRef = useRef<HTMLDivElement>(null);
+  const eventCardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(() => {
     if (!timelineRef.current || !progressLineRef.current) return;
 
+    // Fix progress bar animation
     gsap.fromTo(
       progressLineRef.current,
       { scaleY: 0 },
@@ -62,10 +64,35 @@ export default function EventsSection() {
           trigger: timelineRef.current,
           start: "top center",
           end: "bottom center",
-          scrub: true,
+          scrub: 1,
         },
       }
     );
+
+    // Add reveal effect to event cards
+    eventCardsRef.current.forEach((card, index) => {
+      if (!card) return;
+      
+      gsap.fromTo(
+        card,
+        { 
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            end: "top 50%",
+            scrub: false,
+          },
+        }
+      );
+    });
   });
 
   return (
@@ -107,11 +134,14 @@ export default function EventsSection() {
           <div style={{ position: "absolute", left: "50%", top: "0", bottom: "0", width: "2px", backgroundColor: "rgba(26, 28, 26, 0.2)", transform: "translateX(-50%)", zIndex: 0 }} />
           
           {/* Vertical line - progress bar */}
-          <div ref={progressLineRef} style={{ position: "absolute", left: "50%", top: "0", bottom: "0", width: "4px", backgroundColor: "#A33B3C", transform: "translateX(-50%) scaleY(0)", transformOrigin: "top", zIndex: 1 }} />
+          <div ref={progressLineRef} style={{ position: "absolute", left: "50%", top: "0", bottom: "0", width: "4px", backgroundColor: "#A33B3C", transform: "translateX(-50%)", transformOrigin: "top", zIndex: 1 }} />
 
           {EVENTS.map((event, index) => (
             <div
               key={`${event.title}-${index}`}
+              ref={(el) => {
+                eventCardsRef.current[index] = el;
+              }}
               style={{ position: "relative", marginBottom: "96px", display: "flex", width: "100%", justifyContent: index % 2 === 0 ? "flex-start" : "flex-end", zIndex: 2 }}
             >
               <div style={{ width: "45%" }}>
