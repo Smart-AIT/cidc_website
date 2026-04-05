@@ -1,4 +1,5 @@
 import AboutVision from "./AboutVision";
+import ScrollStack, { ScrollStackItem } from "../projects/ScrollStack";
 
 export default function AboutSection() {
   return (
@@ -27,49 +28,55 @@ export default function AboutSection() {
       </header>
 
       {/* ── Bento Grid: Vision + Image + Stats ── */}
-      <div style={{ border: "2px solid #1A1C1A", borderRadius: "16px", overflow: "hidden", marginBottom: "64px" }}>
-        <AboutVision />
-      </div>
+      <ScrollStack gap={500}>
+        <ScrollStackItem>
+          <div style={{ border: "2px solid #1A1C1A", borderRadius: "16px", overflow: "hidden" }}>
+            <AboutVision />
+          </div>
+        </ScrollStackItem>
 
-      {/* ── Mission Statement ── */}
-      <div style={{ marginBottom: "48px", backgroundColor: "#fff", border: "2px solid #1A1C1A", borderRadius: "16px", overflow: "hidden", display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: "0" }}>
+        {/* ── Mission Statement ── */}
+        <ScrollStackItem>
+          <div style={{ backgroundColor: "#fff", border: "2px solid #1A1C1A", borderRadius: "16px", overflow: "hidden", display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: "0" }}>
 
-        {/* Left: Icon + Label */}
-        <div style={{ padding: "64px 48px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", backgroundColor: "#faf9f6", borderRight: "2px solid #1A1C1A" }}>
-          <span className="material-symbols-outlined" style={{ fontSize: "clamp(6rem, 14vw, 8rem)", color: "#1A1C1A", marginBottom: "24px" }}>
-            settings
-          </span>
-          <span style={{ fontFamily: "monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", fontWeight: "700" }}>
-            OPERATIONAL_MISSION
-          </span>
-        </div>
-
-        {/* Right: Content */}
-        <div style={{ padding: "64px 56px" }}>
-          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: "900", textTransform: "uppercase", marginBottom: "28px", lineHeight: "1", color: "#1A1C1A" }}>
-            CIDC Precision
-          </h2>
-          <p style={{ fontSize: "16px", fontWeight: "500", lineHeight: "1.8", marginBottom: "40px", color: "#2a2c2a", maxWidth: "560px" }}>
-            Focuses on execution. Builds production systems. Delivers working solutions.
-            <br /><br />
-            <span style={{ color: "#555" }}>
-              It is not just a club—it&apos;s a development ecosystem contributing
-              directly to the college&apos;s digital growth.
-            </span>
-          </p>
-
-          <div style={{ borderTop: "2px solid rgba(26, 28, 26, 0.08)", paddingTop: "32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
-            <div>
-              <p style={{ fontFamily: "monospace", fontSize: "12px", textTransform: "uppercase", fontWeight: "900", marginBottom: "10px", color: "#006565" }}>01. INTENTIONALITY</p>
-              <p style={{ fontSize: "14px", color: "#2a2c2a", fontWeight: "450", lineHeight: "1.7" }}>Every pixel on our grid serves a structural purpose. We reject decorative fluff.</p>
+            {/* Left: Icon + Label */}
+            <div style={{ padding: "64px 48px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", backgroundColor: "#faf9f6", borderRight: "2px solid #1A1C1A" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: "clamp(6rem, 14vw, 8rem)", color: "#1A1C1A", marginBottom: "24px" }}>
+                settings
+              </span>
+              <span style={{ fontFamily: "monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", fontWeight: "700" }}>
+                OPERATIONAL_MISSION
+              </span>
             </div>
-            <div>
-              <p style={{ fontFamily: "monospace", fontSize: "12px", textTransform: "uppercase", fontWeight: "900", marginBottom: "10px", color: "#006565" }}>02. PERSISTENCE</p>
-              <p style={{ fontSize: "14px", color: "#2a2c2a", fontWeight: "450", lineHeight: "1.7" }}>Designing for longevity through heavy weights and high-contrast accessibility.</p>
+
+            {/* Right: Content */}
+            <div style={{ padding: "64px 56px" }}>
+              <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: "900", textTransform: "uppercase", marginBottom: "28px", lineHeight: "1", color: "#1A1C1A" }}>
+                CIDC Precision
+              </h2>
+              <p style={{ fontSize: "16px", fontWeight: "500", lineHeight: "1.8", marginBottom: "40px", color: "#2a2c2a", maxWidth: "560px" }}>
+                Focuses on execution. Builds production systems. Delivers working solutions.
+                <br /><br />
+                <span style={{ color: "#555" }}>
+                  It is not just a club—it&apos;s a development ecosystem contributing
+                  directly to the college&apos;s digital growth.
+                </span>
+              </p>
+
+              <div style={{ borderTop: "2px solid rgba(26, 28, 26, 0.08)", paddingTop: "32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+                <div>
+                  <p style={{ fontFamily: "monospace", fontSize: "12px", textTransform: "uppercase", fontWeight: "900", marginBottom: "10px", color: "#006565" }}>01. INTENTIONALITY</p>
+                  <p style={{ fontSize: "14px", color: "#2a2c2a", fontWeight: "450", lineHeight: "1.7" }}>Every pixel on our grid serves a structural purpose. We reject decorative fluff.</p>
+                </div>
+                <div>
+                  <p style={{ fontFamily: "monospace", fontSize: "12px", textTransform: "uppercase", fontWeight: "900", marginBottom: "10px", color: "#006565" }}>02. PERSISTENCE</p>
+                  <p style={{ fontSize: "14px", color: "#2a2c2a", fontWeight: "450", lineHeight: "1.7" }}>Designing for longevity through heavy weights and high-contrast accessibility.</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </ScrollStackItem>
+      </ScrollStack>
 
       {/* Upcoming Section Footer */}
       <div style={{ marginTop: "96px", display: "flex", flexDirection: "column", gap: "24px" }}>
