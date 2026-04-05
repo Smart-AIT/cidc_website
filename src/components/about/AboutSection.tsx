@@ -2,16 +2,14 @@ import AboutVision from "./AboutVision";
 
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="dot-grid px-4 sm:px-12 py-12 sm:py-24 border-t-2 border-[#1A1C1A]"
-    >
+    <section style={{ width: "100%", paddingLeft: "40px", paddingRight: "40px", paddingTop: "60px", paddingBottom: "60px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
       {/* Hero Header */}
-      <header className="mb-24 relative max-w-full mx-auto">
-        <h2 className="text-6xl sm:text-8xl md:text-[10rem] font-black leading-[0.8] tracking-tighter uppercase mb-12 relative z-10 text-[#e3e2e0]/40">
+      <header style={{ marginBottom: "80px", position: "relative", maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}>
+        <h2 style={{ fontSize: "clamp(2.5rem, 12vw, 5.5rem)", fontWeight: "900", lineHeight: "0.8", letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: "32px", position: "relative", zIndex: "10", color: "#1A1C1A" }}>
           WANT TO<br />KNOW ABOUT US ?
         </h2>
-        <p className="max-w-3xl text-sm sm:text-base font-medium leading-relaxed text-[#1A1C1A] mb-4">
+        <div style={{ width: "120px", height: "3px", backgroundColor: "#A33B3C", marginBottom: "32px" }}></div>
+        <p style={{ maxWidth: "900px", fontSize: "14px", fontWeight: "500", lineHeight: "1.7", color: "#1A1C1A", marginBottom: "16px" }}>
           CIDC is a student-driven development community focused on building
           real-world systems for the college ecosystem.
           <br />
@@ -19,34 +17,34 @@ export default function AboutSection() {
           learn — they <strong>build, deploy, and solve actual problems</strong>{" "}
           within the institute.
         </p>
-        <p className="max-w-3xl text-sm sm:text-base font-medium leading-relaxed text-[#1A1C1A]/60">
+        <p style={{ maxWidth: "900px", fontSize: "14px", fontWeight: "500", lineHeight: "1.7", color: "#1A1C1A", opacity: "0.6" }}>
           From day one, members are exposed to practical development workflows,
           collaborative environments, and production-level thinking.
         </p>
       </header>
 
       {/* Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border-2 border-[#1A1C1A]">
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "0", border: "2px solid #1A1C1A", marginBottom: "48px" }}>
         <AboutVision />
 
         {/* Right Column */}
-        <div className="md:col-span-5 flex flex-col border-l-2 border-[#1A1C1A]">
+        <div style={{ gridColumn: "span 5", display: "flex", flexDirection: "column", borderLeft: "2px solid #1A1C1A" }}>
           {/* Circuit board image */}
-          <div className="aspect-square relative grayscale border-b-2 border-[#1A1C1A]">
+          <div style={{ aspectRatio: "1", position: "relative", filter: "grayscale(1)", borderBottom: "2px solid #1A1C1A", backgroundColor: "#d0d0d0" }}>
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoV6PnGKJpTpK3hTzM9In1uLEuZ8KdCSMqcX30SHCMLRJ9Zz4CeKNlfS194EuYguazwVXwpchxXwHr5JMIcpa6G-HKnQ8Wbp-C3F76omFLSJgeUCsp4WdxZcgrrCQKjuk0dEVqDti5Cp9FJBi81PKILPQB0MvDRQesJFuOOMcHAUrIluE6YLAr8r2fA9ogARgAk6d6jDc6_7uFh3wkwfPQZvyYgHJ3FJut-2h4-zbfb4HaxoapoGIYvwjGi_H_l-0tnG85w4G8uws"
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=600&fit=crop"
               alt="Visionary Tech"
-              className="w-full h-full object-cover"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
-            <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-sm text-[#1A1C1A] px-2 py-1 font-mono text-[9px] uppercase tracking-widest border border-[#1A1C1A]">
+            <div style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(255, 255, 255, 0.2)", backdropFilter: "blur(4px)", color: "#1A1C1A", padding: "6px 8px", fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", border: "1px solid #1A1C1A" }}>
               IMAGE_SOURCE_404
             </div>
           </div>
 
           {/* System Architecture card */}
-          <div className="bg-[#006565] p-8 text-white flex-1">
-            <h3 className="text-2xl font-black uppercase mb-6 tracking-widest">Core</h3>
-            <ul className="font-mono text-[10px] space-y-3 font-bold tracking-widest uppercase opacity-80">
+          <div style={{ backgroundColor: "#006565", padding: "32px", color: "white", flex: "1", display: "flex", flexDirection: "column" }}>
+            <h3 style={{ fontSize: "20px", fontWeight: "900", textTransform: "uppercase", marginBottom: "24px", letterSpacing: "0.08em" }}>CORE</h3>
+            <ul style={{ fontFamily: "monospace", fontSize: "10px", display: "flex", flexDirection: "column", gap: "12px", fontWeight: "bold", letterSpacing: "0.08em", textTransform: "uppercase", opacity: "0.8", listStyle: "none", padding: "0", margin: "0" }}>
               <li>&gt; PROJECT_PIPELINE: ACTIVE</li>
               <li>&gt; STUDENT_MODULE_RESERVED</li>
               <li>&gt; MENTORSHIP_LAYER: ENABLED</li>
@@ -57,68 +55,65 @@ export default function AboutSection() {
       </div>
 
       {/* Mission Statement — Full width */}
-      <div className="mt-12 border-2 border-[#1A1C1A] bg-[#FAF9F6] p-8 md:p-16 flex flex-col md:flex-row gap-12 items-center">
-        <div className="md:w-1/3 flex justify-center">
-          <span className="material-symbols-outlined text-[8rem] md:text-[10rem] text-[#1A1C1A]">
+      <div style={{ marginTop: "48px", border: "2px solid #1A1C1A", backgroundColor: "#FAF9F6", padding: "64px", display: "grid", gridTemplateColumns: "1fr 2fr", gap: "48px", alignItems: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <span className="material-symbols-outlined" style={{ fontSize: "clamp(8rem, 20vw, 10rem)", color: "#1A1C1A" }}>
             settings
           </span>
         </div>
 
-        <div className="md:w-2/3 w-full">
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#A33B3C] mb-4 block">
+        <div style={{ width: "100%" }}>
+          <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", marginBottom: "16px", display: "block", fontWeight: "bold" }}>
             OPERATIONAL_MISSION
           </span>
-          <h2 className="text-4xl sm:text-6xl font-black uppercase mb-8 leading-none">
+          <h2 style={{ fontSize: "44px", fontWeight: "900", textTransform: "uppercase", marginBottom: "32px", lineHeight: "1", color: "#1A1C1A" }}>
             CIDC Precision
           </h2>
-          <p className="text-sm sm:text-base font-medium leading-relaxed mb-8 text-[#1A1C1A]">
-            focuses on execution
-            <br />
-            builds production systems
-            <br />
-            delivers working solutions
-            <br />
-            <span className="mt-4 block text-[#1A1C1A]/60 font-medium">
+          <p style={{ fontSize: "14px", fontWeight: "500", lineHeight: "1.8", marginBottom: "32px", color: "#1A1C1A" }}>
+            focuses on execution<br />
+            builds production systems<br />
+            delivers working solutions<br />
+            <span style={{ marginTop: "16px", display: "block", color: "#1A1C1A", opacity: "0.6", fontWeight: "500" }}>
               It is not just a club—it&apos;s a development ecosystem contributing
               directly to the college&apos;s digital growth.
             </span>
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t-2 border-[#1A1C1A]/10">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", paddingTop: "32px", borderTop: "1px solid rgba(26, 28, 26, 0.1)" }}>
             <div>
-              <p className="font-mono text-[10px] uppercase font-black mb-2">01. INTENTIONALITY</p>
-              <p className="text-xs text-[#1A1C1A]/60 font-medium">Every pixel on our grid serves a structural purpose. We reject decorative fluff.</p>
+              <p style={{ fontFamily: "monospace", fontSize: "10px", textTransform: "uppercase", fontWeight: "900", marginBottom: "8px", color: "#1A1C1A" }}>01. INTENTIONALITY</p>
+              <p style={{ fontSize: "12px", color: "#1A1C1A", opacity: "0.6", fontWeight: "500" }}>Every pixel on our grid serves a structural purpose. We reject decorative fluff.</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase font-black mb-2">02. PERSISTENCE</p>
-              <p className="text-xs text-[#1A1C1A]/60 font-medium">Designing for longevity through heavy weights and high-contrast accessibility.</p>
+              <p style={{ fontFamily: "monospace", fontSize: "10px", textTransform: "uppercase", fontWeight: "900", marginBottom: "8px", color: "#1A1C1A" }}>02. PERSISTENCE</p>
+              <p style={{ fontSize: "12px", color: "#1A1C1A", opacity: "0.6", fontWeight: "500" }}>Designing for longevity through heavy weights and high-contrast accessibility.</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Upcoming Section Footer */}
-      <div className="mt-24 flex flex-col md:flex-row justify-between items-end gap-12">
+      <div style={{ marginTop: "96px", display: "grid", gridTemplateColumns: "2fr 1fr", gap: "48px", alignItems: "flex-end" }}>
         <div>
-          <h3 className="text-3xl font-black uppercase mb-4 tracking-tighter">UPCOMING PROJECTS</h3>
-          <div className="grid grid-cols-2 gap-x-12 gap-y-1 font-mono text-[9px] font-bold uppercase tracking-widest text-[#1A1C1A]/50">
-            <p>Digital Leave & Outpass System</p>
-            <p>Feedback & Grievance System</p>
-            <p>Lost & Found Management</p>
-            <p>Hostel Room Management</p>
-            <p>Student Idea & Innovation Portal</p>
-            <p>Laundry Management System</p>
+          <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "16px", letterSpacing: "-0.01em", color: "#1A1C1A" }}>UPCOMING PROJECTS</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: "48px", rowGap: "8px", fontFamily: "monospace", fontSize: "9px", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "0.08em", color: "#1A1C1A", opacity: "0.5" }}>
+            <p style={{ margin: "0" }}>Digital Leave & Outpass System</p>
+            <p style={{ margin: "0" }}>Feedback & Grievance System</p>
+            <p style={{ margin: "0" }}>Lost & Found Management</p>
+            <p style={{ margin: "0" }}>Hostel Room Management</p>
+            <p style={{ margin: "0" }}>Student Idea & Innovation Portal</p>
+            <p style={{ margin: "0" }}>Laundry Management System</p>
           </div>
-          <button className="mt-8 bg-[#006565] text-white px-8 py-3 font-black uppercase tracking-widest text-xs border-2 border-[#1A1C1A]">
-            WANT TO CONTIBUTE ? CLICK
+          <button style={{ marginTop: "32px", backgroundColor: "#006565", color: "white", padding: "12px 32px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", border: "2px solid #1A1C1A", cursor: "pointer" }}>
+            WANT TO CONTRIBUTE ? CLICK
           </button>
         </div>
-        <div className="border-2 border-[#1A1C1A] p-4 bg-[#f4f3f1] min-w-[250px]">
-          <div className="font-mono text-[9px] space-y-2 uppercase font-bold tracking-widest">
-            <div className="flex justify-between"><span>Latest_Log_v04</span></div>
-            <div className="flex justify-between"><span>&gt; CIDC_CODE: INITIALIZED</span></div>
-            <div className="flex justify-between"><span>&gt; PROJECT_PIPELINE: ACTIVE</span></div>
-            <div className="flex justify-between"><span>&gt; TEAM_MODULE_CONNECTED</span></div>
-            <div className="flex justify-between"><span>&gt; SYSTEM_STATUS: RUNNING</span></div>
+        <div style={{ border: "2px solid #1A1C1A", padding: "16px", backgroundColor: "#f4f3f1", minWidth: "250px" }}>
+          <div style={{ fontFamily: "monospace", fontSize: "9px", display: "flex", flexDirection: "column", gap: "8px", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.08em", color: "#1A1C1A" }}>
+            <div style={{ display: "flex", justifyContent: "space-between" }}><span>Latest_Log_v04</span></div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; CIDC_CODE: INITIALIZED</span></div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; PROJECT_PIPELINE: ACTIVE</span></div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; TEAM_MODULE_CONNECTED</span></div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; SYSTEM_STATUS: RUNNING</span></div>
           </div>
         </div>
       </div>

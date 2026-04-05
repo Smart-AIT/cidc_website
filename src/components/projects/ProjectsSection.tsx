@@ -2,83 +2,81 @@ import Image from "next/image";
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="dot-grid py-12 sm:py-24 px-4 sm:px-12 border-t-2 border-[#1A1C1A]">
-      <div className="max-w-full mx-auto">
+    <section id="projects" style={{ width: "100%", paddingTop: "60px", paddingBottom: "60px", paddingLeft: "40px", paddingRight: "40px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
+      <div style={{ maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}>
         {/* Header */}
-        <header className="mb-12 sm:mb-24">
-          <div className="w-12 sm:w-16 h-2 bg-[#A33B3C] mb-8" />
-          <h2 className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] mb-8">
+        <header style={{ marginBottom: "80px" }}>
+          <div style={{ width: "80px", height: "4px", backgroundColor: "#A33B3C", marginBottom: "32px" }} />
+          <h2 style={{ fontSize: "clamp(2.5rem, 12vw, 5.5rem)", fontWeight: "900", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: "0.85", marginBottom: "32px", color: "#1A1C1A" }}>
             ACTIVE<br />MANIFESTO<br />
-            <span className="text-[#006565]">PROJECTS</span>
+            <span style={{ color: "#006565" }}>PROJECTS</span>
           </h2>
-          <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#1A1C1A]/40 max-w-sm">
+          <p style={{ fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.2em", color: "#1A1C1A", opacity: "0.4", maxWidth: "500px", lineHeight: "1.8" }}>
             A COLLECTION OF REAL-WORLD PROJECTS BUILT BY CIDC COMMUNITY. FOCUSED ON LEARNING, BUILDING, AND DELIVERING IMPACTFUL SOLUTIONS.
             <br />
-            <span className="mt-2 block">System version 0.4</span>
+            <span style={{ marginTop: "16px", display: "block" }}>System version 0.4</span>
           </p>
         </header>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
           {/* Project 1: Campus Nav App */}
-          <div className="flex flex-col">
-            <article className="group relative bg-[#faf9f6] border-2 border-[#1A1C1A] hover:-translate-x-1 hover:-translate-y-1 transition-transform">
-              <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[#A33B3C] z-10">
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <article style={{ position: "relative", backgroundColor: "#faf9f6", border: "2px solid #1A1C1A", transition: "transform 0.2s ease" }}>
+              <div style={{ position: "absolute", top: "16px", right: "16px", fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.08em", color: "#A33B3C", fontWeight: "bold", zIndex: "10" }}>
                 REF_001_NAV
               </div>
-              <div className="aspect-[16/10] overflow-hidden border-b-2 border-[#1A1C1A]">
+              <div style={{ aspectRatio: "16/10", overflow: "hidden", borderBottom: "2px solid #1A1C1A", backgroundColor: "#e0e0e0" }}>
                 <Image
                   src="/screen.png"
                   alt="CAMPUS NAV APP"
                   width={800}
                   height={500}
-                  className="w-full h-full object-cover grayscale contrast-125"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(1) contrast(1.25)" }}
                 />
               </div>
-              <div className="p-8">
-                <h3 className="text-3xl font-black uppercase mb-4 leading-none">
+              <div style={{ padding: "32px" }}>
+                <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "16px", lineHeight: "1", color: "#1A1C1A" }}>
                   CAMPUS NAV APP
                 </h3>
-                <p className="text-sm text-[#1A1C1A]/70 mb-8 leading-relaxed font-medium">
+                <div style={{ width: "80px", height: "2px", backgroundColor: "#1A1C1A", marginBottom: "16px" }}></div>
+                <p style={{ fontSize: "14px", color: "#1A1C1A", opacity: "0.7", marginBottom: "24px", lineHeight: "1.6", fontWeight: "500" }}>
                   Spatial orientation for chaotic environments. Real-time pathfinding utilizing sub-grid mapping and decentralized node validation.
                 </p>
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest font-black text-[#1A1C1A] group-hover:text-[#006565] transition-colors"
-                >
+                <a href="#" style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: "900", color: "#1A1C1A", textDecoration: "none", transition: "color 0.2s ease" }}>
                   INITIALIZE PROTOCOL{" "}
-                  <span className="material-symbols-outlined text-sm">arrow_right_alt</span>
+                  <span className="material-symbols-outlined" style={{ fontSize: "14px" }}>arrow_right_alt</span>
                 </a>
               </div>
             </article>
           </div>
 
           {/* Project 2: Algo-Trading Bot */}
-          <div className="flex flex-col lg:mt-32">
-            <article className="group relative bg-[#e9e8e5] border-2 border-[#1A1C1A] hover:-translate-x-1 hover:-translate-y-1 transition-transform">
-              <div className="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-[#1A1C1A]/40 z-10">
+          <div style={{ display: "flex", flexDirection: "column", marginTop: "120px" }}>
+            <article style={{ position: "relative", backgroundColor: "#e9e8e5", border: "2px solid #1A1C1A", transition: "transform 0.2s ease" }}>
+              <div style={{ position: "absolute", top: "16px", right: "16px", fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.08em", color: "#1A1C1A", opacity: "0.4", fontWeight: "bold", zIndex: "10" }}>
                 REF_002_FIN
               </div>
-              <div className="aspect-[4/3] relative overflow-hidden">
+              <div style={{ aspectRatio: "4/3", position: "relative", overflow: "hidden", backgroundColor: "#d0d0d0" }}>
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRXx6Gcgk_6mBKvufeewSsH2QiwHenO1sXJ1PYV5_ljG8ByxdsU44AxaJhxCjiaLrW_ZWPug6GoaR5tNx2FoJEI-t4lANw0wcF8JPzuE5HIqqYPiUZie4U38_9ThiL6LX1Hdvyv8kP5AXhb9brv4oJmA8U8PNCqSRr19nTdgGX0T5uRfIgEH8PbyFhmPyn4tLki74t2fvSf9TT6FdUl5wqibD2KtsG8YXAsBTqimAzAr-jRYeu7Y5BDUWsJup2ppe54bWsiesif7E"
+                  src="https://images.unsplash.com/photo-1533241749-bc0146e1f1c9?w=800&h=600&fit=crop"
                   alt="ALGO-TRADING BOT"
-                  className="w-full h-full object-cover grayscale brightness-90 mix-blend-multiply"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(1) brightness(0.9)", mixBlendMode: "multiply" }}
                 />
               </div>
-              <div className="p-8 bg-white border-t-2 border-[#1A1C1A]">
-                <h3 className="text-3xl font-black uppercase mb-2 leading-none">
+              <div style={{ padding: "32px", backgroundColor: "white", borderTop: "2px solid #1A1C1A" }}>
+                <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "12px", lineHeight: "1", color: "#1A1C1A" }}>
                   ALGO-TRADING BOT
                 </h3>
-                <p className="text-[10px] font-mono uppercase tracking-widest text-[#A33B3C] mb-6 font-bold">
+                <p style={{ fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.08em", color: "#A33B3C", marginBottom: "16px", fontWeight: "bold" }}>
                   STATUS: AUTONOMOUS // ACTIVE
                 </p>
-                <p className="text-sm text-[#1A1C1A]/70 mb-8 leading-relaxed font-medium">
+                <p style={{ fontSize: "14px", color: "#1A1C1A", opacity: "0.7", marginBottom: "24px", lineHeight: "1.6", fontWeight: "500" }}>
                   High-frequency execution engine. Optimized for low-latency market manipulation detection and arbitrage identification.
                 </p>
-                <div className="flex justify-between items-center text-[#1A1C1A]/40 font-mono text-[9px] font-bold uppercase tracking-widest">
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", color: "#1A1C1A", opacity: "0.4", fontFamily: "monospace", fontSize: "9px", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   <span>LATENCY: 0.002ms</span>
-                  <span className="p-2 border border-[#1A1C1A]">REF_002_BOT</span>
+                  <span style={{ padding: "8px", border: "1px solid #1A1C1A" }}>REF_002_BOT</span>
                 </div>
               </div>
             </article>

@@ -9,19 +9,20 @@ export default function ContactSection() {
   });
 
   return (
-    <section id="contact" className="dot-grid py-12 sm:py-24 px-4 sm:px-12 border-t-2 border-[#1A1C1A]">
-      <div className="max-w-full mx-auto">
+    <section id="contact" style={{ width: "100%", paddingTop: "60px", paddingBottom: "60px", paddingLeft: "40px", paddingRight: "40px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
+      <div style={{ maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}>
         {/* Hero Header */}
-        <header className="mb-24">
-          <div className="inline-block bg-[#A33B3C] text-white px-3 py-1 mb-6 text-[10px] uppercase tracking-widest font-black">
+        <header style={{ marginBottom: "80px" }}>
+          <div style={{ display: "inline-block", backgroundColor: "#A33B3C", color: "white", padding: "6px 12px", marginBottom: "16px", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: "900" }}>
             SYSTEM_ACCESS: EXTERNAL_COMMUNICATION
           </div>
-          <h2 className="text-6xl sm:text-8xl md:text-9xl font-black leading-[0.8] tracking-tighter uppercase mb-12">
+          <h2 style={{ fontSize: "clamp(2.5rem, 12vw, 5.5rem)", fontWeight: "900", lineHeight: "0.85", letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: "32px" }}>
             INITIATE
             <br />
-            <span className="text-[#006565]">CONNECTION_</span>
+            <span style={{ color: "#006565" }}>CONNECTION_</span>
           </h2>
-          <p className="max-w-xl text-sm sm:text-base font-medium leading-relaxed text-[#1A1C1A]">
+          <div style={{ width: "120px", height: "4px", backgroundColor: "#1A1C1A", marginBottom: "32px" }}></div>
+          <p style={{ maxWidth: "600px", fontSize: "14px", fontWeight: "500", lineHeight: "1.7", color: "#1A1C1A" }}>
             Our technical node is open for collaboration, inquiries, and glitch
             reporting. Choose your preferred channel to interface with the
             collective.
@@ -29,112 +30,113 @@ export default function ContactSection() {
         </header>
 
         {/* Contact Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 border-2 border-[#1A1C1A]">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", border: "2px solid #1A1C1A", marginBottom: "80px" }}>
           {/* Phone & WhatsApp Group */}
-          <div className="md:col-span-4 flex flex-col border-r-2 border-[#1A1C1A]">
+          <div style={{ gridColumn: "span 4", display: "flex", flexDirection: "column", borderRight: "2px solid #1A1C1A" }}>
             {/* Phone */}
-            <div className="p-8 border-b-2 border-[#1A1C1A] flex flex-col">
-              <div className="flex justify-between items-start mb-12">
-                <span className="material-symbols-outlined text-3xl text-[#006565]">phone_in_talk</span>
-                <span className="font-mono text-[9px] uppercase tracking-widest text-[#1A1C1A]/40">REF_001</span>
+            <div style={{ padding: "32px", borderBottom: "2px solid #1A1C1A", display: "flex", flexDirection: "column" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "48px" }}>
+                <span className="material-symbols-outlined" style={{ fontSize: "32px", color: "#006565" }}>phone_in_talk</span>
+                <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", color: "rgba(26, 28, 26, 0.4)", fontWeight: "bold" }}>REF_001</span>
               </div>
-              <h3 className="text-xl font-black uppercase mb-2">Phone Number</h3>
-              <p className="font-black text-lg text-[#1A1C1A] mb-8">+91 7983957734</p>
+              <h3 style={{ fontSize: "18px", fontWeight: "900", textTransform: "uppercase", marginBottom: "8px", color: "#1A1C1A" }}>Phone Number</h3>
+              <div style={{ width: "100px", height: "3px", backgroundColor: "#A33B3C", marginBottom: "16px" }}></div>
+              <p style={{ fontWeight: "900", fontSize: "16px", color: "#1A1C1A" }}>+91 7983957734</p>
             </div>
             
             {/* WhatsApp */}
-            <div className="p-8 flex flex-col bg-[#f4f3f1]">
-              <div className="flex justify-between items-start mb-12">
-                <span className="material-symbols-outlined text-3xl text-[#006565]">chat</span>
-                <span className="font-mono text-[9px] uppercase tracking-widest text-[#1A1C1A]/40">REF_003</span>
+            <div style={{ padding: "32px", display: "flex", flexDirection: "column", backgroundColor: "#f4f3f1" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "48px" }}>
+                <span className="material-symbols-outlined" style={{ fontSize: "32px", color: "#006565" }}>chat</span>
+                <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", color: "rgba(26, 28, 26, 0.4)", fontWeight: "bold" }}>REF_003</span>
               </div>
-              <h3 className="text-xl font-black uppercase mb-2">WhatsApp</h3>
-              <p className="font-mono text-[9px] uppercase font-bold text-[#A33B3C] mb-2 tracking-widest">SECURE_ENCRYPTED_LINE</p>
-              <p className="font-black text-lg text-[#1A1C1A] mb-4">+91 96XXXXX</p>
+              <h3 style={{ fontSize: "18px", fontWeight: "900", textTransform: "uppercase", marginBottom: "8px", color: "#1A1C1A" }}>WhatsApp</h3>
+              <p style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", fontWeight: "bold", color: "#A33B3C", marginBottom: "8px", letterSpacing: "0.08em" }}>SECURE_ENCRYPTED_LINE</p>
+              <p style={{ fontWeight: "900", fontSize: "16px", color: "#1A1C1A" }}>+91 96XXXXX</p>
             </div>
           </div>
 
           {/* Email (featured) */}
-          <div className="md:col-span-5 bg-[#006565] text-white p-8 md:p-12 border-r-2 border-[#1A1C1A] flex flex-col">
-            <div className="flex justify-between items-start mb-12">
-              <span className="material-symbols-outlined text-4xl">mail</span>
-              <span className="font-mono text-[9px] uppercase tracking-widest text-white/40">MAR_390</span>
+          <div style={{ gridColumn: "span 5", backgroundColor: "#006565", color: "white", padding: "48px", borderRight: "2px solid #1A1C1A", display: "flex", flexDirection: "column" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "48px" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: "40px", color: "white" }}>mail</span>
+              <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", color: "rgba(255, 255, 255, 0.4)", fontWeight: "bold" }}>MAR_390</span>
             </div>
-            <h3 className="text-4xl font-black uppercase mb-4 leading-none">DIRECT_INBOX</h3>
-            <p className="text-xl font-black mb-12">cidcaitpune@gmail.com</p>
+            <h3 style={{ fontSize: "36px", fontWeight: "900", textTransform: "uppercase", marginBottom: "16px", lineHeight: "1", color: "white" }}>DIRECT_INBOX</h3>
+            <p style={{ fontSize: "18px", fontWeight: "900", marginBottom: "48px", color: "white" }}>cidcaitpune@gmail.com</p>
             <a
               href="mailto:cidcaitpune@gmail.com"
-              className="mt-auto inline-flex items-center justify-between border-2 border-white px-8 py-4 font-black uppercase tracking-widest text-xs bg-white text-[#006565] hover:bg-[#1A1C1A] hover:text-white transition-colors"
+              style={{ marginTop: "auto", display: "inline-flex", alignItems: "center", justifyContent: "space-between", border: "2px solid white", padding: "16px 32px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", backgroundColor: "white", color: "#006565", textDecoration: "none", cursor: "pointer", gap: "8px" }}
             >
               SEND MESSAGE
-              <span className="material-symbols-outlined text-sm">arrow_outward</span>
+              <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>arrow_outward</span>
             </a>
           </div>
 
           {/* Instagram & Source Code Group */}
-          <div className="md:col-span-3 flex flex-col">
+          <div style={{ gridColumn: "span 3", display: "flex", flexDirection: "column" }}>
             {/* Instagram */}
-            <div className="p-8 border-b-2 border-[#1A1C1A] flex flex-col">
-              <div className="flex justify-between items-start mb-12">
-                <span className="material-symbols-outlined text-3xl text-[#A33B3C]">alternate_email</span>
-                <span className="font-mono text-[9px] uppercase tracking-widest text-[#1A1C1A]/40">REF_INSTA</span>
+            <div style={{ padding: "32px", borderBottom: "2px solid #1A1C1A", display: "flex", flexDirection: "column", backgroundColor: "white" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "48px" }}>
+                <span className="material-symbols-outlined" style={{ fontSize: "32px", color: "#A33B3C" }}>alternate_email</span>
+                <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", color: "rgba(26, 28, 26, 0.4)", fontWeight: "bold" }}>REF_INSTA</span>
               </div>
-              <h3 className="text-xl font-black uppercase mb-2">INSTAGRAM</h3>
-              <p className="font-black text-[#1A1C1A]">@cidc_aitpune</p>
+              <h3 style={{ fontSize: "18px", fontWeight: "900", textTransform: "uppercase", marginBottom: "8px", color: "#1A1C1A" }}>INSTAGRAM</h3>
+              <p style={{ fontWeight: "900", color: "#1A1C1A" }}>@cidc_aitpune</p>
             </div>
             
             {/* Source Code */}
-            <div className="p-8 flex flex-col bg-[#1A1C1A] text-white flex-1">
-              <div className="flex justify-between items-start mb-12">
-                <span className="material-symbols-outlined text-3xl text-white">code</span>
-                <span className="font-mono text-[9px] uppercase tracking-widest text-white/40">REF_G_HUB</span>
+            <div style={{ padding: "32px", display: "flex", flexDirection: "column", backgroundColor: "#1A1C1A", color: "white", flex: "1" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "48px" }}>
+                <span className="material-symbols-outlined" style={{ fontSize: "32px", color: "white" }}>code</span>
+                <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", color: "rgba(255, 255, 255, 0.4)", fontWeight: "bold" }}>REF_G_HUB</span>
               </div>
-              <h3 className="text-xl font-black uppercase mb-2">SOURCE_CODE</h3>
-              <p className="font-black text-xs text-white/60 mb-8 uppercase tracking-widest">GITHUB.COM/smartAIT</p>
+              <h3 style={{ fontSize: "18px", fontWeight: "900", textTransform: "uppercase", marginBottom: "8px", color: "white" }}>SOURCE_CODE</h3>
+              <p style={{ fontWeight: "900", fontSize: "11px", color: "rgba(255, 255, 255, 0.6)", marginBottom: "32px", textTransform: "uppercase", letterSpacing: "0.08em" }}>GITHUB.COM/smartAIT</p>
             </div>
           </div>
         </div>
 
         {/* Send Transmission Form Section */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-12 gap-12">
+        <div style={{ marginTop: "80px", display: "grid", gridTemplateColumns: "2fr 1.5fr", gap: "48px" }}>
           {/* Form */}
-          <div className="md:col-span-7">
-            <h3 className="text-3xl font-black uppercase mb-12 tracking-tighter">SEND_TRANSMISSION</h3>
-            <form className="space-y-8">
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-[#A33B3C]">NAME_</label>
-                <input type="text" placeholder="USER_IDENTIFIER" className="w-full bg-[#f4f3f1] border-2 border-[#1A1C1A] p-4 font-mono text-sm focus:outline-none" />
+          <div>
+            <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "48px", letterSpacing: "-0.01em", color: "#1A1C1A" }}>SEND_TRANSMISSION</h3>
+            <form style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <label style={{ fontFamily: "monospace", fontSize: "10px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C" }}>NAME_</label>
+                <input type="text" placeholder="USER_IDENTIFIER" style={{ width: "100%", backgroundColor: "#f4f3f1", border: "2px solid #1A1C1A", padding: "16px", fontFamily: "monospace", fontSize: "14px", outline: "none" }} />
               </div>
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-[#A33B3C]">EMAIL_</label>
-                <input type="email" placeholder="RETURN_COORDINATES" className="w-full bg-[#f4f3f1] border-2 border-[#1A1C1A] p-4 font-mono text-sm focus:outline-none" />
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <label style={{ fontFamily: "monospace", fontSize: "10px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C" }}>EMAIL_</label>
+                <input type="email" placeholder="RETURN_COORDINATES" style={{ width: "100%", backgroundColor: "#f4f3f1", border: "2px solid #1A1C1A", padding: "16px", fontFamily: "monospace", fontSize: "14px", outline: "none" }} />
               </div>
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-[#A33B3C]">MESSAGE_DATA_</label>
-                <textarea rows={4} placeholder="ENTER_PLAINTEXT_HERE..." className="w-full bg-[#f4f3f1] border-2 border-[#1A1C1A] p-4 font-mono text-sm focus:outline-none resize-none" />
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <label style={{ fontFamily: "monospace", fontSize: "10px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C" }}>MESSAGE_DATA_</label>
+                <textarea placeholder="ENTER_PLAINTEXT_HERE..." style={{ width: "100%", backgroundColor: "#f4f3f1", border: "2px solid #1A1C1A", padding: "16px", fontFamily: "monospace", fontSize: "14px", outline: "none", resize: "none", minHeight: "120px" }} />
               </div>
-              <button className="bg-[#006565] text-white px-12 py-4 font-black uppercase tracking-widest text-xs border-2 border-[#1A1C1A] hover:bg-[#1A1C1A] transition-colors">
+              <button style={{ backgroundColor: "#006565", color: "white", padding: "16px 48px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", border: "2px solid #1A1C1A", cursor: "pointer" }}>
                 EXECUTE_SEND
               </button>
             </form>
           </div>
 
           {/* Location UI */}
-          <div className="md:col-span-5">
-            <div className="border-2 border-[#1A1C1A] h-full flex flex-col">
-              <div className="p-4 border-b-2 border-[#1A1C1A] font-mono text-[10px] font-black uppercase tracking-widest flex justify-between">
+          <div>
+            <div style={{ border: "2px solid #1A1C1A", display: "flex", flexDirection: "column", height: "100%", minHeight: "400px" }}>
+              <div style={{ padding: "16px", borderBottom: "2px solid #1A1C1A", fontFamily: "monospace", fontSize: "10px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", display: "flex", justifyContent: "space-between", color: "#1A1C1A" }}>
                 <span>LOCATION_COORDINATES</span>
               </div>
-              <div className="bg-[#e3e2e0] flex-1 min-h-[300px] relative">
+              <div style={{ backgroundColor: "#e3e2e0", flex: "1", minHeight: "350px", position: "relative" }}>
                 <img 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3M-Kx9W-e5Kz-O5Q-H9-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V" 
+                  src="https://images.unsplash.com/photo-1572020519256-cad5b133e90d?w=800&h=600&fit=crop" 
                   alt="Location Context" 
-                  className="w-full h-full object-cover grayscale"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(1)" }}
                 />
-                <div className="absolute bottom-4 left-4 right-4 bg-white border-2 border-[#1A1C1A] p-6 shadow-[8px_8px_0px_0px_rgba(26,28,26,1)]">
-                  <h4 className="font-black uppercase mb-1">AIT_PUNE</h4>
-                  <p className="text-[10px] font-medium text-[#1A1C1A]/60 font-mono mb-4">411015, Alandi Road, Dighi Army Institute of Technology</p>
-                  <a href="#" className="text-[10px] font-black uppercase tracking-widest underline decoration-2 underline-offset-4">MAP_INTERFACE</a>
+                <div style={{ position: "absolute", bottom: "16px", left: "16px", right: "16px", backgroundColor: "white", border: "2px solid #1A1C1A", padding: "24px", boxShadow: "8px 8px 0px 0px rgba(26, 28, 26, 1)" }}>
+                  <h4 style={{ fontWeight: "900", textTransform: "uppercase", marginBottom: "4px", color: "#1A1C1A" }}>AIT_PUNE</h4>
+                  <p style={{ fontSize: "10px", fontWeight: "500", color: "rgba(26, 28, 26, 0.6)", fontFamily: "monospace", marginBottom: "16px" }}>411015, Alandi Road, Dighi Army Institute of Technology</p>
+                  <a href="#" style={{ fontSize: "10px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.08em", textDecoration: "underline", color: "#A33B3C" }}>MAP_INTERFACE</a>
                 </div>
               </div>
             </div>

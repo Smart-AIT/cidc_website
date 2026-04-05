@@ -38,73 +38,71 @@ const EVENTS = [
 
 export default function EventsSection() {
   return (
-    <section id="events" className="dot-grid py-12 sm:py-24 px-4 sm:px-12 border-t-2 border-[#1A1C1A]">
-      <div className="max-w-full mx-auto">
+    <section id="events" style={{ width: "100%", paddingTop: "60px", paddingBottom: "60px", paddingLeft: "40px", paddingRight: "40px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
+      <div style={{ maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}>
         {/* Hero Header */}
-        <div className="flex flex-col md:flex-row gap-12 items-start mb-24">
-          <div className="w-full md:w-2/3">
-            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#A33B3C] mb-4">
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "48px", alignItems: "flex-start", marginBottom: "80px" }}>
+          <div>
+            <p style={{ fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", marginBottom: "16px", fontWeight: "bold" }}>
               SYSTEM_SCHEDULE // YEAR_2026
             </p>
-            <h2 className="text-5xl sm:text-7xl md:text-9xl font-black leading-[0.8] uppercase mb-8">
+            <h2 style={{ fontSize: "clamp(3rem, 12vw, 5.5rem)", fontWeight: "900", lineHeight: "0.85", textTransform: "uppercase", marginBottom: "32px" }}>
               UPCOMING
               <br />
-              <span className="text-[#006565]">OPERATIONS</span>
+              <span style={{ color: "#006565" }}>OPERATIONS</span>
             </h2>
-            <div className="w-16 sm:w-24 h-2 bg-[#1A1C1A] mb-8" />
-            <p className="max-w-xl text-base sm:text-lg leading-tight text-[#1A1C1A] font-medium">
+            <div style={{ width: "120px", height: "4px", backgroundColor: "#1A1C1A", marginBottom: "32px" }} />
+            <p style={{ maxWidth: "600px", fontSize: "16px", lineHeight: "1.6", color: "#1A1C1A", fontWeight: "500" }}>
               Scheduled transmissions, community builds, and technical
               deep-dives. We operate at the intersection of analog grit and
               digital precision. Sync your calendars to the collective
               frequency.
             </p>
           </div>
-          <div className="w-full md:w-1/3">
-            <div className="border-2 border-[#1A1C1A] p-2 bg-[#faf9f6]">
+          <div>
+            <div style={{ border: "2px solid #1A1C1A", padding: "8px", backgroundColor: "#faf9f6" }}>
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDr43MXaxqbFUZiaCtpvC8SCdIKjeRgYXWNIzwpXHhkqXHnE2GcBczaEBAPQ_IereXQ9yLqa6-ySXzKWkSsdq6zcj6D3q-xTJbXaBxuDCtyzzf9ARfM-ovKsMrdGm2LFi4UbsXc8l4hmjxlFXzWP4D_Pez4OwjaO4Rsj-OfqVl0td9h85WmFtqtbHU82bKocxm-J66uR6CQncZrm0KctmRuJiKXZ_aLWRC6-tzdYfYfL9dHR1j4YFgGHbOukw-sDwJsk-wF67zi2A"
+                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=500&fit=crop"
                 alt="Events visual"
-                className="w-full grayscale"
+                style={{ width: "100%", filter: "grayscale(1)" }}
               />
             </div>
           </div>
         </div>
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line - hidden on mobile, center on desktop */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#1A1C1A] -translate-x-1/2 hidden md:block" />
+        <div style={{ position: "relative" }}>
+          {/* Vertical line */}
+          <div style={{ position: "absolute", left: "50%", top: "0", bottom: "0", width: "2px", backgroundColor: "#1A1C1A", transform: "translateX(-50%)" }} />
 
           {EVENTS.map((event, index) => (
             <div
               key={`${event.title}-${index}`}
-              className={`relative mb-24 flex flex-col md:flex-row w-full ${
-                index % 2 === 0 ? "md:justify-start" : "md:justify-end"
-              }`}
+              style={{ position: "relative", marginBottom: "96px", display: "flex", width: "100%", justifyContent: index % 2 === 0 ? "flex-start" : "flex-end" }}
             >
-              <div className="w-full md:w-[45%]">
+              <div style={{ width: "45%" }}>
                 <EventCard {...event} />
               </div>
 
               {/* Timeline markers */}
-              <div className="absolute left-1/2 top-10 w-4 h-4 bg-[#A33B3C] border-2 border-[#1A1C1A] -translate-x-1/2 hidden md:block" />
+              <div style={{ position: "absolute", left: "50%", top: "40px", width: "16px", height: "16px", backgroundColor: "#A33B3C", border: "2px solid #1A1C1A", transform: "translateX(-50%)" }} />
               {index < EVENTS.length - 1 && (
-                <div className="absolute left-1/2 top-1/2 w-8 h-8 bg-[#e3e2e0] rounded-full border-2 border-[#1A1C1A] -translate-x-1/2 -translate-y-1/2 hidden md:block" />
+                <div style={{ position: "absolute", left: "50%", top: "50%", width: "32px", height: "32px", backgroundColor: "#e3e2e0", borderRadius: "50%", border: "2px solid #1A1C1A", transform: "translate(-50%, -50%)" }} />
               )}
             </div>
           ))}
         </div>
 
         {/* Announcements Footer */}
-        <div className="mt-24 border-2 border-[#1A1C1A] p-8 sm:p-12 flex flex-col md:flex-row justify-between items-center gap-8 bg-[#faf9f6]">
-          <div className="text-center md:text-left">
-            <p className="text-[10px] font-mono uppercase tracking-widest text-[#A33B3C] mb-2">ANNOUNCEMENTS</p>
-            <h3 className="text-3xl font-black uppercase tracking-tighter">STAY TUNED TO THE<br />FREQUENCY</h3>
-            <p className="text-[10px] font-mono mt-2 text-[#1A1C1A]/60">BE THE PART OF SYSTEM. JOIN THE NETWORK.</p>
+        <div style={{ marginTop: "96px", border: "2px solid #1A1C1A", padding: "48px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", alignItems: "center", backgroundColor: "#faf9f6" }}>
+          <div style={{ textAlign: "left" }}>
+            <p style={{ fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.1em", color: "#A33B3C", marginBottom: "8px", fontWeight: "bold" }}>ANNOUNCEMENTS</p>
+            <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "-0.01em", color: "#1A1C1A" }}>STAY TUNED TO THE<br />FREQUENCY</h3>
+            <p style={{ fontSize: "10px", fontFamily: "monospace", marginTop: "8px", color: "#1A1C1A", opacity: "0.6", fontWeight: "bold", letterSpacing: "0.08em" }}>BE THE PART OF SYSTEM. JOIN THE NETWORK.</p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-0 w-full md:w-auto">
-            <input type="text" placeholder=">> Fill you calendars" className="bg-[#e3e2e0] border-2 border-[#1A1C1A] px-6 py-4 font-mono text-sm w-full md:w-64 focus:outline-none" />
-            <button className="bg-[#1A1C1A] text-white px-8 py-4 font-black uppercase tracking-widest text-xs border-2 border-[#1A1C1A] hover:bg-white hover:text-[#1A1C1A] transition-colors whitespace-nowrap">
+          <div style={{ display: "flex", gap: "0" }}>
+            <input type="text" placeholder=">> Fill you calendars" style={{ flex: "1", backgroundColor: "#e3e2e0", border: "2px solid #1A1C1A", padding: "16px 24px", fontFamily: "monospace", fontSize: "14px", outline: "none" }} />
+            <button style={{ backgroundColor: "#1A1C1A", color: "white", padding: "16px 32px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", border: "2px solid #1A1C1A", cursor: "pointer", whiteSpace: "nowrap" }}>
               JOIN_US_FOR_COOKIE
             </button>
           </div>

@@ -21,37 +21,46 @@ export default function EventCard({
   const isDark = variant === "default";
   const isTeal = variant === "teal";
   
+  const bgColor = isTeal ? "#008080" : "#faf9f6";
+  const textColor = isTeal ? "white" : "#1A1C1A";
+  const dateColor = isTeal ? "rgba(255, 255, 255, 0.6)" : "#006565";
+  const descriptionColor = isTeal ? "rgba(255, 255, 255, 0.8)" : "rgba(26, 28, 26, 0.7)";
+  
+  const statusBgColor = 
+    status === "ACTIVE" ? "#006565" :
+    status === "PENDING" ? "white" :
+    "#A33B3C";
+  const statusTextColor =
+    status === "ACTIVE" ? "white" :
+    status === "PENDING" ? "rgba(26, 28, 26, 0.4)" :
+    "white";
+  
   return (
-    <div className={`border-2 border-[#1A1C1A] flex flex-col ${isTeal ? "bg-[#008080]" : "bg-[#faf9f6]"}`}>
-      <div className="p-8">
-        <div className="flex justify-between items-start mb-6">
-          <div className="font-mono text-[9px] uppercase tracking-widest text-[#1A1C1A]/40">
+    <div style={{ border: "2px solid #1A1C1A", display: "flex", flexDirection: "column", backgroundColor: bgColor }}>
+      <div style={{ padding: "32px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "24px" }}>
+          <div style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", color: "rgba(26, 28, 26, 0.4)" }}>
             {ref_id}
           </div>
-          <div className={`px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest border border-[#1A1C1A] ${
-            status === "ACTIVE" ? "bg-[#006565] text-white" : 
-            status === "PENDING" ? "bg-white text-[#1A1C1A]/40" : 
-            "bg-[#A33B3C] text-white"
-          }`}>
+          <div style={{ padding: "4px 8px", fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", border: "1px solid #1A1C1A", backgroundColor: statusBgColor, color: statusTextColor, fontWeight: "bold" }}>
             {status}
           </div>
         </div>
         
-        <h3 className={`text-2xl sm:text-3xl font-black uppercase mb-2 tracking-tight ${isTeal ? "text-white" : "text-[#1A1C1A]"}`}>
+        <h3 style={{ fontSize: "24px", fontWeight: "900", textTransform: "uppercase", marginBottom: "8px", letterSpacing: "-0.01em", color: textColor }}>
           {title}
         </h3>
-        <p className={`font-mono text-[10px] uppercase tracking-widest mb-6 ${isTeal ? "text-white/60" : "text-[#006565]"} font-bold`}>
-          Dates: {date}
+        
+        <div style={{ width: "120px", height: "3px", backgroundColor: "#A33B3C", marginBottom: "16px" }}></div>
+        
+        <p style={{ fontFamily: "monospace", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "16px", color: dateColor, fontWeight: "bold" }}>
+          {date}
         </p>
-        <p className={`text-xs mb-8 leading-relaxed font-medium ${isTeal ? "text-white/80" : "text-[#1A1C1A]/70"}`}>
+        <p style={{ fontSize: "13px", marginBottom: "32px", lineHeight: "1.6", fontWeight: "500", color: descriptionColor }}>
           {description}
         </p>
         
-        <button className={`w-full py-4 border-2 border-[#1A1C1A] font-black uppercase tracking-widest text-xs transition-colors ${
-          isTeal ? "bg-transparent text-white hover:bg-white hover:text-[#008080]" : 
-          status === "ACTIVE" ? "bg-transparent text-[#1A1C1A] hover:bg-[#006565] hover:text-white" :
-          "bg-white text-[#1A1C1A] hover:bg-[#1A1C1A] hover:text-white"
-        }`}>
+        <button style={{ width: "100%", padding: "16px 0", border: "2px solid #1A1C1A", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", cursor: "pointer", backgroundColor: isTeal ? "transparent" : status === "ACTIVE" ? "#006565" : "white", color: isTeal ? "white" : status === "ACTIVE" ? "white" : "#1A1C1A" }}>
           {ctaLabel}
         </button>
       </div>

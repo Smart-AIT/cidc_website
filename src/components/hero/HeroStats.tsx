@@ -1,47 +1,50 @@
 // Hero Bento Stats Strip
 export default function HeroStats() {
   return (
-    <div className="w-full mt-10 sm:mt-12 border-2 border-[#1A1C1A] shadow-[8px_8px_0px_0px_rgba(26,28,26,1)] bg-white relative">
-      <div className="flex flex-col h-full">
-        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-[#1A1C1A]">
-          {/* Stat 1 */}
-          <div className="p-10 sm:p-12 md:p-14">
-            <h3 className="font-black text-4xl sm:text-5xl mb-2 tabular-nums leading-none">
-              24/7<span className="text-[#A33B3C] uppercase text-2xl ml-1">UP</span>
-            </h3>
-            <p className="text-[11px] sm:text-[12px] uppercase tracking-widest font-bold text-[#1A1C1A]/50 mt-2">
-              Innovation Lab
-            </p>
+    <div style={{ display: "flex", justifyContent: "center", width: "100%", marginTop: "40px", marginBottom: "0px" }}>
+      <div style={{ width: "98%", maxWidth: "1400px", border: "2px solid #1A1C1A", boxShadow: "8px 8px 0px 0px #1A1C1A", backgroundColor: "white", position: "relative" }}>
+        <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+          {/* Stats Grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderBottom: "2px solid #1A1C1A" }}>
+            {/* Stat 1 */}
+            <div style={{ padding: "50px 40px", borderRight: "2px solid #1A1C1A" }}>
+              <h3 style={{ fontWeight: "900", fontSize: "54px", marginBottom: "12px", lineHeight: "1", color: "#1A1C1A" }}>
+                24/7<span style={{ color: "#A33B3C", fontSize: "24px", marginLeft: "8px" }}>UP</span>
+              </h3>
+              <p style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: "bold", color: "#1A1C1A", opacity: "0.5", marginTop: "8px" }}>
+                Innovation Lab
+              </p>
+            </div>
+            {/* Stat 2 */}
+            <div style={{ padding: "50px 40px", borderRight: "2px solid #1A1C1A" }}>
+              <h3 style={{ fontWeight: "900", fontSize: "54px", marginBottom: "12px", lineHeight: "1", color: "#1A1C1A" }}>
+                02<span style={{ color: "#006565", fontSize: "54px", marginLeft: "8px" }}>+</span>
+              </h3>
+              <p style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: "bold", color: "#1A1C1A", opacity: "0.5", marginTop: "8px" }}>
+                Active Projects
+              </p>
+            </div>
+            {/* Stat 3 */}
+            <div style={{ padding: "50px 40px" }}>
+              <h3 style={{ fontWeight: "900", fontSize: "54px", marginBottom: "12px", lineHeight: "1", color: "#1A1C1A" }}>
+                <span style={{ color: "#1A1C1A" }}>012</span>
+                <span style={{ color: "#A33B3C", fontSize: "24px", marginLeft: "8px" }}>BUILDERS</span>
+              </h3>
+              <p style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: "bold", color: "#1A1C1A", opacity: "0.5", marginTop: "8px" }}>
+                Community
+              </p>
+            </div>
           </div>
-          {/* Stat 2 */}
-          <div className="p-10 sm:p-12 md:p-14">
-            <h3 className="font-black text-4xl sm:text-5xl mb-2 tabular-nums text-[#1A1C1A] leading-none">
-              02<span className="text-[#006565] text-4xl ml-1">+</span>
-            </h3>
-            <p className="text-[11px] sm:text-[12px] uppercase tracking-widest font-bold text-[#1A1C1A]/50 mt-2">
-              Active Projects
-            </p>
-          </div>
-          {/* Stat 3 */}
-          <div className="p-10 sm:p-12 md:p-14">
-            <h3 className="font-black text-4xl sm:text-5xl mb-2 tabular-nums leading-none">
-              <span className="text-[#1A1C1A]">012</span>
-              <span className="text-[#A33B3C] text-2xl ml-1">BUILDERS</span>
-            </h3>
-            <p className="text-[11px] sm:text-[12px] uppercase tracking-widest font-bold text-[#1A1C1A]/50 mt-2">
-              Community
-            </p>
-          </div>
-        </div>
 
-        {/* Terminal strip */}
-        <div className="p-6 sm:p-10 border-t-2 border-[#1A1C1A] border-dashed bg-[#faf9f6]">
-          <div className="font-mono text-[11px] sm:text-[12px] text-[#1A1C1A]/70 space-y-1.5">
-            <p>&gt;&gt; cat mission.txt &quot;Learn. Build. Ship. Repeat...&quot; [CONSTANT]</p>
-            <p>&gt;&gt; establishing dev community... [ACTIVE]</p>
-            <div className="flex justify-between items-center pt-2">
-              <p>&gt;&gt; cidc --version</p>
-              <p className="font-black text-[#1A1C1A]">CIDC_v4.0 | Building Developers, Not Just Coders</p>
+          {/* Terminal Strip */}
+          <div style={{ padding: "50px 40px", borderTop: "2px dashed #1A1C1A", backgroundColor: "#faf9f6" }}>
+            <div style={{ fontFamily: "monospace", fontSize: "12px", color: "#1A1C1A", opacity: "0.7", lineHeight: "1.6" }}>
+              <p style={{ margin: "0 0 12px 0" }}>&gt;&gt; cat mission.txt &quot;Learn. Build. Ship. Repeat...&quot; [CONSTANT]</p>
+              <p style={{ margin: "0 0 12px 0" }}>&gt;&gt; establishing dev community... [ACTIVE]</p>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "16px", paddingTop: "12px" }}>
+                <p style={{ margin: "0" }}>&gt;&gt; cidc --version</p>
+                <p style={{ margin: "0", fontWeight: "900", color: "#1A1C1A" }}>CIDC_v4.0 | Building Developers, Not Just Coders</p>
+              </div>
             </div>
           </div>
         </div>

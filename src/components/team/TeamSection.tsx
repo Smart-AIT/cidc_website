@@ -77,36 +77,37 @@ const TEAM_MEMBERS = [
 
 export default function TeamSection() {
   return (
-    <section id="team" className="max-w-full mx-auto px-4 sm:px-12 py-12 sm:py-24 border-t-2 border-[#1A1C1A]">
+    <section id="team" style={{ width: "100%", marginLeft: "auto", marginRight: "auto", paddingLeft: "40px", paddingRight: "40px", paddingTop: "60px", paddingBottom: "60px", borderTop: "2px solid #1A1C1A" }}>
       {/* Header */}
-      <header className="mb-12 sm:mb-20">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#A33B3C] mb-4">
+      <header style={{ marginBottom: "80px" }}>
+        <p style={{ fontFamily: "monospace", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", marginBottom: "16px" }}>
           CIDC_VERSION_04
         </p>
-        <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase leading-[0.8] mb-8">
+        <h2 style={{ fontSize: "clamp(2.5rem, 10vw, 5rem)", fontWeight: "900", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: "0.8", marginBottom: "32px", color: "#1A1C1A" }}>
           TEAM<br />
-          <span className="text-[#006565]">MODULES</span>
+          <span style={{ color: "#006565" }}>MODULES</span>
         </h2>
-        <p className="text-base sm:text-lg max-w-xl text-[#1A1C1A] font-medium leading-tight">
+        <div style={{ width: "80px", height: "4px", backgroundColor: "#1A1C1A", marginBottom: "32px" }}></div>
+        <p style={{ fontSize: "16px", maxWidth: "600px", color: "#1A1C1A", fontWeight: "500", lineHeight: "1.6" }}>
           A multidisciplinary collective of engineers and designers operating at
           the intersection of technical rigidity and digital entropy.
         </p>
       </header>
 
       {/* Team Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-2 border-[#1A1C1A]">
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0", border: "2px solid #1A1C1A", marginBottom: "48px" }}>
         {TEAM_MEMBERS.map((member) => (
           <TeamMemberCard key={member.ref_id} {...member} />
         ))}
       </div>
 
       {/* Chapter Banner */}
-      <div className="mt-12 bg-[#006565] border-2 border-[#1A1C1A] p-8 sm:p-12 flex flex-col sm:flex-row justify-between items-center gap-8">
+      <div style={{ backgroundColor: "#006565", border: "2px solid #1A1C1A", padding: "48px", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", gap: "32px" }}>
         <div>
-          <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mb-2">CIDC STUDENT CHAPTER</h3>
-          <p className="text-white/80 text-sm max-w-lg">We are always scouting for engineers and visual thinkers. Share your ideas, showcase your project. Join us to build the AIT smart, ping us builders. </p>
+          <h3 style={{ fontSize: "32px", fontWeight: "900", color: "white", textTransform: "uppercase", letterSpacing: "-0.01em", marginBottom: "12px" }}>CIDC STUDENT CHAPTER</h3>
+          <p style={{ color: "rgba(255, 255, 255, 0.8)", fontSize: "14px", maxWidth: "500px", lineHeight: "1.6" }}>We are always scouting for engineers and visual thinkers. Share your ideas, showcase your project. Join us to build the AIT smart, ping us builders. </p>
         </div>
-        <a href="#contact" className="bg-[#1A1C1A] text-white px-10 py-4 font-bold uppercase tracking-widest text-xs border-2 border-[#1A1C1A] hover:bg-white hover:text-[#1A1C1A] transition-colors">
+        <a href="#contact" style={{ backgroundColor: "#1A1C1A", color: "white", padding: "16px 32px", fontWeight: "bold", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.1em", border: "2px solid white", textDecoration: "none", display: "inline-block", transition: "all 0.2s ease", cursor: "pointer" }}>
           JOIN
         </a>
       </div>
