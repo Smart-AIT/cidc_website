@@ -1,78 +1,12 @@
 import TeamMemberCard from "./TeamMemberCard";
 
 const TEAM_MEMBERS = [
-  {
-    ref_id: "Secretary_01",
-    iconBg: "bg-[#008080]",
-    iconColor: "text-[#e3fffe]",
-    icon: "terminal",
-    name: "Jagdish Singh",
-    role: "Frontend Lead",
-    description:
-      "Expert in complex UI state machines and high-performance React architectures. Bridging the gap between design spec and browser execution.",
-    link1Icon: "alternate_email",
-    link2Icon: "code",
-  },
-  {
-    ref_id: "Secretary_02",
-    iconBg: "bg-[#fe807d]",
-    iconColor: "text-[#74181d]",
-    icon: "database",
-    name: "Ebha Mollick",
-    role: "Backend & DB",
-    description:
-      "Managing distributed systems and data integrity for high-concurrency applications. Focus on Rust and PostgreSQL optimization.",
-    link1Icon: "alternate_email",
-    link2Icon: "data_object",
-  },
-  {
-    ref_id: "TE_Member_01",
-    iconBg: "bg-[#e3e2e0]",
-    iconColor: "text-[#1A1C1A]",
-    icon: "cloud",
-    name: "Mohit Kumar Sharma",
-    role: "Cloud & Infra",
-    description:
-      "Scalability architect specializing in Kubernetes, AWS, and serverless edge computing. Designing resilient digital foundations.",
-    link1Icon: "alternate_email",
-    link2Icon: "dns",
-  },
-  {
-    ref_id: "TE_Member_02",
-    iconBg: "bg-[#006565]",
-    iconColor: "text-white",
-    icon: "token",
-    name: "Shreya Prasad",
-    role: "Web3 Architect",
-    description:
-      "Blockchain engineer focusing on smart contract security and decentralized governance models. Building the trustless web.",
-    link1Icon: "alternate_email",
-    link2Icon: "link",
-  },
-  {
-    ref_id: "Joint_Secretary_01",
-    iconBg: "bg-[#1A1C1A]",
-    iconColor: "text-[#faf9f6]",
-    icon: "view_quilt",
-    name: "Pradeep Kumar",
-    role: "Lead UI/UX",
-    description:
-      "Synthesizing brutalist aesthetics with functional accessibility. Rejecting the standard for the intentional.",
-    link1Icon: "alternate_email",
-    link2Icon: "brush",
-  },
-  {
-    ref_id: "Joint_Secretary_02",
-    iconBg: "bg-[#A33B3C]",
-    iconColor: "text-white",
-    icon: "layers",
-    name: "Abhay Singh",
-    role: "Graphics",
-    description:
-      "Creating visual assets that exist on the edge of technical documentation and abstract expressionism. 3D and 2D fusion.",
-    link1Icon: "alternate_email",
-    link2Icon: "palette",
-  },
+  { ref_id: "Sec_01", name: "Jagdish Singh", role: "Frontend Lead", instagram: "https://instagram.com/cidc_aitpune", email: "jagdish@example.com" },
+  { ref_id: "Sec_02", name: "Ebha Mollick", role: "Backend & DB", instagram: "https://instagram.com/cidc_aitpune", email: "ebha@example.com" },
+  { ref_id: "TE_01", name: "Mohit Kr Sharma", role: "Cloud & Infra", instagram: "https://instagram.com/cidc_aitpune", email: "mohit@example.com" },
+  { ref_id: "TE_02", name: "Shreya Prasad", role: "Web3 Architect", instagram: "https://instagram.com/cidc_aitpune", email: "shreya@example.com" },
+  { ref_id: "JS_01", name: "Pradeep Kumar", role: "Lead UI/UX", instagram: "https://instagram.com/cidc_aitpune", email: "pradeep@example.com" },
+  { ref_id: "JS_02", name: "Abhay Singh", role: "Graphics", instagram: "https://instagram.com/cidc_aitpune", email: "abhay@example.com" },
 ];
 
 export default function TeamSection() {
@@ -94,11 +28,62 @@ export default function TeamSection() {
         </p>
       </header>
 
-      {/* Team Grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0", border: "2px solid #1A1C1A", marginBottom: "48px" }}>
-        {TEAM_MEMBERS.map((member) => (
-          <TeamMemberCard key={member.ref_id} {...member} />
-        ))}
+      {/* Team Infinite Marquees */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes marqueeScrollLeft {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+        @keyframes marqueeScrollRight {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(0); }
+        }
+        
+        .marquee-track-right {
+          display: flex;
+          gap: 24px;
+          flex-shrink: 0;
+          padding-right: 24px; 
+          animation: marqueeScrollRight 25s linear infinite;
+        }
+        .marquee-track-left {
+          display: flex;
+          gap: 24px;
+          flex-shrink: 0;
+          padding-right: 24px;
+          animation: marqueeScrollLeft 25s linear infinite;
+        }
+
+        .team-marquee-container:hover .marquee-track-left,
+        .team-marquee-container:hover .marquee-track-right {
+          animation-play-state: paused;
+        }
+      `}} />
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "32px", marginBottom: "80px" }}>
+        
+        {/* Above row (Scrolls Right) */}
+        <div className="team-marquee-container" style={{ display: "flex", overflow: "hidden", position: "relative", width: "100%", paddingBottom: "12px", paddingTop: "4px" }}>
+          {[0, 1].map((trackIndex) => (
+            <div key={trackIndex} className="marquee-track-right" aria-hidden={trackIndex !== 0}>
+              {TEAM_MEMBERS.map((member, i) => (
+                <TeamMemberCard key={`above-${member.ref_id}-${i}`} {...member} />
+              ))}
+            </div>
+          ))}
+        </div>
+
+        {/* Below row (Scrolls Left) */}
+        <div className="team-marquee-container" style={{ display: "flex", overflow: "hidden", position: "relative", width: "100%", paddingBottom: "12px" }}>
+          {[0, 1].map((trackIndex) => (
+            <div key={trackIndex} className="marquee-track-left" aria-hidden={trackIndex !== 0}>
+              {TEAM_MEMBERS.map((member, i) => (
+                <TeamMemberCard key={`below-${member.ref_id}-${i}`} {...member} />
+              ))}
+            </div>
+          ))}
+        </div>
+        
       </div>
 
       {/* Chapter Banner */}

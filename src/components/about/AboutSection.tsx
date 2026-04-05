@@ -92,29 +92,63 @@ export default function AboutSection() {
       </div>
 
       {/* Upcoming Section Footer */}
-      <div style={{ marginTop: "96px", display: "grid", gridTemplateColumns: "2fr 1fr", gap: "48px", alignItems: "flex-end" }}>
-        <div>
-          <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "16px", letterSpacing: "-0.01em", color: "#1A1C1A" }}>UPCOMING PROJECTS</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: "48px", rowGap: "8px", fontFamily: "monospace", fontSize: "9px", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "0.08em", color: "#1A1C1A", opacity: "0.5" }}>
-            <p style={{ margin: "0" }}>Digital Leave & Outpass System</p>
-            <p style={{ margin: "0" }}>Feedback & Grievance System</p>
-            <p style={{ margin: "0" }}>Lost & Found Management</p>
-            <p style={{ margin: "0" }}>Hostel Room Management</p>
-            <p style={{ margin: "0" }}>Student Idea & Innovation Portal</p>
-            <p style={{ margin: "0" }}>Laundry Management System</p>
+      <div style={{ marginTop: "96px", display: "flex", flexDirection: "column", gap: "24px" }}>
+        <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "0px", letterSpacing: "-0.01em", color: "#1A1C1A" }}>UPCOMING PROJECTS</h3>
+        
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+          }
+          .marquee-track {
+            display: flex;
+            gap: 24px;
+            flex-shrink: 0;
+            padding-right: 24px; /* Matches the gap so both tracks connect seamlessly */
+            animation: marqueeScroll 25s linear infinite;
+          }
+        `}} />
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "48px" }}>
+          
+          <div className="marquee-container" style={{ display: "flex", overflow: "hidden", position: "relative", width: "100%", paddingBottom: "12px" }}>
+            {[0, 1].map((trackIndex) => (
+              <div key={trackIndex} className="marquee-track" aria-hidden={trackIndex !== 0}>
+                {[
+                  { name: "Digital Leave & Outpass System", desc: "Streamlining digital approvals for hostel leaves with robust QR tracking." },
+                  { name: "Feedback & Grievance System", desc: "Anonymous reporting platform for logging campus issues and resolution tracking." },
+                  { name: "Lost & Found Management", desc: "Centralized campus repository for quickly logging found and missing items." },
+                  { name: "Hostel Room Management", desc: "Automated room allocations, status monitoring, and complaint ticketing log." },
+                  { name: "Student Idea & Innovation Portal", desc: "Where students submit concepts, find collab teams, and receive R&D funding." },
+                  { name: "Laundry Management System", desc: "Digital tracking for student laundry cycles, pickups, and capacity limits." }
+                ].map((proj, i) => (
+                  <div key={i} style={{ width: "280px", flexShrink: 0, padding: "24px", border: "2px solid #1A1C1A", backgroundColor: "#fff", display: "flex", flexDirection: "column", gap: "12px", boxShadow: "4px 4px 0px 0px rgba(26,28,26,0.1)" }}>
+                    <div style={{ width: "24px", height: "4px", backgroundColor: "#A33B3C" }}></div>
+                    <h4 style={{ fontSize: "16px", fontWeight: "900", textTransform: "uppercase", color: "#1A1C1A", lineHeight: "1.2" }}>{proj.name}</h4>
+                    <p style={{ fontSize: "11px", color: "rgba(26,28,26,0.7)", fontWeight: "bold", fontFamily: "monospace", letterSpacing: "0.05em", lineHeight: "1.5" }}>{proj.desc}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
-          <button style={{ marginTop: "32px", backgroundColor: "#006565", color: "white", padding: "12px 32px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", border: "2px solid #1A1C1A", cursor: "pointer" }}>
-            WANT TO CONTRIBUTE ? CLICK
-          </button>
-        </div>
-        <div style={{ border: "2px solid #1A1C1A", padding: "16px", backgroundColor: "#f4f3f1", minWidth: "250px" }}>
-          <div style={{ fontFamily: "monospace", fontSize: "9px", display: "flex", flexDirection: "column", gap: "8px", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.08em", color: "#1A1C1A" }}>
-            <div style={{ display: "flex", justifyContent: "space-between" }}><span>Latest_Log_v04</span></div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; CIDC_CODE: INITIALIZED</span></div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; PROJECT_PIPELINE: ACTIVE</span></div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; TEAM_MODULE_CONNECTED</span></div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; SYSTEM_STATUS: RUNNING</span></div>
+          
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "48px", alignItems: "flex-end" }}>
+            <div>
+              <button style={{ backgroundColor: "#006565", color: "white", padding: "12px 32px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", border: "2px solid #1A1C1A", cursor: "pointer", transition: "all 0.2s ease" }} className="hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1A1C1A]">
+                WANT TO CONTRIBUTE ? CLICK
+              </button>
+            </div>
+            <div style={{ border: "2px solid #1A1C1A", padding: "16px", backgroundColor: "#f4f3f1", minWidth: "250px" }}>
+              <div style={{ fontFamily: "monospace", fontSize: "9px", display: "flex", flexDirection: "column", gap: "8px", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.08em", color: "#1A1C1A" }}>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>Latest_Log_v04</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; CIDC_CODE: INITIALIZED</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; PROJECT_PIPELINE: ACTIVE</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; TEAM_MODULE_CONNECTED</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>&gt; SYSTEM_STATUS: RUNNING</span></div>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>

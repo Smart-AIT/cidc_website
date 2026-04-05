@@ -1,4 +1,12 @@
+"use client";
+
+import { useRef } from "react";
 import EventCard from "./EventCard";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const EVENTS = [
   {
@@ -37,8 +45,31 @@ const EVENTS = [
 ];
 
 export default function EventsSection() {
+  const containerRef = useRef<HTMLElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const progressLineRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!timelineRef.current || !progressLineRef.current) return;
+
+    gsap.fromTo(
+      progressLineRef.current,
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: timelineRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+        },
+      }
+    );
+  });
+
   return (
-    <section id="events" style={{ width: "100%", paddingTop: "60px", paddingBottom: "60px", paddingLeft: "40px", paddingRight: "40px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
+    <section ref={containerRef} id="events" style={{ width: "100%", paddingTop: "60px", paddingBottom: "60px", paddingLeft: "40px", paddingRight: "40px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
       <div style={{ maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}>
         {/* Hero Header */}
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "48px", alignItems: "flex-start", marginBottom: "80px" }}>
@@ -71,23 +102,28 @@ export default function EventsSection() {
         </div>
 
         {/* Timeline */}
-        <div style={{ position: "relative" }}>
-          {/* Vertical line */}
-          <div style={{ position: "absolute", left: "50%", top: "0", bottom: "0", width: "2px", backgroundColor: "#1A1C1A", transform: "translateX(-50%)" }} />
+        <div ref={timelineRef} style={{ position: "relative" }}>
+          {/* Vertical line - background */}
+          <div style={{ position: "absolute", left: "50%", top: "0", bottom: "0", width: "2px", backgroundColor: "rgba(26, 28, 26, 0.2)", transform: "translateX(-50%)", zIndex: 0 }} />
+          
+          {/* Vertical line - progress bar */}
+          <div ref={progressLineRef} style={{ position: "absolute", left: "50%", top: "0", bottom: "0", width: "4px", backgroundColor: "#A33B3C", transform: "translateX(-50%) scaleY(0)", transformOrigin: "top", zIndex: 1 }} />
 
           {EVENTS.map((event, index) => (
             <div
               key={`${event.title}-${index}`}
-              style={{ position: "relative", marginBottom: "96px", display: "flex", width: "100%", justifyContent: index % 2 === 0 ? "flex-start" : "flex-end" }}
+              style={{ position: "relative", marginBottom: "96px", display: "flex", width: "100%", justifyContent: index % 2 === 0 ? "flex-start" : "flex-end", zIndex: 2 }}
             >
               <div style={{ width: "45%" }}>
                 <EventCard {...event} />
               </div>
 
-              {/* Timeline markers */}
-              <div style={{ position: "absolute", left: "50%", top: "40px", width: "16px", height: "16px", backgroundColor: "#A33B3C", border: "2px solid #1A1C1A", transform: "translateX(-50%)" }} />
+              {/* Timeline marker main dot */}
+              <div style={{ position: "absolute", left: "50%", top: "40px", width: "16px", height: "16px", backgroundColor: "#A33B3C", border: "2px solid #1A1C1A", transform: "translateX(-50%)", zIndex: 3 }} />
+              
+              {/* Optional connector/spacer circles */}
               {index < EVENTS.length - 1 && (
-                <div style={{ position: "absolute", left: "50%", top: "50%", width: "32px", height: "32px", backgroundColor: "#e3e2e0", borderRadius: "50%", border: "2px solid #1A1C1A", transform: "translate(-50%, -50%)" }} />
+                <div style={{ position: "absolute", left: "50%", top: "50%", width: "32px", height: "32px", backgroundColor: "#e3e2e0", borderRadius: "50%", border: "2px solid #1A1C1A", transform: "translate(-50%, -50%)", zIndex: 2 }} />
               )}
             </div>
           ))}

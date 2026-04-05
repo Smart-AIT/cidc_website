@@ -91,7 +91,7 @@ export default function Navbar() {
             paddingBottom: "17px",
             paddingLeft: "30px",
             paddingRight: "30px",
-            borderRadius: "20px",
+            borderRadius: "0px",
           }}
           className="w-[98%] max-w-[1400px] bg-[#F5F4F1] border-[3px] border-black shadow-[6px_6px_0px_black] flex justify-between items-center transition-all duration-300 gap-4"
         >
