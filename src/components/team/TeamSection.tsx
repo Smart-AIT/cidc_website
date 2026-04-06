@@ -1,12 +1,12 @@
 import TeamMemberCard from "./TeamMemberCard";
 
 const TEAM_MEMBERS = [
-  { ref_id: "Sec_01", name: "Jagdish Singh", role: "Frontend Lead", instagram: "https://instagram.com/cidc_aitpune", email: "jagdish@example.com" },
-  { ref_id: "Sec_02", name: "Ebha Mollick", role: "Backend & DB", instagram: "https://instagram.com/cidc_aitpune", email: "ebha@example.com" },
-  { ref_id: "TE_01", name: "Mohit Kr Sharma", role: "Cloud & Infra", instagram: "https://instagram.com/cidc_aitpune", email: "mohit@example.com" },
-  { ref_id: "TE_02", name: "Shreya Prasad", role: "Web3 Architect", instagram: "https://instagram.com/cidc_aitpune", email: "shreya@example.com" },
-  { ref_id: "JS_01", name: "Pradeep Kumar", role: "Lead UI/UX", instagram: "https://instagram.com/cidc_aitpune", email: "pradeep@example.com" },
-  { ref_id: "JS_02", name: "Abhay Singh", role: "Graphics", instagram: "https://instagram.com/cidc_aitpune", email: "abhay@example.com" },
+  { name: "Jagdish Singh", role: "Frontend Lead", instagram: "https://instagram.com/cidc_aitpune", email: "jagdish@example.com" },
+  {  name: "Ebha Mollick", role: "Backend & DB", instagram: "https://instagram.com/cidc_aitpune", email: "ebha@example.com" },
+  {  name: "Mohit Kr Sharma", role: "Cloud & Infra", instagram: "https://instagram.com/cidc_aitpune", email: "mohit@example.com" },
+  {  name: "Shreya Prasad", role: "Web3 Architect", instagram: "https://instagram.com/cidc_aitpune", email: "shreya@example.com" },
+  {  name: "Pradeep Kumar", role: "Lead UI/UX", instagram: "https://instagram.com/cidc_aitpune", email: "pradeep@example.com" },
+  {  name: "Abhay Singh", role: "Graphics", instagram: "https://instagram.com/cidc_aitpune", email: "abhay@example.com" },
 ];
 
 export default function TeamSection() {
@@ -87,12 +87,12 @@ export default function TeamSection() {
       </div>
 
       {/* Chapter Banner */}
-      <div style={{ backgroundColor: "#006565", border: "2px solid #1A1C1A", padding: "48px", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", gap: "32px" }}>
+      <div style={{ backgroundColor: "#006565", border: "2px solid #1A1C1A", padding: "16px 30px", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", gap: "48px", borderRadius: "12px", boxShadow: "8px 8px 0px 0px rgba(26,28,26,0.15)", maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
         <div>
-          <h3 style={{ fontSize: "32px", fontWeight: "900", color: "white", textTransform: "uppercase", letterSpacing: "-0.01em", marginBottom: "12px" }}>CIDC STUDENT CHAPTER</h3>
-          <p style={{ color: "rgba(255, 255, 255, 0.8)", fontSize: "14px", maxWidth: "500px", lineHeight: "1.6" }}>We are always scouting for engineers and visual thinkers. Share your ideas, showcase your project. Join us to build the AIT smart, ping us builders. </p>
+          <h3 style={{ fontSize: "32px", fontWeight: "900", color: "white", textTransform: "uppercase", letterSpacing: "-0.01em", marginBottom: "8px" }}>CIDC STUDENT CHAPTER</h3>
+          <p style={{ color: "rgba(255, 255, 255, 0.9)", fontSize: "14px", maxWidth: "500px", lineHeight: "1.8", fontWeight: "500" }}>We are always scouting for engineers and visual thinkers. Share your ideas, showcase your project. Join us to build the AIT smart, ping us builders. </p>
         </div>
-        <a href="#contact" style={{ backgroundColor: "#1A1C1A", color: "white", padding: "16px 32px", fontWeight: "bold", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.1em", border: "2px solid white", textDecoration: "none", display: "inline-block", transition: "all 0.2s ease", cursor: "pointer" }}>
+        <a href="#contact" style={{ backgroundColor: "#1A1C1A", color: "white", padding: "8px 20px", fontWeight: "900", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.1em", border: "2px solid white", textDecoration: "none", display: "inline-block", transition: "all 0.2s ease", cursor: "pointer", borderRadius: "12px", whiteSpace: "nowrap" }} >
           JOIN
         </a>
       </div>

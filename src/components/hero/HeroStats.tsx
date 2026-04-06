@@ -35,7 +35,7 @@ export default function HeroStats() {
   }, []);
   return (
     <div style={{ display: "flex", justifyContent: "center", width: "100%", marginTop: "40px", marginBottom: "0px" }}>
-      <div style={{ width: "98%", maxWidth: "1400px", border: "2px solid #1A1C1A", boxShadow: "8px 8px 0px 0px #1A1C1A", backgroundColor: "white", position: "relative" }}>
+      <div style={{ width: "98%", maxWidth: "1400px", border: "2px solid #1A1C1A", boxShadow: "8px 8px 0px 0px #1A1C1A", backgroundColor: "white", position: "relative", borderRadius: "4px", overflow: "hidden" }}>
         <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
           {/* Stats Grid */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderBottom: "2px solid #1A1C1A" }}>
@@ -80,7 +80,7 @@ export default function HeroStats() {
                 {displayedLine2}
                 {displayedLine2.length < fullLine2.length && <span className="animate-pulse">|</span>}
               </p>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "16px", paddingTop: "12px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "2px", paddingTop: "12px" }}>
                 <p style={{ margin: "0" }}>&gt;&gt; cidc --version</p>
                 <p style={{ margin: "0", fontWeight: "900", color: "#1A1C1A" }}>CIDC_v4.0 | Building Developers, Not Just Coders</p>
               </div>

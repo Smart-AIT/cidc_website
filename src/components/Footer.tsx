@@ -9,8 +9,40 @@ import {
   FaMapMarkerAlt,
   FaMicrosoft,
 } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
+  const [displayedText, setDisplayedText] = useState("");
+  const fullText = "AIT_CIDC";
+
+  useEffect(() => {
+    let currentIndex = 0;
+    let phase = 0; // 0: typing, 1: wrapping up
+
+    const interval = setInterval(() => {
+      if (phase === 0) { // Typing phase
+        currentIndex++;
+        if (currentIndex > fullText.length) {
+          phase = 1; // Switch to wrap-up phase
+          currentIndex = fullText.length;
+        } else {
+          setDisplayedText(fullText.substring(0, currentIndex));
+        }
+      } else if (phase === 1) { // Wrap-up phase
+        currentIndex--;
+        if (currentIndex < 0) {
+          phase = 0; // Switch back to typing phase
+          currentIndex = 0;
+          setDisplayedText("");
+        } else {
+          setDisplayedText(fullText.substring(0, currentIndex));
+        }
+      }
+    }, 300);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <footer
       id="footer"
@@ -161,8 +193,17 @@ export default function Footer() {
             }
           `}</style>
           <div className="ait-cidc-container">
-            <h4 style={{ fontSize: "clamp(4rem, 25vw, 12rem)", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.05em", color: "#D4D4D4", cursor: "pointer", transition: "all 0.6s ease" }}>
-              AIT_CIDC
+            <h4 style={{ 
+              fontSize: "clamp(4rem, 25vw, 12rem)", 
+              fontWeight: "900", 
+              textTransform: "uppercase", 
+              letterSpacing: "0.05em", 
+              color: "#D4D4D4", 
+              cursor: "pointer", 
+              transition: "all 0.6s ease"
+            }}>
+              {displayedText}
+              {displayedText.length < fullText.length && <span className="animate-pulse">|</span>}
             </h4>
           </div>
         </div>

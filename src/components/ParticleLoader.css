@@ -64,7 +64,7 @@
   color: white;
   border: 2px solid #006565;
   padding: 12px 50px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.5em;
   cursor: pointer;
   transition: all 0.4s ease;
   font-size: 0.875rem;
@@ -76,13 +76,11 @@
   top: calc(100% + 3rem);
   left: 50%;
   transform: translateX(-50%);
+  border-radius: 6px;
 }
 
 .loader-button:hover:not(:disabled) {
-  background: #A33B3C;
-  border-color: #A33B3C;
-  box-shadow: 6px 6px 0px #1a1c1a;
-  transform: translate(calc(-50% - 2px), -2px);
+  letter-spacing: 0.05em;
 }
 
 .loader-button.waiting {

@@ -84,7 +84,7 @@ export default function EventsSection() {
       }
     );
 
-    // Add reveal effect to event cards
+    // Add reveal/hide effect to event cards based on scroll
     eventCardsRef.current.forEach((card, index) => {
       if (!card) return;
       
@@ -97,13 +97,13 @@ export default function EventsSection() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
-          ease: "power2.out",
+          ease: "none",
           scrollTrigger: {
             trigger: card,
-            start: "top 85%",
-            end: "top 50%",
-            scrub: false,
+            start: "top 75%",
+            end: "top 20%",
+            scrub: 1,
+            invalidateOnRefresh: true,
           },
         }
       );
@@ -167,7 +167,7 @@ export default function EventsSection() {
               <div style={{ position: "absolute", left: "50%", top: "40px", width: "16px", height: "16px", backgroundColor: "#A33B3C", border: "2px solid #1A1C1A", transform: "translateX(-50%)", zIndex: 3 }} />
               
               {/* Optional connector/spacer circles */}
-              {index < EVENTS.length - 1 && (
+              {index < EVENTS.length && (
                 <div style={{ position: "absolute", left: "50%", top: "50%", width: "32px", height: "32px", backgroundColor: "#e3e2e0", borderRadius: "50%", border: "2px solid #1A1C1A", transform: "translate(-50%, -50%)", zIndex: 2 }} />
               )}
             </div>
@@ -175,15 +175,15 @@ export default function EventsSection() {
         </div>
 
         {/* Announcements Footer */}
-        <div style={{ marginTop: "96px", border: "2px solid #1A1C1A", padding: "48px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", alignItems: "center", backgroundColor: "#faf9f6" }}>
+        <div style={{ marginTop: "96px", border: "2px solid #1A1C1A", padding: "25px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", alignItems: "center", backgroundColor: "#faf9f6", borderRadius: "8px", maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
           <div style={{ textAlign: "left" }}>
             <p style={{ fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.1em", color: "#A33B3C", marginBottom: "8px", fontWeight: "bold" }}>ANNOUNCEMENTS</p>
             <h3 style={{ fontSize: "28px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "-0.01em", color: "#1A1C1A" }}>STAY TUNED TO THE<br />FREQUENCY</h3>
             <p style={{ fontSize: "10px", fontFamily: "monospace", marginTop: "8px", color: "#1A1C1A", opacity: "0.6", fontWeight: "bold", letterSpacing: "0.08em" }}>BE THE PART OF SYSTEM. JOIN THE NETWORK.</p>
           </div>
           <div style={{ display: "flex", gap: "0" }}>
-            <input type="text" placeholder={displayedPlaceholder} style={{ flex: "1", backgroundColor: "#e3e2e0", border: "2px solid #1A1C1A", padding: "16px 24px", fontFamily: "monospace", fontSize: "14px", outline: "none" }} />
-            <button style={{ backgroundColor: "#1A1C1A", color: "white", padding: "16px 32px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", border: "2px solid #1A1C1A", cursor: "pointer", whiteSpace: "nowrap" }}>
+            <input type="text" placeholder={displayedPlaceholder} style={{ flex: "1", backgroundColor: "#e3e2e0", border: "2px solid #1A1C1A", padding: "16px 24px", fontFamily: "monospace", fontSize: "14px", outline: "none", borderRadius: "12px 0 0 12px" }} />
+            <button style={{ backgroundColor: "#1A1C1A", color: "white", padding: "16px 32px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", border: "2px solid #1A1C1A", cursor: "pointer", whiteSpace: "nowrap", borderRadius: "0 12px 12px 0" }}>
               JOIN_US_FOR_COOKIE
             </button>
           </div>

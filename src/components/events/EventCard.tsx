@@ -60,7 +60,7 @@ export default function EventCard({
           {description}
         </p>
         
-        <button style={{ width: "100%", padding: "16px 0", border: "2px solid #1A1C1A", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", cursor: "pointer", backgroundColor: isTeal ? "transparent" : status === "ACTIVE" ? "#006565" : "white", color: isTeal ? "white" : status === "ACTIVE" ? "white" : "#1A1C1A" }}>
+        <button style={{ padding: "10px 24px", border: "2px solid #1A1C1A", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "12px", cursor: "pointer", backgroundColor: isTeal ? "transparent" : status === "ACTIVE" ? "#006565" : "white", color: isTeal ? "white" : status === "ACTIVE" ? "white" : "#1A1C1A", borderRadius: "12px", display: "inline-block" }}>
           {ctaLabel}
         </button>
       </div>

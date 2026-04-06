@@ -36,7 +36,7 @@ export default function HeroSection() {
   return (
     <section id="home" className="w-full flex justify-center" style={{ marginTop: "0px", marginBottom: "0px" }}>
       {/* Main Hero Card */}
-      <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-0 w-[98%] max-w-[1400px] border-2 border-[#1A1C1A] shadow-[8px_8px_0px_0px_rgba(26,28,26,1)] bg-[#faf9f6] overflow-hidden">
+      <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-0 w-[98%] max-w-[1400px] border-2 border-[#1A1C1A] shadow-[8px_8px_0px_0px_rgba(26,28,26,1)] bg-[#faf9f6] overflow-hidden" style={{ borderRadius: "4px" }}>
           {/* Left Branding Column */}
           <div className="lg:col-span-12 xl:col-span-7 flex flex-col items-start justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-[#1A1C1A] relative z-20 bg-[#faf9f6]" style={{ padding: "60px 0 60px 80px" }}>
             {/* Label */}
@@ -102,14 +102,15 @@ export default function HeroSection() {
                   letterSpacing: "0.1em",
                   minWidth: "180px",
                   display: "inline-block",
-                  transition: "all 0.2s ease"
+                  transition: "all 0.2s ease",
+                  borderRadius: "12px"
                 }}
-                className="hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-[3px_3px_0px_0px_rgba(26,28,26,1)]"
+                className=" hover:shadow-[3px_3px_0px_0px_rgba(26,28,26,1)]"
               >
                 @cidc_aitpune
               </a>
               <a
-                href="#contact"
+                href="#footer"
                 style={{
                   backgroundColor: "white",
                   color: "#1A1C1A",
@@ -123,9 +124,10 @@ export default function HeroSection() {
                   letterSpacing: "0.1em",
                   minWidth: "150px",
                   display: "inline-block",
-                  transition: "all 0.2s ease"
+                  transition: "all 0.1s ease",
+                  borderRadius: "12px"
                 }}
-                className="hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-[3px_3px_0px_0px_rgba(26,28,26,1)]"
+                className=" hover:shadow-[3px_3px_0px_0px_rgba(26,28,26,1)]"
               >
                 Join us
               </a>

@@ -113,11 +113,11 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
       constructor(i: number, count: number) {
         this.baseAngle = (i / count) * Math.PI * 2;
         this.angle = this.baseAngle;
-        this.orbitRadius = 170 + Math.random() * 50;
+        this.orbitRadius = 240 + Math.random() * 90;
         this.x = cx + Math.cos(this.angle) * this.orbitRadius;
         this.y = cy + Math.sin(this.angle) * this.orbitRadius;
         this.mass = 0.01 + Math.random() * 0.02;
-        this.size = Math.random() * 1.2 + 0.3;
+        this.size = Math.random() * 2 + 0.6;
         this.rotationSpeed =
           (0.001 + Math.random() * 0.002) * (Math.random() > 0.5 ? 1 : -1);
         this.opacity = Math.random() * 0.4 + 0.3;
@@ -216,7 +216,7 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
     const init = () => {
       resize();
       particles = [];
-      for (let i = 0; i < 900; i++) particles.push(new ParticleClass(i, 900));
+      for (let i = 0; i < 1500; i++) particles.push(new ParticleClass(i, 1500));
     };
 
     const loop = () => {
@@ -260,7 +260,7 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
           className={`loader-button ${userClicked && !isLoaded ? "waiting" : ""}`}
           onClick={handleButtonClick}
           disabled={userClicked && !isLoaded}
-          style={{ pointerEvents: userClicked ? "none" : "all" }}
+          style={{ pointerEvents: userClicked ? "none" : "all", borderRadius: "12px" }}
         >
           {userClicked && !isLoaded ? "PREPARING..." : "ENTER"}
         </button>
