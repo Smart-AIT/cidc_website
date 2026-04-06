@@ -1,13 +1,22 @@
 import TeamMemberCard from "./TeamMemberCard";
 
+
 const TEAM_MEMBERS = [
-  { name: "Jagdish Singh", role: "Frontend Lead", instagram: "https://instagram.com/cidc_aitpune", email: "jagdish@example.com" },
-  {  name: "Ebha Mollick", role: "Backend & DB", instagram: "https://instagram.com/cidc_aitpune", email: "ebha@example.com" },
-  {  name: "Mohit Kr Sharma", role: "Cloud & Infra", instagram: "https://instagram.com/cidc_aitpune", email: "mohit@example.com" },
-  {  name: "Shreya Prasad", role: "Web3 Architect", instagram: "https://instagram.com/cidc_aitpune", email: "shreya@example.com" },
-  {  name: "Pradeep Kumar", role: "Lead UI/UX", instagram: "https://instagram.com/cidc_aitpune", email: "pradeep@example.com" },
-  {  name: "Abhay Singh", role: "Graphics", instagram: "https://instagram.com/cidc_aitpune", email: "abhay@example.com" },
+  { ref_id: 6, name: "Ritika", role: "Frontend Developer", instagram: "https://instagram.com/cidc_aitpune", email: "ritika@example.com", image: "/image/ritika.jpg" },
+  { ref_id: 7, name: "Simran Singh", role: "Frontend Developer", instagram: "https://instagram.com/cidc_aitpune", email: "simran@example.com", image: "/image/simran.png" },
+  { ref_id: 8, name: "Pradeep Kumar", role: "Lead UI/UX", instagram: "https://instagram.com/cidc_aitpune", email: "pradeep@example.com", image: "/image/pradeep.jpg" },
+  { ref_id: 9, name: "Abhay Singh", role: "Graphics", instagram: "https://instagram.com/cidc_aitpune", email: "abhay@example.com", image: "/image/abhay.jpeg" },
+  { ref_id: 10, name: "Omendra Naharwal", role: "Graphics", instagram: "https://instagram.com/cidc_aitpune", email: "omendra@example.com", image: "/image/omendra.png" },
+  { ref_id: 11, name: "Rishab Singh Bhamboo", role: "Graphics", instagram: "https://instagram.com/cidc_aitpune", email: "rishab@example.com", image: "/image/rishab.png" },
 ];
+
+const TE_MEMBERS = [
+  { ref_id: 1, name: "Jagdish Singh", role: "Frontend Lead", instagram: "https://instagram.com/cidc_aitpune", email: "jagdish@example.com", image: "/image/jaggu.jpeg" },
+  { ref_id: 2, name: "Ebha Mollick", role: "Backend & DB", instagram: "https://instagram.com/cidc_aitpune", email: "ebha@example.com", image: "/image/ebbha.jpeg" },
+  { ref_id: 3, name: "Mohit Kr Sharma", role: "Cloud & Infra", instagram: "https://instagram.com/cidc_aitpune", email: "mohit@example.com", image: "/image/mohit.jpeg" },
+  { ref_id: 4, name: "Shreya Prasad", role: "Web3 Architect", instagram: "https://instagram.com/cidc_aitpune", email: "shreya@example.com", image: "/image/shreya.jpeg" },
+  { ref_id: 5, name: "Ayush Badoni", role: "Web3 Architect", instagram: "https://instagram.com/cidc_aitpune", email: "ayush@example.com", image: "/image/ayush.jpeg" },
+]
 
 export default function TeamSection() {
   return (
@@ -29,7 +38,8 @@ export default function TeamSection() {
       </header>
 
       {/* Team Infinite Marquees */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes marqueeScrollLeft {
           0% { transform: translateX(0); }
           100% { transform: translateX(-100%); }
@@ -61,12 +71,12 @@ export default function TeamSection() {
       `}} />
 
       <div style={{ display: "flex", flexDirection: "column", gap: "32px", marginBottom: "80px" }}>
-        
+
         {/* Above row (Scrolls Right) */}
         <div className="team-marquee-container" style={{ display: "flex", overflow: "hidden", position: "relative", width: "100%", paddingBottom: "12px", paddingTop: "4px" }}>
           {[0, 1].map((trackIndex) => (
             <div key={trackIndex} className="marquee-track-right" aria-hidden={trackIndex !== 0}>
-              {TEAM_MEMBERS.map((member, i) => (
+              {TE_MEMBERS.map((member, i) => (
                 <TeamMemberCard key={`above-${member.ref_id}-${i}`} {...member} />
               ))}
             </div>
@@ -83,7 +93,7 @@ export default function TeamSection() {
             </div>
           ))}
         </div>
-        
+
       </div>
 
       {/* Chapter Banner */}

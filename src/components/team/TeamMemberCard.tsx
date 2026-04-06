@@ -2,15 +2,17 @@
 import { FaInstagram, FaEnvelope } from "react-icons/fa";
 
 interface TeamMemberProps {
-  ref_id: string;
+  ref_id: number;
   name: string;
   role: string;
   instagram: string;
   email: string;
+  image: string;
 }
 
 export default function TeamMemberCard({
   ref_id,
+  image,
   name,
   role,
   instagram,
@@ -26,7 +28,8 @@ export default function TeamMemberCard({
             {ref_id}
           </span>
         </div>
-        <span style={{ fontFamily: "monospace", fontSize: "10px", color: "rgba(26,28,26,0.3)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.1em" }}>PHOTO_SPACE</span>
+        {/* <span style={{ fontFamily: "monospace", fontSize: "10px", color: "rgba(26,28,26,0.3)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.1em" }}>PHOTO_SPACE</span> */}
+        <img src={image} alt={`${name}'s photo`} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "4px" }} />
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
