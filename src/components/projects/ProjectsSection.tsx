@@ -1,12 +1,13 @@
+import { image, object } from "framer-motion/client";
 import ScrollStack, { ScrollStackItem } from "./ScrollStack";
+import Image from "next/image";
 
 const PROJECT_LIST = [
-  { name: "CAMPUS NAV APP", desc: "Spatial orientation for chaotic environments. Real-time pathfinding utilizing sub-grid mapping and decentralized node validation." },
-  { name: "ALGO-TRADING BOT", desc: "High-frequency execution engine. Optimized for low-latency market manipulation detection and arbitrage identification." },
-  { name: "DIGITAL LEAVE & OUTPASS", desc: "Streamlining digital approvals for hostel leaves with robust QR tracking and multi-tier verification protocols." },
-  { name: "FEEDBACK & GRIEVANCE", desc: "Anonymous reporting platform for logging campus issues and resolution tracking using encrypted channels." },
-  { name: "LOST & FOUND MANAGEMENT", desc: "Centralized campus repository for quickly logging found and missing items via crowdsourced tagging." },
-  { name: "LAUNDRY MANAGEMENT", desc: "Digital tracking for student laundry cycles, pickups, and capacity limits integrated with smart IoT machines." }
+  { name: "AIT Website", desc: "Official website of Army Institute of Technology (AIT), providing information about academics, admissions, campus life, events, and resources for students and faculty.", image: "/projects/ait.png", style: { objectFit: "cover" } },
+  { name: "Sniffi", desc: "A home veterinary service platform that provides expert pet healthcare at your doorstep, including consultations, vaccinations, wellness checkups, and diagnostics—making pet care convenient, stress-free, and personalized.", image: "/projects/sniffi2.png", style: { objectFit: "cover" } },
+  { name: "PROJAK", desc: "A business consulting and technology solutions platform that helps organizations grow through data-driven analysis, expert guidance, strategic planning, and result-oriented execution to maximize efficiency and performance.", image: "/projects/projak.png", style: { objectFit: "cover" } },
+  { name: "SUGGEST", desc: "A book discovery platform that helps users explore, review, and recommend books through video reviews, AI-powered summaries, and community-driven insights, making reading more interactive and engaging.", image: "/projects/suggest.png", style: { objectFit: "contain" } },
+  { name: "AIT Smart Labs", desc: "A smart lab management system that enables users to create, organize, and manage QR codes for lab resources, helping streamline access, tracking, and digital interaction within laboratory environments.", image: "/projects/aitsmartlab.png", style: { objectFit: "contain" } },
 ];
 
 export default function ProjectsSection() {
@@ -38,8 +39,9 @@ export default function ProjectsSection() {
                 <div className="scroll-stack-card-desc">{proj.desc}</div>
 
                 {/* Full-width image block below */}
-                <div className="scroll-stack-card-image" style={{ marginTop: "40px", marginBottom: "0" }}>
-                  <span style={{ fontFamily: "monospace", fontSize: "14px", color: "rgba(26,28,26,0.25)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.15em" }}>PROJECT_IMAGE_{String(i + 1).padStart(2, "0")}</span>
+                <div className="scroll-stack-card-image relative" style={{ marginTop: "40px", marginBottom: "0" }}>
+                  {/* <span style={{ fontFamily: "monospace", fontSize: "14px", color: "rgba(26,28,26,0.25)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.15em" }}>PROJECT_IMAGE_{String(i + 1).padStart(2, "0")}</span> */}
+                  <img src={proj.image} alt={proj.name}  className={proj.style?.objectFit === "contain" ? "w-full h-full object-contain" : "w-full h-full object-cover"} />
                 </div>
               </ScrollStackItem>
             ))}

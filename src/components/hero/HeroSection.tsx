@@ -138,8 +138,11 @@ export default function HeroSection() {
           <div className="lg:col-span-12 xl:col-span-5 bg-[#e1e2de] relative min-h-[450px] lg:min-h-[650px] flex flex-col items-center justify-center p-12 sm:p-20 z-10">
             
             {/* CIDC Geometric Logo Setup */}
-            <div className="relative w-full max-w-[400px] sm:max-w-[480px] aspect-[16/10] flex justify-center items-center border-[1.5px] border-[#006565]/25 -mt-10 lg:mt-0">
+            <div className="relative w-full max-w-[400px] sm:max-w-[480px] aspect-[16/10] flex flex-col justify-center items-center  border-[#006565]/25 -mt-10 lg:mt-0">
               {/* The Text */}
+              <h1 className="text-[3rem] sm:text-[4rem] lg:text-[6rem] font-black text-[#1A1C1A] leading-none tracking-tighter z-20 relative">
+                ｛／｝
+              </h1>
               <h2 className="text-[6.5rem] sm:text-[8.5rem] lg:text-[10rem] font-black text-[#1A1C1A] leading-none tracking-tighter z-20 relative">
                 CIDC
               </h2>
