@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const EVENTS = [
   {
     ref_id: "REF_LOG",
-    status: "UPCOMING" as const,
+    status: "Upcoming" as const,
     title: "SYSTEM DESIGN BATTLE",
     date: "Dates: coming soon",
     description:
@@ -22,7 +22,7 @@ const EVENTS = [
   },
   {
     ref_id: "REF_LOG",
-    status: "UPCOMING" as const,
+    status: "Upcoming" as const,
     title: "AGENTIC ARENA HACKATHON",
     date: "Dates: coming soon",
     description:
@@ -33,7 +33,7 @@ const EVENTS = [
   },
   {
     ref_id: "REF_LOG",
-    status: "UPCOMING" as const,
+    status: "Upcoming" as const,
     title: "CAMPUS CATALYST",
     date: "Dates: coming soon",
     description:
@@ -135,7 +135,7 @@ export default function EventsSection() {
           <div>
             <div style={{ border: "2px solid #1A1C1A", padding: "8px", backgroundColor: "#faf9f6" }}>
               <img
-                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=500&fit=crop"
+                src="https://i.pinimg.com/originals/be/81/df/be81dfb06285a3f7b455d1d708e3d6b0.gif"
                 alt="Events visual"
                 style={{ width: "100%", filter: "grayscale(1)" }}
               />

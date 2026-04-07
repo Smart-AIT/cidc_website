@@ -58,7 +58,7 @@ export default function AboutSection() {
             {/* Left: Icon + Label */}
             <div style={{ padding: "64px 48px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", backgroundColor: "#faf9f6", borderRight: "2px solid #1A1C1A" }}>
               <span className="material-symbols-outlined" style={{ fontSize: "clamp(6rem, 14vw, 8rem)", color: "#1A1C1A", marginBottom: "24px" }}>
-                settings
+                track_changes
               </span>
               <span style={{ fontFamily: "monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", fontWeight: "700" }}>
                 OPERATIONAL_MISSION

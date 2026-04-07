@@ -15,6 +15,11 @@ export default function Footer() {
   const [displayedText, setDisplayedText] = useState("");
   const fullText = "AIT_CIDC";
 
+  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     let currentIndex = 0;
     let phase = 0; // 0: typing, 1: wrapping up
@@ -160,17 +165,22 @@ export default function Footer() {
             <div style={{ width: "40px", height: "2px", backgroundColor: "#A33B3C", marginBottom: "24px" }}></div>
 
             <div className="flex items-center gap-5">
-              {[FaInstagram, FaLinkedin, FaGithub, FaMapMarkerAlt].map(
-                (Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="text-[#1A1C1A] hover:text-[#A33B3C] transition-transform hover:scale-110"
-                  >
-                    <Icon className="w-6 h-6" />
-                  </a>
-                )
-              )}
+              {[
+                { Icon: FaInstagram, href: "#" },
+                { Icon: FaLinkedin, href: "#" },
+                { Icon: FaGithub, href: "https://github.com/Smart-AIT" },
+                { Icon: FaMapMarkerAlt, href: "https://maps.google.com/?q=Army+Institute+of+Technology+Pune" },
+              ].map((item, i) => (
+                <a
+                  key={i}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1A1C1A] hover:text-[#A33B3C] transition-transform hover:scale-110"
+                >
+                  <item.Icon className="w-6 h-6" />
+                </a>
+              ))}
             </div>
           </div>
         </div>

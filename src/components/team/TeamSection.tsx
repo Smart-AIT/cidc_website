@@ -2,20 +2,20 @@ import TeamMemberCard from "./TeamMemberCard";
 
 
 const TEAM_MEMBERS = [
-  { ref_id: 6, name: "Ritika", role: "Frontend Developer", instagram: "https://instagram.com/cidc_aitpune", email: "ritika@example.com", image: "/image/ritika.jpg" },
-  { ref_id: 7, name: "Simran Singh", role: "Frontend Developer", instagram: "https://instagram.com/cidc_aitpune", email: "simran@example.com", image: "/image/simran.png" },
-  { ref_id: 8, name: "Pradeep Kumar", role: "Lead UI/UX", instagram: "https://www.instagram.com/pradeepkumar0805/", email: "pk4401128@gmail.com", image: "/image/pradeep.jpg" },
-  { ref_id: 9, name: "Abhay Singh", role: "Graphics", instagram: "https://www.instagram.com/abhaysingh22_/", email: "abhaysingh6575@gmail.com", image: "/image/abhay.jpeg" },
-  { ref_id: 10, name: "Omendra Naharwal", role: "Graphics", instagram: "https://instagram.com/cidc_aitpune", email: "omendra@example.com", image: "/image/omendra.png" },
-  { ref_id: 11, name: "Rishab Singh Bhamboo", role: "Graphics", instagram: "https://instagram.com/cidc_aitpune", email: "rishab@example.com", image: "/image/rishab.png" },
+  { ref_id: 6, name: "Ritika", role: "Frontend Developer", instagram: "https://www.instagram.com/ritikagautam375/", email: "ritika@example.com", image: "/image/ritika.jpg" },
+  { ref_id: 7, name: "Simran Singh", role: "Frontend Developer", instagram: "https://www.instagram.com/heysimmi_19/", email: "simran@example.com", image: "/image/simran.png" },
+  { ref_id: 8, name: "Pradeep Kumar", role: "Mobile & Backend Developer", instagram: "https://www.instagram.com/pradeepkumar0805/", email: "pk4401128@gmail.com", image: "/image/pradeep.jpg" },
+  { ref_id: 9, name: "Abhay Singh", role: "Backend, GenAI Developer", instagram: "https://www.instagram.com/abhaysingh22_/", email: "abhaysingh6575@gmail.com", image: "/image/abhay.jpeg" },
+  { ref_id: 10, name: "Omendra Naharwal", role: "Graphics, Problem Solver", instagram: "https://instagram.com/cidc_aitpune", email: "omendra@example.com", image: "/image/omendra.png" },
+  { ref_id: 11, name: "Rishab Bhamboo", role: "Graphics, Problem Solver", instagram: "https://instagram.com/cidc_aitpune", email: "rishab@example.com", image: "/image/rishab.png" },
 ];
 
 const TE_MEMBERS = [
   { ref_id: 1, name: "Jagdish Singh", role: "Frontend Lead", instagram: "https://www.instagram.com/jagdishpawar._/", email: "jatinpawar354@gmail.com", image: "/image/jaggu.jpeg" },
-  { ref_id: 2, name: "Ebha Mollick", role: "Backend & DB", instagram: "https://www.instagram.com/ebha_mollick/", email: "ebhamollick@gmail.com", image: "/image/ebbha.jpeg" },
-  { ref_id: 3, name: "Mohit Kr Sharma", role: "Cloud & Infra", instagram: "https://www.instagram.com/its._mohit.sharma/", email: "mohit1414.sharma@gmail.com", image: "/image/mohit.jpeg" },
-  { ref_id: 4, name: "Shreya Prasad", role: "Web3 Architect", instagram: "https://www.instagram.com/_shreya05prasad_/", email: "shreyaprasad495@gmail.com", image: "/image/shreya.jpeg" },
-  { ref_id: 5, name: "Ayush Badoni", role: "Web3 Architect", instagram: "https://www.instagram.com/a.v.1909/", email: "ayushbadoni.official@gmail.com", image: "/image/ayush.jpeg" },
+  { ref_id: 2, name: "Ebha Mollick", role: "DBMS Lead", instagram: "https://www.instagram.com/ebha_mollick/", email: "ebhamollick@gmail.com", image: "/image/ebbha.jpeg" },
+  { ref_id: 3, name: "Mohit Kr Sharma", role: "Backend Lead", instagram: "https://www.instagram.com/its._mohit.sharma/", email: "mohit1414.sharma@gmail.com", image: "/image/mohit.jpeg" },
+  { ref_id: 4, name: "Shreya Prasad", role: "Cloud Lead", instagram: "https://www.instagram.com/_shreya05prasad_/", email: "shreyaprasad495@gmail.com", image: "/image/shreya.jpeg" },
+  { ref_id: 5, name: "Ayush Badoni", role: "Networking Head", instagram: "https://www.instagram.com/a.v.1909/", email: "ayushbadoni.official@gmail.com", image: "/image/ayush.jpeg" },
 ]
 
 export default function TeamSection() {

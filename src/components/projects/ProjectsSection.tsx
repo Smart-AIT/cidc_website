@@ -3,11 +3,12 @@ import ScrollStack, { ScrollStackItem } from "./ScrollStack";
 import Image from "next/image";
 
 const PROJECT_LIST = [
-  { name: "AIT Website", desc: "Official website of Army Institute of Technology (AIT), providing information about academics, admissions, campus life, events, and resources for students and faculty.", image: "/projects/ait.png", style: { objectFit: "cover" } },
+  { name: "AIT Website", desc: "Official website of Army Institute of Technology, Pune.", image: "/projects/ait.png", style: { objectFit: "cover" } },
   { name: "Sniffi", desc: "A home veterinary service platform that provides expert pet healthcare at your doorstep, including consultations, vaccinations, wellness checkups, and diagnostics—making pet care convenient, stress-free, and personalized.", image: "/projects/sniffi2.png", style: { objectFit: "cover" } },
-  { name: "PROJAK", desc: "A business consulting and technology solutions platform that helps organizations grow through data-driven analysis, expert guidance, strategic planning, and result-oriented execution to maximize efficiency and performance.", image: "/projects/projak.png", style: { objectFit: "cover" } },
-  { name: "SUGGEST", desc: "A book discovery platform that helps users explore, review, and recommend books through video reviews, AI-powered summaries, and community-driven insights, making reading more interactive and engaging.", image: "/projects/suggest.png", style: { objectFit: "contain" } },
-  { name: "AIT Smart Labs", desc: "A smart lab management system that enables users to create, organize, and manage QR codes for lab resources, helping streamline access, tracking, and digital interaction within laboratory environments.", image: "/projects/aitsmartlab.png", style: { objectFit: "contain" } },
+  { name: "PROJAK", desc: "A consulting and technology platform that helps organizations grow through data-driven insights and strategic execution.", image: "/projects/projak.png", style: { objectFit: "cover" } },
+  { name: "SUGGEST", desc: "A book discovery platform powered by video reviews, AI summaries, and community insights.", image: "/projects/suggest.png", style: { objectFit: "contain" } },
+  { name: "AIT Smart Labs", desc: "A smart lab management system for creating and managing QR codes to streamline access and tracking.", image: "/projects/aitsmartlab.png", style: { objectFit: "contain" } },
+  { name: "SendBox", desc: "An automated WhatsApp messaging system for sending personalized well wishes to staff and students.", image: "/projects/sendbox.png", style: { objectFit: "contain" } },
 ];
 
 export default function ProjectsSection() {
@@ -41,7 +42,7 @@ export default function ProjectsSection() {
                 {/* Full-width image block below */}
                 <div className="scroll-stack-card-image relative" style={{ marginTop: "40px", marginBottom: "0" }}>
                   {/* <span style={{ fontFamily: "monospace", fontSize: "14px", color: "rgba(26,28,26,0.25)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.15em" }}>PROJECT_IMAGE_{String(i + 1).padStart(2, "0")}</span> */}
-                  <img src={proj.image} alt={proj.name}  className={proj.style?.objectFit === "contain" ? "w-full h-full object-contain" : "w-full h-full object-cover"} />
+                  <img src={proj.image} alt={proj.name} className="w-full h-full object-cover" />
                 </div>
               </ScrollStackItem>
             ))}
