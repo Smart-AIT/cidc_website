@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "CIDC — College Innovation & Development Club",
   description:
     "CIDC is a student-driven development community at AIT Pune focused on building real-world systems through project-based learning.",
+  icons: {
+    icon: "/CIDC.png",
+  },
 };
 
 export default function RootLayout({
