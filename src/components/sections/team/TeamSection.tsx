@@ -6,7 +6,7 @@ const TEAM_MEMBERS = [
   { ref_id: 7, name: "Simran Singh", role: "Frontend Developer", instagram: "https://www.instagram.com/heysimmi_19/", email: "simran@example.com", image: "/image/simran.png" },
   { ref_id: 8, name: "Pradeep Kumar", role: "Mobile & Backend Developer", instagram: "https://www.instagram.com/pradeepkumar0805/", email: "pk4401128@gmail.com", image: "/image/pradeep.jpg" },
   { ref_id: 9, name: "Abhay Singh", role: "Backend, GenAI Developer", instagram: "https://www.instagram.com/abhaysingh22_/", email: "abhaysingh6575@gmail.com", image: "/image/abhay.jpeg" },
-  { ref_id: 10, name: "Omendra Naharwal", role: "Graphics, Problem Solver", instagram: "https://instagram.com/cidc_aitpune", email: "omendra@example.com", image: "/image/omendra.png" },
+  { ref_id: 10, name: "Omendra Naharwal", role: "Graphics, Problem Solver", instagram: "https://www.instagram.com/omendranaharwal/", email: "omendra@example.com", image: "/image/omendra.png" },
   { ref_id: 11, name: "Rishab Bhamboo", role: "Graphics, Problem Solver", instagram: "https://instagram.com/cidc_aitpune", email: "rishab@example.com", image: "/image/rishab.png" },
 ];
 
