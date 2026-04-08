@@ -160,10 +160,10 @@
     padding-bottom: 400px;
   }
   .scroll-stack-card {
-    width: calc(100% - 30px);
+    width: calc(100% - 16px);
     max-width: 100%;
-    padding: 28px;
-    margin: 0 15px;
+    padding: 20px;
+    margin: 0 8px;
     border-radius: 10px;
   }
   .scroll-stack-card-image {
@@ -174,7 +174,38 @@
     font-size: clamp(1.2rem, 5vw, 2rem);
   }
   .scroll-stack-card-desc {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .scroll-stack-wrapper {
+    padding-top: 60px;
+    padding-bottom: 500px;
+  }
+  .scroll-stack-card {
+    width: calc(100% - 24px);
+    max-width: 100%;
+    padding: 32px;
+    margin: 0 12px;
+    border-radius: 12px;
+  }
+  .scroll-stack-card-image {
+    aspect-ratio: 16/9;
+  }
+  .scroll-stack-card-desc {
     font-size: 15px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .scroll-stack-card {
+    width: 96%;
+    padding: 40px;
+  }
+  .scroll-stack-card-desc {
+    font-size: 16px;
   }
 }
 

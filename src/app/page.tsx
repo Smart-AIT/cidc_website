@@ -38,7 +38,7 @@ export default function Home() {
   }
 
   return (
-    <div className="max-w-[1520px] mx-auto p-4 sm:p-8 md:p-10 xl:p-12 pb-0 flex flex-col gap-10 sm:gap-12 lg:gap-14">
+    <div className="max-w-[1520px] mx-auto p-4 sm:p-8 md:p-10 xl:p-12 pb-0 flex flex-col gap-10 sm:gap-12 lg:gap-14 overflow-x-clip">
       <Navbar />
       <main className="flex flex-col gap-12 sm:gap-16 w-full">
         <HeroSection />

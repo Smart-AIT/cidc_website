@@ -113,7 +113,12 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
       constructor(i: number, count: number) {
         this.baseAngle = (i / count) * Math.PI * 2;
         this.angle = this.baseAngle;
-        this.orbitRadius = 240 + Math.random() * 90;
+        // Make the orbit responsive so particles do not fly off screen on mobile
+        const isMobile = w < 768;
+        const baseRadius = isMobile ? 110 : 240;
+        const variance = isMobile ? 40 : 90;
+        
+        this.orbitRadius = baseRadius + Math.random() * variance;
         this.x = cx + Math.cos(this.angle) * this.orbitRadius;
         this.y = cy + Math.sin(this.angle) * this.orbitRadius;
         this.mass = 0.01 + Math.random() * 0.02;

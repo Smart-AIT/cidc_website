@@ -13,43 +13,63 @@ const PROJECT_LIST = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" style={{ width: "100%", paddingTop: "60px", paddingBottom: "120px", paddingLeft: "40px", paddingRight: "40px", borderTop: "2px solid #1A1C1A", backgroundColor: "#faf9f6" }}>
-      <div style={{ maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}>
-        {/* Header */}
-        <header style={{ marginBottom: "80px" }}>
-          <div style={{ width: "80px", height: "4px", backgroundColor: "#A33B3C", marginBottom: "32px" }} />
-          <h2 style={{ fontSize: "clamp(2.5rem, 12vw, 5.5rem)", fontWeight: "900", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: "0.85", marginBottom: "32px", color: "#1A1C1A" }}>
-            ACTIVE<br />MANIFESTO<br />
-            <span style={{ color: "#006565" }}>PROJECTS</span>
-          </h2>
-          <p style={{ fontSize: "14px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.15em", color: "#1A1C1A", maxWidth: "600px", lineHeight: "1.8" }}>
-            A COLLECTION OF REAL-WORLD PROJECTS BUILT BY CIDC COMMUNITY. FOCUSED ON LEARNING, BUILDING, AND DELIVERING IMPACTFUL SOLUTIONS.
-            <br />
-            <span style={{ marginTop: "16px", display: "block" }}>System version 0.4</span>
-          </p>
-        </header>
+    <>
+      <style>{`
+        .projects-section-root {
+          width: 100%;
+          padding: 60px 40px 120px 40px;
+          border-top: 2px solid #1A1C1A;
+          background-color: #faf9f6;
+        }
+        @media (max-width: 640px) {
+          .projects-section-root {
+            padding: 40px 16px 80px 16px;
+          }
+        }
+        @media (min-width: 641px) and (max-width: 1024px) {
+          .projects-section-root {
+            padding: 48px 24px 100px 24px;
+          }
+        }
+      `}</style>
+      <section id="projects" className="projects-section-root">
+        <div style={{ maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}>
+          {/* Header */}
+          <header style={{ marginBottom: "80px" }}>
+            <div style={{ width: "80px", height: "4px", backgroundColor: "#A33B3C", marginBottom: "32px" }} />
+            <h2 style={{ fontSize: "clamp(2.5rem, 12vw, 5.5rem)", fontWeight: "900", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: "0.85", marginBottom: "32px", color: "#1A1C1A" }}>
+              ACTIVE<br />MANIFESTO<br />
+              <span style={{ color: "#006565" }}>PROJECTS</span>
+            </h2>
+            <p style={{ fontSize: "14px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.15em", color: "#1A1C1A", maxWidth: "600px", lineHeight: "1.8" }}>
+              A COLLECTION OF REAL-WORLD PROJECTS BUILT BY CIDC COMMUNITY. FOCUSED ON LEARNING, BUILDING, AND DELIVERING IMPACTFUL SOLUTIONS.
+              <br />
+              <span style={{ marginTop: "16px", display: "block" }}>System version 0.4</span>
+            </p>
+          </header>
 
-        {/* Scroll Stack */}
-        <div style={{ marginTop: "80px" }}>
-          <ScrollStack gap={500}>
-            {PROJECT_LIST.map((proj, i) => (
-              <ScrollStackItem key={i}>
-                {/* Title and description on top */}
-                <div className="scroll-stack-card-title">{proj.name}</div>
-                <div className="scroll-stack-card-divider" />
-                <div className="scroll-stack-card-desc">{proj.desc}</div>
+          {/* Scroll Stack */}
+          <div style={{ marginTop: "80px" }}>
+            <ScrollStack gap={500}>
+              {PROJECT_LIST.map((proj, i) => (
+                <ScrollStackItem key={i}>
+                  {/* Title and description on top */}
+                  <div className="scroll-stack-card-title">{proj.name}</div>
+                  <div className="scroll-stack-card-divider" />
+                  <div className="scroll-stack-card-desc">{proj.desc}</div>
 
-                {/* Full-width image block below */}
-                <div className="scroll-stack-card-image relative" style={{ marginTop: "40px", marginBottom: "0" }}>
-                  {/* <span style={{ fontFamily: "monospace", fontSize: "14px", color: "rgba(26,28,26,0.25)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.15em" }}>PROJECT_IMAGE_{String(i + 1).padStart(2, "0")}</span> */}
-                  <img src={proj.image} alt={proj.name} className="w-full h-full object-cover" />
-                </div>
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
+                  {/* Full-width image block below */}
+                  <div className="scroll-stack-card-image relative" style={{ marginTop: "40px", marginBottom: "0" }}>
+                    {/* <span style={{ fontFamily: "monospace", fontSize: "14px", color: "rgba(26,28,26,0.25)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.15em" }}>PROJECT_IMAGE_{String(i + 1).padStart(2, "0")}</span> */}
+                    <img src={proj.image} alt={proj.name} className="w-full h-full object-cover" />
+                  </div>
+                </ScrollStackItem>
+              ))}
+            </ScrollStack>
+          </div>
+
         </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
