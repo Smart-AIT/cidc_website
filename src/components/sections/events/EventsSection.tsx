@@ -366,9 +366,9 @@ export default function EventsSection() {
             </div>
             <div className="events-announcements-input-group">
               <input type="text" placeholder={displayedPlaceholder} className="events-announcements-input" />
-              <button className="events-announcements-btn">
+              <a href="#footer" className="events-announcements-btn">
                 JOIN_US_FOR_COOKIE
-              </button>
+              </a>
             </div>
           </div>
         </div>

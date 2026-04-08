@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FaInstagram, FaEnvelope } from "react-icons/fa";
 
 interface TeamMemberProps {
-  ref_id: number;
+  // ref_id: number;
   name: string;
   role: string;
   instagram: string;
@@ -12,7 +12,7 @@ interface TeamMemberProps {
 }
 
 export default function TeamMemberCard({
-  ref_id,
+  // ref_id,
   image,
   name,
   role,
@@ -24,11 +24,11 @@ export default function TeamMemberCard({
       {/* Photo Placeholder */}
       <div style={{ width: "100%", height: "208px", backgroundColor: "#e3e2de", border: "2px solid #1A1C1A", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
         {/* Top-Right Ref ID Badge */}
-        <div style={{ position: "absolute", top: "8px", right: "8px", backgroundColor: "#faf9f6", border: "1px solid #1A1C1A", padding: "2px 6px", zIndex: 1 }}>
-          <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", color: "#1A1C1A", fontWeight: "bold" }}>
+        {/* <div style={{ position: "absolute", top: "8px", right: "8px", backgroundColor: "#faf9f6", border: "1px solid #1A1C1A", padding: "2px 6px", zIndex: 1 }}> */}
+          {/* <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", color: "#1A1C1A", fontWeight: "bold" }}>
             {ref_id}
-          </span>
-        </div>
+          </span> */}
+        {/* </div> */}
         {/* <span style={{ fontFamily: "monospace", fontSize: "10px", color: "rgba(26,28,26,0.3)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.1em" }}>PHOTO_SPACE</span> */}
         <Image
           src={image}

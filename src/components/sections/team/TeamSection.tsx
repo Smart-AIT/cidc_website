@@ -179,7 +179,7 @@ export default function TeamSection() {
             <h3 className="team-chapter-title">CIDC STUDENT CHAPTER</h3>
             <p className="team-chapter-desc">We are always scouting for engineers and visual thinkers. Share your ideas, showcase your project. Join us to build the AIT smart, ping us builders. </p>
           </div>
-          <a href="#contact" style={{ backgroundColor: "#1A1C1A", color: "white", padding: "8px 20px", fontWeight: "900", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.1em", border: "2px solid white", textDecoration: "none", display: "inline-block", transition: "all 0.2s ease", cursor: "pointer", borderRadius: "12px", whiteSpace: "nowrap" }} >
+          <a href="#footer" style={{ backgroundColor: "#1A1C1A", color: "white", padding: "8px 20px", fontWeight: "900", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.1em", border: "2px solid white", textDecoration: "none", display: "inline-block", transition: "all 0.2s ease", cursor: "pointer", borderRadius: "12px", whiteSpace: "nowrap" }} >
             JOIN
           </a>
         </div>

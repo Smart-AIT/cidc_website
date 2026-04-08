@@ -196,9 +196,9 @@ export default function AboutSection() {
         <div style={{ marginTop: "96px", display: "flex", flexDirection: "column", gap: "24px" }}>
           <div className="about-upcoming-header">
             <h3 style={{ fontSize: "clamp(20px, 4vw, 28px)", fontWeight: "900", textTransform: "uppercase", marginBottom: "0px", letterSpacing: "-0.01em", color: "#1A1C1A" }}>UPCOMING PROJECTS</h3>
-            <button style={{ backgroundColor: "#006565", color: "white", padding: "8px 20px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "10px", border: "2px solid #1A1C1A", cursor: "pointer", transition: "all 0.2s ease", whiteSpace: "nowrap", height: "fit-content" }} className="hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1A1C1A]">
+            <a href="#footer" style={{ backgroundColor: "#006565", color: "white", padding: "8px 20px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "10px", border: "2px solid #1A1C1A", cursor: "pointer", transition: "all 0.2s ease", whiteSpace: "nowrap", height: "fit-content", textDecoration: "none", display: "inline-block" }} className="hover:translate-x-1  ">
               WANT TO CONTRIBUTE ?
-            </button>
+            </a>
           </div>
           
           <style dangerouslySetInnerHTML={{__html: `

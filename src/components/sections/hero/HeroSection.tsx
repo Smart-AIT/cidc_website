@@ -7,6 +7,15 @@ export default function HeroSection() {
   const fullText = ">>GIT_INIT_CIDC";
   const fullStatus = "STATUS: OPERATIONAL";
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const sectionId = href.replace("#", "");
+    const targetElement = document.getElementById(sectionId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   useEffect(() => {
     let currentIndex = 0;
     const interval = setInterval(() => {
@@ -173,6 +182,7 @@ export default function HeroSection() {
                 </a>
                 <a
                   href="#footer"
+                  onClick={(e) => handleSmoothScroll(e, "#footer")}
                   className="hero-btn hero-btn-secondary"
                 >
                   Join us
