@@ -1,16 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import HeroSection from "@/components/hero/HeroSection";
-import HeroStats from "@/components/hero/HeroStats";
-import AboutSection from "@/components/about/AboutSection";
-import TeamSection from "@/components/team/TeamSection";
-import ProjectsSection from "@/components/projects/ProjectsSection";
-import EventsSection from "@/components/events/EventsSection";
-import ContactSection from "@/components/contact/ContactSection";
-import ParticleLoader from "@/components/ParticleLoader";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import HeroSection from "@/components/sections/hero/HeroSection";
+import HeroStats from "@/components/sections/hero/HeroStats";
+import AboutSection from "@/components/sections/about/AboutSection";
+import TeamSection from "@/components/sections/team/TeamSection";
+import ProjectsSection from "@/components/sections/projects/ProjectsSection";
+import EventsSection from "@/components/sections/events/EventsSection";
+import ContactSection from "@/components/sections/contact/ContactSection";
+import ParticleLoader from "@/components/loaders/ParticleLoader";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);

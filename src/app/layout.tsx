@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import SmoothScroll from "@/components/shared/SmoothScroll";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <CustomCursor />
         <SmoothScroll>{children}</SmoothScroll>
         <ScrollToTopButton />
       </body>
