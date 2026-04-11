@@ -39,7 +39,7 @@ export default function Navbar() {
           will-change: transform, opacity;
         }
         .nav-tab-container {
-          background-color: #f5f5f0;
+          background-color: transparent;
           position: relative;
           overflow: visible;
           display: flex;
