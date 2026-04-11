@@ -1,13 +1,13 @@
 // Individual team member card
 import Image from "next/image";
-import { FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
 interface TeamMemberProps {
   // ref_id: number;
   name: string;
   role: string;
   instagram: string;
-  email: string;
+  linkedin: string;
   image: string;
 }
 
@@ -17,7 +17,7 @@ export default function TeamMemberCard({
   name,
   role,
   instagram,
-  email,
+  linkedin,
 }: TeamMemberProps) {
   return (
     <div style={{ backgroundColor: "#faf9f6", padding: "16px", border: "2px solid #1A1C1A", position: "relative", display: "flex", flexDirection: "column", width: "240px", flexShrink: 0, gap: "16px", boxShadow: "4px 4px 0px 0px rgba(26,28,26,0.1)", borderRadius: "6px" }}>
@@ -52,8 +52,8 @@ export default function TeamMemberCard({
         <a href={instagram} target="_blank" rel="noopener noreferrer" className="text-[#1A1C1A] hover:text-[#A33B3C] transition-transform hover:scale-110">
           <FaInstagram className="w-5 h-5" />
         </a>
-        <a href={`mailto:${email}`} className="text-[#1A1C1A] hover:text-[#A33B3C] transition-transform hover:scale-110">
-          <FaEnvelope className="w-5 h-5" />
+        <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-[#1A1C1A] hover:text-[#A33B3C] transition-transform hover:scale-110">
+          <FaLinkedin className="w-5 h-5" />
         </a>
       </div>
     </div>
