@@ -11,7 +11,7 @@ export default function CustomCursor() {
   const mouseY = useMotionValue(-100);
 
   // Adjust these physics values to make the cursor feel "slower" or "heavier"
-  const springConfig = { damping: 30, stiffness: 60, mass: 1.5 };
+  const springConfig = { damping: 20, stiffness: 120, mass: 0.5 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 
