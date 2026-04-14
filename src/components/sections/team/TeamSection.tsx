@@ -13,9 +13,9 @@ const TEAM_MEMBERS = [
 const TE_MEMBERS = [
   { ref_id: 1, name: "Jagdish Singh (Secretary)", role: "Frontend Lead", instagram: "https://www.instagram.com/jagdishpawar._/", linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/", image: "/image/jaggu.jpeg" },
   { ref_id: 2, name: "Ebha Mollick (Secretary)", role: "DBMS Lead", instagram: "https://www.instagram.com/ebha_mollick/", linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/", image: "/image/ebbha.jpeg" },
-  { ref_id: 3, name: "Mohit Kr Sharma", role: "Backend Lead", instagram: "https://www.instagram.com/its._mohit.sharma/", linkedin: "https://www.linkedin.com/in/its-mohitsharma/", image: "/image/mohit.jpeg" },
+  { ref_id: 3, name: "Mohit Sharma", role: "Backend Lead", instagram: "https://www.instagram.com/its._mohit.sharma/", linkedin: "https://www.linkedin.com/in/its-mohitsharma/", image: "/image/mohit.jpeg" },
   { ref_id: 4, name: "Shreya Prasad", role: "Cloud Lead", instagram: "https://www.instagram.com/_shreya05prasad_/", linkedin: "https://www.linkedin.com/in/shreya-prasad-5b1567289/", image: "/image/shreya.jpeg" },
-  { ref_id: 5, name: "Ayush Badoni", role: "Networking Head", instagram: "https://www.instagram.com/a.v.1909/", linkedin: "https://www.linkedin.com/in/ayyushx/", image: "/image/ayush.jpeg" },
+  { ref_id: 5, name: "Ayush Badoni", role: "Networking Head", instagram: "https://www.instagram.com/ayush_ab190/", linkedin: "https://www.linkedin.com/in/ayyushx/", image: "/image/ayush.jpeg" },
 ]
 
 export default function TeamSection() {
