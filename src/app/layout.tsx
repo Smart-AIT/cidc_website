@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/CIDC.png",
   },
+  verification: {
+    google: "C7WZDw5nHbT63Kg-d2WARNhPqurlZXWa27l-nXrf0Dc",
+  },
 };
 
 export default function RootLayout({
