@@ -13,9 +13,9 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
       root 
       options={{ 
         lerp: 0.05, 
-        duration: 1.5,
-        wheelMultiplier: 0.4, 
-        touchMultiplier: 0.4 
+        duration: 0.7,
+        wheelMultiplier: 0.7, 
+        touchMultiplier: 0.7 
       }}
     >
       {children}

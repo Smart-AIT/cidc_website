@@ -194,8 +194,8 @@ export default function Footer() {
 
               <div className="flex items-center gap-5">
                 {[
-                  { Icon: FaInstagram, href: "#" },
-                  { Icon: FaLinkedin, href: "#" },
+                  { Icon: FaInstagram, href: "https://www.instagram.com/cidc.ait/" },
+                  { Icon: FaLinkedin, href: "https://www.linkedin.com/search/results/all/?keywords=AIT%20College%20Innovation%20and%20Development%20Club&origin=RICH_QUERY_SUGGESTION&heroEntityKey=urn%3Ali%3Aorganization%3A116164080&position=0" },
                   { Icon: FaGithub, href: "https://github.com/Smart-AIT" },
                   { Icon: FaMapMarkerAlt, href: "https://maps.google.com/?q=Army+Institute+of+Technology+Pune" },
                 ].map((item, i) => (
