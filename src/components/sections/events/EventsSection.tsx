@@ -12,28 +12,6 @@ const EVENTS = [
   {
     ref_id: "REF_LOG",
     status: "Upcoming" as const,
-    title: "SYSTEM DESIGN BATTLE",
-    date: "Dates: coming soon",
-    description:
-      "A deep-dive into system design concepts. Teams will be given a real-world system design problem inspired by large tech platforms.",
-    ctaLabel: "Join_Battle",
-    side: "left",
-    variant: "default" as const,
-  },
-  {
-    ref_id: "REF_LOG",
-    status: "Upcoming" as const,
-    title: "AGENTIC ARENA HACKATHON",
-    date: "Dates: coming soon",
-    description:
-      "Build for the void. 24 hours of collaborative technical friction. No excuses, no shortcuts. Just raw execution and zero sleep to build autonomous AI agents based on real-world scenarios.",
-    ctaLabel: "JOIN_Arena",
-    side: "right",
-    variant: "light" as const,
-  },
-  {
-    ref_id: "REF_LOG",
-    status: "Upcoming" as const,
     title: "CAMPUS CATALYST",
     date: "Dates: coming soon",
     description:
@@ -42,6 +20,28 @@ const EVENTS = [
     side: "left",
     variant: "light" as const,
   },
+  /*   {
+    ref_id: "REF_LOG",
+    status: "Upcoming" as const,
+    title: "AGENTIC ARENA HACKATHON",
+    date: "Dates: coming soon",
+    description:
+    "Build for the void. 24 hours of collaborative technical friction. No excuses, no shortcuts. Just raw execution and zero sleep to build autonomous AI agents based on real-world scenarios.",
+    ctaLabel: "JOIN_Arena",
+    side: "right",
+    variant: "light" as const,
+    }, */
+    {
+      ref_id: "REF_LOG",
+      status: "Upcoming" as const,
+      title: "SYSTEM DESIGN BATTLE",
+      date: "Dates: coming soon",
+      description:
+        "A deep-dive into system design concepts. Teams will be given a real-world system design problem inspired by large tech platforms.",
+      ctaLabel: "Join_Battle",
+      side: "left",
+      variant: "default" as const,
+    },
 ];
 
 export default function EventsSection() {
