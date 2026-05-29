@@ -39,27 +39,34 @@ export default function AboutSection() {
           border-radius: 16px;
           overflow: hidden;
           display: grid;
-          grid-template-columns: 1fr 1.8fr;
+          grid-template-columns: 1fr;
           gap: 0;
-        }
-        .about-mission-left {
+          text-align: center;
           padding: 64px 48px;
+        }
+        .about-mission-right {
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          background-color: #faf9f6;
-          border-right: 2px solid #1A1C1A;
         }
-        .about-mission-right {
-          padding: 64px 56px;
+        .about-mission-right h2 {
+          max-width: 760px;
+        }
+        .about-mission-right p {
+          max-width: 700px;
+          margin: 0 auto 40px;
         }
         .about-mission-details {
           border-top: 2px solid rgba(26, 28, 26, 0.08);
           padding-top: 32px;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 32px;
+          grid-template-columns: 1fr;
+          gap: 24px;
+          justify-items: center;
+        }
+        .about-mission-details > div {
+          max-width: 520px;
         }
         .about-upcoming-header {
           display: grid;
@@ -153,22 +160,11 @@ export default function AboutSection() {
           <ScrollStackItem>
             <div className="about-mission-grid">
 
-              {/* Left: Icon + Label */}
-              <div className="about-mission-left">
-                <span className="material-symbols-outlined" style={{ fontSize: "clamp(4rem, 14vw, 8rem)", color: "#1A1C1A", marginBottom: "24px" }}>
-                  track_changes
-                </span>
-                <span style={{ fontFamily: "monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", fontWeight: "700" }}>
-                  OPERATIONAL_MISSION
-                </span>
-              </div>
-
-              {/* Right: Content */}
               <div className="about-mission-right">
                 <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", textTransform: "uppercase", marginBottom: "28px", lineHeight: "1", color: "#1A1C1A" }}>
-                  CIDC Precision
+                  Precision
                 </h2>
-                <p style={{ fontSize: "16px", fontWeight: "500", lineHeight: "1.8", marginBottom: "40px", color: "#2a2c2a", maxWidth: "560px" }}>
+                <p style={{ fontSize: "16px", fontWeight: "500", lineHeight: "1.8", marginBottom: "40px", color: "#2a2c2a", maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
                   Focuses on execution. Builds production systems. Delivers working solutions.
                   <br /><br />
                   <span style={{ color: "#555" }}>
