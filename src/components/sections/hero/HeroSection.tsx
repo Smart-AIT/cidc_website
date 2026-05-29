@@ -1,11 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
+// 1. Framer Motion ke modules ko import kiya
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function HeroSection() {
   const [displayedText, setDisplayedText] = useState("");
   const [displayedStatus, setDisplayedStatus] = useState("");
   const fullText = ">>GIT_INIT_CIDC";
   const fullStatus = "STATUS: OPERATIONAL";
+
+  // 2. Scroll tracking setup kiya
+  const { scrollY } = useScroll();
+  
+  // Jab window scroll 0px se 600px tak jayegi, tab map ka scale 1 se 1.35 ho jayega
+  const backgroundScale = useTransform(scrollY, [0, 600], [1, 1.35]);
+  // Scroll hone par map halka sa fade-out hoga taaki text padhne me aasan ho
+  // const backgroundOpacity = useTransform(scrollY, [0, 600], [0.18, 0.05]);
+  const backgroundOpacity = useTransform(scrollY, [0, 600], [0.35, 0.10]);
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -121,11 +132,27 @@ export default function HeroSection() {
           }
         }
       `}</style>
-      <section id="home" className="w-full flex justify-center" style={{ marginTop: "0px", marginBottom: "0px" }}>
-        {/* Main Hero Card */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-0 w-[98%] max-w-[1400px] border-2 border-[#1A1C1A] shadow-[8px_8px_0px_0px_rgba(26,28,26,1)] bg-[#faf9f6] overflow-hidden" style={{ borderRadius: "4px" }}>
+
+      {/* Main Wrapper Element with relative positioning & White Background */}
+      <section id="home" className="relative w-full flex justify-center bg-white overflow-hidden" style={{ marginTop: "0px", marginBottom: "0px" }}>
+        
+        {/* 3. Framer Motion GPU Accelerated Animated Background Map */}
+        <motion.div 
+          className="absolute inset-0 pointer-events-none bg-repeat bg-center z-0"
+          style={{ 
+            backgroundImage: "url('/topography.png')", 
+            backgroundSize: '400px',
+            scale: backgroundScale,
+            opacity: backgroundOpacity
+          }}
+        />
+
+        {/* Main Hero Card Container Layer */}
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-0 w-[98%] max-w-[1400px] border-2 border-[#1A1C1A] shadow-[8px_8px_0px_0px_rgba(26,28,26,1)] bg-transparent overflow-hidden z-10 my-4" style={{ borderRadius: "4px" }}>
+            
             {/* Left Branding Column */}
-            <div className="order-2 xl:order-1 lg:col-span-12 xl:col-span-7 flex flex-col items-start justify-center border-t-2 xl:border-t-0 xl:border-r-2 border-[#1A1C1A] relative z-20 bg-[#faf9f6] hero-left-col">
+            <div className="order-2 xl:order-1 lg:col-span-12 xl:col-span-7 flex flex-col items-start justify-center border-t-2 xl:border-t-0 xl:border-r-2 border-[#1A1C1A] relative z-20 bg-transparent hero-left-col">
+            {/* <div className="order-2 xl:order-1 lg:col-span-12 xl:col-span-7 flex flex-col items-start justify-center border-t-2 xl:border-t-0 xl:border-r-2 border-[#1A1C1A]/20 relative z-20 bg-transparent hero-left-col"> */}
               {/* Label */}
               <div className="hero-label-topleft font-mono text-[10px] sm:text-xs tracking-widest text-[#1A1C1A]/40 uppercase font-bold">
                 {displayedText}
@@ -190,11 +217,11 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Right Visual Column */}
-            <div className="order-1 xl:order-2 lg:col-span-12 xl:col-span-5 bg-[#e1e2de] relative min-h-[300px] sm:min-h-[400px] lg:min-h-[650px] flex flex-col items-center justify-center p-8 sm:p-12 md:p-20 z-10">
+            {/* Right Visual Column (Kept transparent for overlay effect) */}
+            <div className="order-1 xl:order-2 lg:col-span-12 xl:col-span-5 bg-transparent relative min-h-[300px] sm:min-h-[400px] lg:min-h-[650px] flex flex-col items-center justify-center p-8 sm:p-12 md:p-20 z-20">
               
               {/* CIDC Geometric Logo Setup */}
-              <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[480px] aspect-[16/10] flex flex-col justify-center items-center border-[1.5px] border-[#006565]/25 -mt-10 lg:mt-0">
+              <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[480px] aspect-[16/10] flex flex-col justify-center items-center border-[1.5px] border-[#006565]/25 -mt-10 lg:mt-0 bg-white/20 backdrop-blur-xs">
                 {/* The Text */}
                 <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[6rem] font-black text-[#1A1C1A] leading-none tracking-tighter z-20 relative">
                   ｛／｝
