@@ -2,7 +2,31 @@
 import { useState } from "react";
 import TeamMemberCard from "./TeamMemberCard";
 
-// B.E. Final Year - Complete Combined List
+// ==========================================
+// 1. FACULTY INCHARGES DATA (Crazy Premium Design)
+// ==========================================
+const FACULTY_INCHARGES = [
+  {
+    ref_id: 101,
+    name: "Dr. Faculty One", // <-- Yahan real naam daal dena
+    role: "Faculty Incharge / Mentor",
+    instagram: "#",
+    linkedin: "#", // <-- Faculty sir/mam ka LinkedIn profile link
+    image: "/image/faculty1.jpg", // <-- public/image me photo daal dena
+  },
+  {
+    ref_id: 102,
+    name: "Prof. Faculty Two", // <-- Yahan real naam daal dena
+    role: "Faculty Incharge / Advisor",
+    instagram: "#",
+    linkedin: "#",
+    image: "/image/faculty2.jpg",
+  }
+];
+
+// ==========================================
+// 2. B.E. FINAL YEAR MEMBERS
+// ==========================================
 const BE_MEMBERS = [
   { ref_id: 1, name: "Jagdish Singh (Secretary)", role: "Frontend Lead", instagram: "https://www.instagram.com/jagdishpawar._/", linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/", image: "/image/jaggu.jpeg" },
   { ref_id: 2, name: "Ebha Mollick (Secretary)", role: "DBMS Lead", instagram: "https://www.instagram.com/ebha_mollick/", linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/", image: "/image/ebbha.jpeg" },
@@ -11,7 +35,9 @@ const BE_MEMBERS = [
   { ref_id: 5, name: "Ayush Badoni", role: "Networking Head", instagram: "https://www.instagram.com/ayush_ab190/", linkedin: "https://www.linkedin.com/in/ayyushx/", image: "/image/ayush.jpeg" },
 ];
 
-// T.E. Third Year - Complete Combined List
+// ==========================================
+// 3. T.E. THIRD YEAR MEMBERS
+// ==========================================
 const TE_MEMBERS = [
   { ref_id: 6, name: "Ritika", role: "Frontend Developer", instagram: "https://www.instagram.com/ritikagautam375/", linkedin: "https://www.linkedin.com/in/ritika-gautam-361867325/", image: "/image/ritika.jpg" },
   { ref_id: 7, name: "Simran Singh", role: "Frontend Developer", instagram: "https://www.instagram.com/heysimmi_19/", linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/", image: "/image/simran.png" },
@@ -21,19 +47,22 @@ const TE_MEMBERS = [
   { ref_id: 11, name: "Rishab Bhamboo", role: "Graphics, Problem Solver", instagram: "https://instagram.com/cidc_aitpune", linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/", image: "/image/rishab.png" },
 ];
 
-// S.E. Second Year - Complete Combined List (Add your upcoming data directly here)
+// ==========================================
+// 4. S.E. SECOND YEAR MEMBERS (Alphabetical Sort + Links Fixed)
+// ==========================================
 const SE_MEMBERS = [
-  { ref_id: 12, name: "New SE Member 1", role: "UI/UX Designer", instagram: "#", linkedin: "#", image: "/image/placeholder.png" },
-  { ref_id: 13, name: "New SE Member 2", role: "App Developer", instagram: "#", linkedin: "#", image: "/image/placeholder.png" },
-  { ref_id: 14, name: "New SE Member 3", role: "Web Developer", instagram: "#", linkedin: "#", image: "/image/placeholder.png" },
-  { ref_id: 15, name: "New SE Member 4", role: "Python Developer", instagram: "#", linkedin: "#", image: "/image/placeholder.png" },
-  { ref_id: 16, name: "New SE Member 5", role: "Competitive Programmer", instagram: "#", linkedin: "#", image: "/image/placeholder.png" },
+  { ref_id: 12, name: "Abhinay Singh", role: "Full stack developer", instagram: "https://www.instagram.com/abhinay_singh_/", linkedin: "https://www.linkedin.com/in/abhinay-singh-221b/", image: "/image/Abhinay.jpg" },
+  { ref_id: 13, name: "Ashish Gupta", role: "Full Stack Developer", instagram: "https://www.instagram.com/its-ashish73070/", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.jpeg" },
+  { ref_id: 14, name: "Mahima", role: "Frontend Developer", instagram: "https://www.instagram.com/mahima.singh.19", linkedin: "https://www.linkedin.com/in/mahima-singh-ait/", image: "/image/Mahima.jpg" },
+  { ref_id: 15, name: "Prince Singh", role: "Full Stack Developer", instagram: "https://www.instagram.com/prince_singh_/", linkedin: "https://www.linkedin.com/in/prince-singh-web/", image: "/image/Prince.jpg" },
+  { ref_id: 16, name: "ROHIT PIMPALE", role: "Flutter Developer", instagram: "https://www.instagram.com/rohit_pimpale_7/", linkedin: "https://www.linkedin.com/in/rohitpimpale/", image: "/image/Rohit.jpeg" },
+  { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded + Frontend Developer", instagram: "https://www.instagram.com/shashank_kumar_/", linkedin: "https://in.linkedin.com/in/shashank-kumar-ait", image: "/image/Shashank.jpg" },
+  { ref_id: 18, name: "Yashwanth Thota", role: "Frontend, Problem Solver", instagram: "https://www.instagram.com/yashwanth_thota/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-/", image: "/image/Tota.jpeg" },
 ];
 
 export default function TeamSection() {
   const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("BE");
 
-  // Dynamic selector for single row configuration
   const getActiveList = () => {
     switch (activeTab) {
       case "BE": return BE_MEMBERS;
@@ -81,13 +110,17 @@ export default function TeamSection() {
           border-top: 2px solid #1A1C1A;
         }
 
-        /* Nav Interface Controllers */
+        /* 🛠️ NAVIGATION INTERFACE CONTROLLERS - FIXED TO CENTER BY SIR'S REQUEST */
         .tab-controller-container {
           display: flex;
+          justify-content: center; /* Pure Center Align */
+          align-items: center;
           gap: 16px;
           margin-bottom: 48px;
           flex-wrap: wrap;
+          width: 100%;
         }
+        
         .mechanical-tab-btn {
           background-color: #faf9f6;
           color: #1A1C1A;
@@ -111,6 +144,43 @@ export default function TeamSection() {
           color: white;
           transform: translate(4px, 4px);
           box-shadow: 0px 0px 0px 0px #1A1C1A;
+        }
+
+        /* ⚡ CRAZY FACULTY LAYOUT STYLES */
+        .faculty-grid-container {
+          display: flex;
+          justify-content: center;
+          gap: 32px;
+          flex-wrap: wrap;
+          margin-bottom: 60px;
+          padding: 15px 10px;
+        }
+        .faculty-wrapper-card {
+          position: relative;
+          background-color: #f5f4f0; 
+          border: 3px solid #1A1C1A;
+          border-radius: 4px;
+          padding: 12px;
+          box-shadow: 8px 8px 0px 0px #1A1C1A;
+          transition: transform 0.2s ease;
+        }
+        .faculty-wrapper-card:hover {
+          transform: scale(1.03);
+        }
+        .faculty-badge-tag {
+          position: absolute;
+          top: -12px;
+          right: 12px;
+          background: #A33B3C;
+          color: white;
+          font-family: monospace;
+          font-size: 9px;
+          font-weight: 900;
+          padding: 2px 8px;
+          border: 2px solid #1A1C1A;
+          border-radius: 4px;
+          text-transform: uppercase;
+          z-index: 50;
         }
 
         .team-chapter-banner {
@@ -157,6 +227,9 @@ export default function TeamSection() {
             flex-grow: 1;
             text-align: center;
           }
+          .faculty-grid-container {
+            gap: 24px;
+          }
           .team-chapter-banner {
             flex-direction: column;
             gap: 20px;
@@ -194,7 +267,29 @@ export default function TeamSection() {
           </p>
         </header>
 
-        {/* Interactive Tab Controller */}
+        {/* 🔥 NEW CRAZY FACULTY BLOCK (Fixed at Top) */}
+        <div style={{ marginBottom: "50px" }}>
+          <h4 style={{ fontFamily: "monospace", fontSize: "12px", fontWeight: "900", textTransform: "uppercase", color: "#1A1C1A", textAlign: "center", marginBottom: "20px", letterSpacing: "0.1em" }}>
+            // FACULTY INCHARGE COMMAND
+          </h4>
+          <div className="faculty-grid-container">
+            {FACULTY_INCHARGES.map((faculty) => (
+              <div key={faculty.ref_id} className="faculty-wrapper-card">
+                <span className="faculty-badge-tag">FACULTY INCHARGE</span>
+                <TeamMemberCard {...faculty} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <hr style={{ border: "0", height: "2px", backgroundColor: "#1A1C1A", opacity: "0.1", marginBottom: "60px" }} />
+
+        {/* STUDENT CHAPTER LAYOUT */}
+        <h4 style={{ fontFamily: "monospace", fontSize: "12px", fontWeight: "900", textTransform: "uppercase", color: "#1A1C1A", textAlign: "center", marginBottom: "24px", letterSpacing: "0.1em" }}>
+          // STUDENT DEV CORE
+        </h4>
+
+        {/* Interactive Centered Tab Controller */}
         <div className="tab-controller-container">
           <button 
             className={`mechanical-tab-btn ${activeTab === "BE" ? "active" : ""}`}
