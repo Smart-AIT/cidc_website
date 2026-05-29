@@ -1,9 +1,10 @@
 // Individual team member card
+"use client";
 import Image from "next/image";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 interface TeamMemberProps {
-  // ref_id: number;
   name: string;
   role: string;
   instagram: string;
@@ -12,7 +13,6 @@ interface TeamMemberProps {
 }
 
 export default function TeamMemberCard({
-  // ref_id,
   image,
   name,
   role,
@@ -20,23 +20,52 @@ export default function TeamMemberCard({
   linkedin,
 }: TeamMemberProps) {
   return (
-    <div style={{ backgroundColor: "#faf9f6", padding: "16px", border: "2px solid #1A1C1A", position: "relative", display: "flex", flexDirection: "column", width: "240px", flexShrink: 0, gap: "16px", boxShadow: "4px 4px 0px 0px rgba(26,28,26,0.1)", borderRadius: "6px" }}>
-      {/* Photo Placeholder */}
+    <motion.div 
+      whileHover={{ 
+        y: -12, // Card smoothly lift hoga marquee ke andar hi
+        scale: 1.05, // Halka sa zoom
+        zIndex: 50, // Baaki chalte hue cards ke upar tairne lagega
+        borderColor: "#006565", // Border ka rang teal ho jayega
+        boxShadow: "12px 12px 0px 0px rgba(0, 101, 101, 1)" // Black shadow teal shadow ban jayegi
+      }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 400, 
+        damping: 22 
+      }}
+      style={{ 
+        backgroundColor: "#faf9f6", 
+        padding: "16px", 
+        border: "2px solid #1A1C1A", 
+        position: "relative", 
+        display: "flex", 
+        flexDirection: "column", 
+        width: "240px", 
+        flexShrink: 0, 
+        gap: "16px", 
+        borderRadius: "6px",
+        cursor: "pointer",
+        boxShadow: "4px 4px 0px 0px rgba(26,28,26,0.15)",
+        transition: "border-color 0.3s ease, box-shadow 0.3s ease"
+      }}
+    >
+      {/* Photo Container */}
       <div style={{ width: "100%", height: "208px", backgroundColor: "#e3e2de", border: "2px solid #1A1C1A", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
-        {/* Top-Right Ref ID Badge */}
-        {/* <div style={{ position: "absolute", top: "8px", right: "8px", backgroundColor: "#faf9f6", border: "1px solid #1A1C1A", padding: "2px 6px", zIndex: 1 }}> */}
-          {/* <span style={{ fontFamily: "monospace", fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", color: "#1A1C1A", fontWeight: "bold" }}>
-            {ref_id}
-          </span> */}
-        {/* </div> */}
-        {/* <span style={{ fontFamily: "monospace", fontSize: "10px", color: "rgba(26,28,26,0.3)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.1em" }}>PHOTO_SPACE</span> */}
-        <Image
-          src={image}
-          alt={`${name}'s photo`}
-          fill
-          sizes="240px"
-          style={{ objectFit: "cover" }}
-        />
+        
+        {/* Hover par image frame ke andar halki si scale hogi (Google AI studio style) */}
+        <motion.div 
+          whileHover={{ scale: 1.06 }}
+          transition={{ duration: 0.3 }}
+          style={{ width: "100%", height: "100%", position: "relative" }}
+        >
+          <Image
+            src={image}
+            alt={`${name}'s photo`}
+            fill
+            sizes="240px"
+            style={{ objectFit: "cover" }}
+          />
+        </motion.div>
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
@@ -56,6 +85,6 @@ export default function TeamMemberCard({
           <FaLinkedin className="w-5 h-5" />
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 }
