@@ -1,5 +1,6 @@
 // Individual team member card
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -21,21 +22,25 @@ export default function TeamMemberCard({
   linkedin,
   badge,
 }: TeamMemberProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       whileHover={{
-        y: -14, // Smooth dynamic vertical float
-        scale: 1.04,
+        y: -12,
+        scale: 1.03,
         zIndex: 50,
         borderColor: "#006565",
-        boxShadow: "10px 10px 0px 0px rgba(0, 101, 101, 1)", // Hard neo shadow transition
+        boxShadow: "10px 10px 0px 0px #006565",
       }}
       transition={{
         type: "spring",
         stiffness: 450,
         damping: 20,
       }}
-      className="group" // Tailwind group for triggering children state on hover
+      className="group"
       style={{
         backgroundColor: "#faf9f6",
         padding: "16px",
@@ -43,171 +48,187 @@ export default function TeamMemberCard({
         position: "relative",
         display: "flex",
         flexDirection: "column",
-        width: "250px", // Card size thoda clean wrap ke liye adjust kiya
+        width: "260px",
         flexShrink: 0,
         gap: "14px",
-        borderRadius: "4px", // Custom neo sharpness
+        borderRadius: "0px", // Strict sharp corners from Stitch design
         cursor: "pointer",
-        boxShadow: "4px 4px 0px 0px rgba(26,28,26,1)", // Default strong dark shadow
+        boxShadow: "4px 4px 0px 0px #1A1C1A",
         transition: "border-color 0.2s ease, box-shadow 0.2s ease",
       }}
     >
+      {/* Floating Badge (Centered at top edge, matching Stitch design) */}
       {badge && (
         <span
           style={{
             position: "absolute",
             top: "-12px",
-            right: "12px",
+            left: "50%",
+            transform: "translateX(-50%)",
             background: "#A33B3C",
             color: "white",
             fontFamily: "monospace",
-            fontSize: "9px",
+            fontSize: "8px",
             fontWeight: 900,
-            padding: "2px 8px",
+            padding: "3px 10px",
             border: "2px solid #1A1C1A",
-            borderRadius: "4px",
+            borderRadius: "0px", // Strict sharp corners
             textTransform: "uppercase",
             zIndex: 50,
+            boxShadow: "2px 2px 0px 0px #1A1C1A",
+            whiteSpace: "nowrap",
           }}
         >
           {badge}
         </span>
       )}
-      {/* 1. Cyber Header Bar (ID Badge Pattern) */}
+
+      {/* 1. Card Header Chrome (Window controls style from Stitch design) */}
       <div
         style={{
           display: "flex",
-          justifyContent: "between",
+          justifyContent: "space-between",
           alignItems: "center",
           width: "100%",
-          borderBottom: "1.5px dashed #1A1C1A",
-          paddingBottom: "8px",
-          opacity: 0.8,
+          paddingBottom: "4px",
         }}
       >
-        <div style={{ display: "flex", gap: "5px" }}>
-          <span
+        <div style={{ display: "flex", gap: "6px" }}>
+          {/* OS-style header dots */}
+          <div
             style={{
-              width: "6px",
-              height: "6px",
-              borderRadius: "50%",
-              backgroundColor: "#1A1C1A",
-            }}
-          ></span>
-          <span
-            className="group-hover:bg-[#006565] transition-colors"
-            style={{
-              width: "6px",
-              height: "6px",
+              width: "10px",
+              height: "10px",
               borderRadius: "50%",
               backgroundColor: "#A33B3C",
+              border: "1px solid #1A1C1A",
             }}
-          ></span>
-          <span
+          />
+          <div
             style={{
-              width: "6px",
-              height: "6px",
+              width: "10px",
+              height: "10px",
               borderRadius: "50%",
-              backgroundColor: "#e3e2de",
+              backgroundColor: "#d48c50",
+              border: "1px solid #1A1C1A",
             }}
-          ></span>
+          />
+          <div
+            style={{
+              width: "10px",
+              height: "10px",
+              borderRadius: "50%",
+              backgroundColor: "#006565",
+              border: "1px solid #1A1C1A",
+            }}
+          />
         </div>
         <span
           className="group-hover:text-[#006565] transition-colors"
           style={{
-            marginLeft: "auto",
             fontFamily: "monospace",
-            fontSize: "8px",
-            fontWeight: 900,
+            fontSize: "9px",
+            fontWeight: 700,
             letterSpacing: "0.05em",
-            color: "#1A1C1A",
+            color: "#6e7979",
           }}
         >
           // CIDC_NODE_SYS
         </span>
       </div>
 
-      {/* Photo Container */}
+      {/* Internal Image Frame with solid perimeters & hover effects */}
       <div
         style={{
-          width: "100%",
-          height: "210px",
-          backgroundColor: "#e3e2de",
-          border: "2px solid #1A1C1A",
+          borderTop: "2px solid #1A1C1A",
+          paddingTop: "14px",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
-          overflow: "hidden",
-          borderRadius: "2px",
+          flexDirection: "column",
         }}
       >
-        {/* Soft layout overlay gradient effect */}
         <div
           style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(180deg, transparent 60%, rgba(26,28,26,0.15) 100%)",
-            zIndex: 10,
-            pointerEvents: "none",
+            border: "2px solid #1A1C1A",
+            backgroundColor: "#e3e2de",
+            overflow: "hidden",
+            position: "relative",
+            width: "100%",
+            height: "240px",
+            borderRadius: "0px", // Strict sharp corners
           }}
-        />
-
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.25 }}
-          style={{ width: "100%", height: "100%", position: "relative" }}
         >
-          <Image
-            src={image}
-            alt={`${name}'s photo`}
-            fill
-            sizes="250px"
-            style={{ objectFit: "cover" }}
-          />
-        </motion.div>
+          <motion.div
+            animate={{ scale: isHovered ? 1.04 : 1 }}
+            transition={{ duration: 0.25 }}
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "relative",
+              filter: isHovered ? "grayscale(0%)" : "grayscale(30%)",
+              transition: "filter 0.5s ease",
+            }}
+          >
+            <Image
+              src={image}
+              alt={`${name}'s photo`}
+              fill
+              sizes="250px"
+              style={{ objectFit: "cover" }}
+            />
+          </motion.div>
+        </div>
       </div>
 
-      {/* Text Context Structure */}
+      {/* Identity Details Section */}
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         <h3
           style={{
-            fontSize: "17px",
+            fontSize: "19px",
             fontWeight: "900",
             color: "#1A1C1A",
             textTransform: "uppercase",
             letterSpacing: "-0.02em",
             margin: 0,
-            lineHeight: 1.15,
+            lineHeight: 1.1,
           }}
         >
           {name}
         </h3>
 
-        {/* Modern Custom Badge Block for Role */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignSelf: "flex-start",
-            border: "1.5px solid #1A1C1A",
-            padding: "2px 8px",
-            backgroundColor: "#006565",
-            color: "white",
-            borderRadius: "4px",
-          }}
-        >
-          <p
+        {/* Role Chip with indicator dot */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <div
             style={{
-              fontWeight: "900",
-              textTransform: "uppercase",
-              fontSize: "9px",
-              letterSpacing: "0.08em",
-              margin: 0,
+              display: "inline-flex",
+              alignSelf: "flex-start",
+              border: "1.5px solid #1A1C1A",
+              padding: "3px 8px",
+              backgroundColor: "#006565",
+              color: "white",
+              borderRadius: "0px", // Strict sharp corners
+              boxShadow: "1px 1px 0px 0px #1A1C1A",
             }}
           >
-            {role}
-          </p>
+            <p
+              style={{
+                fontWeight: "900",
+                textTransform: "uppercase",
+                fontSize: "9px",
+                letterSpacing: "0.08em",
+                margin: 0,
+              }}
+            >
+              {role}
+            </p>
+          </div>
+          <div
+            style={{
+              width: "6px",
+              height: "6px",
+              borderRadius: "50%",
+              backgroundColor: "#1A1C1A",
+            }}
+          />
         </div>
       </div>
 
@@ -217,10 +238,10 @@ export default function TeamMemberCard({
           display: "flex",
           gap: "14px",
           marginTop: "auto",
-          paddingTop: "8px",
+          paddingTop: "12px",
           justifyContent: "space-between",
           alignItems: "center",
-          borderTop: "1.5px dashed rgba(26,28,26,0.1)",
+          borderTop: "2px solid #1A1C1A",
         }}
       >
         <div style={{ display: "flex", gap: "12px" }}>
@@ -242,18 +263,23 @@ export default function TeamMemberCard({
           </a>
         </div>
 
-        {/* Subtle decorative graphic */}
-        <span
-          style={{
-            fontFamily: "monospace",
-            fontSize: "9px",
-            color: "#1A1C1A",
-            opacity: 0.3,
-            fontWeight: "bold",
-          }}
-        >
-          ■ LOC_AITP
-        </span>
+        {/* Location badge from Stitch */}
+        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+          <div
+            style={{ width: "6px", height: "6px", backgroundColor: "#6e7979" }}
+          />
+          <span
+            style={{
+              fontFamily: "monospace",
+              fontSize: "8px",
+              color: "#6e7979",
+              fontWeight: "bold",
+              letterSpacing: "0.1em",
+            }}
+          >
+            LOC_AITP
+          </span>
+        </div>
       </div>
     </motion.div>
   );

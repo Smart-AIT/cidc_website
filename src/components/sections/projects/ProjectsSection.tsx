@@ -1,6 +1,7 @@
-import { image, object } from "framer-motion/client";
-import ScrollStack, { ScrollStackItem } from "./ScrollStack";
+import { useState } from "react";
 import Image from "next/image";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 const PROJECT_LIST = [
   {
@@ -42,12 +43,28 @@ const PROJECT_LIST = [
 ];
 
 export default function ProjectsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === PROJECT_LIST.length - 1 ? 0 : prevIndex + 1,
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? PROJECT_LIST.length - 1 : prevIndex - 1,
+    );
+  };
+
+  const currentProject = PROJECT_LIST[currentIndex];
+
   return (
     <>
       <style>{`
         .projects-section-root {
           width: 100%;
-          padding: 60px 40px 120px 40px;
+          padding: 80px 40px 120px 40px;
           border-top: 2px solid #1A1C1A;
           background-color: #faf9f6;
         }
@@ -60,6 +77,125 @@ export default function ProjectsSection() {
           .projects-section-root {
             padding: 48px 24px 100px 24px;
           }
+        }
+
+        /* Carousel Styles */
+        .carousel-wrapper {
+          position: relative;
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          border: 2.5px solid #1A1C1A;
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 8px 8px 0px 0px #1A1C1A;
+          overflow: hidden;
+          display: grid;
+          grid-template-columns: 0.85fr 1.15fr;
+          min-height: 540px;
+        }
+
+        @media (max-width: 900px) {
+          .carousel-wrapper {
+            grid-template-columns: 1fr;
+            min-height: auto;
+          }
+        }
+
+        .carousel-content {
+          padding: 48px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-right: 2.5px solid #1A1C1A;
+          background-color: #faf9f6;
+        }
+
+        @media (max-width: 900px) {
+          .carousel-content {
+            border-right: none;
+            border-bottom: 2.5px solid #1A1C1A;
+            padding: 32px 24px;
+          }
+        }
+
+        .carousel-image-container {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          min-height: 400px;
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        @media (max-width: 900px) {
+          .carousel-image-container {
+            min-height: 300px;
+          }
+        }
+
+        .carousel-controls {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 24px;
+          margin-top: 32px;
+          flex-wrap: wrap;
+        }
+
+        .carousel-nav-buttons {
+          display: flex;
+          gap: 12px;
+        }
+
+        .carousel-nav-btn {
+          background-color: #faf9f6;
+          color: #1A1C1A;
+          border: 2px solid #1A1C1A;
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          border-radius: 6px;
+          box-shadow: 4px 4px 0px 0px #1A1C1A;
+          transition: all 0.1s ease-in-out;
+          font-size: 16px;
+        }
+
+        .carousel-nav-btn:hover {
+          transform: translate(2px, 2px);
+          box-shadow: 2px 2px 0px 0px #1A1C1A;
+        }
+
+        .carousel-nav-btn:active {
+          transform: translate(4px, 4px);
+          box-shadow: 0px 0px 0px 0px #1A1C1A;
+        }
+
+        .carousel-dots {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+
+        .carousel-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          border: 1.5px solid #1A1C1A;
+          background-color: #e3e2de;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .carousel-dot.active {
+          background-color: #006565;
+          transform: scale(1.2);
         }
       `}</style>
       <section id="projects" className="projects-section-root">
@@ -113,31 +249,159 @@ export default function ProjectsSection() {
             </p>
           </header>
 
-          {/* Scroll Stack */}
-          <div style={{ marginTop: "80px" }}>
-            <ScrollStack gap={500}>
-              {PROJECT_LIST.map((proj, i) => (
-                <ScrollStackItem key={i}>
-                  {/* Title and description on top */}
-                  <div className="scroll-stack-card-title">{proj.name}</div>
-                  <div className="scroll-stack-card-divider" />
-                  <div className="scroll-stack-card-desc">{proj.desc}</div>
-
-                  {/* Full-width image block below */}
+          {/* Carousel Wrapper */}
+          <div className="carousel-wrapper">
+            {/* Left Content Column */}
+            <div className="carousel-content">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "16px",
+                  }}
+                >
+                  {/* ID Badge Node Label */}
                   <div
-                    className="scroll-stack-card-image relative"
-                    style={{ marginTop: "40px", marginBottom: "0" }}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      borderBottom: "1.5px dashed rgba(26,28,26,0.15)",
+                      paddingBottom: "12px",
+                      width: "100%",
+                    }}
                   >
-                    {/* <span style={{ fontFamily: "monospace", fontSize: "14px", color: "rgba(26,28,26,0.25)", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.15em" }}>PROJECT_IMAGE_{String(i + 1).padStart(2, "0")}</span> */}
-                    <img
-                      src={proj.image}
-                      alt={proj.name}
-                      className="w-full h-full object-cover"
-                    />
+                    <span
+                      style={{
+                        fontFamily: "monospace",
+                        fontSize: "11px",
+                        fontWeight: "900",
+                        letterSpacing: "0.1em",
+                        color: "#006565",
+                      }}
+                    >
+                      // PROJECT_{String(currentIndex + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "monospace",
+                        fontSize: "10px",
+                        color: "#A33B3C",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      STATUS: ACTIVE_DEPL
+                    </span>
                   </div>
-                </ScrollStackItem>
-              ))}
-            </ScrollStack>
+
+                  <h3
+                    style={{
+                      fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
+                      fontWeight: "900",
+                      textTransform: "uppercase",
+                      color: "#1A1C1A",
+                      marginTop: "16px",
+                      marginBottom: "8px",
+                      lineHeight: "1.1",
+                      letterSpacing: "-0.02em",
+                    }}
+                  >
+                    {currentProject.name}
+                  </h3>
+                  <div
+                    style={{
+                      width: "80px",
+                      height: "4px",
+                      background: "linear-gradient(90deg, #a33b3c, #d4505f)",
+                      borderRadius: "2px",
+                      marginBottom: "8px",
+                    }}
+                  />
+
+                  <p
+                    style={{
+                      fontSize: "16px",
+                      color: "#2a2c2a",
+                      lineHeight: "1.7",
+                      fontWeight: "450",
+                      minHeight: "120px",
+                    }}
+                  >
+                    {currentProject.desc}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Controls */}
+              <div className="carousel-controls">
+                {/* Dots indicator */}
+                <div className="carousel-dots">
+                  {PROJECT_LIST.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentIndex(i)}
+                      className={`carousel-dot ${currentIndex === i ? "active" : ""}`}
+                      aria-label={`Go to slide ${i + 1}`}
+                    />
+                  ))}
+                </div>
+
+                {/* Left/Right Nav Buttons */}
+                <div className="carousel-nav-buttons">
+                  <button
+                    onClick={prevSlide}
+                    className="carousel-nav-btn"
+                    aria-label="Previous project"
+                  >
+                    <FaChevronLeft />
+                  </button>
+                  <button
+                    onClick={nextSlide}
+                    className="carousel-nav-btn"
+                    aria-label="Next project"
+                  >
+                    <FaChevronRight />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Image Column */}
+            <div className="carousel-image-container">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                  }}
+                >
+                  <Image
+                    src={currentProject.image}
+                    alt={currentProject.name}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 50vw"
+                    style={{
+                      objectFit: "contain",
+                      padding: "24px",
+                    }}
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </section>
