@@ -122,6 +122,7 @@ export default function TeamSection() {
           flex-wrap: wrap;
           width: 100%;
         }
+        
         .mechanical-tab-btn {
           background-color: #faf9f6;
           color: #1A1C1A;
