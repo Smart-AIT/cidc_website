@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,37 +6,37 @@ import { motion, AnimatePresence } from "framer-motion";
 const PROJECT_LIST = [
   {
     name: "AIT Website",
-    desc: "Official website of Army Institute of Technology, Pune.",
+    desc: "The official web portal of the Army Institute of Technology, Pune. Built to streamline institutional resources, student portals, and academic listings in a unified modern interface, serving over 1500+ active campus nodes daily.",
     image: "/projects/ait.png",
     style: { objectFit: "cover" },
   },
   {
     name: "Sniffi",
-    desc: "A home veterinary service platform that provides expert pet healthcare at your doorstep, including consultations, vaccinations, wellness checkups, and diagnostics—making pet care convenient, stress-free, and personalized.",
+    desc: "A high-performance home veterinary service platform that delivers expert pet healthcare directly to your doorstep. It manages real-time scheduling, vaccinations, wellness checkups, and medical diagnostics, providing a stress-free experience for pet owners.",
     image: "/projects/sniffi2.png",
     style: { objectFit: "cover" },
   },
   {
     name: "PROJAK",
-    desc: "A consulting and technology platform that helps organizations grow through data-driven insights and strategic execution.",
+    desc: "An enterprise-grade consulting and technology platform engineered to accelerate organizational growth. Leveraging data-driven diagnostics, advanced insights, and strategic execution modules to optimize complex corporate and academic workflows.",
     image: "/projects/projak.png",
     style: { objectFit: "cover" },
   },
   {
     name: "SUGGEST",
-    desc: "A book discovery platform powered by video reviews, AI summaries, and community insights.",
+    desc: "A modern social book discovery engine powered by short-form video reviews, interactive AI summaries, and community-driven reader insights. Designed to optimize and transform reading list curation for digital bibliophiles.",
     image: "/projects/suggest.png",
     style: { objectFit: "contain" },
   },
   {
     name: "AIT Smart Labs",
-    desc: "A smart lab management system for creating and managing QR codes to streamline access and tracking.",
+    desc: "A comprehensive IoT and QR-driven laboratory management system. Streamlines hardware tracking, student attendance, equipment access logs, and safety verification across all department labs.",
     image: "/projects/aitsmartlab.png",
     style: { objectFit: "contain" },
   },
   {
     name: "SendBox",
-    desc: "An automated WhatsApp messaging system for sending personalized well wishes to staff and students.",
+    desc: "An automated enterprise WhatsApp outreach engine. Built to broadcast personalized announcements, event schedules, and well wishes to staff, alumni, and students with robust API rate-limiting.",
     image: "/projects/sendbox.png",
     style: { objectFit: "contain" },
   },
@@ -44,6 +44,7 @@ const PROJECT_LIST = [
 
 export default function ProjectsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -56,6 +57,14 @@ export default function ProjectsSection() {
       prevIndex === 0 ? PROJECT_LIST.length - 1 : prevIndex - 1,
     );
   };
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 2000); // Auto-scroll every 2 seconds
+    return () => clearInterval(interval);
+  }, [currentIndex, isPlaying]);
 
   const currentProject = PROJECT_LIST[currentIndex];
 
@@ -83,7 +92,7 @@ export default function ProjectsSection() {
         .carousel-wrapper {
           position: relative;
           width: 100%;
-          max-width: 1200px;
+          max-width: 1350px;
           margin: 0 auto;
           border: 2.5px solid #1A1C1A;
           background: #fff;
@@ -91,8 +100,8 @@ export default function ProjectsSection() {
           box-shadow: 8px 8px 0px 0px #1A1C1A;
           overflow: hidden;
           display: grid;
-          grid-template-columns: 0.85fr 1.15fr;
-          min-height: 540px;
+          grid-template-columns: 3fr 7fr;
+          min-height: 650px;
         }
 
         @media (max-width: 900px) {
@@ -123,7 +132,7 @@ export default function ProjectsSection() {
           position: relative;
           width: 100%;
           height: 100%;
-          min-height: 400px;
+          min-height: 480px;
           background-color: #ffffff;
           display: flex;
           align-items: center;
@@ -250,7 +259,11 @@ export default function ProjectsSection() {
           </header>
 
           {/* Carousel Wrapper */}
-          <div className="carousel-wrapper">
+          <div
+            className="carousel-wrapper"
+            onMouseEnter={() => setIsPlaying(false)}
+            onMouseLeave={() => setIsPlaying(true)}
+          >
             {/* Left Content Column */}
             <div className="carousel-content">
               <AnimatePresence mode="wait">
@@ -282,7 +295,7 @@ export default function ProjectsSection() {
                         fontFamily: "monospace",
                         fontSize: "11px",
                         fontWeight: "900",
-                        letterSpacing: "0.1em",
+                        letterSpacing: "0.15em",
                         color: "#006565",
                       }}
                     >
@@ -294,6 +307,7 @@ export default function ProjectsSection() {
                         fontSize: "10px",
                         color: "#A33B3C",
                         fontWeight: "bold",
+                        letterSpacing: "0.05em",
                       }}
                     >
                       STATUS: ACTIVE_DEPL
@@ -326,11 +340,11 @@ export default function ProjectsSection() {
 
                   <p
                     style={{
-                      fontSize: "16px",
+                      fontSize: "17px",
                       color: "#2a2c2a",
-                      lineHeight: "1.7",
+                      lineHeight: "1.6",
                       fontWeight: "450",
-                      minHeight: "120px",
+                      margin: 0,
                     }}
                   >
                     {currentProject.desc}
@@ -393,10 +407,10 @@ export default function ProjectsSection() {
                     src={currentProject.image}
                     alt={currentProject.name}
                     fill
-                    sizes="(max-width: 900px) 100vw, 50vw"
+                    sizes="(max-width: 900px) 100vw, 70vw"
                     style={{
                       objectFit: "contain",
-                      padding: "24px",
+                      padding: "32px",
                     }}
                   />
                 </motion.div>

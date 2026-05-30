@@ -137,7 +137,7 @@ export default function HeroSection() {
           style={{ borderRadius: "4px" }}
         >
           {/* Left Branding Column */}
-          <div className="order-2 xl:order-1 lg:col-span-12 xl:col-span-7 flex flex-col items-start justify-center border-t-2 xl:border-t-0 xl:border-r-2 border-[#1A1C1A] relative z-20 bg-transparent hero-left-col">
+          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-start justify-center border-t-2 lg:border-t-0 lg:border-r-2 border-[#1A1C1A] relative z-20 bg-transparent hero-left-col">
             {/* Label */}
             <div className="hero-label-topleft font-mono text-[10px] sm:text-xs tracking-widest text-[#1A1C1A]/40 uppercase font-bold">
               {displayedText}
@@ -220,7 +220,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Visual Column */}
-          <div className="order-1 xl:order-2 lg:col-span-12 xl:col-span-5 bg-transparent relative min-h-[300px] sm:min-h-[400px] lg:min-h-[650px] flex flex-col items-center justify-center p-8 sm:p-12 md:p-20 z-20">
+          <div className="order-1 lg:order-2 lg:col-span-5 bg-transparent relative min-h-[300px] sm:min-h-[400px] lg:min-h-[650px] flex flex-col items-center justify-center p-8 sm:p-12 md:p-20 z-20">
             {/* CIDC Geometric Logo Setup */}
             <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[480px] aspect-[16/10] flex flex-col justify-center items-center border-[1.5px] border-[#006565]/25 -mt-10 lg:mt-0 bg-white/40 backdrop-blur-md">
               {/* The Text */}
