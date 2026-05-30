@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 export default function HeroStats() {
   const [displayedLine1, setDisplayedLine1] = useState("");
   const [displayedLine2, setDisplayedLine2] = useState("");
-  
-  const fullLine1 = '>> cat mission.txt "Learn. Build. Ship. Repeat..." [CONSTANT]';
+
+  const fullLine1 =
+    '>> cat mission.txt "Learn. Build. Ship. Repeat..." [CONSTANT]';
   const fullLine2 = ">> establishing dev community... [ACTIVE]";
 
   useEffect(() => {
@@ -108,55 +109,126 @@ export default function HeroStats() {
           }
         }
       `}</style>
-      <div style={{ display: "flex", justifyContent: "center", width: "100%", marginTop: "40px", marginBottom: "0px" }}>
-        <div style={{ width: "98%", maxWidth: "1400px", border: "2px solid #1A1C1A", boxShadow: "8px 8px 0px 0px #1A1C1A", backgroundColor: "white", position: "relative", borderRadius: "4px", overflow: "hidden" }}>
-          <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          marginTop: "40px",
+          marginBottom: "0px",
+        }}
+      >
+        <div
+          style={{
+            width: "98%",
+            maxWidth: "1400px",
+            border: "2px solid #1A1C1A",
+            boxShadow: "8px 8px 0px 0px #1A1C1A",
+            backgroundColor: "white",
+            position: "relative",
+            borderRadius: "4px",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{ display: "flex", flexDirection: "column", height: "100%" }}
+          >
             {/* Stats Grid */}
             <div className="hero-stats-grid">
               {/* Stat 1 */}
-              <div className="hero-stat-cell hero-stat-cell-border-r" style={{ borderRight: "2px solid #1A1C1A" }}>
+              <div
+                className="hero-stat-cell hero-stat-cell-border-r"
+                style={{ borderRight: "2px solid #1A1C1A" }}
+              >
                 <h3 className="hero-stat-number">
-                  24/7<span style={{ color: "#A33B3C", fontSize: "clamp(16px, 2.5vw, 24px)", marginLeft: "8px" }}>UP</span>
+                  24/7
+                  <span
+                    style={{
+                      color: "#A33B3C",
+                      fontSize: "clamp(16px, 2.5vw, 24px)",
+                      marginLeft: "8px",
+                    }}
+                  >
+                    UP
+                  </span>
                 </h3>
-                <p className="hero-stat-label">
-                  Innovation Lab
-                </p>
+                <p className="hero-stat-label">Innovation Lab</p>
               </div>
               {/* Stat 2 */}
-              <div className="hero-stat-cell hero-stat-cell-border-r" style={{ borderRight: "2px solid #1A1C1A" }}>
+              <div
+                className="hero-stat-cell hero-stat-cell-border-r"
+                style={{ borderRight: "2px solid #1A1C1A" }}
+              >
                 <h3 className="hero-stat-number">
-                  02<span style={{ color: "#006565", fontSize: "clamp(36px, 4vw, 54px)", marginLeft: "8px" }}>+</span>
+                  02
+                  <span
+                    style={{
+                      color: "#006565",
+                      fontSize: "clamp(36px, 4vw, 54px)",
+                      marginLeft: "8px",
+                    }}
+                  >
+                    +
+                  </span>
                 </h3>
-                <p className="hero-stat-label">
-                  Active Projects
-                </p>
+                <p className="hero-stat-label">Active Projects</p>
               </div>
               {/* Stat 3 */}
               <div className="hero-stat-cell">
                 <h3 className="hero-stat-number">
                   <span style={{ color: "#1A1C1A" }}>012</span>
-                  <span style={{ color: "#A33B3C", fontSize: "clamp(16px, 2.5vw, 24px)", marginLeft: "8px" }}>BUILDERS</span>
+                  <span
+                    style={{
+                      color: "#A33B3C",
+                      fontSize: "clamp(16px, 2.5vw, 24px)",
+                      marginLeft: "8px",
+                    }}
+                  >
+                    BUILDERS
+                  </span>
                 </h3>
-                <p className="hero-stat-label">
-                  Community
-                </p>
+                <p className="hero-stat-label">Community</p>
               </div>
             </div>
 
             {/* Terminal Strip */}
-            <div className="hero-terminal-strip" style={{ borderTop: "2px dashed #1A1C1A", backgroundColor: "#faf9f6" }}>
-              <div style={{ fontFamily: "monospace", fontSize: "12px", color: "#1A1C1A", opacity: "0.7", lineHeight: "1.6", overflowWrap: "break-word", wordBreak: "break-word" }}>
+            <div
+              className="hero-terminal-strip"
+              style={{
+                borderTop: "2px dashed #1A1C1A",
+                backgroundColor: "#faf9f6",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "monospace",
+                  fontSize: "12px",
+                  color: "#1A1C1A",
+                  opacity: "0.7",
+                  lineHeight: "1.6",
+                  overflowWrap: "break-word",
+                  wordBreak: "break-word",
+                }}
+              >
                 <p style={{ margin: "0 0 12px 0" }}>
                   {displayedLine1}
-                  {displayedLine1.length < fullLine1.length && <span className="animate-pulse">|</span>}
+                  {displayedLine1.length < fullLine1.length && (
+                    <span className="animate-pulse">|</span>
+                  )}
                 </p>
                 <p style={{ margin: "0 0 12px 0" }}>
                   {displayedLine2}
-                  {displayedLine2.length < fullLine2.length && <span className="animate-pulse">|</span>}
+                  {displayedLine2.length < fullLine2.length && (
+                    <span className="animate-pulse">|</span>
+                  )}
                 </p>
                 <div className="hero-terminal-footer">
                   <p style={{ margin: "0" }}>&gt;&gt; cidc --version</p>
-                  <p style={{ margin: "0", fontWeight: "900", color: "#1A1C1A" }}>CIDC_v4.0 | Building Developers, Not Just Coders</p>
+                  <p
+                    style={{ margin: "0", fontWeight: "900", color: "#1A1C1A" }}
+                  >
+                    CIDC_v4.0 | Building Developers, Not Just Coders
+                  </p>
                 </div>
               </div>
             </div>

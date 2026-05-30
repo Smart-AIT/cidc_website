@@ -117,7 +117,7 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
         const isMobile = w < 768;
         const baseRadius = isMobile ? 110 : 240;
         const variance = isMobile ? 40 : 90;
-        
+
         this.orbitRadius = baseRadius + Math.random() * variance;
         this.x = cx + Math.cos(this.angle) * this.orbitRadius;
         this.y = cy + Math.sin(this.angle) * this.orbitRadius;
@@ -203,7 +203,7 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
               this.y + (Math.random() - 0.5) * 2,
               this.size * 1.5,
               0,
-              Math.PI * 2
+              Math.PI * 2,
             );
             ctx!.fill();
           }
@@ -260,12 +260,18 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
       <canvas ref={canvasRef} className="loader-canvas" />
       <div className={`loader-content ${isExiting ? "content-out" : ""}`}>
         <h3 className="loader-title">{title}</h3>
-        <p className="loader-subtitle">{Math.round(progress)}{subtitle}</p>
+        <p className="loader-subtitle">
+          {Math.round(progress)}
+          {subtitle}
+        </p>
         <button
           className={`loader-button ${userClicked && !isLoaded ? "waiting" : ""}`}
           onClick={handleButtonClick}
           disabled={userClicked && !isLoaded}
-          style={{ pointerEvents: userClicked ? "none" : "all", borderRadius: "12px" }}
+          style={{
+            pointerEvents: userClicked ? "none" : "all",
+            borderRadius: "12px",
+          }}
         >
           {userClicked && !isLoaded ? "PREPARING..." : "ENTER"}
         </button>

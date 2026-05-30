@@ -9,13 +9,13 @@ interface SmoothScrollProps {
 
 export default function SmoothScroll({ children }: SmoothScrollProps) {
   return (
-    <ReactLenis 
-      root 
-      options={{ 
-        lerp: 0.05, 
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.05,
         duration: 0.7,
-        wheelMultiplier: 0.7, 
-        touchMultiplier: 0.7 
+        wheelMultiplier: 0.7,
+        touchMultiplier: 0.7,
       }}
     >
       {children}

@@ -1,5 +1,7 @@
 import AboutVision from "./AboutVision";
-import ScrollStack, { ScrollStackItem } from "../../sections/projects/ScrollStack";
+import ScrollStack, {
+  ScrollStackItem,
+} from "../../sections/projects/ScrollStack";
 import { useState, useEffect } from "react";
 
 export default function AboutSection() {
@@ -125,33 +127,83 @@ export default function AboutSection() {
         }
       `}</style>
       <section id="about" className="about-section-root">
-
         {/* ── Hero Header ── */}
         <header style={{ marginBottom: "80px", maxWidth: "100%" }}>
-          <div style={{ width: "80px", height: "4px", background: "linear-gradient(90deg, #A33B3C, #d4505f)", borderRadius: "2px", marginBottom: "32px" }} />
-          <h2 style={{ fontSize: "clamp(2rem, 12vw, 5.5rem)", fontWeight: "900", lineHeight: "0.85", letterSpacing: "-0.02em", textTransform: "uppercase", marginBottom: "40px", color: "#1A1C1A" }}>
-            WANT TO<br />KNOW {displayedAboutText.substring(0, 6)}<span style={{ color: "#006565" }}>{displayedAboutText.substring(6)}</span>{displayedAboutText.length < fullAboutText.length && displayedAboutText.length > 0 && <span className="animate-pulse">|</span>} ?
+          <div
+            style={{
+              width: "80px",
+              height: "4px",
+              background: "linear-gradient(90deg, #A33B3C, #d4505f)",
+              borderRadius: "2px",
+              marginBottom: "32px",
+            }}
+          />
+          <h2
+            style={{
+              fontSize: "clamp(2rem, 12vw, 5.5rem)",
+              fontWeight: "900",
+              lineHeight: "0.85",
+              letterSpacing: "-0.02em",
+              textTransform: "uppercase",
+              marginBottom: "40px",
+              color: "#1A1C1A",
+            }}
+          >
+            WANT TO
+            <br />
+            KNOW {displayedAboutText.substring(0, 6)}
+            <span style={{ color: "#006565" }}>
+              {displayedAboutText.substring(6)}
+            </span>
+            {displayedAboutText.length < fullAboutText.length &&
+              displayedAboutText.length > 0 && (
+                <span className="animate-pulse">|</span>
+              )}{" "}
+            ?
           </h2>
           <div className="about-header-grid">
-            <p style={{ fontSize: "16px", fontWeight: "500", lineHeight: "1.8", color: "#2a2c2a", margin: "0" }}>
+            <p
+              style={{
+                fontSize: "16px",
+                fontWeight: "500",
+                lineHeight: "1.8",
+                color: "#2a2c2a",
+                margin: "0",
+              }}
+            >
               CIDC is a student-driven development community focused on building
-              real-world systems for the college ecosystem.
-              We follow a project-based learning approach where students don&apos;t just
-              learn — they <strong>build, deploy, and solve actual problems</strong>{" "}
-              within the institute.
+              real-world systems for the college ecosystem. We follow a
+              project-based learning approach where students don&apos;t just
+              learn — they{" "}
+              <strong>build, deploy, and solve actual problems</strong> within
+              the institute.
             </p>
-            <p style={{ fontSize: "16px", fontWeight: "450", lineHeight: "1.8", color: "#2a2c2a", margin: "0" }}>
-              From day one, members are exposed to practical development workflows,
-              collaborative environments, and production-level thinking.
-              Every contribution matters and every line of code ships.
+            <p
+              style={{
+                fontSize: "16px",
+                fontWeight: "450",
+                lineHeight: "1.8",
+                color: "#2a2c2a",
+                margin: "0",
+              }}
+            >
+              From day one, members are exposed to practical development
+              workflows, collaborative environments, and production-level
+              thinking. Every contribution matters and every line of code ships.
             </p>
           </div>
         </header>
 
         {/* ── Bento Grid: Vision + Image + Stats ── */}
-        <ScrollStack gap={500}>
+        <ScrollStack gap={500} animationType="flip-horizontal">
           <ScrollStackItem>
-            <div style={{ border: "2px solid #1A1C1A", borderRadius: "16px", overflow: "hidden" }}>
+            <div
+              style={{
+                border: "2px solid #1A1C1A",
+                borderRadius: "16px",
+                overflow: "hidden",
+              }}
+            >
               <AboutVision />
             </div>
           </ScrollStackItem>
@@ -159,28 +211,91 @@ export default function AboutSection() {
           {/* ── Mission Statement ── */}
           <ScrollStackItem>
             <div className="about-mission-grid">
-
               <div className="about-mission-right">
-                <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: "900", textTransform: "uppercase", marginBottom: "28px", lineHeight: "1", color: "#1A1C1A" }}>
+                <h2
+                  style={{
+                    fontSize: "clamp(1.8rem, 4vw, 3rem)",
+                    fontWeight: "900",
+                    textTransform: "uppercase",
+                    marginBottom: "28px",
+                    lineHeight: "1",
+                    color: "#1A1C1A",
+                  }}
+                >
                   Precision
                 </h2>
-                <p style={{ fontSize: "16px", fontWeight: "500", lineHeight: "1.8", marginBottom: "40px", color: "#2a2c2a", maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
-                  Focuses on execution. Builds production systems. Delivers working solutions.
-                  <br /><br />
+                <p
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "500",
+                    lineHeight: "1.8",
+                    marginBottom: "40px",
+                    color: "#2a2c2a",
+                    maxWidth: "560px",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                >
+                  Focuses on execution. Builds production systems. Delivers
+                  working solutions.
+                  <br />
+                  <br />
                   <span style={{ color: "#555" }}>
-                    It is not just a club—it&apos;s a development ecosystem contributing
-                    directly to the college&apos;s digital growth.
+                    It is not just a club—it&apos;s a development ecosystem
+                    contributing directly to the college&apos;s digital growth.
                   </span>
                 </p>
 
                 <div className="about-mission-details">
                   <div>
-                    <p style={{ fontFamily: "monospace", fontSize: "12px", textTransform: "uppercase", fontWeight: "900", marginBottom: "10px", color: "#006565" }}>01. INTENTIONALITY</p>
-                    <p style={{ fontSize: "14px", color: "#2a2c2a", fontWeight: "450", lineHeight: "1.7" }}>Every pixel on our grid serves a structural purpose. We reject decorative fluff.</p>
+                    <p
+                      style={{
+                        fontFamily: "monospace",
+                        fontSize: "12px",
+                        textTransform: "uppercase",
+                        fontWeight: "900",
+                        marginBottom: "10px",
+                        color: "#006565",
+                      }}
+                    >
+                      01. INTENTIONALITY
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        color: "#2a2c2a",
+                        fontWeight: "450",
+                        lineHeight: "1.7",
+                      }}
+                    >
+                      Every pixel on our grid serves a structural purpose. We
+                      reject decorative fluff.
+                    </p>
                   </div>
                   <div>
-                    <p style={{ fontFamily: "monospace", fontSize: "12px", textTransform: "uppercase", fontWeight: "900", marginBottom: "10px", color: "#006565" }}>02. PERSISTENCE</p>
-                    <p style={{ fontSize: "14px", color: "#2a2c2a", fontWeight: "450", lineHeight: "1.7" }}>Designing for longevity through heavy weights and high-contrast accessibility.</p>
+                    <p
+                      style={{
+                        fontFamily: "monospace",
+                        fontSize: "12px",
+                        textTransform: "uppercase",
+                        fontWeight: "900",
+                        marginBottom: "10px",
+                        color: "#006565",
+                      }}
+                    >
+                      02. PERSISTENCE
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        color: "#2a2c2a",
+                        fontWeight: "450",
+                        lineHeight: "1.7",
+                      }}
+                    >
+                      Designing for longevity through heavy weights and
+                      high-contrast accessibility.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -189,15 +304,54 @@ export default function AboutSection() {
         </ScrollStack>
 
         {/* Upcoming Section Footer */}
-        <div style={{ marginTop: "96px", display: "flex", flexDirection: "column", gap: "24px" }}>
+        <div
+          style={{
+            marginTop: "96px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "24px",
+          }}
+        >
           <div className="about-upcoming-header">
-            <h3 style={{ fontSize: "clamp(20px, 4vw, 28px)", fontWeight: "900", textTransform: "uppercase", marginBottom: "0px", letterSpacing: "-0.01em", color: "#1A1C1A" }}>UPCOMING PROJECTS</h3>
-            <a href="#footer" style={{ backgroundColor: "#006565", color: "white", padding: "8px 20px", fontWeight: "900", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: "10px", border: "2px solid #1A1C1A", cursor: "pointer", transition: "all 0.2s ease", whiteSpace: "nowrap", height: "fit-content", textDecoration: "none", display: "inline-block" }} className="hover:translate-x-1  ">
+            <h3
+              style={{
+                fontSize: "clamp(20px, 4vw, 28px)",
+                fontWeight: "900",
+                textTransform: "uppercase",
+                marginBottom: "0px",
+                letterSpacing: "-0.01em",
+                color: "#1A1C1A",
+              }}
+            >
+              UPCOMING PROJECTS
+            </h3>
+            <a
+              href="#footer"
+              style={{
+                backgroundColor: "#006565",
+                color: "white",
+                padding: "8px 20px",
+                fontWeight: "900",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                fontSize: "10px",
+                border: "2px solid #1A1C1A",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                whiteSpace: "nowrap",
+                height: "fit-content",
+                textDecoration: "none",
+                display: "inline-block",
+              }}
+              className="hover:translate-x-1  "
+            >
               WANT TO CONTRIBUTE ?
             </a>
           </div>
-          
-          <style dangerouslySetInnerHTML={{__html: `
+
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
             @keyframes marqueeScroll {
               0% { transform: translateX(0); }
               100% { transform: translateX(-100%); }
@@ -230,35 +384,126 @@ export default function AboutSection() {
                 padding-right: 16px;
               }
             }
-          `}} />
+          `,
+            }}
+          />
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "48px" }}>
-            
-            <div className="marquee-container" style={{ display: "flex", overflow: "hidden", position: "relative", width: "100%", paddingBottom: "12px" }}>
+          <div
+            style={{ display: "grid", gridTemplateColumns: "1fr", gap: "48px" }}
+          >
+            <div
+              className="marquee-container"
+              style={{
+                display: "flex",
+                overflow: "hidden",
+                position: "relative",
+                width: "100%",
+                paddingBottom: "12px",
+              }}
+            >
               {[0, 1].map((trackIndex) => (
-                <div key={trackIndex} className="marquee-track" aria-hidden={trackIndex !== 0}>
+                <div
+                  key={trackIndex}
+                  className="marquee-track"
+                  aria-hidden={trackIndex !== 0}
+                >
                   {[
-                    { name: "Digital Leave & Outpass System", desc: "Streamlining digital approvals for hostel leaves with robust QR tracking." },
-                    { name: "Feedback & Grievance System", desc: "Anonymous reporting platform for logging campus issues and resolution tracking." },
-                    { name: "Lost & Found Management", desc: "Centralized campus repository for quickly logging found and missing items." },
-                    { name: "Hostel Room Management", desc: "Automated room allocations, status monitoring, and complaint ticketing log." },
-                    { name: "Student Idea & Innovation Portal", desc: "Where students submit concepts, find collab teams, and receive R&D funding." },
-                    { name: "Laundry Management System", desc: "Digital tracking for student laundry cycles, pickups, and capacity limits." }
+                    {
+                      name: "Digital Leave & Outpass System",
+                      desc: "Streamlining digital approvals for hostel leaves with robust QR tracking.",
+                    },
+                    {
+                      name: "Feedback & Grievance System",
+                      desc: "Anonymous reporting platform for logging campus issues and resolution tracking.",
+                    },
+                    {
+                      name: "Lost & Found Management",
+                      desc: "Centralized campus repository for quickly logging found and missing items.",
+                    },
+                    {
+                      name: "Hostel Room Management",
+                      desc: "Automated room allocations, status monitoring, and complaint ticketing log.",
+                    },
+                    {
+                      name: "Student Idea & Innovation Portal",
+                      desc: "Where students submit concepts, find collab teams, and receive R&D funding.",
+                    },
+                    {
+                      name: "Laundry Management System",
+                      desc: "Digital tracking for student laundry cycles, pickups, and capacity limits.",
+                    },
                   ].map((proj, i) => (
                     <div key={i} className="about-marquee-card">
-                      <div style={{ width: "24px", height: "4px", backgroundColor: "#A33B3C" }}></div>
-                      <h4 style={{ fontSize: "16px", fontWeight: "900", textTransform: "uppercase", color: "#1A1C1A", lineHeight: "1.2" }}>{proj.name}</h4>
-                      <p style={{ fontSize: "11px", color: "rgba(26,28,26,0.7)", fontWeight: "bold", fontFamily: "monospace", letterSpacing: "0.05em", lineHeight: "1.5" }}>{proj.desc}</p>
+                      <div
+                        style={{
+                          width: "24px",
+                          height: "4px",
+                          backgroundColor: "#A33B3C",
+                        }}
+                      ></div>
+                      <h4
+                        style={{
+                          fontSize: "16px",
+                          fontWeight: "900",
+                          textTransform: "uppercase",
+                          color: "#1A1C1A",
+                          lineHeight: "1.2",
+                        }}
+                      >
+                        {proj.name}
+                      </h4>
+                      <p
+                        style={{
+                          fontSize: "11px",
+                          color: "rgba(26,28,26,0.7)",
+                          fontWeight: "bold",
+                          fontFamily: "monospace",
+                          letterSpacing: "0.05em",
+                          lineHeight: "1.5",
+                        }}
+                      >
+                        {proj.desc}
+                      </p>
                     </div>
                   ))}
                 </div>
               ))}
             </div>
-            
+
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <div style={{ backgroundColor: "#006565", padding: "20px 24px", color: "white", minWidth: "280px", maxWidth: "100%" }}>
-                <h3 style={{ fontSize: "11px", fontWeight: "900", textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.15em", opacity: "0.7" }}>SYSTEM STATUS</h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "6px", fontFamily: "monospace", fontSize: "9px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              <div
+                style={{
+                  backgroundColor: "#006565",
+                  padding: "20px 24px",
+                  color: "white",
+                  minWidth: "280px",
+                  maxWidth: "100%",
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "11px",
+                    fontWeight: "900",
+                    textTransform: "uppercase",
+                    marginBottom: "12px",
+                    letterSpacing: "0.15em",
+                    opacity: "0.7",
+                  }}
+                >
+                  SYSTEM STATUS
+                </h3>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "6px",
+                    fontFamily: "monospace",
+                    fontSize: "9px",
+                    fontWeight: "600",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                  }}
+                >
                   <div>&gt; PROJECT_PIPELINE: ACTIVE</div>
                   <div>&gt; STUDENT_MODULE_RESERVED</div>
                   <div>&gt; MENTORSHIP_LAYER: ON</div>
@@ -266,7 +511,6 @@ export default function AboutSection() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>

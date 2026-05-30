@@ -70,7 +70,7 @@ export default function EventsSection() {
           end: "bottom center",
           scrub: 1,
         },
-      }
+      },
     );
 
     // Add reveal/hide effect to event cards based on scroll
@@ -94,7 +94,7 @@ export default function EventsSection() {
             scrub: 1,
             invalidateOnRefresh: true,
           },
-        }
+        },
       );
     });
   });
@@ -283,20 +283,55 @@ export default function EventsSection() {
         }
       `}</style>
       <section ref={containerRef} id="events" className="events-section-root">
-        <div style={{ maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}>
+        <div
+          style={{ maxWidth: "100%", marginLeft: "auto", marginRight: "auto" }}
+        >
           {/* Hero Header */}
           <div className="events-hero-grid">
             <div>
-              <p style={{ fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", marginBottom: "16px", fontWeight: "bold" }}>
+              <p
+                style={{
+                  fontSize: "10px",
+                  fontFamily: "monospace",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.2em",
+                  color: "#A33B3C",
+                  marginBottom: "16px",
+                  fontWeight: "bold",
+                }}
+              >
                 SYSTEM_SCHEDULE // YEAR_2026
               </p>
-              <h2 style={{ fontSize: "clamp(2.5rem, 12vw, 5.5rem)", fontWeight: "900", lineHeight: "0.85", textTransform: "uppercase", marginBottom: "32px" }}>
+              <h2
+                style={{
+                  fontSize: "clamp(2.5rem, 12vw, 5.5rem)",
+                  fontWeight: "900",
+                  lineHeight: "0.85",
+                  textTransform: "uppercase",
+                  marginBottom: "32px",
+                }}
+              >
                 UPCOMING
                 <br />
                 <span style={{ color: "#006565" }}>OPERATIONS</span>
               </h2>
-              <div style={{ width: "120px", height: "4px", backgroundColor: "#1A1C1A", marginBottom: "32px" }} />
-              <p style={{ maxWidth: "600px", fontSize: "16px", lineHeight: "1.6", color: "#1A1C1A", fontWeight: "500" }}>
+              <div
+                style={{
+                  width: "120px",
+                  height: "4px",
+                  backgroundColor: "#1A1C1A",
+                  marginBottom: "32px",
+                }}
+              />
+              <p
+                style={{
+                  maxWidth: "600px",
+                  fontSize: "16px",
+                  lineHeight: "1.6",
+                  color: "#1A1C1A",
+                  fontWeight: "500",
+                }}
+              >
                 Scheduled transmissions, community builds, and technical
                 deep-dives. We operate at the intersection of analog grit and
                 digital precision. Sync your calendars to the collective
@@ -304,7 +339,13 @@ export default function EventsSection() {
               </p>
             </div>
             <div>
-              <div style={{ border: "2px solid #1A1C1A", padding: "8px", backgroundColor: "#faf9f6" }}>
+              <div
+                style={{
+                  border: "2px solid #1A1C1A",
+                  padding: "8px",
+                  backgroundColor: "#faf9f6",
+                }}
+              >
                 <img
                   src="https://i.pinimg.com/originals/be/81/df/be81dfb06285a3f7b455d1d708e3d6b0.gif"
                   alt="Events visual"
@@ -320,7 +361,10 @@ export default function EventsSection() {
             <div className="events-timeline-line-bg" />
 
             {/* Vertical line - progress bar */}
-            <div ref={progressLineRef} className="events-timeline-line-progress" />
+            <div
+              ref={progressLineRef}
+              className="events-timeline-line-progress"
+            />
 
             {EVENTS.map((event, index) => (
               <div
@@ -329,7 +373,9 @@ export default function EventsSection() {
                   eventCardsRef.current[index] = el;
                 }}
                 className="events-timeline-item"
-                style={{ justifyContent: index % 2 === 0 ? "flex-start" : "flex-end" }}
+                style={{
+                  justifyContent: index % 2 === 0 ? "flex-start" : "flex-end",
+                }}
               >
                 <div className="events-timeline-card-wrap">
                   <EventCard {...event} />
@@ -349,12 +395,52 @@ export default function EventsSection() {
           {/* Announcements Footer */}
           <div className="events-announcements">
             <div style={{ textAlign: "left" }}>
-              <p style={{ fontSize: "10px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.1em", color: "#A33B3C", marginBottom: "8px", fontWeight: "bold" }}>ANNOUNCEMENTS</p>
-              <h3 style={{ fontSize: "clamp(20px, 3vw, 28px)", fontWeight: "900", textTransform: "uppercase", letterSpacing: "-0.01em", color: "#1A1C1A" }}>STAY TUNED TO THE<br />FREQUENCY</h3>
-              <p style={{ fontSize: "10px", fontFamily: "monospace", marginTop: "8px", color: "#1A1C1A", opacity: "0.6", fontWeight: "bold", letterSpacing: "0.08em" }}>BE THE PART OF SYSTEM. JOIN THE NETWORK.</p>
+              <p
+                style={{
+                  fontSize: "10px",
+                  fontFamily: "monospace",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#A33B3C",
+                  marginBottom: "8px",
+                  fontWeight: "bold",
+                }}
+              >
+                ANNOUNCEMENTS
+              </p>
+              <h3
+                style={{
+                  fontSize: "clamp(20px, 3vw, 28px)",
+                  fontWeight: "900",
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.01em",
+                  color: "#1A1C1A",
+                }}
+              >
+                STAY TUNED TO THE
+                <br />
+                FREQUENCY
+              </h3>
+              <p
+                style={{
+                  fontSize: "10px",
+                  fontFamily: "monospace",
+                  marginTop: "8px",
+                  color: "#1A1C1A",
+                  opacity: "0.6",
+                  fontWeight: "bold",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                BE THE PART OF SYSTEM. JOIN THE NETWORK.
+              </p>
             </div>
             <div className="events-announcements-input-group">
-              <input type="text" placeholder={displayedPlaceholder} className="events-announcements-input" />
+              <input
+                type="text"
+                placeholder={displayedPlaceholder}
+                className="events-announcements-input"
+              />
               <a href="#footer" className="events-announcements-btn">
                 JOIN_US_FOR_COOKIE
               </a>

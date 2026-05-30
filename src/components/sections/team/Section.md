@@ -25,21 +25,21 @@ const FACULTY_INCHARGES = [
 ];
 
 // ==========================================
-// 2. B.E. FINAL YEAR MEMBERS
+// 2. B.E. MENTORS
 // ==========================================
 const BE_MEMBERS = [
-  { ref_id: 1, name: "Jagdish Singh (Secretary)", role: "Frontend Lead", instagram: "https://www.instagram.com/jagdishpawar._/", linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/", image: "/image/jaggu.jpeg" },
-  { ref_id: 2, name: "Ebha Mollick (Secretary)", role: "DBMS Lead", instagram: "https://www.instagram.com/ebha_mollick/", linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/", image: "/image/ebbha.jpeg" },
+  { ref_id: 1, name: "Jagdish Singh", role: "Frontend Lead", instagram: "https://www.instagram.com/jagdishpawar._/", linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/", image: "/image/jaggu.jpeg" },
+  { ref_id: 2, name: "Ebha Mollick", role: "DBMS Lead", instagram: "https://www.instagram.com/ebha_mollick/", linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/", image: "/image/ebbha.jpeg" },
   { ref_id: 3, name: "Mohit Sharma", role: "Backend Lead", instagram: "https://www.instagram.com/its._mohit.sharma/", linkedin: "https://www.linkedin.com/in/its-mohitsharma/", image: "/image/mohit.jpeg" },
   { ref_id: 4, name: "Shreya Prasad", role: "Cloud Lead", instagram: "https://www.instagram.com/_shreya05prasad_/", linkedin: "https://www.linkedin.com/in/shreya-prasad-5b1567289/", image: "/image/shreya.jpeg" },
   { ref_id: 5, name: "Ayush Badoni", role: "Networking Head", instagram: "https://www.instagram.com/ayush_ab190/", linkedin: "https://www.linkedin.com/in/ayyushx/", image: "/image/ayush.jpeg" },
 ];
 
 // ==========================================
-// 3. T.E. THIRD YEAR MEMBERS
+// 3. T.E. COUNCIL
 // ==========================================
 const TE_MEMBERS = [
-  { ref_id: 9, name: "Abhay Singh", role: "Backend, GenAI Developer", instagram: "https://www.instagram.com/abhaysingh22_/", linkedin: "https://www.linkedin.com/in/abhaysingh22/", image: "/image/abhay.jpeg" },
+  { ref_id: 9, name: "Abhay Singh (Secretary)", role: "Backend, GenAI Developer", instagram: "https://www.instagram.com/abhaysingh22_/", linkedin: "https://www.linkedin.com/in/abhaysingh22/", image: "/image/abhay.jpeg", badge: "Secretary" },
   { ref_id: 8, name: "Pradeep Kumar", role: "Mobile & Backend Developer", instagram: "https://www.instagram.com/pradeepkumar0805/", linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/", image: "/image/pradeep.jpg" },
   { ref_id: 7, name: "Simran Singh", role: "Frontend Developer", instagram: "https://www.instagram.com/heysimmi_19/", linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/", image: "/image/simran.png" },
   { ref_id: 10, name: "Omendra Naharwal", role: "Graphics, Problem Solver", instagram: "https://www.instagram.com/omendranaharwal/", linkedin: "https://www.linkedin.com/in/omendra-naharwal/", image: "/image/omendra.png" },
@@ -48,7 +48,7 @@ const TE_MEMBERS = [
 ];
 
 // ==========================================
-// 4. S.E. SECOND YEAR MEMBERS
+// 4. S.E. COUNCIL
 // ==========================================
 const SE_MEMBERS = [
   { ref_id: 12, name: "Abhinay Singh", role: "Full stack developer", instagram: "https://www.instagram.com/abhinay_singh_/", linkedin: "https://www.linkedin.com/in/abhinay-singh-221b/", image: "/image/Abhinay.jpg" },
@@ -58,6 +58,7 @@ const SE_MEMBERS = [
   { ref_id: 16, name: "ROHIT PIMPALE", role: "Flutter Developer", instagram: "https://www.instagram.com/rohit_pimpale_7/", linkedin: "https://www.linkedin.com/in/rohitpimpale/", image: "/image/Rohit.jpeg" },
   { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded + Frontend Developer", instagram: "https://www.instagram.com/shashank_kumar_/", linkedin: "https://in.linkedin.com/in/shashank-kumar-ait", image: "/image/Shashank.jpg" },
   { ref_id: 18, name: "Yashwanth Thota", role: "Frontend, Problem Solver", instagram: "https://www.instagram.com/yashwanth_thota/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-/", image: "/image/Tota.jpeg" },
+  { ref_id: 19, name: "Sajal Rawat", role: "Full Stack Developer", instagram: "https://www.instagram.com/sajalrwt/", linkedin: "https://www.linkedin.com/in/sajal-rawat/", image: "/image/sajal.jpeg" },
 ];
 
 export default function TeamSection() {
@@ -294,19 +295,19 @@ export default function TeamSection() {
             className={`mechanical-tab-btn ${activeTab === "BE" ? "active" : ""}`}
             onClick={() => setActiveTab("BE")}
           >
-            // B.E. Final Year
+            // B.E. Mentors
           </button>
           <button 
             className={`mechanical-tab-btn ${activeTab === "TE" ? "active" : ""}`}
             onClick={() => setActiveTab("TE")}
           >
-            // T.E. Third Year
+            // T.E. Council
           </button>
           <button 
             className={`mechanical-tab-btn ${activeTab === "SE" ? "active" : ""}`}
             onClick={() => setActiveTab("SE")}
           >
-            // S.E. Second Year
+            // S.E. Council
           </button>
         </div>
 

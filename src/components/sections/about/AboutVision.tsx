@@ -55,31 +55,97 @@ export default function AboutVision() {
         }
       `}</style>
       <div className="about-vision-grid">
-
         {/* Vision Content */}
         <div className="about-vision-left">
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "32px", justifyContent: "center" }}>
-            <div style={{ width: "48px", height: "48px", backgroundColor: "#006565", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", color: "white" }}>
-              <span className="material-symbols-outlined" style={{ fontSize: "24px" }}>explore</span>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
+              marginBottom: "32px",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                width: "48px",
+                height: "48px",
+                backgroundColor: "#006565",
+                borderRadius: "12px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+              }}
+            >
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: "24px" }}
+              >
+                explore
+              </span>
             </div>
-            <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#006565", fontFamily: "monospace", fontWeight: "700" }}>
+            <span
+              style={{
+                fontSize: "12px",
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                color: "#006565",
+                fontFamily: "monospace",
+                fontWeight: "700",
+              }}
+            >
               CORE_VISION
             </span>
           </div>
 
-          <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", fontWeight: "900", textTransform: "uppercase", letterSpacing: "-0.02em", color: "#1A1C1A", marginBottom: "24px", lineHeight: "1" }}>
+          <h2
+            style={{
+              fontSize: "clamp(1.8rem, 4vw, 3.2rem)",
+              fontWeight: "900",
+              textTransform: "uppercase",
+              letterSpacing: "-0.02em",
+              color: "#1A1C1A",
+              marginBottom: "24px",
+              lineHeight: "1",
+            }}
+          >
             The Approach
           </h2>
 
-          <div style={{ width: "80px", height: "4px", background: "linear-gradient(90deg, #A33B3C, #d4505f)", borderRadius: "2px", marginBottom: "32px", marginLeft: "auto", marginRight: "auto" }} />
+          <div
+            style={{
+              width: "80px",
+              height: "4px",
+              background: "linear-gradient(90deg, #A33B3C, #d4505f)",
+              borderRadius: "2px",
+              marginBottom: "32px",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          />
 
-          <p style={{ fontSize: "clamp(15px, 2vw, 18px)", fontWeight: "500", lineHeight: "1.7", marginBottom: "40px", color: "#2a2c2a", maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
+          <p
+            style={{
+              fontSize: "clamp(15px, 2vw, 18px)",
+              fontWeight: "500",
+              lineHeight: "1.7",
+              marginBottom: "40px",
+              color: "#2a2c2a",
+              maxWidth: "560px",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
             First-year students are directly involved in{" "}
-            <strong style={{ color: "#1A1C1A" }}>live, innovative projects</strong> that address real
-            institutional needs.
-            <br /><br />
-            Every project is guided by experienced TE and BE
-            students, ensuring structured mentorship and strong peer learning.
+            <strong style={{ color: "#1A1C1A" }}>
+              live, innovative projects
+            </strong>{" "}
+            that address real institutional needs.
+            <br />
+            <br />
+            Every project is guided by experienced TE and BE students, ensuring
+            structured mentorship and strong peer learning.
           </p>
 
           <div className="about-vision-terminal">
@@ -89,7 +155,6 @@ export default function AboutVision() {
             <p>&gt;&gt; Teams deliver real outcomes</p>
           </div>
         </div>
-
       </div>
     </>
   );
