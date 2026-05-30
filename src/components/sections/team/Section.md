@@ -39,25 +39,25 @@ const BE_MEMBERS = [
 // 3. T.E. THIRD YEAR MEMBERS
 // ==========================================
 const TE_MEMBERS = [
-  { ref_id: 9, name: "Abhay Singh", role: "Backend, GenAI Dev", instagram: "https://www.instagram.com/abhaysingh22_/", linkedin: "https://www.linkedin.com/in/abhaysingh22/", image: "/image/abhay.jpeg" },
-  { ref_id: 8, name: "Pradeep Kumar", role: "Mobile & Backend", instagram: "https://www.instagram.com/pradeepkumar0805/", linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/", image: "/image/pradeep.jpg" },
+  { ref_id: 9, name: "Abhay Singh", role: "Backend, GenAI Developer", instagram: "https://www.instagram.com/abhaysingh22_/", linkedin: "https://www.linkedin.com/in/abhaysingh22/", image: "/image/abhay.jpeg" },
+  { ref_id: 8, name: "Pradeep Kumar", role: "Mobile & Backend Developer", instagram: "https://www.instagram.com/pradeepkumar0805/", linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/", image: "/image/pradeep.jpg" },
   { ref_id: 7, name: "Simran Singh", role: "Frontend Developer", instagram: "https://www.instagram.com/heysimmi_19/", linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/", image: "/image/simran.png" },
-  { ref_id: 10, name: "Omendra Naharwal", role: "Graphics Specialist", instagram: "https://www.instagram.com/omendranaharwal/", linkedin: "https://www.linkedin.com/in/omendra-naharwal/", image: "/image/omendra.png" },
+  { ref_id: 10, name: "Omendra Naharwal", role: "Graphics, Problem Solver", instagram: "https://www.instagram.com/omendranaharwal/", linkedin: "https://www.linkedin.com/in/omendra-naharwal/", image: "/image/omendra.png" },
   { ref_id: 6, name: "Ritika", role: "Frontend Developer", instagram: "https://www.instagram.com/ritikagautam375/", linkedin: "https://www.linkedin.com/in/ritika-gautam-361867325/", image: "/image/ritika.jpg" },
-  { ref_id: 11, name: "Rishab Bhamboo", role: "Graphics Designer", instagram: "https://instagram.com/cidc_aitpune", linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/", image: "/image/rishab.png" },
+  { ref_id: 11, name: "Rishab Bhamboo", role: "Graphics, Problem Solver", instagram: "https://instagram.com/cidc_aitpune", linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/", image: "/image/rishab.png" },
 ];
 
 // ==========================================
 // 4. S.E. SECOND YEAR MEMBERS
 // ==========================================
 const SE_MEMBERS = [
-  { ref_id: 12, name: "Abhinay Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/abhinay_singh_/", linkedin: "https://www.linkedin.com/in/abhinay-singh-221b/", image: "/image/Abhinay.jpg" },
-  { ref_id: 13, name: "Ashish Gupta", role: "Full Stack Dev", instagram: "https://www.instagram.com/its-ashish73070/", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.jpeg" },
+  { ref_id: 12, name: "Abhinay Singh", role: "Full stack developer", instagram: "https://www.instagram.com/abhinay_singh_/", linkedin: "https://www.linkedin.com/in/abhinay-singh-221b/", image: "/image/Abhinay.jpg" },
+  { ref_id: 13, name: "Ashish Gupta", role: "Full Stack Developer", instagram: "https://www.instagram.com/its-ashish73070/", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.jpeg" },
   { ref_id: 14, name: "Mahima", role: "Frontend Developer", instagram: "https://www.instagram.com/mahima.singh.19", linkedin: "https://www.linkedin.com/in/mahima-singh-ait/", image: "/image/Mahima.jpg" },
-  { ref_id: 15, name: "Prince Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/prince_singh_/", linkedin: "https://www.linkedin.com/in/prince-singh-web/", image: "/image/Prince.jpg" },
+  { ref_id: 15, name: "Prince Singh", role: "Full Stack Developer", instagram: "https://www.instagram.com/prince_singh_/", linkedin: "https://www.linkedin.com/in/prince-singh-web/", image: "/image/Prince.jpg" },
   { ref_id: 16, name: "ROHIT PIMPALE", role: "Flutter Developer", instagram: "https://www.instagram.com/rohit_pimpale_7/", linkedin: "https://www.linkedin.com/in/rohitpimpale/", image: "/image/Rohit.jpeg" },
-  { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded Systems", instagram: "https://www.instagram.com/shashank_kumar_/", linkedin: "https://in.linkedin.com/in/shashank-kumar-ait", image: "/image/Shashank.jpg" },
-  { ref_id: 18, name: "Yashwanth Thota", role: "Frontend Developer", instagram: "https://www.instagram.com/yashwanth_thota/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-/", image: "/image/Tota.jpeg" },
+  { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded + Frontend Developer", instagram: "https://www.instagram.com/shashank_kumar_/", linkedin: "https://in.linkedin.com/in/shashank-kumar-ait", image: "/image/Shashank.jpg" },
+  { ref_id: 18, name: "Yashwanth Thota", role: "Frontend, Problem Solver", instagram: "https://www.instagram.com/yashwanth_thota/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-/", image: "/image/Tota.jpeg" },
 ];
 
 export default function TeamSection() {
@@ -84,11 +84,10 @@ export default function TeamSection() {
         
         .single-marquee-track {
           display: flex;
-          gap: 28px;
+          gap: 24px;
           flex-shrink: 0;
-          padding-right: 28px;
-          animation: marqueeScrollLeft 32s linear infinite;
-          overflow: visible !important;
+          padding-right: 24px;
+          animation: marqueeScrollLeft 30s linear infinite;
         }
 
         .team-marquee-container:hover .single-marquee-track {
@@ -98,7 +97,6 @@ export default function TeamSection() {
         .team-marquee-container {
           z-index: 10;
           transition: z-index 0.2s;
-          overflow: visible !important;
         }
         .team-marquee-container:hover {
           z-index: 40;
@@ -122,7 +120,6 @@ export default function TeamSection() {
           flex-wrap: wrap;
           width: 100%;
         }
-        
         .mechanical-tab-btn {
           background-color: #faf9f6;
           color: #1A1C1A;
@@ -252,7 +249,7 @@ export default function TeamSection() {
         }
       `}} />
 
-      <section id="team" className="team-section-root" style={{ overflow: "visible" }}>
+      <section id="team" className="team-section-root">
         {/* Header */}
         <header style={{ marginBottom: "60px" }}>
           <p style={{ fontFamily: "monospace", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.2em", color: "#A33B3C", marginBottom: "16px" }}>
@@ -314,8 +311,8 @@ export default function TeamSection() {
         </div>
 
         {/* Endless Marquee Section */}
-        <div style={{ display: "flex", flexDirection: "column", marginBottom: "80px", overflow: "visible" }}>
-          <div className="team-marquee-container" style={{ display: "flex", overflow: "visible", position: "relative", width: "100%", paddingBottom: "36px", paddingTop: "36px" }}>
+        <div style={{ display: "flex", flexDirection: "column", marginBottom: "80px" }}>
+          <div className="team-marquee-container" style={{ display: "flex", overflow: "visible", position: "relative", width: "100%", paddingBottom: "24px", paddingTop: "24px" }}>
             {[0, 1].map((trackIndex) => (
               <div key={trackIndex} className="single-marquee-track" aria-hidden={trackIndex !== 0} style={{ overflow: "visible" }}>
                 {currentList.map((member, i) => (

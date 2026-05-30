@@ -6,39 +6,46 @@ export default function AboutVision() {
         .about-vision-grid {
           grid-column: 1 / -1;
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr;
           gap: 0;
         }
         .about-vision-left {
           padding: 64px 56px;
           background-color: #faf9f6;
-          border-right: 2px solid #1A1C1A;
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
+          text-align: center;
         }
-        .about-vision-right-image {
-          flex: 1;
-          position: relative;
-          overflow: hidden;
-          min-height: 320px;
-          background-color: #d0d0d0;
+        .about-vision-left > * {
+          width: 100%;
+          max-width: 700px;
+        }
+        .about-vision-terminal {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          font-family: monospace;
+          font-size: 13px;
+          font-weight: 600;
+          color: #1A1C1A;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          align-items: center;
+          width: 100%;
+          max-width: 520px;
+        }
+        .about-vision-terminal p {
+          margin: 0;
+          width: 100%;
+          text-align: center;
+          padding-left: 0;
         }
 
         @media (max-width: 768px) {
-          .about-vision-grid {
-            grid-template-columns: 1fr;
-          }
           .about-vision-left {
             padding: 32px 20px;
-            border-right: none;
-            border-bottom: 2px solid #1A1C1A;
-          }
-          .about-vision-right-image {
-            min-height: 220px;
-          }
-          .about-vision-terminal p {
-            padding-left: 8px !important;
           }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -49,9 +56,9 @@ export default function AboutVision() {
       `}</style>
       <div className="about-vision-grid">
 
-        {/* Left: Vision Content */}
+        {/* Vision Content */}
         <div className="about-vision-left">
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "32px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "32px", justifyContent: "center" }}>
             <div style={{ width: "48px", height: "48px", backgroundColor: "#006565", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", color: "white" }}>
               <span className="material-symbols-outlined" style={{ fontSize: "24px" }}>explore</span>
             </div>
@@ -64,9 +71,9 @@ export default function AboutVision() {
             The Approach
           </h2>
 
-          <div style={{ width: "80px", height: "4px", background: "linear-gradient(90deg, #A33B3C, #d4505f)", borderRadius: "2px", marginBottom: "32px" }} />
+          <div style={{ width: "80px", height: "4px", background: "linear-gradient(90deg, #A33B3C, #d4505f)", borderRadius: "2px", marginBottom: "32px", marginLeft: "auto", marginRight: "auto" }} />
 
-          <p style={{ fontSize: "clamp(15px, 2vw, 18px)", fontWeight: "500", lineHeight: "1.7", marginBottom: "40px", color: "#2a2c2a", maxWidth: "520px" }}>
+          <p style={{ fontSize: "clamp(15px, 2vw, 18px)", fontWeight: "500", lineHeight: "1.7", marginBottom: "40px", color: "#2a2c2a", maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
             First-year students are directly involved in{" "}
             <strong style={{ color: "#1A1C1A" }}>live, innovative projects</strong> that address real
             institutional needs.
@@ -75,27 +82,11 @@ export default function AboutVision() {
             students, ensuring structured mentorship and strong peer learning.
           </p>
 
-          <div className="about-vision-terminal" style={{ display: "flex", flexDirection: "column", gap: "14px", fontFamily: "monospace", fontSize: "13px", fontWeight: "600", color: "#1A1C1A", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-            <p style={{ margin: "0", color: "#006565" }}>~ This creates a system where:</p>
-            <p style={{ margin: "0", paddingLeft: "16px" }}>&gt;&gt; Beginners learn by doing</p>
-            <p style={{ margin: "0", paddingLeft: "16px" }}>&gt;&gt; Seniors lead by building</p>
-            <p style={{ margin: "0", paddingLeft: "16px" }}>&gt;&gt; Teams deliver real outcomes</p>
-          </div>
-        </div>
-
-        {/* Right: Image + Core Stats */}
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {/* Image */}
-          <div className="about-vision-right-image">
-            <img
-              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop"
-              alt="Visionary Tech"
-              style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(0.6) contrast(1.1)" }}
-            />
-            <div style={{ position: "absolute", inset: "0", background: "linear-gradient(180deg, transparent 50%, rgba(26,28,26,0.6) 100%)" }} />
-            <div style={{ position: "absolute", bottom: "20px", left: "20px", color: "white", fontFamily: "monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "600" }}>
-              IMAGE_SOURCE_CIDC
-            </div>
+          <div className="about-vision-terminal">
+            <p style={{ color: "#006565" }}>~ This creates a system where:</p>
+            <p>&gt;&gt; Beginners learn by doing</p>
+            <p>&gt;&gt; Seniors lead by building</p>
+            <p>&gt;&gt; Teams deliver real outcomes</p>
           </div>
         </div>
 
