@@ -28,188 +28,54 @@ const FACULTY_INCHARGES = [
 // 2. B.E. MENTORS
 // ==========================================
 const BE_MEMBERS = [
-  {
-    ref_id: 1,
-    name: "Jagdish Singh",
-    role: "Frontend Lead",
-    instagram: "https://www.instagram.com/jagdishpawar._/",
-    linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/",
-    image: "/image/jaggu.jpeg",
-  },
-  {
-    ref_id: 2,
-    name: "Ebha Mollick",
-    role: "DBMS Lead",
-    instagram: "https://www.instagram.com/ebha_mollick/",
-    linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/",
-    image: "/image/ebbha.jpeg",
-  },
-  {
-    ref_id: 3,
-    name: "Mohit Sharma",
-    role: "Backend Lead",
-    instagram: "https://www.instagram.com/its._mohit.sharma/",
-    linkedin: "https://www.linkedin.com/in/its-mohitsharma/",
-    image: "/image/mohit.jpeg",
-  },
-  {
-    ref_id: 4,
-    name: "Shreya Prasad",
-    role: "Cloud Lead",
-    instagram: "https://www.instagram.com/_shreya05prasad_/",
-    linkedin: "https://www.linkedin.com/in/shreya-prasad-5b1567289/",
-    image: "/image/shreya.jpeg",
-  },
-  {
-    ref_id: 5,
-    name: "Ayush Badoni",
-    role: "Networking Head",
-    instagram: "https://www.instagram.com/ayush_ab190/",
-    linkedin: "https://www.linkedin.com/in/ayyushx/",
-    image: "/image/ayush.jpeg",
-  },
+  { ref_id: 1, name: "Jagdish Singh", role: "Frontend Lead", instagram: "https://www.instagram.com/jagdishpawar._/", linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/", image: "/image/jaggu.jpeg" },
+  { ref_id: 2, name: "Ebha Mollick", role: "DBMS Lead", instagram: "https://www.instagram.com/ebha_mollick/", linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/", image: "/image/ebbha.jpeg" },
+  { ref_id: 3, name: "Mohit Sharma", role: "Backend Lead", instagram: "https://www.instagram.com/its._mohit.sharma/", linkedin: "https://www.linkedin.com/in/its-mohitsharma/", image: "/image/mohit.jpeg" },
+  { ref_id: 4, name: "Shreya Prasad", role: "Cloud Lead", instagram: "https://www.instagram.com/_shreya05prasad_/", linkedin: "https://www.linkedin.com/in/shreya-prasad-5b1567289/", image: "/image/shreya.jpeg" },
+  { ref_id: 5, name: "Ayush Badoni", role: "Networking Head", instagram: "https://www.instagram.com/ayush_ab190/", linkedin: "https://www.linkedin.com/in/ayyushx/", image: "/image/ayush.jpeg" },
 ];
 
 // ==========================================
 // 3. T.E. COUNCIL
 // ==========================================
 const TE_MEMBERS = [
-  {
-    ref_id: 9,
-    name: "Abhay Singh (Secretary)",
-    role: "Backend, GenAI Dev",
-    instagram: "https://www.instagram.com/abhaysingh22_/",
-    linkedin: "https://www.linkedin.com/in/abhaysingh22/",
-    image: "/image/abhay.jpeg",
-    badge: "Secretary",
-  },
-  {
-    ref_id: 8,
-    name: "Pradeep Kumar",
-    role: "Mobile & Backend",
-    instagram: "https://www.instagram.com/pradeepkumar0805/",
-    linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/",
-    image: "/image/pradeep.jpg",
-  },
-  {
-    ref_id: 7,
-    name: "Simran Singh",
-    role: "Frontend Developer",
-    instagram: "https://www.instagram.com/heysimmi_19/",
-    linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/",
-    image: "/image/simran.png",
-  },
-  {
-    ref_id: 10,
-    name: "Omendra Naharwal",
-    role: "Graphics Specialist",
-    instagram: "https://www.instagram.com/omendranaharwal/",
-    linkedin: "https://www.linkedin.com/in/omendra-naharwal/",
-    image: "/image/omendra.png",
-  },
-  {
-    ref_id: 6,
-    name: "Ritika",
-    role: "Frontend Developer",
-    instagram: "https://www.instagram.com/ritikagautam375/",
-    linkedin: "https://www.linkedin.com/in/ritika-gautam-361867325/",
-    image: "/image/ritika.jpg",
-  },
-  {
-    ref_id: 11,
-    name: "Rishab Bhamboo",
-    role: "Graphics Designer",
-    instagram: "https://instagram.com/cidc_aitpune",
-    linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/",
-    image: "/image/rishab.png",
-  },
+  { ref_id: 9, name: "Abhay Singh (Secretary)", role: "Backend, GenAI Dev", instagram: "https://www.instagram.com/abhaysingh22_/", linkedin: "https://www.linkedin.com/in/abhaysingh22/", image: "/image/abhay.jpeg", badge: "Secretary" },
+  { ref_id: 8, name: "Pradeep Kumar", role: "Mobile & Backend", instagram: "https://www.instagram.com/pradeepkumar0805/", linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/", image: "/image/pradeep.jpg" },
+  { ref_id: 7, name: "Simran Singh", role: "Frontend Developer", instagram: "https://www.instagram.com/heysimmi_19/", linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/", image: "/image/simran.png" },
+  { ref_id: 10, name: "Omendra Naharwal", role: "Graphics Specialist", instagram: "https://www.instagram.com/omendranaharwal/", linkedin: "https://www.linkedin.com/in/omendra-naharwal/", image: "/image/omendra.png" },
+  { ref_id: 6, name: "Ritika", role: "Frontend Developer", instagram: "https://www.instagram.com/ritikagautam375/", linkedin: "https://www.linkedin.com/in/ritika-gautam-361867325/", image: "/image/ritika.jpg" },
+  { ref_id: 11, name: "Rishab Bhamboo", role: "Graphics Designer", instagram: "https://instagram.com/cidc_aitpune", linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/", image: "/image/rishab.png" },
 ];
 
 // ==========================================
 // 4. S.E. COUNCIL
 // ==========================================
 const SE_MEMBERS = [
-  {
-    ref_id: 12,
-    name: "Abhinay Singh",
-    role: "Full Stack Dev",
-    instagram: "https://www.instagram.com/abhinay_singh_/",
-    linkedin: "https://www.linkedin.com/in/abhinay-singh-221b/",
-    image: "/image/Abhinay.jpg",
-  },
-  {
-    ref_id: 13,
-    name: "Ashish Gupta",
-    role: "Full Stack Dev",
-    instagram: "https://www.instagram.com/its-ashish73070/",
-    linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/",
-    image: "/image/As6.jpeg",
-  },
-  {
-    ref_id: 14,
-    name: "Mahima",
-    role: "Frontend Developer",
-    instagram: "https://www.instagram.com/mahima.singh.19",
-    linkedin: "https://www.linkedin.com/in/mahima-singh-ait/",
-    image: "/image/Mahima.jpg",
-  },
-  {
-    ref_id: 15,
-    name: "Prince Singh",
-    role: "Full Stack Dev",
-    instagram: "https://www.instagram.com/prince_singh_/",
-    linkedin: "https://www.linkedin.com/in/prince-singh-web/",
-    image: "/image/Prince.jpg",
-  },
-  {
-    ref_id: 16,
-    name: "ROHIT PIMPALE",
-    role: "Flutter Developer",
-    instagram: "https://www.instagram.com/rohit_pimpale_7/",
-    linkedin: "https://www.linkedin.com/in/rohitpimpale/",
-    image: "/image/Rohit.jpeg",
-  },
-  {
-    ref_id: 17,
-    name: "SHSHANK KUMAR",
-    role: "Embedded Systems",
-    instagram: "https://www.instagram.com/shashank_kumar_/",
-    linkedin: "https://in.linkedin.com/in/shashank-kumar-ait",
-    image: "/image/Shashank.jpg",
-  },
-  {
-    ref_id: 18,
-    name: "Yashwanth Thota",
-    role: "Frontend Developer",
-    instagram: "https://www.instagram.com/yashwanth_thota/",
-    linkedin: "https://www.linkedin.com/in/yashwanth-thota-/",
-    image: "/image/Tota.jpeg",
-  },
-  {
-    ref_id: 19,
-    name: "Sajal Rawat",
-    role: "Full Stack Dev",
-    instagram: "https://www.instagram.com/sajalrwt/",
-    linkedin: "https://www.linkedin.com/in/sajal-rawat/",
-    image: "/image/sajal.jpeg",
-  },
+  { ref_id: 12, name: "Abhinay Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/abhinay_singh_/", linkedin: "https://www.linkedin.com/in/abhinay-singh-221b/", image: "/image/Abhinay.jpg" },
+  { ref_id: 13, name: "Ashish Gupta", role: "Full Stack Dev", instagram: "https://www.instagram.com/its-ashish73070/", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.jpeg" },
+  { ref_id: 14, name: "Mahima", role: "Frontend Developer", instagram: "https://www.instagram.com/mahima.singh.19", linkedin: "https://www.linkedin.com/in/mahima-singh-ait/", image: "/image/Mahima.jpg" },
+  { ref_id: 15, name: "Prince Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/prince_singh_/", linkedin: "https://www.linkedin.com/in/prince-singh-web/", image: "/image/Prince.jpg" },
+  { ref_id: 16, name: "ROHIT PIMPALE", role: "Flutter Developer", instagram: "https://www.instagram.com/rohit_pimpale_7/", linkedin: "https://www.linkedin.com/in/rohitpimpale/", image: "/image/Rohit.jpeg" },
+  { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded Systems", instagram: "https://www.instagram.com/shashank_kumar_/", linkedin: "https://in.linkedin.com/in/shashank-kumar-ait", image: "/image/Shashank.jpg" },
+  { ref_id: 18, name: "Yashwanth Thota", role: "Frontend Developer", instagram: "https://www.instagram.com/yashwanth_thota/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-/", image: "/image/Tota.jpeg" },
+  { ref_id: 19, name: "Sajal Rawat", role: "Full Stack Dev", instagram: "https://www.instagram.com/sajalrwt/", linkedin: "https://www.linkedin.com/in/sajal-rawat/", image: "/image/sajal.jpeg" },
 ];
 
 export default function TeamSection() {
   const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("BE");
 
-  const getActiveList = () => {
-    switch (activeTab) {
-      case "BE":
-        return BE_MEMBERS;
-      case "TE":
-        return TE_MEMBERS;
-      case "SE":
-        return SE_MEMBERS;
-    }
-  };
-
-  const currentList = getActiveList();
+  // Filter dynamic logic for split flows
+  const allCurrentMembers = activeTab === "BE" ? BE_MEMBERS : activeTab === "TE" ? TE_MEMBERS : SE_MEMBERS;
+  
+  // Isolate secretaries from the active dataset
+  const fixedSecretaries = allCurrentMembers.filter(
+    (m) => m.name.includes("Secretary") || ('badge' in m && m.badge === "Secretary")
+  );
+  
+  // Group scrolling list members
+  const scrollingMembers = allCurrentMembers.filter(
+    (m) => !m.name.includes("Secretary") && !('badge' in m && m.badge === "Secretary")
+  );
 
   return (
     <>
@@ -230,17 +96,12 @@ export default function TeamSection() {
           overflow: visible !important;
         }
 
-        .team-marquee-container:hover .single-marquee-track {
-          animation-play-state: paused;
-        }
-
         .team-marquee-container {
+          display: flex;
+          overflow: hidden;
+          position: relative;
+          width: 100%;
           z-index: 10;
-          transition: z-index 0.2s;
-          overflow: visible !important;
-        }
-        .team-marquee-container:hover {
-          z-index: 40;
         }
 
         .team-section-root {
@@ -251,7 +112,6 @@ export default function TeamSection() {
           border-top: 2px solid #1A1C1A;
         }
 
-        /* Nav Interface Controllers Centered */
         .tab-controller-container {
           display: flex;
           justify-content: center; 
@@ -287,7 +147,6 @@ export default function TeamSection() {
           box-shadow: 0px 0px 0px 0px #1A1C1A;
         }
 
-        /* Faculty Grid Styles */
         .faculty-grid-container {
           display: flex;
           justify-content: center;
@@ -296,32 +155,28 @@ export default function TeamSection() {
           margin-bottom: 60px;
           padding: 15px 10px;
         }
+        
+        /* Cleaned static Faculty wrapper boundaries */
         .faculty-wrapper-card {
           position: relative;
-          background-color: #f5f4f0; 
-          border: 3px solid #1A1C1A;
-          border-radius: 4px;
-          padding: 12px;
-          box-shadow: 8px 8px 0px 0px #1A1C1A;
-          transition: transform 0.2s ease;
         }
-        .faculty-wrapper-card:hover {
-          transform: scale(1.03);
-        }
+        
         .faculty-badge-tag {
           position: absolute;
-          top: -12px;
-          right: 12px;
+          top: -10px;
+          left: 50%;
+          transform: translateX(-50%);
           background: #A33B3C;
           color: white;
           font-family: monospace;
           font-size: 9px;
           font-weight: 900;
           padding: 2px 8px;
-          border: 2px solid #1A1C1A;
+          border: 1px solid #1A1C1A;
           border-radius: 4px;
           text-transform: uppercase;
           z-index: 50;
+          white-space: nowrap;
         }
 
         .team-chapter-banner {
@@ -355,39 +210,40 @@ export default function TeamSection() {
           font-weight: 500;
         }
 
-        @media (max-width: 640px) {
-          .team-section-root {
-            padding: 40px 16px;
-          }
-          .tab-controller-container {
-            gap: 10px;
-          }
-          .mechanical-tab-btn {
-            font-size: 11px;
-            padding: 8px 16px;
-            flex-grow: 1;
-            text-align: center;
-          }
-          .faculty-grid-container {
-            gap: 24px;
-          }
-          .team-chapter-banner {
+        /* Hybrid Split Row wrapper */
+        .hybrid-split-wrapper {
+          display: flex;
+          flex-direction: row;
+          gap: 28px;
+          width: 100%;
+          align-items: flex-start;
+        }
+        
+        .fixed-secretaries-panel {
+          display: flex;
+          gap: 28px;
+          flex-shrink: 0;
+        }
+
+        @media (max-width: 1024px) {
+          .hybrid-split-wrapper {
             flex-direction: column;
-            gap: 20px;
-            padding: 24px 20px;
-            text-align: center;
             align-items: center;
           }
-          .team-chapter-title {
-            font-size: 22px;
+          .fixed-secretaries-panel {
+            justify-content: center;
+            flex-wrap: wrap;
           }
-          .team-chapter-desc {
-            font-size: 13px;
-          }
-          .single-marquee-track {
-            gap: 16px;
-            padding-right: 16px;
-          }
+        }
+
+        @media (max-width: 640px) {
+          .team-section-root { padding: 40px 16px; }
+          .tab-controller-container { gap: 10px; }
+          .mechanical-tab-btn { font-size: 11px; padding: 8px 16px; flex-grow: 1; text-align: center; }
+          .faculty-grid-container { gap: 24px; }
+          .team-chapter-banner { flex-direction: column; gap: 20px; padding: 24px 20px; text-align: center; align-items: center; }
+          .team-chapter-title { font-size: 22px; }
+          .single-marquee-track { gap: 16px; padding-right: 16px; }
         }
       `,
         }}
@@ -469,7 +325,7 @@ export default function TeamSection() {
             {FACULTY_INCHARGES.map((faculty) => (
               <div key={faculty.ref_id} className="faculty-wrapper-card">
                 <span className="faculty-badge-tag">FACULTY INCHARGE</span>
-                <TeamMemberCard {...faculty} />
+                <TeamMemberCard {...faculty} isFaculty={true} />
               </div>
             ))}
           </div>
@@ -523,26 +379,22 @@ export default function TeamSection() {
           </button>
         </div>
 
-        {/* Endless Marquee Section */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginBottom: "80px",
-            overflow: "visible",
-          }}
-        >
-          <div
-            className="team-marquee-container"
-            style={{
-              display: "flex",
-              overflow: "visible",
-              position: "relative",
-              width: "100%",
-              paddingBottom: "36px",
-              paddingTop: "36px",
-            }}
-          >
+        {/* Hybrid Split Framework layout container */}
+        <div className="hybrid-split-wrapper" style={{ marginBottom: "80px" }}>
+          
+          {/* FIXED LEFT BLOCK: Rendered when current selected tab group contains a secretary */}
+          {fixedSecretaries.length > 0 && (
+            <div className="fixed-secretaries-panel">
+              {fixedSecretaries.map((sec) => (
+                <TeamMemberCard key={`fixed-sec-${sec.ref_id}`} {...sec} />
+              ))}
+              {/* Center dividing pipeline border */}
+              <div className="hidden lg:block" style={{ width: "2px", backgroundColor: "#1A1C1A", opacity: 0.15, alignSelf: "stretch", margin: "0 4px" }} />
+            </div>
+          )}
+
+          {/* INFINITE SCROLLING TRACK: Automatically slides remaining list elements */}
+          <div className="team-marquee-container">
             {[0, 1].map((trackIndex) => (
               <div
                 key={trackIndex}
@@ -550,15 +402,16 @@ export default function TeamSection() {
                 aria-hidden={trackIndex !== 0}
                 style={{ overflow: "visible" }}
               >
-                {currentList.map((member, i) => (
+                {scrollingMembers.map((member, i) => (
                   <TeamMemberCard
-                    key={`${activeTab}-single-${member.ref_id}-${i}`}
+                    key={`${activeTab}-scroll-${member.ref_id}-${i}`}
                     {...member}
                   />
                 ))}
               </div>
             ))}
           </div>
+
         </div>
 
         {/* Chapter Banner */}
