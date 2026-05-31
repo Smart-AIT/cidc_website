@@ -170,7 +170,6 @@ const SE_MEMBERS = [
 export default function TeamSection() {
   const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("BE");
 
-  // Dynamic selector for single row configuration
   const getActiveList = () => {
     switch (activeTab) {
       case "BE":
@@ -219,7 +218,7 @@ export default function TeamSection() {
           margin-left: auto;
           margin-right: auto;
           padding: 60px 40px;
-          border-top: 2px solid #1A1C1A;
+          border-top: 1px solid rgba(26, 28, 26, 0.15);
         }
 
         /* Nav Interface Controllers */
@@ -232,31 +231,31 @@ export default function TeamSection() {
         .mechanical-tab-btn {
           background-color: #faf9f6;
           color: #1A1C1A;
-          border: 2px solid #1A1C1A;
+          border: 1px solid rgba(26, 28, 26, 0.2);
           padding: 10px 24px;
           font-weight: 900;
           font-size: 13px;
           letter-spacing: 0.05em;
           text-transform: uppercase;
           cursor: pointer;
-          border-radius: 6px;
-          box-shadow: 4px 4px 0px 0px #1A1C1A;
+          border-radius: 8px;
+          box-shadow: 0px 4px 12px rgba(26, 28, 26, 0.05);
           transition: all 0.15s ease-in-out;
         }
         .mechanical-tab-btn:hover {
-          transform: translate(2px, 2px);
-          box-shadow: 2px 2px 0px 0px #1A1C1A;
+          transform: translateY(-1px);
+          box-shadow: 0px 6px 16px rgba(26, 28, 26, 0.1);
         }
         .mechanical-tab-btn.active {
           background-color: #006565;
           color: white;
-          transform: translate(4px, 4px);
-          box-shadow: 0px 0px 0px 0px #1A1C1A;
+          border-color: #006565;
+          box-shadow: 0px 4px 12px rgba(0, 101, 101, 0.2);
         }
 
         .team-chapter-banner {
           background-color: #006565;
-          border: 2px solid #1A1C1A;
+          border: 1px solid rgba(26, 28, 26, 0.15);
           padding: 16px 30px;
           display: flex;
           flex-direction: row;
@@ -264,10 +263,11 @@ export default function TeamSection() {
           align-items: center;
           gap: 48px;
           border-radius: 12px;
-          box-shadow: 8px 8px 0px 0px rgba(26,28,26,0.15);
+          box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
           max-width: 900px;
           margin-left: auto;
           margin-right: auto;
+          backdrop-blur: md;
         }
         .team-chapter-title {
           font-size: 32px;
@@ -354,8 +354,9 @@ export default function TeamSection() {
             style={{
               width: "80px",
               height: "4px",
-              backgroundColor: "#1A1C1A",
+              backgroundColor: "rgba(26, 28, 26, 0.2)",
               marginBottom: "32px",
+              borderRadius: "2px"
             }}
           ></div>
           <p
@@ -451,13 +452,14 @@ export default function TeamSection() {
               textTransform: "uppercase",
               fontSize: "12px",
               letterSpacing: "0.1em",
-              border: "2px solid white",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
               textDecoration: "none",
               display: "inline-block",
               transition: "all 0.2s ease",
               cursor: "pointer",
               borderRadius: "12px",
               whiteSpace: "nowrap",
+              boxShadow: "0px 4px 12px rgba(0,0,0,0.15)"
             }}
           >
             JOIN

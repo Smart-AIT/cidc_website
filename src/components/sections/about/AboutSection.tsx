@@ -26,7 +26,7 @@ export default function AboutSection() {
         .about-section-root {
           width: 100%;
           padding: 80px 40px 60px 40px;
-          border-top: 2px solid #1A1C1A;
+          border-top: 1px solid rgba(26, 28, 26, 0.15);
           background-color: #faf9f6;
         }
         .about-header-grid {
@@ -37,7 +37,7 @@ export default function AboutSection() {
         }
         .about-mission-grid {
           background-color: #fff;
-          border: 2px solid #1A1C1A;
+          border: 1px solid rgba(26, 28, 26, 0.2);
           border-radius: 16px;
           overflow: hidden;
           display: grid;
@@ -45,6 +45,7 @@ export default function AboutSection() {
           gap: 0;
           text-align: center;
           padding: 64px 48px;
+          box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.04);
         }
         .about-mission-right {
           display: flex;
@@ -60,7 +61,7 @@ export default function AboutSection() {
           margin: 0 auto 40px;
         }
         .about-mission-details {
-          border-top: 2px solid rgba(26, 28, 26, 0.08);
+          border-top: 1px solid rgba(26, 28, 26, 0.08);
           padding-top: 32px;
           display: grid;
           grid-template-columns: 1fr;
@@ -91,7 +92,7 @@ export default function AboutSection() {
           .about-mission-left {
             padding: 32px 20px;
             border-right: none;
-            border-bottom: 2px solid #1A1C1A;
+            border-bottom: 1px solid rgba(26, 28, 26, 0.15);
           }
           .about-mission-right {
             padding: 32px 20px;
@@ -118,7 +119,7 @@ export default function AboutSection() {
           }
           .about-mission-left {
             border-right: none;
-            border-bottom: 2px solid #1A1C1A;
+            border-bottom: 1px solid rgba(26, 28, 26, 0.15);
             padding: 40px 32px;
           }
           .about-mission-right {
@@ -194,14 +195,15 @@ export default function AboutSection() {
           </div>
         </header>
 
-        {/* ── Bento Grid: Vision + Image + Stats ── */}
+        {/* ── Bento Grid: Vision + Image + Shadows Lighted ── */}
         <ScrollStack gap={500} animationType="flip-horizontal">
           <ScrollStackItem>
             <div
               style={{
-                border: "2px solid #1A1C1A",
+                border: "1px solid rgba(26, 28, 26, 0.2)",
                 borderRadius: "16px",
                 overflow: "hidden",
+                boxShadow: "0px 12px 40px rgba(0,0,0,0.04)"
               }}
             >
               <AboutVision />
@@ -330,20 +332,22 @@ export default function AboutSection() {
               style={{
                 backgroundColor: "#006565",
                 color: "white",
-                padding: "8px 20px",
+                padding: "10px 24px",
                 fontWeight: "900",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
-                fontSize: "10px",
-                border: "2px solid #1A1C1A",
+                fontSize: "11px",
+                border: "1px solid rgba(26, 28, 26, 0.15)",
                 cursor: "pointer",
                 transition: "all 0.2s ease",
                 whiteSpace: "nowrap",
                 height: "fit-content",
                 textDecoration: "none",
                 display: "inline-block",
+                borderRadius: "12px",
+                boxShadow: "0px 4px 12px rgba(0, 101, 101, 0.15)"
               }}
-              className="hover:translate-x-1  "
+              className="hover:translate-x-1"
             >
               WANT TO CONTRIBUTE ?
             </a>
@@ -360,19 +364,20 @@ export default function AboutSection() {
               display: flex;
               gap: 24px;
               flex-shrink: 0;
-              padding-right: 24px; /* Matches the gap so both tracks connect seamlessly */
+              padding-right: 24px;
               animation: marqueeScroll 25s linear infinite;
             }
             .about-marquee-card {
               width: 280px;
               flex-shrink: 0;
               padding: 24px;
-              border: 2px solid #1A1C1A;
+              border: 1px solid rgba(26, 28, 26, 0.15);
               background-color: #fff;
               display: flex;
               flex-direction: column;
               gap: 12px;
-              box-shadow: 4px 4px 0px 0px rgba(26,28,26,0.1);
+              border-radius: 12px;
+              box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.04);
             }
             @media (max-width: 640px) {
               .about-marquee-card {
@@ -439,6 +444,7 @@ export default function AboutSection() {
                           width: "24px",
                           height: "4px",
                           backgroundColor: "#A33B3C",
+                          borderRadius: "2px"
                         }}
                       ></div>
                       <h4
@@ -455,7 +461,7 @@ export default function AboutSection() {
                       <p
                         style={{
                           fontSize: "11px",
-                          color: "rgba(26,28,26,0.7)",
+                          color: "rgba(26,28,26,0.6)",
                           fontWeight: "bold",
                           fontFamily: "monospace",
                           letterSpacing: "0.05em",
@@ -478,6 +484,8 @@ export default function AboutSection() {
                   color: "white",
                   minWidth: "280px",
                   maxWidth: "100%",
+                  borderRadius: "12px",
+                  boxShadow: "0px 8px 30px rgba(0, 101, 101, 0.15)"
                 }}
               >
                 <h3

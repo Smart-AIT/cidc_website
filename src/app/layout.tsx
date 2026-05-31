@@ -5,8 +5,6 @@ import "./globals.css";
 import SmoothScroll from "@/components/shared/SmoothScroll";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import CustomCursor from "@/components/ui/CustomCursor";
-// Client component wrapper import karenge dynamic scroll ke liye
-// import GlobalBackground from "./components/layout/GlobalBackground";
 import GlobalBackground from "../components/layout/GlobalBackground";
 
 const spaceGrotesk = Space_Grotesk({
@@ -36,7 +34,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={spaceGrotesk.variable}>
       <head>
-        {/* Google Analytics */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-K2ZMZNLLW0"
@@ -59,13 +56,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      {/* Background-[#f4f4f0] Lando Norris jaisa subtle tone dene ke liye */}
       <body className="min-h-full flex flex-col bg-[#f4f4f0] relative antialiased">
-        {/* Pure website ke piche rehne wala animated layout background */}
+        {/* Animated layout background */}
         <GlobalBackground />
 
         <CustomCursor />
-        {/* Main content layer relative and z-10 taaki background par scroll overlap ho */}
+        {/* Main content layer dynamic scroll override */}
         <div className="relative z-10 w-full flex flex-col min-h-screen">
           <SmoothScroll>{children}</SmoothScroll>
         </div>

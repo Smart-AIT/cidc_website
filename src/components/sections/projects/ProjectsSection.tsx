@@ -74,7 +74,7 @@ export default function ProjectsSection() {
         .projects-section-root {
           width: 100%;
           padding: 80px 40px 120px 40px;
-          border-top: 2px solid #1A1C1A;
+          border-top: 1px solid rgba(26, 28, 26, 0.15);
           background-color: #faf9f6;
         }
         @media (max-width: 640px) {
@@ -88,16 +88,16 @@ export default function ProjectsSection() {
           }
         }
 
-        /* Carousel Styles */
+        /* Carousel Styles softened to modern look */
         .carousel-wrapper {
           position: relative;
           width: 100%;
           max-width: 1350px;
           margin: 0 auto;
-          border: 2.5px solid #1A1C1A;
+          border: 1px solid rgba(26, 28, 26, 0.15);
           background: #fff;
           border-radius: 16px;
-          box-shadow: 8px 8px 0px 0px #1A1C1A;
+          box-shadow: 0px 16px 48px rgba(0, 0, 0, 0.05);
           overflow: hidden;
           display: grid;
           grid-template-columns: 3fr 7fr;
@@ -116,14 +116,14 @@ export default function ProjectsSection() {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          border-right: 2.5px solid #1A1C1A;
+          border-right: 1px solid rgba(26, 28, 26, 0.12);
           background-color: #faf9f6;
         }
 
         @media (max-width: 900px) {
           .carousel-content {
             border-right: none;
-            border-bottom: 2.5px solid #1A1C1A;
+            border-bottom: 1px solid rgba(26, 28, 26, 0.12);
             padding: 32px 24px;
           }
         }
@@ -163,27 +163,29 @@ export default function ProjectsSection() {
         .carousel-nav-btn {
           background-color: #faf9f6;
           color: #1A1C1A;
-          border: 2px solid #1A1C1A;
+          border: 1px solid rgba(26, 28, 26, 0.2);
           width: 44px;
           height: 44px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          border-radius: 6px;
-          box-shadow: 4px 4px 0px 0px #1A1C1A;
-          transition: all 0.1s ease-in-out;
-          font-size: 16px;
+          border-radius: 12px;
+          box-shadow: 0px 4px 12px rgba(26, 28, 26, 0.05);
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          font-size: 14px;
         }
 
         .carousel-nav-btn:hover {
-          transform: translate(2px, 2px);
-          box-shadow: 2px 2px 0px 0px #1A1C1A;
+          transform: translateY(-2px);
+          background-color: #ffffff;
+          box-shadow: 0px 6px 20px rgba(26, 28, 26, 0.08);
+          border-color: rgba(26, 28, 26, 0.3);
         }
 
         .carousel-nav-btn:active {
-          transform: translate(4px, 4px);
-          box-shadow: 0px 0px 0px 0px #1A1C1A;
+          transform: translateY(0px);
+          background-color: #f4f3f0;
         }
 
         .carousel-dots {
@@ -193,18 +195,19 @@ export default function ProjectsSection() {
         }
 
         .carousel-dot {
-          width: 10px;
-          height: 10px;
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
-          border: 1.5px solid #1A1C1A;
+          border: 1px solid rgba(26, 28, 26, 0.2);
           background-color: #e3e2de;
           cursor: pointer;
-          transition: all 0.2s ease;
+          transition: all 0.25s ease;
         }
 
         .carousel-dot.active {
           background-color: #006565;
-          transform: scale(1.2);
+          border-color: #006565;
+          transform: scale(1.25);
         }
       `}</style>
       <section id="projects" className="projects-section-root">
@@ -219,6 +222,7 @@ export default function ProjectsSection() {
                 height: "4px",
                 backgroundColor: "#A33B3C",
                 marginBottom: "32px",
+                borderRadius: "2px"
               }}
             />
             <h2
@@ -244,7 +248,7 @@ export default function ProjectsSection() {
                 fontFamily: "monospace",
                 textTransform: "uppercase",
                 letterSpacing: "0.15em",
-                color: "#1A1C1A",
+                color: "rgba(26, 28, 26, 0.7)",
                 maxWidth: "600px",
                 lineHeight: "1.8",
               }}
@@ -252,7 +256,7 @@ export default function ProjectsSection() {
               A COLLECTION OF REAL-WORLD PROJECTS BUILT BY CIDC COMMUNITY.
               FOCUSED ON LEARNING, BUILDING, AND DELIVERING IMPACTFUL SOLUTIONS.
               <br />
-              <span style={{ marginTop: "16px", display: "block" }}>
+              <span style={{ marginTop: "16px", display: "block", color: "#A33B3C", fontWeight: "bold" }}>
                 System version 0.4
               </span>
             </p>
@@ -285,7 +289,7 @@ export default function ProjectsSection() {
                       display: "flex",
                       justifyContent: "space-between",
                       alignItems: "center",
-                      borderBottom: "1.5px dashed rgba(26,28,26,0.15)",
+                      borderBottom: "1.5px dashed rgba(26,28,26,0.12)",
                       paddingBottom: "12px",
                       width: "100%",
                     }}

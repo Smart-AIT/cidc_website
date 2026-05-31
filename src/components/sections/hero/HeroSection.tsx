@@ -96,8 +96,8 @@ export default function HeroSection() {
           align-items: center;
           transition: all 0.2s ease;
           border-radius: 12px;
-          border: 2px solid #1A1C1A;
-          box-shadow: 5px 5px 0px 0px #1A1C1A;
+          border: 1px solid rgba(26, 28, 26, 0.2);
+          box-shadow: 0px 4px 12px rgba(26, 28, 26, 0.08);
           padding: 14px 28px;
           font-size: 12px;
         }
@@ -112,8 +112,8 @@ export default function HeroSection() {
           min-width: 150px;
         }
         .hero-btn-primary:hover, .hero-btn-secondary:hover {
-          box-shadow: 3px 3px 0px 0px rgba(26,28,26,1);
-          transform: translate(2px, 2px);
+          box-shadow: 0px 6px 16px rgba(26, 28, 26, 0.15);
+          transform: translateY(-1px);
         }
         @media (min-width: 641px) and (max-width: 1024px) {
           .hero-left-col {
@@ -125,19 +125,18 @@ export default function HeroSection() {
         }
       `}</style>
 
-      {/* Hero ka solid background transparent kiya takki main background dikhe */}
       <section
         id="home"
         className="relative w-full flex justify-center bg-transparent overflow-hidden"
-        style={{ marginTop: "0px", marginBottom: "0px" }}
+        style={{ marginTop: "0px", marginBottom: "20px" }}
       >
-        {/* Main Hero Card Container Layer */}
+        {/* Main Hero Card Container Layer - Made Borders and Shadows Subtle */}
         <div
-          className="relative grid grid-cols-1 lg:grid-cols-12 gap-0 w-[98%] max-w-[1400px] border-2 border-[#1A1C1A] shadow-[8px_8px_0px_0px_rgba(26,28,26,1)] bg-white/70 backdrop-blur-md overflow-hidden z-10 my-4"
-          style={{ borderRadius: "4px" }}
+          className="relative grid grid-cols-1 lg:grid-cols-12 gap-0 w-[98%] max-w-[1400px] border border-[#1A1C1A]/30 shadow-[0px_12px_40px_rgba(0,0,0,0.06)] bg-white/70 backdrop-blur-md overflow-hidden z-10 my-4"
+          style={{ borderRadius: "12px" }}
         >
           {/* Left Branding Column */}
-          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-start justify-center border-t-2 lg:border-t-0 lg:border-r-2 border-[#1A1C1A] relative z-20 bg-transparent hero-left-col">
+          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-start justify-center border-t border-t-[#1A1C1A]/15 lg:border-t-0 lg:border-r border-r-[#1A1C1A]/15 relative z-20 bg-transparent hero-left-col">
             {/* Label */}
             <div className="hero-label-topleft font-mono text-[10px] sm:text-xs tracking-widest text-[#1A1C1A]/40 uppercase font-bold">
               {displayedText}
@@ -171,6 +170,7 @@ export default function HeroSection() {
                 height: "8px",
                 backgroundColor: "#A33B3C",
                 marginBottom: "40px",
+                borderRadius: "2px"
               }}
             ></div>
 
@@ -221,8 +221,8 @@ export default function HeroSection() {
 
           {/* Right Visual Column */}
           <div className="order-1 lg:order-2 lg:col-span-5 bg-transparent relative min-h-[300px] sm:min-h-[400px] lg:min-h-[650px] flex flex-col items-center justify-center p-8 sm:p-12 md:p-20 z-20">
-            {/* CIDC Geometric Logo Setup */}
-            <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[480px] aspect-[16/10] flex flex-col justify-center items-center border-[1.5px] border-[#006565]/25 -mt-10 lg:mt-0 bg-white/40 backdrop-blur-md">
+            {/* CIDC Geometric Logo Setup - Subtle border adjustment */}
+            <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[480px] aspect-[16/10] flex flex-col justify-center items-center border border-[#006565]/20 -mt-10 lg:mt-0 bg-white/40 backdrop-blur-md rounded-lg">
               {/* The Text */}
               <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[6rem] font-black text-[#1A1C1A] leading-none tracking-tighter z-20 relative">
                 ｛／｝
@@ -231,7 +231,7 @@ export default function HeroSection() {
                 CIDC
               </h2>
               {/* Decorative Red Box on Bottom Right */}
-              <div className="absolute -bottom-3 -right-3 w-16 h-4 bg-[#A33B3C] z-30"></div>
+              <div className="absolute -bottom-1 -right-1 w-16 h-3 bg-[#A33B3C] z-30 rounded-sm"></div>
               {/* Soft backdrop glow */}
               <div className="absolute inset-0 bg-white/10 blur-3xl rounded-full scale-110 z-0"></div>
             </div>

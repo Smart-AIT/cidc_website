@@ -96,7 +96,7 @@ export default function Footer() {
       `}</style>
       <footer
         id="footer"
-        className="w-full bg-[#FAF9F6] border-t-2 border-[#1A1C1A] mt-24 flex justify-center"
+        className="w-full bg-[#FAF9F6] border-t border-[rgba(26,28,26,0.15)] mt-24 flex justify-center"
       >
         <div className="footer-root">
           {/* Header Section */}
@@ -106,8 +106,9 @@ export default function Footer() {
                 display: "inline-block",
                 backgroundColor: "#A33B3C",
                 color: "white",
-                padding: "5px 8px",
+                padding: "5px 12px",
                 marginBottom: "24px",
+                borderRadius: "6px"
               }}
             >
               <span
@@ -160,6 +161,7 @@ export default function Footer() {
                   height: "2px",
                   backgroundColor: "#A33B3C",
                   marginBottom: "24px",
+                  borderRadius: "1px"
                 }}
               ></div>
 
@@ -190,6 +192,7 @@ export default function Footer() {
                   height: "2px",
                   backgroundColor: "#A33B3C",
                   marginBottom: "24px",
+                  borderRadius: "1px"
                 }}
               ></div>
 
@@ -235,6 +238,7 @@ export default function Footer() {
                   height: "2px",
                   backgroundColor: "#A33B3C",
                   marginBottom: "24px",
+                  borderRadius: "1px"
                 }}
               ></div>
 
@@ -288,6 +292,7 @@ export default function Footer() {
                   height: "2px",
                   backgroundColor: "#A33B3C",
                   marginBottom: "24px",
+                  borderRadius: "1px"
                 }}
               ></div>
 
@@ -321,10 +326,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Divider */}
+          {/* Divider & Branded Dynamic Big Text */}
           <div
             style={{
-              borderTop: "2px solid #1A1C1A",
+              borderTop: "1px solid rgba(26, 28, 26, 0.12)",
               paddingTop: "1px",
               marginTop: "25px",
               display: "flex",
@@ -333,21 +338,32 @@ export default function Footer() {
             }}
           >
             <style>{`
-              @keyframes gradient-flow {
+              @keyframes brand-gradient-flow {
                 0% { background-position: 0% 50%; }
                 50% { background-position: 100% 50%; }
                 100% { background-position: 0% 50%; }
               }
+              /* Perfect watermark blend - signature green background tint */
               .ait-cidc-container h4 {
-                background: linear-gradient(90deg, #D4D4D4, #707070, #707070, #D4D4D4);
+                background: linear-gradient(90deg, #006565, #004d4d, #006565);
                 background-size: 200% 200%;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-                animation: gradient-flow 4s ease-in-out infinite;
+                opacity: 0.12; /* 12% is the sweet spot: invisible background blend but readable */
+                animation: brand-gradient-flow 6s ease-in-out infinite;
               }
-              .ait-cidc-container:hover h4, .ait-cidc-container:active h4 {
-                animation: gradient-flow 1.5s ease-in-out infinite;
+              /* Hover karne par full elegant active look */
+              .ait-cidc-container:hover h4 {
+                opacity: 0.85; /* Full dark hone se rokne ke liye 85% solid alpha */
+                background: #006565;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+              }
+              .custom-cursor-pulse {
+                color: #006565;
+                opacity: 0.5;
               }
             `}</style>
             <div className="ait-cidc-container">
@@ -357,14 +373,14 @@ export default function Footer() {
                   fontWeight: "900",
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
-                  color: "#D4D4D4",
                   cursor: "pointer",
-                  transition: "all 0.6s ease",
+                  transition: "opacity 0.3s ease-in-out",
+                  userSelect: "none"
                 }}
               >
                 {displayedText}
                 {displayedText.length < fullText.length && (
-                  <span className="animate-pulse">|</span>
+                  <span className="animate-pulse custom-cursor-pulse">|</span>
                 )}
               </h4>
             </div>
