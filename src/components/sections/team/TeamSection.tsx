@@ -51,13 +51,13 @@ const TE_MEMBERS = [
 // 4. S.E. COUNCIL
 // ==========================================
 const SE_MEMBERS = [
-  { ref_id: 13, name: "Ashish Gupta", role: "Full Stack Dev", instagram: "https://www.instagram.com/its-ashish73070/", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.jpeg" },
-  { ref_id: 14, name: "Mahima", role: "Frontend Developer", instagram: "https://www.instagram.com/mahima.singh.19", linkedin: "https://linkedin.com/in/mahima-anchra-978b5b376", image: "/image/Mahima.jpg" },
-  { ref_id: 16, name: "ROHIT PIMPALE", role: "Flutter Developer", instagram: "https://www.instagram.com/rohit_pimpale_7/", linkedin: "https://www.linkedin.com/in/rohit-sharad-pimpale-581929374/", image: "/image/Rohit.jpeg" },
-  { ref_id: 12, name: "Abhinay Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/abhinay_singh_/", linkedin: "https://www.linkedin.com/in/abhinay-singh-791975379?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Abhinay.jpg" },
-  { ref_id: 15, name: "Prince Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/prince_singh_/", linkedin: "https://www.linkedin.com/in/prince-singh-web/", image: "/image/Prince.jpg" },
-  { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded Systems", instagram: "https://www.instagram.com/shashank_kumar_/", linkedin: "https://in.linkedin.com/in/shashank-kumar-ait", image: "/image/Shashank.jpg" },
-  { ref_id: 18, name: "Yashwanth Thota", role: "Frontend Developer", instagram: "https://www.instagram.com/yashwanth_thota/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-/", image: "/image/Tota.jpeg" },
+  { ref_id: 13, name: "Ashish Gupta", role: "Full Stack Dev", instagram: "https://www.instagram.com/ashish61779?igsh=NmdqNDI1Z3h1c2J2", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.jpeg" },
+  { ref_id: 14, name: "Mahima", role: "Frontend Developer", instagram: "https://www.instagram.com/mahima_anchra/#", linkedin: "https://linkedin.com/in/mahima-anchra-978b5b376", image: "/image/Mahima.jpg" },
+  { ref_id: 16, name: "ROHIT PIMPALE", role: "Flutter Developer", instagram: "https://www.instagram.com/_.rohit_p._/", linkedin: "https://www.linkedin.com/in/rohit-sharad-pimpale-581929374/", image: "/image/Rohit.jpeg" },
+  { ref_id: 12, name: "Abhinay Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/hueehuiii?utm_source=qr&igsh=eThyeGd1MGFiOHhz", linkedin: "https://www.linkedin.com/in/abhinay-singh-791975379?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Abhinay.jpg" },
+  { ref_id: 15, name: "Prince Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/prince_sin1729?igsh=azd2MTltZzFvZmhj", linkedin: "https://www.linkedin.com/in/prince-singh-645365377?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Prince.jpg" },
+  { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded Systems", instagram: "https://www.instagram.com/_mobile.pixels_?igsh=MWFrc3ZjYWswdjZtbg==", linkedin: "https://in.linkedin.com/in/shshank-kumar-a639b1373", image: "/image/Shashank.jpg" },
+  { ref_id: 18, name: "Yashwanth Thota", role: "Frontend Developer", instagram: "https://www.instagram.com/yashellno/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-aba68a388/", image: "/image/Tota.jpeg" },
   { ref_id: 19, name: "Sajal Rawat", role: "Full Stack Dev", instagram: "https://www.instagram.com/sajalrwt/", linkedin: "https://www.linkedin.com/in/sajal-rawat/", image: "/image/sajal.jpeg" },
 ];
 
@@ -104,6 +104,11 @@ export default function TeamSection() {
           z-index: 10;
         }
 
+        /* Hover on marquee stops scrolling */
+        .team-marquee-container:hover .single-marquee-track {
+          animation-play-state: paused;
+        }
+
         .team-section-root {
           width: 100%;
           margin-left: auto;
@@ -147,6 +152,21 @@ export default function TeamSection() {
           box-shadow: 0px 0px 0px 0px #1A1C1A;
         }
 
+        /* Pure Static Non-Clickable Label styled identical to unclicked buttons */
+        .mechanical-static-label {
+          background-color: #faf9f6;
+          color: #1A1C1A;
+          border: 2px solid #1A1C1A;
+          padding: 10px 24px;
+          font-weight: 900;
+          font-size: 13px;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          border-radius: 6px;
+          box-shadow: 4px 4px 0px 0px #1A1C1A;
+          user-select: none;
+        }
+
         .faculty-grid-container {
           display: flex;
           justify-content: center;
@@ -156,7 +176,6 @@ export default function TeamSection() {
           padding: 15px 10px;
         }
         
-        /* Cleaned static Faculty wrapper boundaries */
         .faculty-wrapper-card {
           position: relative;
         }
@@ -239,7 +258,7 @@ export default function TeamSection() {
         @media (max-width: 640px) {
           .team-section-root { padding: 40px 16px; }
           .tab-controller-container { gap: 10px; }
-          .mechanical-tab-btn { font-size: 11px; padding: 8px 16px; flex-grow: 1; text-align: center; }
+          .mechanical-tab-btn, .mechanical-static-label { font-size: 11px; padding: 8px 16px; flex-grow: 1; text-align: center; }
           .faculty-grid-container { gap: 24px; }
           .team-chapter-banner { flex-direction: column; gap: 20px; padding: 24px 20px; text-align: center; align-items: center; }
           .team-chapter-title { font-size: 22px; }
@@ -305,22 +324,16 @@ export default function TeamSection() {
           </p>
         </header>
 
-        {/* Faculty Incharge Grid */}
+        {/* Faculty Incharge Grid Section */}
         <div style={{ marginBottom: "50px" }}>
-          <h4
-            style={{
-              fontFamily: "monospace",
-              fontSize: "12px",
-              fontWeight: "900",
-              textTransform: "uppercase",
-              color: "#1A1C1A",
-              textAlign: "center",
-              marginBottom: "20px",
-              letterSpacing: "0.1em",
-            }}
-          >
-            // FACULTY INCHARGE COMMAND
-          </h4>
+          
+          {/* Static White Label mimicking the unclicked button structure */}
+          <div className="tab-controller-container">
+            <div className="mechanical-static-label">
+              // Faculty Incharge
+            </div>
+          </div>
+
           <div className="faculty-grid-container">
             {FACULTY_INCHARGES.map((faculty) => (
               <div key={faculty.ref_id} className="faculty-wrapper-card">
@@ -341,23 +354,7 @@ export default function TeamSection() {
           }}
         />
 
-        {/* Student Chapter Layout */}
-        <h4
-          style={{
-            fontFamily: "monospace",
-            fontSize: "12px",
-            fontWeight: "900",
-            textTransform: "uppercase",
-            color: "#1A1C1A",
-            textAlign: "center",
-            marginBottom: "24px",
-            letterSpacing: "0.1em",
-          }}
-        >
-          // STUDENT DEV CORE
-        </h4>
-
-        {/* Navigation Buttons Centered */}
+        {/* Dynamic Navigation Buttons */}
         <div className="tab-controller-container">
           <button
             className={`mechanical-tab-btn ${activeTab === "BE" ? "active" : ""}`}
@@ -382,7 +379,7 @@ export default function TeamSection() {
         {/* Hybrid Split Framework layout container */}
         <div className="hybrid-split-wrapper" style={{ marginBottom: "80px" }}>
           
-          {/* FIXED LEFT BLOCK: Rendered when current selected tab group contains a secretary */}
+          {/* FIXED LEFT BLOCK */}
           {fixedSecretaries.length > 0 && (
             <div className="fixed-secretaries-panel">
               {fixedSecretaries.map((sec) => (
@@ -393,7 +390,7 @@ export default function TeamSection() {
             </div>
           )}
 
-          {/* INFINITE SCROLLING TRACK: Automatically slides remaining list elements */}
+          {/* INFINITE SCROLLING TRACK */}
           <div className="team-marquee-container">
             {[0, 1].map((trackIndex) => (
               <div

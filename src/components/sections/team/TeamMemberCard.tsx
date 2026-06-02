@@ -22,9 +22,11 @@ export default function TeamMemberCard({
   // Strict case-insensitive uniform matching
   const normalizedName = name.trim().toUpperCase();
   
-  // DONO BADGES KO 100% RENDER RAKHNA HAI
+  // SECRETARY BADGE LOGIC
   const isSecretary = normalizedName.includes("(SECRETARY)") || normalizedName.includes("ABHAY SINGH");
-  const isExSecretary = normalizedName.includes("JAGDISH SINGH");
+  
+  // EX-SECRETARY BADGE LOGIC
+  const isExSecretary = normalizedName.includes("JAGDISH SINGH") || normalizedName.includes("EBHA MOLLICK");
   
   // Render hone waala original name bina parenthesis text ke clean karega
   const cleanedName = normalizedName.includes("(SECRETARY)")
@@ -37,7 +39,6 @@ export default function TeamMemberCard({
         position: "relative", 
         display: "inline-block",
         marginTop: "0px", 
-        /* MASTER FIX: Saare cards ko uniform top space milega, isse row bilkul nahi bigdegi aur badge ko upar poori jagah milegii */
         paddingTop: "16px" 
       }}
     >
@@ -46,7 +47,7 @@ export default function TeamMemberCard({
         <div
           style={{
             position: "absolute",
-            top: "0px", /* Ekdum safe area mein jahan text adha nahi katega */
+            top: "0px", 
             left: "50%",
             transform: "translateX(-50%)",
             backgroundColor: "#A33B3C",
@@ -59,7 +60,7 @@ export default function TeamMemberCard({
             letterSpacing: "0.1em",
             whiteSpace: "nowrap",
             zIndex: 10,
-            border: "1px solid #1A1C1A", /* Sharp crisp black border */
+            border: "1px solid #1A1C1A",
             boxShadow: "0px 4px 10px rgba(163, 59, 60, 0.2)"
           }}
         >
@@ -67,12 +68,12 @@ export default function TeamMemberCard({
         </div>
       )}
 
-      {/* Top Capsule Badge for Jagdish Singh (Ex-Secretary) */}
+      {/* Top Capsule Badge for Ex-Secretaries (Jagdish Singh & Ebha Mollick) */}
       {isExSecretary && (
         <div
           style={{
             position: "absolute",
-            top: "0px", /* No cropping, full solid view */
+            top: "0px", 
             left: "50%",
             transform: "translateX(-50%)",
             backgroundColor: "#A33B3C",
@@ -85,7 +86,7 @@ export default function TeamMemberCard({
             letterSpacing: "0.1em",
             whiteSpace: "nowrap",
             zIndex: 10,
-            border: "1px solid #1A1C1A", /* Matching crisp black border */
+            border: "1px solid #1A1C1A",
             boxShadow: "0px 4px 10px rgba(163, 59, 60, 0.2)"
           }}
         >
@@ -105,10 +106,9 @@ export default function TeamMemberCard({
           gap: "12px", 
           borderRadius: "16px", 
           position: "relative",
-          boxShadow: isFaculty ? "none" : "0px 8px 24px rgba(26, 28, 26, 0.04)",
-          transition: "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease" 
+          boxShadow: isFaculty ? "none" : "0px 8px 24px rgba(26, 28, 26, 0.04)"
+          /* REMOVED: Blinking aur jumpy transform/transition rules yahan se hataye gaye hain */
         }}
-        className="hover:-translate-y-1 hover:shadow-md"
       >
         {/* Mac Style Window Controls */}
         <div style={{ position: "absolute", top: "12px", left: "14px", display: "flex", gap: "6px" }}>
