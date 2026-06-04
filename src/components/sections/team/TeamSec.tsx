@@ -256,32 +256,32 @@ export default function TeamSection() {
         .team-chapter-banner {
           background-color: #006565;
           border: 1px solid rgba(26, 28, 26, 0.15);
-          padding: 16px 30px;
+          padding: 8px 20px;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          gap: 48px;
+          gap: 12px;
           border-radius: 12px;
           box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
-          max-width: 900px;
+          max-width: 680px;
           margin-left: auto;
           margin-right: auto;
           backdrop-blur: md;
         }
         .team-chapter-title {
-          font-size: 32px;
+          font-size: 18px;
           font-weight: 900;
           color: white;
           text-transform: uppercase;
           letter-spacing: -0.01em;
-          margin-bottom: 8px;
+          margin-bottom: 2px;
         }
         .team-chapter-desc {
           color: rgba(255, 255, 255, 0.9);
-          font-size: 14px;
-          max-width: 500px;
-          line-height: 1.8;
+          font-size: 12px;
+          max-width: 480px;
+          line-height: 1.4;
           font-weight: 500;
         }
 
@@ -300,13 +300,14 @@ export default function TeamSection() {
           }
           .team-chapter-banner {
             flex-direction: column;
-            gap: 20px;
-            padding: 24px 20px;
+            gap: 8px;
+            padding: 12px 14px;
             text-align: center;
             align-items: center;
           }
           .team-chapter-title {
-            font-size: 22px;
+            font-size: 15px;
+            margin-bottom: 2px;
           }
           .team-chapter-desc {
             font-size: 13px;

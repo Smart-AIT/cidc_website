@@ -44,14 +44,15 @@ export default function AboutSection() {
           grid-template-columns: 1fr;
           gap: 0;
           text-align: center;
-          padding: 64px 48px;
+          padding: 24px 20px;
           box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.04);
         }
         .about-mission-right {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          justify-content: space-between;
+          height: 100%;
         }
         .about-mission-right h2 {
           max-width: 760px;
@@ -62,14 +63,15 @@ export default function AboutSection() {
         }
         .about-mission-details {
           border-top: 1px solid rgba(26, 28, 26, 0.08);
-          padding-top: 32px;
+          padding-top: 16px;
           display: grid;
-          grid-template-columns: 1fr;
-          gap: 24px;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
           justify-items: center;
         }
         .about-mission-details > div {
-          max-width: 520px;
+          max-width: 250px;
+          text-align: left;
         }
         .about-upcoming-header {
           display: grid;
@@ -124,6 +126,10 @@ export default function AboutSection() {
           }
           .about-mission-right {
             padding: 40px 32px;
+          }
+          .about-mission-details {
+            grid-template-columns: 1fr;
+            gap: 20px;
           }
         }
       `}</style>
@@ -203,7 +209,8 @@ export default function AboutSection() {
                 border: "1px solid rgba(26, 28, 26, 0.2)",
                 borderRadius: "16px",
                 overflow: "hidden",
-                boxShadow: "0px 12px 40px rgba(0,0,0,0.04)"
+                boxShadow: "0px 12px 40px rgba(0,0,0,0.04)",
+                height: "100%"
               }}
             >
               <AboutVision />
@@ -212,43 +219,96 @@ export default function AboutSection() {
 
           {/* ── Mission Statement ── */}
           <ScrollStackItem>
-            <div className="about-mission-grid">
+            <div className="about-mission-grid" style={{ height: "100%" }}>
               <div className="about-mission-right">
-                <h2
-                  style={{
-                    fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                    fontWeight: "900",
-                    textTransform: "uppercase",
-                    marginBottom: "28px",
-                    lineHeight: "1",
-                    color: "#1A1C1A",
-                  }}
-                >
-                  Precision
-                </h2>
-                <p
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "500",
-                    lineHeight: "1.8",
-                    marginBottom: "40px",
-                    color: "#2a2c2a",
-                    maxWidth: "560px",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                >
-                  Focuses on execution. Builds production systems. Delivers
-                  working solutions.
-                  <br />
-                  <br />
-                  <span style={{ color: "#555" }}>
-                    It is not just a club—it&apos;s a development ecosystem
-                    contributing directly to the college&apos;s digital growth.
-                  </span>
-                </p>
+                {/* Top content group */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "16px",
+                      marginBottom: "16px",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "48px",
+                        height: "48px",
+                        backgroundColor: "#006565",
+                        borderRadius: "12px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                      }}
+                    >
+                      <span
+                        className="material-symbols-outlined"
+                        style={{ fontSize: "24px" }}
+                      >
+                        ads_click
+                      </span>
+                    </div>
+                    <span
+                      style={{
+                        fontSize: "12px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.2em",
+                        color: "#006565",
+                        fontFamily: "monospace",
+                        fontWeight: "700",
+                      }}
+                    >
+                      CORE_PRECISION
+                    </span>
+                  </div>
 
-                <div className="about-mission-details">
+                  <h2
+                    style={{
+                      fontSize: "clamp(1.8rem, 4vw, 3rem)",
+                      fontWeight: "900",
+                      textTransform: "uppercase",
+                      letterSpacing: "-0.02em",
+                      color: "#1A1C1A",
+                      marginBottom: "12px",
+                      lineHeight: "1",
+                    }}
+                  >
+                    Precision
+                  </h2>
+
+                  <div
+                    style={{
+                      width: "80px",
+                      height: "4px",
+                      background: "linear-gradient(90deg, #A33B3C, #d4505f)",
+                      borderRadius: "2px",
+                      marginBottom: "16px",
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                    }}
+                  />
+
+                  <p
+                    style={{
+                      fontSize: "clamp(14px, 1.8vw, 16px)",
+                      fontWeight: "500",
+                      lineHeight: "1.7",
+                      marginBottom: "16px",
+                      color: "#2a2c2a",
+                      maxWidth: "520px",
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                    }}
+                  >
+                    CIDC operates as an engineering hub focused on stable, high-performance web systems. Rather than simulated code exercises, we deliver production-level infrastructure that drives the digital evolution of our campus.
+                  </p>
+                </div>
+
+                {/* Bottom details block */}
+                <div className="about-mission-details" style={{ width: "100%" }}>
                   <div>
                     <p
                       style={{
@@ -256,22 +316,21 @@ export default function AboutSection() {
                         fontSize: "12px",
                         textTransform: "uppercase",
                         fontWeight: "900",
-                        marginBottom: "10px",
+                        marginBottom: "6px",
                         color: "#006565",
                       }}
                     >
-                      01. INTENTIONALITY
+                      01. FUNCTIONAL INTENT
                     </p>
                     <p
                       style={{
-                        fontSize: "14px",
+                        fontSize: "13px",
                         color: "#2a2c2a",
                         fontWeight: "450",
-                        lineHeight: "1.7",
+                        lineHeight: "1.6",
                       }}
                     >
-                      Every pixel on our grid serves a structural purpose. We
-                      reject decorative fluff.
+                      Every line of code and UI pixel serves an active system requirement. We design without unnecessary bulk.
                     </p>
                   </div>
                   <div>
@@ -281,22 +340,21 @@ export default function AboutSection() {
                         fontSize: "12px",
                         textTransform: "uppercase",
                         fontWeight: "900",
-                        marginBottom: "10px",
+                        marginBottom: "6px",
                         color: "#006565",
                       }}
                     >
-                      02. PERSISTENCE
+                      02. RESILIENT ARCHITECTURE
                     </p>
                     <p
                       style={{
-                        fontSize: "14px",
+                        fontSize: "13px",
                         color: "#2a2c2a",
                         fontWeight: "450",
-                        lineHeight: "1.7",
+                        lineHeight: "1.6",
                       }}
                     >
-                      Designing for longevity through heavy weights and
-                      high-contrast accessibility.
+                      Engineering for longevity, ensuring secure data models, high availability, and long-term maintainability.
                     </p>
                   </div>
                 </div>

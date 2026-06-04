@@ -25,17 +25,18 @@
    ═══════════════════════════════════════════════════════════ */
 
 .scroll-stack-card {
-  width: 92%;
+  width: 70%;
   max-width: 1200px;
   margin: 0 auto;
+  height: 580px;
 
   display: flex;
   flex-direction: column;
 
   background: linear-gradient(145deg, #faf9f6 0%, #ffffff 50%, #f8f7f4 100%);
-  border: 2px solid #1a1c1a;
+  border: 1px solid rgba(26, 28, 26, 0.2);
   border-radius: 16px;
-  padding: 48px;
+  padding: 8px;
 
   /* The key to smoothness: long, organic cubic-bezier */
   transition:
@@ -146,8 +147,9 @@
   }
   .scroll-stack-card {
     width: 95%;
-    padding: 36px;
+    padding: 8px;
     border-radius: 12px;
+    height: auto;
   }
   .scroll-stack-card-desc {
     font-size: 16px;
@@ -162,9 +164,10 @@
   .scroll-stack-card {
     width: calc(100% - 16px);
     max-width: 100%;
-    padding: 20px;
+    padding: 6px;
     margin: 0 8px;
     border-radius: 10px;
+    height: auto;
   }
   .scroll-stack-card-image {
     aspect-ratio: 4 / 3;
@@ -187,9 +190,10 @@
   .scroll-stack-card {
     width: calc(100% - 24px);
     max-width: 100%;
-    padding: 32px;
+    padding: 8px;
     margin: 0 12px;
     border-radius: 12px;
+    height: auto;
   }
   .scroll-stack-card-image {
     aspect-ratio: 16 / 9;
@@ -201,8 +205,9 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .scroll-stack-card {
-    width: 96%;
-    padding: 40px;
+    width: 85%;
+    padding: 8px;
+    height: auto;
   }
   .scroll-stack-card-desc {
     font-size: 16px;

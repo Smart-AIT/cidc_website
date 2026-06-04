@@ -75,7 +75,7 @@ export default function ProjectsSection() {
           width: 100%;
           padding: 80px 40px 120px 40px;
           border-top: 1px solid rgba(26, 28, 26, 0.15);
-          background-color: #faf9f6;
+          background-color: transparent;
         }
         @media (max-width: 640px) {
           .projects-section-root {

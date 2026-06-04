@@ -201,31 +201,31 @@ export default function TeamSection() {
         .team-chapter-banner {
           background-color: #006565;
           border: 2px solid #1A1C1A;
-          padding: 16px 30px;
+          padding: 8px 20px;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          gap: 48px;
+          gap: 12px;
           border-radius: 12px;
           box-shadow: 8px 8px 0px 0px rgba(26,28,26,0.15);
-          max-width: 900px;
+          max-width: 680px;
           margin-left: auto;
           margin-right: auto;
         }
         .team-chapter-title {
-          font-size: 32px;
+          font-size: 18px;
           font-weight: 900;
           color: white;
           text-transform: uppercase;
           letter-spacing: -0.01em;
-          margin-bottom: 8px;
+          margin-bottom: 2px;
         }
         .team-chapter-desc {
           color: rgba(255, 255, 255, 0.9);
-          font-size: 14px;
-          max-width: 500px;
-          line-height: 1.8;
+          font-size: 12px;
+          max-width: 480px;
+          line-height: 1.4;
           font-weight: 500;
         }
 
@@ -260,8 +260,8 @@ export default function TeamSection() {
           .tab-controller-container { gap: 10px; }
           .mechanical-tab-btn, .mechanical-static-label { font-size: 11px; padding: 8px 16px; flex-grow: 1; text-align: center; }
           .faculty-grid-container { gap: 24px; }
-          .team-chapter-banner { flex-direction: column; gap: 20px; padding: 24px 20px; text-align: center; align-items: center; }
-          .team-chapter-title { font-size: 22px; }
+          .team-chapter-banner { flex-direction: column; gap: 8px; padding: 12px 14px; text-align: center; align-items: center; }
+          .team-chapter-title { font-size: 15px; margin-bottom: 2px; }
           .single-marquee-track { gap: 16px; padding-right: 16px; }
         }
       `,
