@@ -53,7 +53,32 @@ export default function Footer() {
   return (
     <>
       <style>{`
+        .footer-container {
+          position: relative;
+          width: 100%;
+          background-color: #FAF9F6;
+          border-top: 1px solid rgba(26,28,26,0.15);
+          margin-top: 96px;
+          display: flex;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .footer-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          opacity: 0.16;
+          background-image: url('/topography.avif');
+          background-repeat: repeat;
+        }
         .footer-root {
+          position: relative;
+          z-index: 10;
           width: 98%;
           max-width: 1400px;
           padding: 20px 48px;
@@ -94,10 +119,8 @@ export default function Footer() {
           }
         }
       `}</style>
-      <footer
-        id="footer"
-        className="w-full bg-[#FAF9F6] border-t border-[rgba(26,28,26,0.15)] mt-24 flex justify-center"
-      >
+      <footer id="footer" className="footer-container">
+        <div className="footer-bg"></div>
         <div className="footer-root">
           {/* Header Section */}
           <div style={{ marginBottom: "35px", marginTop: "40px" }}>
