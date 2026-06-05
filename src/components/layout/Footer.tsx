@@ -338,33 +338,22 @@ export default function Footer() {
             }}
           >
             <style>{`
-              @keyframes brand-gradient-flow {
+              @keyframes gradient-flow {
                 0% { background-position: 0% 50%; }
                 50% { background-position: 100% 50%; }
                 100% { background-position: 0% 50%; }
               }
               /* Perfect watermark blend - signature green background tint */
               .ait-cidc-container h4 {
-                background: linear-gradient(90deg, #006565, #004d4d, #006565);
+                background: linear-gradient(90deg, #D4D4D4, #707070, #707070, #D4D4D4);
                 background-size: 200% 200%;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-                opacity: 0.12; /* 12% is the sweet spot: invisible background blend but readable */
-                animation: brand-gradient-flow 6s ease-in-out infinite;
+                animation: gradient-flow 4s ease-in-out infinite;
               }
-              /* Hover karne par full elegant active look */
-              .ait-cidc-container:hover h4 {
-                opacity: 0.85; /* Full dark hone se rokne ke liye 85% solid alpha */
-                background: #006565;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-              }
-              .custom-cursor-pulse {
-                color: #006565;
-                opacity: 0.5;
-              }
+              .ait-cidc-container:hover h4, .ait-cidc-container:active h4 {
+                animation: gradient-flow 1.5s ease-in-out infinite;
             `}</style>
             <div className="ait-cidc-container">
               <h4
@@ -372,15 +361,15 @@ export default function Footer() {
                   fontSize: "clamp(3rem, 20vw, 12rem)",
                   fontWeight: "900",
                   textTransform: "uppercase",
+                  color: '#D4D4D4',
                   letterSpacing: "0.05em",
                   cursor: "pointer",
-                  transition: "opacity 0.3s ease-in-out",
-                  userSelect: "none"
+                  transition: "all 0.6s ease",
                 }}
               >
                 {displayedText}
                 {displayedText.length < fullText.length && (
-                  <span className="animate-pulse custom-cursor-pulse">|</span>
+                  <span className="animate-pulse ">|</span>
                 )}
               </h4>
             </div>
