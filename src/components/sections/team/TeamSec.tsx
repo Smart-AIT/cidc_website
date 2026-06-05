@@ -197,7 +197,6 @@ export default function TeamSection() {
           display: flex;
           gap: 24px;
           flex-shrink: 0;
-          padding-right: 24px;
           animation: marqueeScrollLeft 30s linear infinite;
         }
 
@@ -420,7 +419,10 @@ export default function TeamSection() {
                 key={trackIndex}
                 className="single-marquee-track"
                 aria-hidden={trackIndex !== 0}
-                style={{ overflow: "visible" }}
+                style={{ 
+                  overflow: "visible",
+                  animationDuration: `${currentList.length * 4.5 + 4}s`
+                }}
               >
                 {currentList.map((member, i) => (
                   <TeamMemberCard

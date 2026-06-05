@@ -64,18 +64,8 @@ const SE_MEMBERS = [
 export default function TeamSection() {
   const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("TE");
 
-  // Filter dynamic logic for split flows
+  // Filter dynamic logic for all members
   const allCurrentMembers = activeTab === "BE" ? BE_MEMBERS : activeTab === "TE" ? TE_MEMBERS : SE_MEMBERS;
-  
-  // Isolate secretaries from the active dataset
-  const fixedSecretaries = allCurrentMembers.filter(
-    (m) => m.name.includes("Secretary") || ('badge' in m && m.badge === "Secretary")
-  );
-  
-  // Group scrolling list members
-  const scrollingMembers = allCurrentMembers.filter(
-    (m) => !m.name.includes("Secretary") && !('badge' in m && m.badge === "Secretary")
-  );
 
   return (
     <>
@@ -229,32 +219,6 @@ export default function TeamSection() {
           font-weight: 500;
         }
 
-        /* Hybrid Split Row wrapper */
-        .hybrid-split-wrapper {
-          display: flex;
-          flex-direction: row;
-          gap: 28px;
-          width: 100%;
-          align-items: flex-start;
-        }
-        
-        .fixed-secretaries-panel {
-          display: flex;
-          gap: 28px;
-          flex-shrink: 0;
-        }
-
-        @media (max-width: 1024px) {
-          .hybrid-split-wrapper {
-            flex-direction: column;
-            align-items: center;
-          }
-          .fixed-secretaries-panel {
-            justify-content: center;
-            flex-wrap: wrap;
-          }
-        }
-
         @media (max-width: 640px) {
           .team-section-root { padding: 40px 16px; }
           .tab-controller-container { gap: 10px; }
@@ -377,38 +341,23 @@ export default function TeamSection() {
         </div>
 
         {/* Hybrid Split Framework layout container */}
-        <div className="hybrid-split-wrapper" style={{ marginBottom: "80px" }}>
-          
-          {/* FIXED LEFT BLOCK */}
-          {fixedSecretaries.length > 0 && (
-            <div className="fixed-secretaries-panel">
-              {fixedSecretaries.map((sec) => (
-                <TeamMemberCard key={`fixed-sec-${sec.ref_id}`} {...sec} />
+        {/* Team Members Marquee Section */}
+        <div className="team-marquee-container" style={{ marginBottom: "80px" }}>
+          {[0, 1].map((trackIndex) => (
+            <div
+              key={trackIndex}
+              className="single-marquee-track"
+              aria-hidden={trackIndex !== 0}
+              style={{ overflow: "visible" }}
+            >
+              {allCurrentMembers.map((member, i) => (
+                <TeamMemberCard
+                  key={`${activeTab}-${member.ref_id}-${i}`}
+                  {...member}
+                />
               ))}
-              {/* Center dividing pipeline border */}
-              <div className="hidden lg:block" style={{ width: "2px", backgroundColor: "#1A1C1A", opacity: 0.15, alignSelf: "stretch", margin: "0 4px" }} />
             </div>
-          )}
-
-          {/* INFINITE SCROLLING TRACK */}
-          <div className="team-marquee-container">
-            {[0, 1].map((trackIndex) => (
-              <div
-                key={trackIndex}
-                className="single-marquee-track"
-                aria-hidden={trackIndex !== 0}
-                style={{ overflow: "visible" }}
-              >
-                {scrollingMembers.map((member, i) => (
-                  <TeamMemberCard
-                    key={`${activeTab}-scroll-${member.ref_id}-${i}`}
-                    {...member}
-                  />
-                ))}
-              </div>
-            ))}
-          </div>
-
+          ))}
         </div>
 
         {/* Chapter Banner */}
