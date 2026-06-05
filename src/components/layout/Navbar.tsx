@@ -14,14 +14,18 @@ export default function Navbar() {
   const [activeLink, setActiveLink] = useState("Home");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, label: string, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    label: string,
+    href: string,
+  ) => {
     e.preventDefault();
     setActiveLink(label);
     setMobileOpen(false);
-    
+
     const sectionId = href.replace("#", "");
     const targetElement = document.getElementById(sectionId);
-    
+
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -203,9 +207,16 @@ export default function Navbar() {
         }
       `}</style>
 
-      <header className="nav-entry z-50" style={{ width: "100%", margin: 0, padding: 0 }} data-purpose="navigation-header">
+      <header
+        className="nav-entry z-50"
+        style={{ width: "100%", margin: 0, padding: 0 }}
+        data-purpose="navigation-header"
+      >
         <div className="nav-tab-container">
-          <nav className="black-nav-pill" data-purpose="primary-links-container">
+          <nav
+            className="black-nav-pill"
+            data-purpose="primary-links-container"
+          >
             <ul className="desktop-links">
               {navLinks.map((link) => (
                 <li key={link.label}>
@@ -219,7 +230,10 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <div className="mobile-menu-trigger" onClick={() => setMobileOpen(!mobileOpen)}>
+            <div
+              className="mobile-menu-trigger"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
               <button
                 className={`nav-hamburger ${mobileOpen ? "open" : ""}`}
                 aria-label="Toggle navigation menu"
@@ -230,7 +244,7 @@ export default function Navbar() {
               </button>
             </div>
           </nav>
-          
+
           {/* Mobile dropdown menu */}
           <div className={`mobile-nav-dropdown ${mobileOpen ? "open" : ""}`}>
             {navLinks.map((link) => (

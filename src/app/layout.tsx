@@ -63,7 +63,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#f4f4f0] relative antialiased">
         {/* Pure website ke piche rehne wala animated layout background */}
         <GlobalBackground />
-        
+
         <CustomCursor />
         {/* Main content layer relative and z-10 taaki background par scroll overlap ho */}
         <div className="relative z-10 w-full flex flex-col min-h-screen">

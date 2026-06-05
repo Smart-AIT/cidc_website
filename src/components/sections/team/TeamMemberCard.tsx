@@ -1,8 +1,6 @@
-// Individual team member card
 "use client";
 import Image from "next/image";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
-import { motion } from "framer-motion";
 
 interface TeamMemberProps {
   name: string;
@@ -10,6 +8,7 @@ interface TeamMemberProps {
   instagram: string;
   linkedin: string;
   image: string;
+  isFaculty?: boolean;
 }
 
 export default function TeamMemberCard({
@@ -18,101 +17,162 @@ export default function TeamMemberCard({
   role,
   instagram,
   linkedin,
+  isFaculty = false,
 }: TeamMemberProps) {
+  // Strict case-insensitive uniform matching
+  const normalizedName = name.trim().toUpperCase();
+  
+  // SECRETARY BADGE LOGIC
+  const isSecretary = normalizedName.includes("(SECRETARY)") || normalizedName.includes("ABHAY SINGH");
+  
+  // EX-SECRETARY BADGE LOGIC
+  const isExSecretary = normalizedName.includes("JAGDISH SINGH") || normalizedName.includes("EBHA MOLLICK");
+  
+  // Render hone waala original name bina parenthesis text ke clean karega
+  const cleanedName = normalizedName.includes("(SECRETARY)")
+    ? name.replace(/\s*\(secretary\)\s*/i, "").trim() 
+    : name;
+
   return (
-    <motion.div 
-      whileHover={{ 
-        y: -14, // Smooth dynamic vertical float
-        scale: 1.04, 
-        zIndex: 50, 
-        borderColor: "#006565", 
-        boxShadow: "10px 10px 0px 0px rgba(0, 101, 101, 1)" // Hard neo shadow transition
-      }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 450, 
-        damping: 20 
-      }}
-      className="group" // Tailwind group for triggering children state on hover
+    <div 
       style={{ 
-        backgroundColor: "#faf9f6", 
-        padding: "16px", 
-        border: "2px solid #1A1C1A", 
         position: "relative", 
-        display: "flex", 
-        flexDirection: "column", 
-        width: "250px", // Card size thoda clean wrap ke liye adjust kiya
-        flexShrink: 0, 
-        gap: "14px", 
-        borderRadius: "4px", // Custom neo sharpness
-        cursor: "pointer",
-        boxShadow: "4px 4px 0px 0px rgba(26,28,26,1)", // Default strong dark shadow
-        transition: "border-color 0.2s ease, box-shadow 0.2s ease"
+        display: "inline-block",
+        marginTop: "0px", 
+        paddingTop: "16px" 
       }}
     >
-      {/* 1. Cyber Header Bar (ID Badge Pattern) */}
-      <div style={{ display: "flex", justifyContent: "between", alignItems: "center", width: "100%", borderBottom: "1.5px dashed #1A1C1A", paddingBottom: "8px", opacity: 0.8 }}>
-        <div style={{ display: "flex", gap: "5px" }}>
-          <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#1A1C1A" }}></span>
-          <span className="group-hover:bg-[#006565] transition-colors" style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#A33B3C" }}></span>
-          <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#e3e2de" }}></span>
+      {/* Top Capsule Badge for Active Secretary (Abhay Singh) */}
+      {isSecretary && (
+        <div
+          style={{
+            position: "absolute",
+            top: "0px", 
+            left: "50%",
+            transform: "translateX(-50%)",
+            backgroundColor: "#A33B3C",
+            color: "white",
+            padding: "4px 12px",
+            borderRadius: "6px",
+            fontSize: "9px",
+            fontWeight: "900",
+            fontFamily: "monospace",
+            letterSpacing: "0.1em",
+            whiteSpace: "nowrap",
+            zIndex: 10,
+            border: "1px solid #1A1C1A",
+            boxShadow: "0px 4px 10px rgba(163, 59, 60, 0.2)"
+          }}
+        >
+          SECRETARY
         </div>
-        <span className="group-hover:text-[#006565] transition-colors" style={{ marginLeft: "auto", fontFamily: "monospace", fontSize: "8px", fontWeight: 900, letterSpacing: "0.05em", color: "#1A1C1A" }}>
-          // CIDC_NODE_SYS
-        </span>
-      </div>
+      )}
 
-      {/* Photo Container */}
-      <div style={{ width: "100%", height: "210px", backgroundColor: "#e3e2de", border: "2px solid #1A1C1A", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden", borderRadius: "2px" }}>
-        
-        {/* Soft layout overlay gradient effect */}
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 60%, rgba(26,28,26,0.15) 100%)", zIndex: 10, pointerEvents: "none" }} />
+      {/* Top Capsule Badge for Ex-Secretaries (Jagdish Singh & Ebha Mollick) */}
+      {isExSecretary && (
+        <div
+          style={{
+            position: "absolute",
+            top: "0px", 
+            left: "50%",
+            transform: "translateX(-50%)",
+            backgroundColor: "#A33B3C",
+            color: "white",
+            padding: "4px 12px",
+            borderRadius: "6px",
+            fontSize: "9px",
+            fontWeight: "900",
+            fontFamily: "monospace",
+            letterSpacing: "0.1em",
+            whiteSpace: "nowrap",
+            zIndex: 10,
+            border: "1px solid #1A1C1A",
+            boxShadow: "0px 4px 10px rgba(163, 59, 60, 0.2)"
+          }}
+        >
+          EX-SECRETARY
+        </div>
+      )}
 
-        <motion.div 
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.25 }}
-          style={{ width: "100%", height: "100%", position: "relative" }}
+      <div 
+        style={{ 
+          backgroundColor: "#FAF9F6", 
+          padding: "24px 16px 16px 16px", 
+          border: "1px solid rgba(26, 28, 26, 0.15)", 
+          display: "flex", 
+          flexDirection: "column", 
+          width: "240px", 
+          flexShrink: 0, 
+          gap: "12px", 
+          borderRadius: "16px", 
+          position: "relative",
+          boxShadow: isFaculty ? "none" : "0px 8px 24px rgba(26, 28, 26, 0.04)"
+          /* REMOVED: Blinking aur jumpy transform/transition rules yahan se hataye gaye hain */
+        }}
+      >
+        {/* Mac Style Window Controls */}
+        <div style={{ position: "absolute", top: "12px", left: "14px", display: "flex", gap: "6px" }}>
+          <span style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#FF5F56", opacity: 0.85 }} />
+          <span style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#FFBD2E", opacity: 0.85 }} />
+          <span style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#27C93F", opacity: 0.85 }} />
+        </div>
+
+        {/* Photo Frame Container */}
+        <div 
+          style={{ 
+            width: "100%", 
+            height: "200px", 
+            borderRadius: "10px", 
+            overflow: "hidden", 
+            position: "relative", 
+            border: "1px solid rgba(26, 28, 26, 0.1)", 
+            marginTop: "4px" 
+          }}
         >
           <Image
             src={image}
-            alt={`${name}'s photo`}
+            alt={`${cleanedName}'s photo`}
             fill
-            sizes="250px"
+            sizes="240px"
             style={{ objectFit: "cover" }}
           />
-        </motion.div>
-      </div>
+        </div>
 
-      {/* Text Context Structure */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <h3 style={{ fontSize: "17px", fontWeight: "900", color: "#1A1C1A", textTransform: "uppercase", letterSpacing: "-0.02em", margin: 0, lineHeight: 1.15 }}>
-          {name}
-        </h3>
-        
-        {/* Modern Custom Badge Block for Role */}
-        <div style={{ display: "inline-flex", alignSelf: "flex-start", border: "1.5px solid #1A1C1A", padding: "2px 8px", backgroundColor: "#006565", color: "white", borderRadius: "4px" }}>
-          <p style={{ fontWeight: "900", textTransform: "uppercase", fontSize: "9px", letterSpacing: "0.08em", margin: 0 }}>
+        {/* Content Details */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#1A1C1A", textTransform: "uppercase", margin: 0, lineHeight: 1.2 }}>
+            {cleanedName}
+          </h3>
+          <p style={{ color: "#006565", fontFamily: "monospace", fontSize: "10px", fontWeight: "bold", margin: 0, textTransform: "uppercase", letterSpacing: "0.05em" }}>
             {role}
           </p>
         </div>
-      </div>
 
-      {/* Footer Interface Actions */}
-      <div style={{ display: "flex", gap: "14px", marginTop: "auto", paddingTop: "8px", justifyContent: "space-between", alignItems: "center", borderTop: "1.5px dashed rgba(26,28,26,0.1)" }}>
-        <div style={{ display: "flex", gap: "12px" }}>
-          <a href={instagram} target="_blank" rel="noopener noreferrer" className="text-[#1A1C1A] hover:text-[#A33B3C] transition-all hover:-translate-y-0.5">
-            <FaInstagram className="w-4.5 h-4.5" />
+        {/* Social Footer */}
+        <div style={{ display: "flex", gap: "14px", marginTop: "auto", paddingTop: "4px" }}>
+          {/* LinkedIn Icon */}
+          <a 
+            href={linkedin} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-[#0A66C2] hover:scale-110 transition-transform duration-200"
+          >
+            <FaLinkedin className="w-5 h-5" />
           </a>
-          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-[#1A1C1A] hover:text-[#006565] transition-all hover:-translate-y-0.5">
-            <FaLinkedin className="w-4.5 h-4.5" />
-          </a>
+
+          {/* Instagram Icon */}
+          {!isFaculty && (
+            <a 
+              href={instagram} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-[#E1306C] hover:scale-110 transition-transform duration-200"
+            >
+              <FaInstagram className="w-5 h-5" />
+            </a>
+          )}
         </div>
-        
-        {/* Subtle decorative graphic */}
-        <span style={{ fontFamily: "monospace", fontSize: "9px", color: "#1A1C1A", opacity: 0.3, fontWeight: "bold" }}>
-          ■ LOC_AITP
-        </span>
       </div>
-    </motion.div>
+    </div>
   );
 }

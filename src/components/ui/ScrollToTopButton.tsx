@@ -52,11 +52,13 @@ export default function ScrollToTopButton() {
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "translateY(-4px)";
-            e.currentTarget.style.boxShadow = "0 6px 20px rgba(0, 101, 101, 0.4)";
+            e.currentTarget.style.boxShadow =
+              "0 6px 20px rgba(0, 101, 101, 0.4)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 101, 101, 0.3)";
+            e.currentTarget.style.boxShadow =
+              "0 4px 12px rgba(0, 101, 101, 0.3)";
           }}
           aria-label="Scroll to top"
         >

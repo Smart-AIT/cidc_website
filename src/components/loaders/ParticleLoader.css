@@ -71,7 +71,7 @@
   font-weight: 600;
   font-family: inherit;
   text-transform: uppercase;
-  box-shadow: 4px 4px 0px #A33B3C;
+  box-shadow: 4px 4px 0px #a33b3c;
   position: absolute;
   top: calc(100% + 3rem);
   left: 50%;
@@ -87,7 +87,7 @@
   opacity: 0.6;
   cursor: wait;
   letter-spacing: 0.05em;
-  box-shadow: 2px 2px 0px #A33B3C;
+  box-shadow: 2px 2px 0px #a33b3c;
 }
 
 .loader-button:disabled {
