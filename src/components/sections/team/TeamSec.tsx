@@ -168,7 +168,7 @@ const SE_MEMBERS = [
 ];
 
 export default function TeamSection() {
-  const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("BE");
+  const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("TE");
 
   const getActiveList = () => {
     switch (activeTab) {

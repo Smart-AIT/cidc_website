@@ -62,7 +62,7 @@ const SE_MEMBERS = [
 ];
 
 export default function TeamSection() {
-  const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("BE");
+  const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("TE");
 
   // Filter dynamic logic for split flows
   const allCurrentMembers = activeTab === "BE" ? BE_MEMBERS : activeTab === "TE" ? TE_MEMBERS : SE_MEMBERS;
