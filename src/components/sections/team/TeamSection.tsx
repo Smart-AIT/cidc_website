@@ -11,7 +11,7 @@ const FACULTY_INCHARGES = [
     name: "Dr. Dipika Birari",
     role: "Faculty Incharge ",
     instagram: "#",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/dipika-birari-6698b2229/",
     image: "/image/Dipika_Mam.jpeg",
   },
   {
@@ -19,7 +19,7 @@ const FACULTY_INCHARGES = [
     name: "Dr. Rupali Bagate",
     role: "Faculty Incharge",
     instagram: "#",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/dr-rupali-bagate-12938626/",
     image: "/image/Rupali_Mam.jpeg",
   },
 ];
@@ -28,37 +28,37 @@ const FACULTY_INCHARGES = [
 // 2. B.E. MENTORS
 // ==========================================
 const BE_MEMBERS = [
-  { ref_id: 1, name: "Jagdish Singh", role: "Frontend Lead", instagram: "https://www.instagram.com/jagdishpawar._/", linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/", image: "/image/jaggu.jpeg" },
-  { ref_id: 2, name: "Ebha Mollick", role: "DBMS Lead", instagram: "https://www.instagram.com/ebha_mollick/", linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/", image: "/image/ebbha.jpeg" },
-  { ref_id: 3, name: "Mohit Sharma", role: "Backend Lead", instagram: "https://www.instagram.com/its._mohit.sharma/", linkedin: "https://www.linkedin.com/in/its-mohitsharma/", image: "/image/mohit.jpeg" },
-  { ref_id: 4, name: "Shreya Prasad", role: "Cloud Lead", instagram: "https://www.instagram.com/_shreya05prasad_/", linkedin: "https://www.linkedin.com/in/shreya-prasad-5b1567289/", image: "/image/shreya.jpeg" },
-  { ref_id: 5, name: "Ayush Badoni", role: "Networking Head", instagram: "https://www.instagram.com/ayush_ab190/", linkedin: "https://www.linkedin.com/in/ayyushx/", image: "/image/ayush.jpeg" },
+  { ref_id: 1, name: "Jagdish Singh", role: "Mentor", instagram: "https://www.instagram.com/jagdishpawar._/", linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/", image: "/image/jaggu.jpeg" },
+  { ref_id: 2, name: "Ebha Mollick", role: "Mentor", instagram: "https://www.instagram.com/ebha_mollick/", linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/", image: "/image/ebbha.jpeg" },
+  { ref_id: 3, name: "Mohit Sharma", role: "Mentor", instagram: "https://www.instagram.com/its._mohit.sharma/", linkedin: "https://www.linkedin.com/in/its-mohitsharma/", image: "/image/mohit.jpeg" },
+  { ref_id: 4, name: "Shreya Prasad", role: "Mentor", instagram: "https://www.instagram.com/_shreya05prasad_/", linkedin: "https://www.linkedin.com/in/shreya-prasad-5b1567289/", image: "/image/shreya.jpeg" },
+  { ref_id: 5, name: "Ayush Badoni", role: "Mentor", instagram: "https://www.instagram.com/ayush_ab190/", linkedin: "https://www.linkedin.com/in/ayyushx/", image: "/image/ayush.jpeg" },
 ];
 
 // ==========================================
 // 3. T.E. COUNCIL
 // ==========================================
 const TE_MEMBERS = [
-  { ref_id: 9, name: "Abhay Singh (Secretary)", role: "Backend, GenAI Dev", instagram: "https://www.instagram.com/abhaysingh22_/", linkedin: "https://www.linkedin.com/in/abhaysingh22/", image: "/image/abhay.jpeg", badge: "Secretary" },
-  { ref_id: 8, name: "Pradeep Kumar", role: "Mobile & Backend", instagram: "https://www.instagram.com/pradeepkumar0805/", linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/", image: "/image/pradeep.jpg" },
-  { ref_id: 7, name: "Simran Singh", role: "Frontend Developer", instagram: "https://www.instagram.com/heysimmi_19/", linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/", image: "/image/simran.png" },
-  { ref_id: 10, name: "Omendra Naharwal", role: "Graphics Specialist", instagram: "https://www.instagram.com/omendranaharwal/", linkedin: "https://www.linkedin.com/in/omendra-naharwal/", image: "/image/omendra.png" },
-  { ref_id: 6, name: "Ritika", role: "Frontend Developer", instagram: "https://www.instagram.com/ritikagautam375/", linkedin: "https://www.linkedin.com/in/ritika-gautam-361867325/", image: "/image/ritika.jpg" },
-  { ref_id: 11, name: "Rishab Bhamboo", role: "Graphics Designer", instagram: "https://instagram.com/cidc_aitpune", linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/", image: "/image/rishab.png" },
+  { ref_id: 9, name: "Abhay Singh (Secretary)", role: "AI/ML Lead", instagram: "https://www.instagram.com/abhaysingh22_/", linkedin: "https://www.linkedin.com/in/abhaysingh22/", image: "/image/abhay.jpeg", badge: "Secretary" },
+  { ref_id: 8, name: "Pradeep Kumar", role: "App Dev Lead", instagram: "https://www.instagram.com/pradeepkumar0805/", linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/", image: "/image/pradeep.jpg" },
+  { ref_id: 7, name: "Simran Singh", role: "Web Dev Lead", instagram: "https://www.instagram.com/heysimmi_19/", linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/", image: "/image/simran.png" },
+  { ref_id: 10, name: "Omendra Naharwal", role: "Cloud Lead", instagram: "https://www.instagram.com/omendranaharwal/", linkedin: "https://www.linkedin.com/in/omendra-naharwal/", image: "/image/omendra.png" },
+  { ref_id: 6, name: "Ritika", role: "Web Dev Lead", instagram: "https://www.instagram.com/ritikagautam375/", linkedin: "https://www.linkedin.com/in/ritika-gautam-361867325/", image: "/image/ritika.jpg" },
+  { ref_id: 11, name: "Rishab Bhamboo", role: "Coding Specialist", instagram: "https://instagram.com/cidc_aitpune", linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/", image: "/image/rishab.png" },
 ];
 
 // ==========================================
 // 4. S.E. COUNCIL
 // ==========================================
 const SE_MEMBERS = [
-  { ref_id: 13, name: "Ashish Gupta", role: "Full Stack Dev", instagram: "https://www.instagram.com/ashish61779?igsh=NmdqNDI1Z3h1c2J2", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.jpeg" },
+  { ref_id: 13, name: "Ashish Gupta", role: "Full-Stack Developer", instagram: "https://www.instagram.com/ashish61779?igsh=NmdqNDI1Z3h1c2J2", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.jpeg" },
   { ref_id: 14, name: "Mahima", role: "Frontend Developer", instagram: "https://www.instagram.com/mahima_anchra/#", linkedin: "https://linkedin.com/in/mahima-anchra-978b5b376", image: "/image/Mahima.jpg" },
   { ref_id: 16, name: "ROHIT PIMPALE", role: "Flutter Developer", instagram: "https://www.instagram.com/_.rohit_p._/", linkedin: "https://www.linkedin.com/in/rohit-sharad-pimpale-581929374/", image: "/image/Rohit.jpeg" },
-  { ref_id: 12, name: "Abhinay Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/hueehuiii?utm_source=qr&igsh=eThyeGd1MGFiOHhz", linkedin: "https://www.linkedin.com/in/abhinay-singh-791975379?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Abhinay.jpg" },
+  { ref_id: 12, name: "Abhinay Singh", role: "Coding Specialist", instagram: "https://www.instagram.com/hueehuiii?utm_source=qr&igsh=eThyeGd1MGFiOHhz", linkedin: "https://www.linkedin.com/in/abhinay-singh-791975379?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Abhinay.jpg" },
   { ref_id: 15, name: "Prince Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/prince_sin1729?igsh=azd2MTltZzFvZmhj", linkedin: "https://www.linkedin.com/in/prince-singh-645365377?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Prince.jpg" },
   { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded Systems", instagram: "https://www.instagram.com/_mobile.pixels_?igsh=MWFrc3ZjYWswdjZtbg==", linkedin: "https://in.linkedin.com/in/shshank-kumar-a639b1373", image: "/image/Shashank.jpg" },
-  { ref_id: 18, name: "Yashwanth Thota", role: "Frontend Developer", instagram: "https://www.instagram.com/yashellno/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-aba68a388/", image: "/image/Tota.jpeg" },
-  { ref_id: 19, name: "Sajal Rawat", role: "Full Stack Dev", instagram: "https://www.instagram.com/sajalrwt/", linkedin: "https://www.linkedin.com/in/sajal-rawat/", image: "/image/sajal.jpeg" },
+  { ref_id: 18, name: "Yashwanth Thota", role: "Coding Specialist", instagram: "https://www.instagram.com/yashellno/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-aba68a388/", image: "/image/Tota.jpeg" },
+  { ref_id: 19, name: "Sajal Rawat", role: "Full-Stack Developer", instagram: "https://www.instagram.com/sajalrwt/", linkedin: "https://www.linkedin.com/in/sajal-rawat/", image: "/image/sajal.jpeg" },
 ];
 
 export default function TeamSection() {
@@ -360,19 +360,19 @@ export default function TeamSection() {
             className={`mechanical-tab-btn ${activeTab === "BE" ? "active" : ""}`}
             onClick={() => setActiveTab("BE")}
           >
-            // B.E. Mentors
+          ➤B.E. Mentors
           </button>
           <button
             className={`mechanical-tab-btn ${activeTab === "TE" ? "active" : ""}`}
             onClick={() => setActiveTab("TE")}
           >
-            // T.E. Council
+            ➤Leads & Domain Heads
           </button>
           <button
             className={`mechanical-tab-btn ${activeTab === "SE" ? "active" : ""}`}
             onClick={() => setActiveTab("SE")}
           >
-            // S.E. Council
+            ➤Joint Secretaries
           </button>
         </div>
 
