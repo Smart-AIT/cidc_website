@@ -7,37 +7,37 @@ const PROJECT_LIST = [
   {
     name: "AIT Website",
     desc: "The official web portal of the Army Institute of Technology, Pune. Built to streamline institutional resources, student portals, and academic listings in a unified modern interface, serving over 1500+ active campus nodes daily.",
-    image: "/projects/ait.png",
+    image: "/projects/ait.webp",
     style: { objectFit: "cover" },
   },
   {
     name: "Sniffi",
     desc: "A high-performance home veterinary service platform that delivers expert pet healthcare directly to your doorstep. It manages real-time scheduling, vaccinations, wellness checkups, and medical diagnostics, providing a stress-free experience for pet owners.",
-    image: "/projects/sniffi2.png",
+    image: "/projects/sniffi2.webp",
     style: { objectFit: "cover" },
   },
   {
     name: "PROJAK",
     desc: "An enterprise-grade consulting and technology platform engineered to accelerate organizational growth. Leveraging data-driven diagnostics, advanced insights, and strategic execution modules to optimize complex corporate and academic workflows.",
-    image: "/projects/projak.png",
+    image: "/projects/projak.webp",
     style: { objectFit: "cover" },
   },
   {
     name: "SUGGEST",
     desc: "A modern social book discovery engine powered by short-form video reviews, interactive AI summaries, and community-driven reader insights. Designed to optimize and transform reading list curation for digital bibliophiles.",
-    image: "/projects/suggest.png",
+    image: "/projects/suggest.webp",
     style: { objectFit: "contain" },
   },
   {
     name: "AIT Smart Labs",
     desc: "A comprehensive IoT and QR-driven laboratory management system. Streamlines hardware tracking, student attendance, equipment access logs, and safety verification across all department labs.",
-    image: "/projects/aitsmartlab.png",
+    image: "/projects/aitsmartlab.webp",
     style: { objectFit: "contain" },
   },
   {
     name: "SendBox",
     desc: "An automated enterprise WhatsApp outreach engine. Built to broadcast personalized announcements, event schedules, and well wishes to staff, alumni, and students with robust API rate-limiting.",
-    image: "/projects/sendbox.png",
+    image: "/projects/sendbox.webp",
     style: { objectFit: "contain" },
   },
 ];

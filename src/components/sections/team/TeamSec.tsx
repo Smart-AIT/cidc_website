@@ -10,7 +10,7 @@ const BE_MEMBERS = [
     role: "Frontend Lead",
     instagram: "https://www.instagram.com/jagdishpawar._/",
     linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/",
-    image: "/image/jaggu.jpeg",
+    image: "/image/jaggu.webp",
   },
   {
     ref_id: 2,
@@ -18,7 +18,7 @@ const BE_MEMBERS = [
     role: "DBMS Lead",
     instagram: "https://www.instagram.com/ebha_mollick/",
     linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/",
-    image: "/image/ebbha.jpeg",
+    image: "/image/ebbha.webp",
   },
   {
     ref_id: 3,
@@ -26,7 +26,7 @@ const BE_MEMBERS = [
     role: "Backend Lead",
     instagram: "https://www.instagram.com/its._mohit.sharma/",
     linkedin: "https://www.linkedin.com/in/its-mohitsharma/",
-    image: "/image/mohit.jpeg",
+    image: "/image/mohit.webp",
   },
   {
     ref_id: 4,
@@ -34,7 +34,7 @@ const BE_MEMBERS = [
     role: "Cloud Lead",
     instagram: "https://www.instagram.com/_shreya05prasad_/",
     linkedin: "https://www.linkedin.com/in/shreya-prasad-5b1567289/",
-    image: "/image/shreya.jpeg",
+    image: "/image/shreya.webp",
   },
   {
     ref_id: 5,
@@ -42,7 +42,7 @@ const BE_MEMBERS = [
     role: "Networking Head",
     instagram: "https://www.instagram.com/ayush_ab190/",
     linkedin: "https://www.linkedin.com/in/ayyushx/",
-    image: "/image/ayush.jpeg",
+    image: "/image/ayush.webp",
   },
 ];
 
@@ -54,7 +54,7 @@ const TE_MEMBERS = [
     role: "Frontend Developer",
     instagram: "https://www.instagram.com/ritikagautam375/",
     linkedin: "https://www.linkedin.com/in/ritika-gautam-361867325/",
-    image: "/image/ritika.jpg",
+    image: "/image/ritika.webp",
   },
   {
     ref_id: 7,
@@ -62,7 +62,7 @@ const TE_MEMBERS = [
     role: "Frontend Developer",
     instagram: "https://www.instagram.com/heysimmi_19/",
     linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/",
-    image: "/image/simran.png",
+    image: "/image/simran.webp",
   },
   {
     ref_id: 8,
@@ -70,7 +70,7 @@ const TE_MEMBERS = [
     role: "Mobile & Backend Developer",
     instagram: "https://www.instagram.com/pradeepkumar0805/",
     linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/",
-    image: "/image/pradeep.jpg",
+    image: "/image/pradeep.webp",
   },
   {
     ref_id: 9,
@@ -78,7 +78,7 @@ const TE_MEMBERS = [
     role: "Backend, GenAI Developer",
     instagram: "https://www.instagram.com/abhaysingh22_/",
     linkedin: "https://www.linkedin.com/in/abhaysingh22/",
-    image: "/image/abhay.jpeg",
+    image: "/image/abhay.webp",
     badge: "Secretary",
   },
   {
@@ -87,7 +87,7 @@ const TE_MEMBERS = [
     role: "Graphics, Problem Solver",
     instagram: "https://www.instagram.com/omendranaharwal/",
     linkedin: "https://www.linkedin.com/in/omendra-naharwal/",
-    image: "/image/omendra.png",
+    image: "/image/omendra.webp",
   },
   {
     ref_id: 11,
@@ -95,7 +95,7 @@ const TE_MEMBERS = [
     role: "Graphics, Problem Solver",
     instagram: "https://instagram.com/cidc_aitpune",
     linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/",
-    image: "/image/rishab.png",
+    image: "/image/rishab.webp",
   },
 ];
 
@@ -107,7 +107,7 @@ const SE_MEMBERS = [
     role: "Full Stack Developer",
     instagram: "https://www.instagram.com/rohit_pimpale_7/",
     linkedin: "https://www.linkedin.com/in/rohitpimpale/",
-    image: "/image/As6.jpeg",
+    image: "/image/As6.webp",
   },
   {
     ref_id: 13,
@@ -115,7 +115,7 @@ const SE_MEMBERS = [
     role: "Frontend Developer",
     instagram: "https://www.instagram.com/mahima.singh.19",
     linkedin: "https://www.linkedin.com/in/mahima-singh-ait/",
-    image: "/image/Mahima.jpg",
+    image: "/image/Mahima.webp",
   },
   {
     ref_id: 12,
@@ -123,7 +123,7 @@ const SE_MEMBERS = [
     role: "Flutter Developer",
     instagram: "https://www.instagram.com/rohit_pimpale_7/",
     linkedin: "https://www.linkedin.com/in/rohitpimpale/",
-    image: "/image/Rohit.jpeg",
+    image: "/image/Rohit.webp",
   },
   {
     ref_id: 14,
@@ -131,7 +131,7 @@ const SE_MEMBERS = [
     role: "Full stack developer",
     instagram: "https://www.instagram.com/abhinay_singh_/",
     linkedin: "https://www.linkedin.com/in/abhinay-singh-221b/",
-    image: "/image/Abhinay.jpg",
+    image: "/image/Abhinay.webp",
   },
   {
     ref_id: 15,
@@ -139,7 +139,7 @@ const SE_MEMBERS = [
     role: "Embedded + Frontend Developer",
     instagram: "https://www.instagram.com/shashank_kumar_/",
     linkedin: "https://in.linkedin.com/in/shashank-kumar-ait",
-    image: "/image/Shashank.jpg",
+    image: "/image/Shashank.webp",
   },
   {
     ref_id: 16,
@@ -147,7 +147,7 @@ const SE_MEMBERS = [
     role: "Full Stack Developer",
     instagram: "https://www.instagram.com/prince_singh_/",
     linkedin: "https://www.linkedin.com/in/prince-singh-web/",
-    image: "/image/Prince.jpg",
+    image: "/image/Prince.webp",
   },
   {
     ref_id: 17,
@@ -155,7 +155,7 @@ const SE_MEMBERS = [
     role: "Frontend, Problem Solver",
     instagram: "https://www.instagram.com/yashwanth_thota/",
     linkedin: "https://www.linkedin.com/in/yashwanth-thota-/",
-    image: "/image/Tota.jpeg",
+    image: "/image/Tota.webp",
   },
   {
     ref_id: 19,
@@ -163,7 +163,7 @@ const SE_MEMBERS = [
     role: "Full Stack Developer",
     instagram: "https://www.instagram.com/sajalrwt/",
     linkedin: "https://www.linkedin.com/in/sajal-rawat/",
-    image: "/image/sajal.jpeg",
+    image: "/image/sajal.webp",
   },
 ];
 

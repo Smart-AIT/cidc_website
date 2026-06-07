@@ -252,6 +252,7 @@ export default function EventsSection() {
           }
           .events-announcements-input-group {
             flex-direction: column;
+            gap: 12px;
           }
           .events-announcements-input {
             border-radius: 12px;
@@ -262,6 +263,7 @@ export default function EventsSection() {
             border-radius: 12px;
             padding: 10px 16px;
             font-size: 10px;
+            align-self: center;
           }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
