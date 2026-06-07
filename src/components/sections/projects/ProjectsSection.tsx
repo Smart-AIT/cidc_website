@@ -109,6 +109,12 @@ export default function ProjectsSection() {
             grid-template-columns: 1fr;
             min-height: auto;
           }
+          .carousel-content {
+            order: 2;
+          }
+          .carousel-image-container {
+            order: 1;
+          }
         }
 
         .carousel-content {
@@ -123,7 +129,7 @@ export default function ProjectsSection() {
         @media (max-width: 900px) {
           .carousel-content {
             border-right: none;
-            border-bottom: 1px solid rgba(26, 28, 26, 0.12);
+            border-top: 1px solid rgba(26, 28, 26, 0.12);
             padding: 32px 24px;
           }
         }
