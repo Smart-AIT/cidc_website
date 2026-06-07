@@ -243,11 +243,12 @@ export default function Footer() {
               ></div>
 
               <div className="flex flex-col gap-3">
-                {[
+                 {[
                   {
                     icon: FaPhone,
                     text: "+917983957734",
                     href: "tel:+917983957734",
+                    style: { transform: "rotate(90deg)" },
                   },
                   {
                     icon: FaEnvelope,
@@ -265,7 +266,10 @@ export default function Footer() {
                     href={item.href}
                     className="flex items-center gap-3 group"
                   >
-                    <item.icon className="w-5 h-5 text-[#1A1C1A] group-hover:text-[#A33B3C] flex-shrink-0" />
+                    <item.icon 
+                      className="w-5 h-5 text-[#1A1C1A] group-hover:text-[#A33B3C] flex-shrink-0" 
+                      style={item.style}
+                    />
                     <span className="text-sm sm:text-base font-black group-hover:text-[#A33B3C] break-all">
                       {item.text}
                     </span>
@@ -301,15 +305,22 @@ export default function Footer() {
                   {
                     Icon: FaInstagram,
                     href: "https://www.instagram.com/cidc.ait/",
+                    colorClass: "text-[#E1306C]",
                   },
                   {
                     Icon: FaLinkedin,
                     href: "https://www.linkedin.com/search/results/all/?keywords=AIT%20College%20Innovation%20and%20Development%20Club&origin=RICH_QUERY_SUGGESTION&heroEntityKey=urn%3Ali%3Aorganization%3A116164080&position=0",
+                    colorClass: "text-[#0A66C2]",
                   },
-                  { Icon: FaGithub, href: "https://github.com/Smart-AIT" },
+                  { 
+                    Icon: FaGithub, 
+                    href: "https://github.com/Smart-AIT",
+                    colorClass: "text-[#181717]"
+                  },
                   {
                     Icon: FaMapMarkerAlt,
                     href: "https://maps.google.com/?q=Army+Institute+of+Technology+Pune",
+                    colorClass: "text-[#EA4335]",
                   },
                 ].map((item, i) => (
                   <a
@@ -317,7 +328,7 @@ export default function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#1A1C1A] hover:text-[#A33B3C] transition-transform hover:scale-110"
+                    className={`${item.colorClass} transition-transform hover:scale-110`}
                   >
                     <item.Icon className="w-6 h-6" />
                   </a>
