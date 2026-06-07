@@ -248,7 +248,7 @@ export default function AboutSection() {
                         className="material-symbols-outlined"
                         style={{ fontSize: "24px" }}
                       >
-                        ads_click
+                        architecture
                       </span>
                     </div>
                     <span

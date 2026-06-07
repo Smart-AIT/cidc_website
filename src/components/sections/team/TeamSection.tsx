@@ -337,7 +337,7 @@ export default function TeamSection() {
               marginBottom: "16px",
             }}
           >
-            CIDC_VERSION_04
+            CIDC_VERSION_1.0
           </p>
           <h2
             style={{

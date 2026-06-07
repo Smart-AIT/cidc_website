@@ -263,7 +263,7 @@ export default function ProjectsSection() {
               FOCUSED ON LEARNING, BUILDING, AND DELIVERING IMPACTFUL SOLUTIONS.
               <br />
               <span style={{ marginTop: "16px", display: "block", color: "#A33B3C", fontWeight: "bold" }}>
-                System version 0.4
+                System version 1.0
               </span>
             </p>
           </header>
