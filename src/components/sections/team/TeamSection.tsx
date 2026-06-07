@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import TeamMemberCard from "./TeamMemberCard";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 // ==========================================
 // 1. FACULTY INCHARGES DATA
@@ -63,6 +64,76 @@ const SE_MEMBERS = [
 
 export default function TeamSection() {
   const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("TE");
+  const [isHovered, setIsHovered] = useState(false);
+  const [isManualControlActive, setIsManualControlActive] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const manualTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Clear timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (manualTimeoutRef.current) {
+        clearTimeout(manualTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Reset interaction states when active tab changes so the new tab can auto-scroll
+  useEffect(() => {
+    setIsManualControlActive(false);
+    if (manualTimeoutRef.current) {
+      clearTimeout(manualTimeoutRef.current);
+    }
+  }, [activeTab]);
+
+  const triggerManualInteraction = () => {
+    setIsManualControlActive(true);
+
+    if (manualTimeoutRef.current) {
+      clearTimeout(manualTimeoutRef.current);
+    }
+
+    manualTimeoutRef.current = setTimeout(() => {
+      setIsManualControlActive(false);
+    }, 5000); // Resume auto-scroll after 5 seconds of inactivity
+  };
+
+  const scroll = (direction: "left" | "right") => {
+    triggerManualInteraction();
+
+    if (scrollContainerRef.current) {
+      const { scrollLeft } = scrollContainerRef.current;
+      const scrollAmount = 268; // 240px card width + 28px gap
+      const newScrollLeft =
+        direction === "left"
+          ? scrollLeft - scrollAmount
+          : scrollLeft + scrollAmount;
+      scrollContainerRef.current.scrollTo({
+        left: newScrollLeft,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Auto-scroll loop
+  useEffect(() => {
+    // Only auto-scroll if user has not interacted manually and is not hovering
+    if (isManualControlActive || isHovered) return;
+
+    const interval = setInterval(() => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        // If we reached close to the end, wrap back to 0
+        if (scrollLeft + clientWidth >= scrollWidth - 15) {
+          scrollContainerRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          scrollContainerRef.current.scrollTo({ left: scrollLeft + 268, behavior: "smooth" });
+        }
+      }
+    }, 1500); // Auto-scroll every 1.5 seconds
+
+    return () => clearInterval(interval);
+  }, [isManualControlActive, isHovered, activeTab]);
 
   // Filter dynamic logic for all members
   const allCurrentMembers = activeTab === "BE" ? BE_MEMBERS : activeTab === "TE" ? TE_MEMBERS : SE_MEMBERS;
@@ -72,31 +143,48 @@ export default function TeamSection() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-        @keyframes marqueeScrollLeft {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-100%); }
-        }
-        
-        .single-marquee-track {
+        .team-scroll-container {
           display: flex;
           gap: 28px;
-          flex-shrink: 0;
-          padding-right: 28px;
-          animation: marqueeScrollLeft 32s linear infinite;
-          overflow: visible !important;
-        }
-
-        .team-marquee-container {
-          display: flex;
-          overflow: hidden;
-          position: relative;
+          overflow-x: auto;
+          scroll-behavior: smooth;
           width: 100%;
+          padding: 24px 8px;
           z-index: 10;
+          position: relative;
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE 10+ */
+        }
+        .team-scroll-container::-webkit-scrollbar {
+          display: none; /* Safari and Chrome */
         }
 
-        /* Hover on marquee stops scrolling */
-        .team-marquee-container:hover .single-marquee-track {
-          animation-play-state: paused;
+        .carousel-nav-btn {
+          background-color: #faf9f6;
+          color: #1A1C1A;
+          border: 1px solid rgba(26, 28, 26, 0.2);
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          border-radius: 12px;
+          box-shadow: 0px 4px 12px rgba(26, 28, 26, 0.05);
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          font-size: 14px;
+        }
+
+        .carousel-nav-btn:hover {
+          transform: translateY(-2px);
+          background-color: #ffffff;
+          box-shadow: 0px 6px 20px rgba(26, 28, 26, 0.08);
+          border-color: rgba(26, 28, 26, 0.3);
+        }
+
+        .carousel-nav-btn:active {
+          transform: translateY(0px);
+          background-color: #f4f3f0;
         }
 
         .team-section-root {
@@ -226,7 +314,7 @@ export default function TeamSection() {
           .faculty-grid-container { gap: 24px; }
           .team-chapter-banner { flex-direction: column; gap: 8px; padding: 12px 14px; text-align: center; align-items: center; }
           .team-chapter-title { font-size: 15px; margin-bottom: 2px; }
-          .single-marquee-track { gap: 16px; padding-right: 16px; }
+          .team-scroll-container { gap: 16px; }
         }
       `,
         }}
@@ -340,24 +428,44 @@ export default function TeamSection() {
           </button>
         </div>
 
-        {/* Hybrid Split Framework layout container */}
-        {/* Team Members Marquee Section */}
-        <div className="team-marquee-container" style={{ marginBottom: "80px" }}>
-          {[0, 1].map((trackIndex) => (
-            <div
-              key={trackIndex}
-              className="single-marquee-track"
-              aria-hidden={trackIndex !== 0}
-              style={{ overflow: "visible" }}
-            >
-              {allCurrentMembers.map((member, i) => (
-                <TeamMemberCard
-                  key={`${activeTab}-${member.ref_id}-${i}`}
-                  {...member}
-                />
-              ))}
-            </div>
+        {/* Team Members Scroll Section */}
+        <div 
+          ref={scrollContainerRef} 
+          className="team-scroll-container" 
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={triggerManualInteraction}
+          onWheel={(e) => {
+            if (Math.abs(e.deltaX) > 0) {
+              triggerManualInteraction();
+            }
+          }}
+          style={{ marginBottom: "32px" }}
+        >
+          {allCurrentMembers.map((member, i) => (
+            <TeamMemberCard
+              key={`${activeTab}-scroll-${member.ref_id}-${i}`}
+              {...member}
+            />
           ))}
+        </div>
+
+        {/* Scroll controls */}
+        <div style={{ display: "flex", justifyContent: "center", gap: "16px", marginBottom: "80px" }}>
+          <button
+            onClick={() => scroll("left")}
+            className="carousel-nav-btn"
+            aria-label="Scroll left"
+          >
+            <FaChevronLeft />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="carousel-nav-btn"
+            aria-label="Scroll right"
+          >
+            <FaChevronRight />
+          </button>
         </div>
 
         {/* Chapter Banner */}
