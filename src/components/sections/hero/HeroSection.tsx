@@ -48,6 +48,20 @@ export default function HeroSection() {
   return (
     <>
       <style>{`
+        .hero-bg-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          opacity: 0.16;
+          background-image: url('/topography.png');
+          background-repeat: repeat;
+          z-index: 10;
+        }
         .hero-left-col {
           padding: 60px 80px 60px 80px;
         }
@@ -135,6 +149,7 @@ export default function HeroSection() {
           className="relative grid grid-cols-1 lg:grid-cols-12 gap-0 w-[98%] max-w-[1400px] border border-[#1A1C1A]/30 shadow-[0px_12px_40px_rgba(0,0,0,0.06)] bg-white/70 backdrop-blur-md overflow-hidden z-10 my-4"
           style={{ borderRadius: "12px" }}
         >
+          <div className="hero-bg-overlay"></div>
           {/* Left Branding Column */}
           <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-start justify-center border-t border-t-[#1A1C1A]/15 lg:border-t-0 lg:border-r border-r-[#1A1C1A]/15 relative z-20 bg-transparent hero-left-col">
             {/* Label */}

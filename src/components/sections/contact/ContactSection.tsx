@@ -15,7 +15,7 @@ export default function ContactSection() {
           width: 100%;
           padding: 60px 40px;
           border-top: 2px solid #1A1C1A;
-          background-color: #faf9f6;
+          background: linear-gradient(rgba(250, 249, 246, 0.84), rgba(250, 249, 246, 0.84)), url('/topography.png') repeat;
         }
         .contact-bento-grid {
           display: grid;

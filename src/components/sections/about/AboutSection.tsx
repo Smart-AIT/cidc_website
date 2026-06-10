@@ -27,7 +27,7 @@ export default function AboutSection() {
           width: 100%;
           padding: 80px 40px 60px 40px;
           border-top: 1px solid rgba(26, 28, 26, 0.15);
-          background-color: #faf9f6;
+          background: linear-gradient(rgba(250, 249, 246, 0.84), rgba(250, 249, 246, 0.84)), url('/topography.png') repeat;
         }
         .about-header-grid {
           display: grid;

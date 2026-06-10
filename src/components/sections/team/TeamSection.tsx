@@ -378,7 +378,7 @@ export default function TeamSection() {
 
         {/* Faculty Incharge Grid Section */}
         <div style={{ marginBottom: "50px" }}>
-          
+
           {/* Static White Label mimicking the unclicked button structure */}
           <div className="tab-controller-container">
             <div className="mechanical-static-label">
@@ -412,7 +412,7 @@ export default function TeamSection() {
             className={`mechanical-tab-btn ${activeTab === "BE" ? "active" : ""}`}
             onClick={() => setActiveTab("BE")}
           >
-          ➤B.E. Mentors
+            ➤B.E. Mentors
           </button>
           <button
             className={`mechanical-tab-btn ${activeTab === "TE" ? "active" : ""}`}
@@ -429,9 +429,9 @@ export default function TeamSection() {
         </div>
 
         {/* Team Members Scroll Section */}
-        <div 
-          ref={scrollContainerRef} 
-          className="team-scroll-container" 
+        <div
+          ref={scrollContainerRef}
+          className="team-scroll-container"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={triggerManualInteraction}
