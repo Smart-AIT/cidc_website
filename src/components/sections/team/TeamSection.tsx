@@ -143,6 +143,46 @@ export default function TeamSection() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
+        @keyframes marqueeScrollLeft {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+        
+        .single-marquee-track {
+          display: flex;
+          gap: 28px;
+          flex-shrink: 0;
+          padding-right: 28px;
+          animation: marqueeScrollLeft 32s linear infinite;
+          overflow: visible !important;
+        }
+
+        /* Hover on marquee stops scrolling */
+        .team-marquee-container:hover .single-marquee-track {
+          animation-play-state: paused;
+        }
+
+        .team-marquee-container {
+          display: none;
+        }
+
+        .team-mobile-scroll-wrap {
+          display: block;
+        }
+
+        @media (min-width: 768px) {
+          .team-marquee-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            z-index: 10;
+          }
+          .team-mobile-scroll-wrap {
+            display: none;
+          }
+        }
+
         .team-scroll-container {
           display: flex;
           gap: 28px;
@@ -428,44 +468,66 @@ export default function TeamSection() {
           </button>
         </div>
 
-        {/* Team Members Scroll Section */}
-        <div
-          ref={scrollContainerRef}
-          className="team-scroll-container"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onTouchStart={triggerManualInteraction}
-          onWheel={(e) => {
-            if (Math.abs(e.deltaX) > 0) {
-              triggerManualInteraction();
-            }
-          }}
-          style={{ marginBottom: "32px" }}
-        >
-          {allCurrentMembers.map((member, i) => (
-            <TeamMemberCard
-              key={`${activeTab}-scroll-${member.ref_id}-${i}`}
-              {...member}
-            />
+        {/* Infinite marquee for desktop/tablet */}
+        <div className="team-marquee-container" style={{ marginBottom: "80px" }}>
+          {[0, 1].map((trackIndex) => (
+            <div
+              key={trackIndex}
+              className="single-marquee-track"
+              aria-hidden={trackIndex !== 0}
+              style={{ overflow: "visible" }}
+            >
+              {allCurrentMembers.map((member, i) => (
+                <TeamMemberCard
+                  key={`${activeTab}-marquee-${member.ref_id}-${i}`}
+                  {...member}
+                />
+              ))}
+            </div>
           ))}
         </div>
 
-        {/* Scroll controls */}
-        <div style={{ display: "flex", justifyContent: "center", gap: "16px", marginBottom: "80px" }}>
-          <button
-            onClick={() => scroll("left")}
-            className="carousel-nav-btn"
-            aria-label="Scroll left"
+        {/* Mobile scroll layout */}
+        <div className="team-mobile-scroll-wrap">
+          {/* Team Members Scroll Section */}
+          <div
+            ref={scrollContainerRef}
+            className="team-scroll-container"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={triggerManualInteraction}
+            onWheel={(e) => {
+              if (Math.abs(e.deltaX) > 0) {
+                triggerManualInteraction();
+              }
+            }}
+            style={{ marginBottom: "32px" }}
           >
-            <FaChevronLeft />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="carousel-nav-btn"
-            aria-label="Scroll right"
-          >
-            <FaChevronRight />
-          </button>
+            {allCurrentMembers.map((member, i) => (
+              <TeamMemberCard
+                key={`${activeTab}-scroll-${member.ref_id}-${i}`}
+                {...member}
+              />
+            ))}
+          </div>
+
+          {/* Scroll controls */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "16px", marginBottom: "80px" }}>
+            <button
+              onClick={() => scroll("left")}
+              className="carousel-nav-btn"
+              aria-label="Scroll left"
+            >
+              <FaChevronLeft />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="carousel-nav-btn"
+              aria-label="Scroll right"
+            >
+              <FaChevronRight />
+            </button>
+          </div>
         </div>
 
         {/* Chapter Banner */}
