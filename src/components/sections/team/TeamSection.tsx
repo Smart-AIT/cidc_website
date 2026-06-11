@@ -78,7 +78,7 @@ export default function TeamSection() {
     };
   }, []);
 
-  // Reset interaction states when active tab changes so the new tab can auto-scroll
+  // Reset interaction states when active tab changes
   useEffect(() => {
     setIsManualControlActive(false);
     if (manualTimeoutRef.current) {
@@ -95,7 +95,7 @@ export default function TeamSection() {
 
     manualTimeoutRef.current = setTimeout(() => {
       setIsManualControlActive(false);
-    }, 5000); // Resume auto-scroll after 5 seconds of inactivity
+    }, 5000);
   };
 
   const scroll = (direction: "left" | "right") => {
@@ -103,7 +103,7 @@ export default function TeamSection() {
 
     if (scrollContainerRef.current) {
       const { scrollLeft } = scrollContainerRef.current;
-      const scrollAmount = 268; // 240px card width + 28px gap
+      const scrollAmount = 268;
       const newScrollLeft =
         direction === "left"
           ? scrollLeft - scrollAmount
@@ -117,25 +117,22 @@ export default function TeamSection() {
 
   // Auto-scroll loop
   useEffect(() => {
-    // Only auto-scroll if user has not interacted manually and is not hovering
     if (isManualControlActive || isHovered) return;
 
     const interval = setInterval(() => {
       if (scrollContainerRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-        // If we reached close to the end, wrap back to 0
         if (scrollLeft + clientWidth >= scrollWidth - 15) {
           scrollContainerRef.current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
           scrollContainerRef.current.scrollTo({ left: scrollLeft + 268, behavior: "smooth" });
         }
       }
-    }, 1500); // Auto-scroll every 1.5 seconds
+    }, 1500);
 
     return () => clearInterval(interval);
   }, [isManualControlActive, isHovered, activeTab]);
 
-  // Filter dynamic logic for all members
   const allCurrentMembers = activeTab === "BE" ? BE_MEMBERS : activeTab === "TE" ? TE_MEMBERS : SE_MEMBERS;
 
   return (
@@ -157,7 +154,6 @@ export default function TeamSection() {
           overflow: visible !important;
         }
 
-        /* Hover on marquee stops scrolling */
         .team-marquee-container:hover .single-marquee-track {
           animation-play-state: paused;
         }
@@ -192,11 +188,11 @@ export default function TeamSection() {
           padding: 24px 8px;
           z-index: 10;
           position: relative;
-          scrollbar-width: none; /* Firefox */
-          -ms-overflow-style: none; /* IE 10+ */
+          scrollbar-width: none;
+          -ms-overflow-style: none;
         }
         .team-scroll-container::-webkit-scrollbar {
-          display: none; /* Safari and Chrome */
+          display: none;
         }
 
         .carousel-nav-btn {
@@ -258,6 +254,7 @@ export default function TeamSection() {
           border-radius: 6px;
           box-shadow: 4px 4px 0px 0px #1A1C1A;
           transition: all 0.15s ease-in-out;
+          text-align: center;
         }
         .mechanical-tab-btn:hover {
           transform: translate(2px, 2px);
@@ -270,7 +267,6 @@ export default function TeamSection() {
           box-shadow: 0px 0px 0px 0px #1A1C1A;
         }
 
-        /* Pure Static Non-Clickable Label styled identical to unclicked buttons */
         .mechanical-static-label {
           background-color: #faf9f6;
           color: #1A1C1A;
@@ -283,6 +279,7 @@ export default function TeamSection() {
           border-radius: 6px;
           box-shadow: 4px 4px 0px 0px #1A1C1A;
           user-select: none;
+          text-align: center;
         }
 
         .faculty-grid-container {
@@ -303,7 +300,7 @@ export default function TeamSection() {
           top: -10px;
           left: 50%;
           transform: translateX(-50%);
-          background: #A33B3C;
+          background: #A33C3C;
           color: white;
           font-family: monospace;
           font-size: 9px;
@@ -349,8 +346,45 @@ export default function TeamSection() {
 
         @media (max-width: 640px) {
           .team-section-root { padding: 40px 16px; }
-          .tab-controller-container { gap: 10px; }
-          .mechanical-tab-btn, .mechanical-static-label { font-size: 11px; padding: 8px 16px; flex-grow: 1; text-align: center; }
+          
+          /* Returns container back to normal flex row wrap behavior */
+          .tab-controller-container { 
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 12px !important; 
+          }
+          
+          /* Strict styling for first two buttons to share top row */
+          .mechanical-tab-btn, .mechanical-static-label { 
+            font-size: 10px; 
+            padding: 10px 6px; 
+            width: calc(50% - 6px) !important;
+            max-width: 50%;
+            min-height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+            flex-grow: 1;
+          }
+          
+          /* Targets third button (Joint Secretaries) to sit perfectly under them centered and compact */
+          .mechanical-tab-btn:last-child {
+            width: fit-content !important;
+            max-width: max-content !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            flex-grow: 0 !important;
+          }
+
+          /* Reset standalone Faculty Label adjustments */
+          .tab-controller-container:has(.mechanical-static-label) .mechanical-static-label {
+            width: auto !important;
+            max-width: unset !important;
+          }
+
           .faculty-grid-container { gap: 24px; }
           .team-chapter-banner { flex-direction: column; gap: 8px; padding: 12px 14px; text-align: center; align-items: center; }
           .team-chapter-title { font-size: 15px; margin-bottom: 2px; }
@@ -418,8 +452,6 @@ export default function TeamSection() {
 
         {/* Faculty Incharge Grid Section */}
         <div style={{ marginBottom: "50px" }}>
-
-          {/* Static White Label mimicking the unclicked button structure */}
           <div className="tab-controller-container">
             <div className="mechanical-static-label">
               // Faculty Incharge
@@ -458,7 +490,7 @@ export default function TeamSection() {
             className={`mechanical-tab-btn ${activeTab === "TE" ? "active" : ""}`}
             onClick={() => setActiveTab("TE")}
           >
-            ➤Leads & Domain Heads
+            ➤Leads &amp; Domain Heads
           </button>
           <button
             className={`mechanical-tab-btn ${activeTab === "SE" ? "active" : ""}`}
@@ -489,7 +521,6 @@ export default function TeamSection() {
 
         {/* Mobile scroll layout */}
         <div className="team-mobile-scroll-wrap">
-          {/* Team Members Scroll Section */}
           <div
             ref={scrollContainerRef}
             className="team-scroll-container"

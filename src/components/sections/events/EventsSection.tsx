@@ -13,7 +13,7 @@ const EVENTS = [
     ref_id: "REF_LOG",
     status: "Upcoming" as const,
     title: "CAMPUS CATALYST",
-    date: "Dates: coming soon",
+    date: "Dates: 11 Oct 2026",
     description:
       "Physical interface exchange. Bring your modified synthesizers, pitch your ideas, get approvals, start working on it to contribute in college innovation and make AIT smarter.",
     ctaLabel: "Join_Catalyst",
@@ -24,7 +24,7 @@ const EVENTS = [
     ref_id: "REF_LOG",
     status: "Upcoming" as const,
     title: "SYSTEM DESIGN BATTLE",
-    date: "Dates: coming soon",
+    date: "Dates: 14 March 2027",
     description:
       "A deep-dive into system design concepts. Teams will be given a real-world system design problem inspired by large tech platforms.",
     ctaLabel: "Join_Battle",

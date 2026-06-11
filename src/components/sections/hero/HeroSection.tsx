@@ -63,12 +63,27 @@ export default function HeroSection() {
           z-index: 10;
         }
         .hero-left-col {
-          padding: 60px 80px 60px 80px;
+          padding: 60px 40px 60px 80px;
         }
         .hero-label-topleft {
           position: absolute;
           top: 24px;
           left: 40px;
+        }
+        @media (max-width: 1024px) {
+          .hero-status-container {
+            position: relative !important;
+            bottom: auto !important;
+            right: auto !important;
+            width: 100% !important;
+            max-width: 440px !important;
+            text-align: center !important;
+            margin-top: 40px !important;
+            padding: 0 16px !important;
+          }
+          .hero-status-labels {
+            text-align: center !important;
+          }
         }
         @media (max-width: 640px) {
           .hero-left-col {
@@ -92,12 +107,6 @@ export default function HeroSection() {
             font-size: 11px !important;
             width: 100% !important;
             min-width: unset !important;
-          }
-          .hero-status-labels {
-            bottom: 16px !important;
-            left: 20px !important;
-            right: auto !important;
-            text-align: left !important;
           }
         }
         .hero-btn {
@@ -144,7 +153,7 @@ export default function HeroSection() {
         className="relative w-full flex justify-center bg-transparent overflow-hidden"
         style={{ marginTop: "0px", marginBottom: "20px" }}
       >
-        {/* Main Hero Card Container Layer - Made Borders and Shadows Subtle */}
+        {/* Main Hero Card Container Layer */}
         <div
           className="relative grid grid-cols-1 lg:grid-cols-12 gap-0 w-[98%] max-w-[1400px] border border-[#1A1C1A]/30 shadow-[0px_12px_40px_rgba(0,0,0,0.06)] bg-white/70 backdrop-blur-md overflow-hidden z-10 my-4"
           style={{ borderRadius: "12px" }}
@@ -164,8 +173,8 @@ export default function HeroSection() {
             <h1
               className="uppercase"
               style={{
-                fontSize: "clamp(2.2rem, 8vw, 6rem)",
-                lineHeight: "0.9",
+                fontSize: "clamp(2rem, 5.5vw, 4.8rem)",
+                lineHeight: "0.95",
                 fontWeight: "900",
                 letterSpacing: "-0.04em",
                 color: "#1A1C1A",
@@ -193,8 +202,8 @@ export default function HeroSection() {
             <p
               className="hero-desc"
               style={{
-                fontSize: "18px",
-                maxWidth: "600px",
+                fontSize: "17px",
+                maxWidth: "580px",
                 lineHeight: "1.6",
                 color: "#1A1C1A",
                 opacity: "0.8",
@@ -234,10 +243,11 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Visual Column */}
-          <div className="order-1 lg:order-2 lg:col-span-5 bg-transparent relative min-h-[300px] sm:min-h-[400px] lg:min-h-[650px] flex flex-col items-center justify-center p-8 sm:p-12 md:p-20 z-20">
-            {/* CIDC Geometric Logo Setup - Subtle border adjustment */}
-            <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[480px] aspect-[16/10] flex flex-col justify-center items-center border border-[#006565]/20 -mt-10 lg:mt-0 bg-white/40 backdrop-blur-md rounded-lg">
+          {/* Right Visual Column - Keeps the CIDC box strictly center-aligned */}
+          <div className="order-1 lg:order-2 lg:col-span-5 bg-transparent relative min-h-[450px] lg:min-h-[650px] flex flex-col items-center justify-center p-8 sm:p-12 z-20">
+            
+            {/* CIDC Geometric Logo Setup - Locked in Center */}
+            <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[440px] aspect-[16/10] flex flex-col justify-center items-center border border-[#006565]/20 bg-white/40 backdrop-blur-md rounded-lg">
               {/* The Text */}
               <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[6rem] font-black text-[#1A1C1A] leading-none tracking-tighter z-20 relative">
                 ｛／｝
@@ -251,18 +261,21 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-white/10 blur-3xl rounded-full scale-110 z-0"></div>
             </div>
 
-            {/* Bottom right floating status labels */}
-            <div className="hero-status-labels absolute bottom-6 right-6 sm:bottom-8 sm:right-8 lg:bottom-12 lg:right-12 text-right z-20 space-y-1.5">
-              <div className="font-mono text-[10px] sm:text-[12px] tracking-widest text-[#A33B3C] font-bold uppercase">
-                {displayedStatus}
-                {displayedStatus.length < fullStatus.length && (
-                  <span className="animate-pulse">|</span>
-                )}
-              </div>
-              <div className="font-mono text-[10px] sm:text-[12px] tracking-widest text-[#1A1C1A]/60 uppercase font-bold">
-                COLLEGE INNOVATION &amp; DEVELOPMENT
+            {/* Status Container - Aligned precisely at buttons horizontal height and matching CIDC width limit */}
+            <div className="hero-status-container lg:absolute lg:bottom-[60px] lg:right-0 w-full lg:max-w-[440px] lg:px-0 text-right z-20">
+              <div className="hero-status-labels sm:text-right space-y-1 w-full">
+                <div className="font-mono text-[10px] sm:text-[12px] tracking-widest text-[#A33B3C] font-bold uppercase whitespace-nowrap">
+                  {displayedStatus}
+                  {displayedStatus.length < fullStatus.length && (
+                    <span className="animate-pulse">|</span>
+                  )}
+                </div>
+                <div className="font-mono text-[10px] sm:text-[11px] lg:text-[12px] tracking-tight sm:tracking-widest text-[#1A1C1A]/60 uppercase font-bold">
+                  COLLEGE INNOVATION &amp; DEVELOPMENT
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>

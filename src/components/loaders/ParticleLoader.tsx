@@ -113,10 +113,11 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
       constructor(i: number, count: number) {
         this.baseAngle = (i / count) * Math.PI * 2;
         this.angle = this.baseAngle;
-        // Make the orbit responsive so particles do not fly off screen on mobile
+        
+        // Mobile par orbit radius 110 se badha kar 135 kiya taaki circle bada bane aur button fits easily
         const isMobile = w < 768;
-        const baseRadius = isMobile ? 110 : 240;
-        const variance = isMobile ? 40 : 90;
+        const baseRadius = isMobile ? 135 : 240;
+        const variance = isMobile ? 35 : 90;
 
         this.orbitRadius = baseRadius + Math.random() * variance;
         this.x = cx + Math.cos(this.angle) * this.orbitRadius;
@@ -135,18 +136,15 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
           const angle = Math.atan2(this.y - cy, this.x - cx);
 
           if (elapsed < 0.4) {
-            // CINEMATIC WIND-UP: Tighten before explosion
             this.vx -= Math.cos(angle) * 3.5;
             this.vy -= Math.sin(angle) * 3.5;
           } else {
-            // RELEASE: Radial Expansion
             this.vx += Math.cos(angle) * this.explosionPower;
             this.vy += Math.sin(angle) * this.explosionPower;
             this.opacity *= 0.96;
             this.size *= 1.01;
           }
         } else {
-          // Orbital animation with wave effect
           const wave =
             Math.sin(time * 1.5 + this.baseAngle * 12) * 15 +
             Math.sin(time * 3 + this.baseAngle * 25) * 8;
@@ -156,7 +154,6 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
           const tx = cx + Math.cos(this.angle) * targetR;
           const ty = cy + Math.sin(this.angle) * targetR;
 
-          // Mouse interaction
           const dx = this.x - mouse.current.x;
           const dy = this.y - mouse.current.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
@@ -180,7 +177,6 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
         const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
 
         if (speed > 6) {
-          // Motion blur during explosion
           ctx!.beginPath();
           ctx!.strokeStyle = `rgba(0, 0, 0, ${this.opacity * 0.6})`;
           ctx!.lineWidth = this.size;
@@ -189,7 +185,6 @@ const ParticleLoader: React.FC<ParticleLoaderProps> = ({
           ctx!.lineTo(this.x - this.vx * 0.4, this.y - this.vy * 0.4);
           ctx!.stroke();
         } else {
-          // Energy dust with glow - black particles
           ctx!.fillStyle = `rgba(0, 0, 0, ${this.opacity})`;
           ctx!.beginPath();
           ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
