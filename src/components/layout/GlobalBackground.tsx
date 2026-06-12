@@ -34,7 +34,7 @@ export default function GlobalBackground() {
         style={{
           width: "100%",
           height: "100%",
-          backgroundImage: "url('/topography.png')",
+          backgroundImage: "url('/topography.avif')",
           backgroundSize: `${bgSize}px`,
           backgroundPosition: "center",
           backgroundRepeat: "repeat",
