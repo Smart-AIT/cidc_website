@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import TeamMemberCard from "./TeamMemberCard";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 // ==========================================
 // 1. FACULTY INCHARGES DATA
@@ -12,7 +13,7 @@ const FACULTY_INCHARGES = [
     role: "Faculty Incharge ",
     instagram: "#",
     linkedin: "https://www.linkedin.com/in/dipika-birari-6698b2229/",
-    image: "/image/Dipika_Mam.jpeg",
+    image: "/image/Dipika_Mam.webp",
   },
   {
     ref_id: 102,
@@ -20,7 +21,7 @@ const FACULTY_INCHARGES = [
     role: "Faculty Incharge",
     instagram: "#",
     linkedin: "https://www.linkedin.com/in/dr-rupali-bagate-12938626/",
-    image: "/image/Rupali_Mam.jpeg",
+    image: "/image/Rupali_Mam.webp",
   },
 ];
 
@@ -28,43 +29,110 @@ const FACULTY_INCHARGES = [
 // 2. B.E. MENTORS
 // ==========================================
 const BE_MEMBERS = [
-  { ref_id: 1, name: "Jagdish Singh", role: "Mentor", instagram: "https://www.instagram.com/jagdishpawar._/", linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/", image: "/image/jaggu.jpeg" },
-  { ref_id: 2, name: "Ebha Mollick", role: "Mentor", instagram: "https://www.instagram.com/ebha_mollick/", linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/", image: "/image/ebbha.jpeg" },
-  { ref_id: 3, name: "Mohit Sharma", role: "Mentor", instagram: "https://www.instagram.com/its._mohit.sharma/", linkedin: "https://www.linkedin.com/in/its-mohitsharma/", image: "/image/mohit.jpeg" },
-  { ref_id: 4, name: "Shreya Prasad", role: "Mentor", instagram: "https://www.instagram.com/_shreya05prasad_/", linkedin: "https://www.linkedin.com/in/shreya-prasad-5b1567289/", image: "/image/shreya.jpeg" },
-  { ref_id: 5, name: "Ayush Badoni", role: "Mentor", instagram: "https://www.instagram.com/ayush_ab190/", linkedin: "https://www.linkedin.com/in/ayyushx/", image: "/image/ayush.jpeg" },
+  { ref_id: 1, name: "Jagdish Singh", role: "Mentor", instagram: "https://www.instagram.com/jagdishpawar._/", linkedin: "https://www.linkedin.com/in/jagdish-singh-007113288/", image: "/image/jaggu.webp" },
+  { ref_id: 2, name: "Ebha Mollick", role: "Mentor", instagram: "https://www.instagram.com/ebha_mollick/", linkedin: "https://www.linkedin.com/in/ebha-mollick-936152289/", image: "/image/ebbha.webp" },
+  { ref_id: 3, name: "Mohit Sharma", role: "Mentor", instagram: "https://www.instagram.com/its._mohit.sharma/", linkedin: "https://www.linkedin.com/in/its-mohitsharma/", image: "/image/mohit.webp" },
+  { ref_id: 4, name: "Shreya Prasad", role: "Mentor", instagram: "https://www.instagram.com/_shreya05prasad_/", linkedin: "https://www.linkedin.com/in/shreya-prasad-5b1567289/", image: "/image/shreya.webp" },
+  { ref_id: 5, name: "Ayush Badoni", role: "Mentor", instagram: "https://www.instagram.com/ayush_ab190/", linkedin: "https://www.linkedin.com/in/ayyushx/", image: "/image/ayush.webp" },
 ];
 
 // ==========================================
 // 3. T.E. COUNCIL
 // ==========================================
 const TE_MEMBERS = [
-  { ref_id: 9, name: "Abhay Singh (Secretary)", role: "AI/ML Lead", instagram: "https://www.instagram.com/abhaysingh22_/", linkedin: "https://www.linkedin.com/in/abhaysingh22/", image: "/image/abhay.jpeg", badge: "Secretary" },
-  { ref_id: 8, name: "Pradeep Kumar", role: "App Dev Lead", instagram: "https://www.instagram.com/pradeepkumar0805/", linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/", image: "/image/pradeep.jpg" },
-  { ref_id: 7, name: "Simran Singh", role: "Web Dev Lead", instagram: "https://www.instagram.com/heysimmi_19/", linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/", image: "/image/simran.png" },
-  { ref_id: 10, name: "Omendra Naharwal", role: "Cloud Lead", instagram: "https://www.instagram.com/omendranaharwal/", linkedin: "https://www.linkedin.com/in/omendra-naharwal/", image: "/image/omendra.png" },
-  { ref_id: 6, name: "Ritika", role: "Web Dev Lead", instagram: "https://www.instagram.com/ritikagautam375/", linkedin: "https://www.linkedin.com/in/ritika-gautam-361867325/", image: "/image/ritika.jpg" },
-  { ref_id: 11, name: "Rishab Bhamboo", role: "Coding Specialist", instagram: "https://instagram.com/cidc_aitpune", linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/", image: "/image/rishab.png" },
+  { ref_id: 9, name: "Abhay Singh (Secretary)", role: "AI/ML Lead", instagram: "https://www.instagram.com/abhaysingh22_/", linkedin: "https://www.linkedin.com/in/abhaysingh22/", image: "/image/abhay.webp", badge: "Secretary" },
+  { ref_id: 8, name: "Pradeep Kumar", role: "App Dev Lead", instagram: "https://www.instagram.com/pradeepkumar0805/", linkedin: "https://www.linkedin.com/in/pradeep-kumar-10p/", image: "/image/pradeep.webp" },
+  { ref_id: 7, name: "Simran Singh", role: "Web Dev Lead", instagram: "https://www.instagram.com/heysimmi_19/", linkedin: "https://www.linkedin.com/in/simran-singh-921a83295/", image: "/image/simran.webp" },
+  { ref_id: 10, name: "Omendra Naharwal", role: "Cloud Lead", instagram: "https://www.instagram.com/omendranaharwal/", linkedin: "https://www.linkedin.com/in/omendra-naharwal/", image: "/image/omendra.webp" },
+  { ref_id: 6, name: "Ritika", role: "Web Dev Lead", instagram: "https://www.instagram.com/ritikagautam375/", linkedin: "https://www.linkedin.com/in/ritika-gautam-361867325/", image: "/image/ritika.webp" },
+  { ref_id: 11, name: "Rishab Bhamboo", role: "Coding Specialist", instagram: "https://instagram.com/cidc_aitpune", linkedin: "https://www.linkedin.com/in/rishabh-singh-bhambhoo-99b389321/", image: "/image/rishab.webp" },
 ];
 
 // ==========================================
 // 4. S.E. COUNCIL
 // ==========================================
 const SE_MEMBERS = [
-  { ref_id: 13, name: "Ashish Gupta", role: "Full-Stack Developer", instagram: "https://www.instagram.com/ashish61779?igsh=NmdqNDI1Z3h1c2J2", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.jpeg" },
-  { ref_id: 14, name: "Mahima", role: "Frontend Developer", instagram: "https://www.instagram.com/mahima_anchra/#", linkedin: "https://linkedin.com/in/mahima-anchra-978b5b376", image: "/image/Mahima.jpg" },
-  { ref_id: 16, name: "ROHIT PIMPALE", role: "Flutter Developer", instagram: "https://www.instagram.com/_.rohit_p._/", linkedin: "https://www.linkedin.com/in/rohit-sharad-pimpale-581929374/", image: "/image/Rohit.jpeg" },
-  { ref_id: 12, name: "Abhinay Singh", role: "Coding Specialist", instagram: "https://www.instagram.com/hueehuiii?utm_source=qr&igsh=eThyeGd1MGFiOHhz", linkedin: "https://www.linkedin.com/in/abhinay-singh-791975379?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Abhinay.jpg" },
-  { ref_id: 15, name: "Prince Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/prince_sin1729?igsh=azd2MTltZzFvZmhj", linkedin: "https://www.linkedin.com/in/prince-singh-645365377?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Prince.jpg" },
-  { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded Systems", instagram: "https://www.instagram.com/_mobile.pixels_?igsh=MWFrc3ZjYWswdjZtbg==", linkedin: "https://in.linkedin.com/in/shshank-kumar-a639b1373", image: "/image/Shashank.jpg" },
-  { ref_id: 18, name: "Yashwanth Thota", role: "Coding Specialist", instagram: "https://www.instagram.com/yashellno/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-aba68a388/", image: "/image/Tota.jpeg" },
-  { ref_id: 19, name: "Sajal Rawat", role: "Full-Stack Developer", instagram: "https://www.instagram.com/sajalrwt/", linkedin: "https://www.linkedin.com/in/sajal-rawat/", image: "/image/sajal.jpeg" },
+  { ref_id: 13, name: "Ashish Gupta", role: "Full-Stack Developer", instagram: "https://www.instagram.com/ashish61779?igsh=NmdqNDI1Z3h1c2J2", linkedin: "https://www.linkedin.com/in/ashish-gupta-228598374/", image: "/image/As6.webp" },
+  { ref_id: 14, name: "Mahima", role: "Frontend Developer", instagram: "https://www.instagram.com/mahima_anchra/#", linkedin: "https://linkedin.com/in/mahima-anchra-978b5b376", image: "/image/Mahima.webp" },
+  { ref_id: 16, name: "ROHIT PIMPALE", role: "Flutter Developer", instagram: "https://www.instagram.com/_.rohit_p._/", linkedin: "https://www.linkedin.com/in/rohit-sharad-pimpale-581929374/", image: "/image/Rohit.webp" },
+  { ref_id: 12, name: "Abhinay Singh", role: "Coding Specialist", instagram: "https://www.instagram.com/hueehuiii?utm_source=qr&igsh=eThyeGd1MGFiOHhz", linkedin: "https://www.linkedin.com/in/abhinay-singh-791975379?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Abhinay.webp" },
+  { ref_id: 15, name: "Prince Singh", role: "Full Stack Dev", instagram: "https://www.instagram.com/prince_sin1729?igsh=azd2MTltZzFvZmhj", linkedin: "https://www.linkedin.com/in/prince-singh-645365377?utm_source=share_via&utm_content=profile&utm_medium=member_android", image: "/image/Prince.webp" },
+  { ref_id: 17, name: "SHSHANK KUMAR", role: "Embedded Systems", instagram: "https://www.instagram.com/_mobile.pixels_?igsh=MWFrc3ZjYWswdjZtbg==", linkedin: "https://in.linkedin.com/in/shshank-kumar-a639b1373", image: "/image/Shashank.webp" },
+  { ref_id: 18, name: "Yashwanth Thota", role: "Coding Specialist", instagram: "https://www.instagram.com/yashellno/", linkedin: "https://www.linkedin.com/in/yashwanth-thota-aba68a388/", image: "/image/Tota.webp" },
+  { ref_id: 19, name: "Sajal Rawat", role: "Full-Stack Developer", instagram: "https://www.instagram.com/sajalrwt/", linkedin: "https://www.linkedin.com/in/sajal-rawat/", image: "/image/sajal.webp" },
 ];
 
 export default function TeamSection() {
   const [activeTab, setActiveTab] = useState<"BE" | "TE" | "SE">("TE");
+  const [isHovered, setIsHovered] = useState(false);
+  const [isManualControlActive, setIsManualControlActive] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const manualTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Filter dynamic logic for all members
+  // Clear timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (manualTimeoutRef.current) {
+        clearTimeout(manualTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Reset interaction states when active tab changes
+  useEffect(() => {
+    setIsManualControlActive(false);
+    if (manualTimeoutRef.current) {
+      clearTimeout(manualTimeoutRef.current);
+    }
+  }, [activeTab]);
+
+  const triggerManualInteraction = () => {
+    setIsManualControlActive(true);
+
+    if (manualTimeoutRef.current) {
+      clearTimeout(manualTimeoutRef.current);
+    }
+
+    manualTimeoutRef.current = setTimeout(() => {
+      setIsManualControlActive(false);
+    }, 5000);
+  };
+
+  const scroll = (direction: "left" | "right") => {
+    triggerManualInteraction();
+
+    if (scrollContainerRef.current) {
+      const { scrollLeft } = scrollContainerRef.current;
+      const scrollAmount = 268;
+      const newScrollLeft =
+        direction === "left"
+          ? scrollLeft - scrollAmount
+          : scrollLeft + scrollAmount;
+      scrollContainerRef.current.scrollTo({
+        left: newScrollLeft,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Auto-scroll loop
+  useEffect(() => {
+    if (isManualControlActive || isHovered) return;
+
+    const interval = setInterval(() => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 15) {
+          scrollContainerRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          scrollContainerRef.current.scrollTo({ left: scrollLeft + 268, behavior: "smooth" });
+        }
+      }
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, [isManualControlActive, isHovered, activeTab]);
+
   const allCurrentMembers = activeTab === "BE" ? BE_MEMBERS : activeTab === "TE" ? TE_MEMBERS : SE_MEMBERS;
 
   return (
@@ -86,17 +154,73 @@ export default function TeamSection() {
           overflow: visible !important;
         }
 
-        .team-marquee-container {
-          display: flex;
-          overflow: hidden;
-          position: relative;
-          width: 100%;
-          z-index: 10;
-        }
-
-        /* Hover on marquee stops scrolling */
         .team-marquee-container:hover .single-marquee-track {
           animation-play-state: paused;
+        }
+
+        .team-marquee-container {
+          display: none;
+        }
+
+        .team-mobile-scroll-wrap {
+          display: block;
+        }
+
+        @media (min-width: 768px) {
+          .team-marquee-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            z-index: 10;
+          }
+          .team-mobile-scroll-wrap {
+            display: none;
+          }
+        }
+
+        .team-scroll-container {
+          display: flex;
+          gap: 28px;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          width: 100%;
+          padding: 24px 8px;
+          z-index: 10;
+          position: relative;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .team-scroll-container::-webkit-scrollbar {
+          display: none;
+        }
+
+        .carousel-nav-btn {
+          background-color: #faf9f6;
+          color: #1A1C1A;
+          border: 1px solid rgba(26, 28, 26, 0.2);
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          border-radius: 12px;
+          box-shadow: 0px 4px 12px rgba(26, 28, 26, 0.05);
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          font-size: 14px;
+        }
+
+        .carousel-nav-btn:hover {
+          transform: translateY(-2px);
+          background-color: #ffffff;
+          box-shadow: 0px 6px 20px rgba(26, 28, 26, 0.08);
+          border-color: rgba(26, 28, 26, 0.3);
+        }
+
+        .carousel-nav-btn:active {
+          transform: translateY(0px);
+          background-color: #f4f3f0;
         }
 
         .team-section-root {
@@ -130,6 +254,7 @@ export default function TeamSection() {
           border-radius: 6px;
           box-shadow: 4px 4px 0px 0px #1A1C1A;
           transition: all 0.15s ease-in-out;
+          text-align: center;
         }
         .mechanical-tab-btn:hover {
           transform: translate(2px, 2px);
@@ -142,7 +267,6 @@ export default function TeamSection() {
           box-shadow: 0px 0px 0px 0px #1A1C1A;
         }
 
-        /* Pure Static Non-Clickable Label styled identical to unclicked buttons */
         .mechanical-static-label {
           background-color: #faf9f6;
           color: #1A1C1A;
@@ -155,6 +279,7 @@ export default function TeamSection() {
           border-radius: 6px;
           box-shadow: 4px 4px 0px 0px #1A1C1A;
           user-select: none;
+          text-align: center;
         }
 
         .faculty-grid-container {
@@ -175,7 +300,7 @@ export default function TeamSection() {
           top: -10px;
           left: 50%;
           transform: translateX(-50%);
-          background: #A33B3C;
+          background: #A33C3C;
           color: white;
           font-family: monospace;
           font-size: 9px;
@@ -221,12 +346,49 @@ export default function TeamSection() {
 
         @media (max-width: 640px) {
           .team-section-root { padding: 40px 16px; }
-          .tab-controller-container { gap: 10px; }
-          .mechanical-tab-btn, .mechanical-static-label { font-size: 11px; padding: 8px 16px; flex-grow: 1; text-align: center; }
+          
+          /* Returns container back to normal flex row wrap behavior */
+          .tab-controller-container { 
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 12px !important; 
+          }
+          
+          /* Strict styling for first two buttons to share top row */
+          .mechanical-tab-btn, .mechanical-static-label { 
+            font-size: 10px; 
+            padding: 10px 6px; 
+            width: calc(50% - 6px) !important;
+            max-width: 50%;
+            min-height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+            flex-grow: 1;
+          }
+          
+          /* Targets third button (Joint Secretaries) to sit perfectly under them centered and compact */
+          .mechanical-tab-btn:last-child {
+            width: fit-content !important;
+            max-width: max-content !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            flex-grow: 0 !important;
+          }
+
+          /* Reset standalone Faculty Label adjustments */
+          .tab-controller-container:has(.mechanical-static-label) .mechanical-static-label {
+            width: auto !important;
+            max-width: unset !important;
+          }
+
           .faculty-grid-container { gap: 24px; }
           .team-chapter-banner { flex-direction: column; gap: 8px; padding: 12px 14px; text-align: center; align-items: center; }
           .team-chapter-title { font-size: 15px; margin-bottom: 2px; }
-          .single-marquee-track { gap: 16px; padding-right: 16px; }
+          .team-scroll-container { gap: 16px; }
         }
       `,
         }}
@@ -249,7 +411,7 @@ export default function TeamSection() {
               marginBottom: "16px",
             }}
           >
-            CIDC_VERSION_04
+            CIDC_VERSION_1.0
           </p>
           <h2
             style={{
@@ -290,8 +452,6 @@ export default function TeamSection() {
 
         {/* Faculty Incharge Grid Section */}
         <div style={{ marginBottom: "50px" }}>
-          
-          {/* Static White Label mimicking the unclicked button structure */}
           <div className="tab-controller-container">
             <div className="mechanical-static-label">
               // Faculty Incharge
@@ -324,13 +484,13 @@ export default function TeamSection() {
             className={`mechanical-tab-btn ${activeTab === "BE" ? "active" : ""}`}
             onClick={() => setActiveTab("BE")}
           >
-          ➤B.E. Mentors
+            ➤B.E. Mentors
           </button>
           <button
             className={`mechanical-tab-btn ${activeTab === "TE" ? "active" : ""}`}
             onClick={() => setActiveTab("TE")}
           >
-            ➤Leads & Domain Heads
+            ➤Leads &amp; Domain Heads
           </button>
           <button
             className={`mechanical-tab-btn ${activeTab === "SE" ? "active" : ""}`}
@@ -340,8 +500,7 @@ export default function TeamSection() {
           </button>
         </div>
 
-        {/* Hybrid Split Framework layout container */}
-        {/* Team Members Marquee Section */}
+        {/* Infinite marquee for desktop/tablet */}
         <div className="team-marquee-container" style={{ marginBottom: "80px" }}>
           {[0, 1].map((trackIndex) => (
             <div
@@ -352,12 +511,54 @@ export default function TeamSection() {
             >
               {allCurrentMembers.map((member, i) => (
                 <TeamMemberCard
-                  key={`${activeTab}-${member.ref_id}-${i}`}
+                  key={`${activeTab}-marquee-${member.ref_id}-${i}`}
                   {...member}
                 />
               ))}
             </div>
           ))}
+        </div>
+
+        {/* Mobile scroll layout */}
+        <div className="team-mobile-scroll-wrap">
+          <div
+            ref={scrollContainerRef}
+            className="team-scroll-container"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={triggerManualInteraction}
+            onWheel={(e) => {
+              if (Math.abs(e.deltaX) > 0) {
+                triggerManualInteraction();
+              }
+            }}
+            style={{ marginBottom: "32px" }}
+          >
+            {allCurrentMembers.map((member, i) => (
+              <TeamMemberCard
+                key={`${activeTab}-scroll-${member.ref_id}-${i}`}
+                {...member}
+              />
+            ))}
+          </div>
+
+          {/* Scroll controls */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "16px", marginBottom: "80px" }}>
+            <button
+              onClick={() => scroll("left")}
+              className="carousel-nav-btn"
+              aria-label="Scroll left"
+            >
+              <FaChevronLeft />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="carousel-nav-btn"
+              aria-label="Scroll right"
+            >
+              <FaChevronRight />
+            </button>
+          </div>
         </div>
 
         {/* Chapter Banner */}

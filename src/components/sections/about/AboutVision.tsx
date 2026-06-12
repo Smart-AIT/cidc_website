@@ -86,7 +86,7 @@ export default function AboutVision() {
                   className="material-symbols-outlined"
                   style={{ fontSize: "24px" }}
                 >
-                  explore
+                  insights
                 </span>
               </div>
               <span

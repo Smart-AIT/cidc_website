@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={spaceGrotesk.variable}>
+    <html lang="en" className={`${spaceGrotesk.variable} h-full`}>
       <head>
         {/* Google Analytics */}
         <Script
@@ -59,14 +59,14 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      {/* Background-[#f4f4f0] Lando Norris jaisa subtle tone dene ke liye */}
-      <body className="min-h-full flex flex-col bg-[#f4f4f0] relative antialiased">
+      {/* Items-center joda taaki andar ka content browser ke center me alignment banaye rakhe */}
+      <body className="min-h-full flex flex-col items-center bg-[#f4f4f0] relative antialiased w-full overflow-x-clip">
         {/* Pure website ke piche rehne wala animated layout background */}
         <GlobalBackground />
 
         <CustomCursor />
         {/* Main content layer relative and z-10 taaki background par scroll overlap ho */}
-        <div className="relative z-10 w-full flex flex-col min-h-screen">
+        <div className="relative z-10 w-full flex flex-col min-h-screen items-center">
           <SmoothScroll>{children}</SmoothScroll>
         </div>
         <ScrollToTopButton />

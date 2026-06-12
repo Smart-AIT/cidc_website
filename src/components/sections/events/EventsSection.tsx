@@ -13,7 +13,7 @@ const EVENTS = [
     ref_id: "REF_LOG",
     status: "Upcoming" as const,
     title: "CAMPUS CATALYST",
-    date: "Dates: coming soon",
+    date: "Dates: 11 Oct 2026",
     description:
       "Physical interface exchange. Bring your modified synthesizers, pitch your ideas, get approvals, start working on it to contribute in college innovation and make AIT smarter.",
     ctaLabel: "Join_Catalyst",
@@ -24,7 +24,7 @@ const EVENTS = [
     ref_id: "REF_LOG",
     status: "Upcoming" as const,
     title: "SYSTEM DESIGN BATTLE",
-    date: "Dates: coming soon",
+    date: "Dates: 14 March 2027",
     description:
       "A deep-dive into system design concepts. Teams will be given a real-world system design problem inspired by large tech platforms.",
     ctaLabel: "Join_Battle",
@@ -86,13 +86,12 @@ export default function EventsSection() {
         {
           opacity: 1,
           y: 0,
-          ease: "none",
+          duration: 0.6,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 75%",
-            end: "top 20%",
-            scrub: 1,
-            invalidateOnRefresh: true,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
           },
         },
       );
@@ -106,7 +105,7 @@ export default function EventsSection() {
           width: 100%;
           padding: 60px 40px;
           border-top: 2px solid #1A1C1A;
-          background: linear-gradient(rgba(250, 249, 246, 0.84), rgba(250, 249, 246, 0.84)), url('/topography.avif') repeat;
+          background: linear-gradient(rgba(250, 249, 246, 0.84), rgba(250, 249, 246, 0.84)), url('/topography.png') repeat;
         }
         .events-hero-grid {
           display: grid;
@@ -252,6 +251,7 @@ export default function EventsSection() {
           }
           .events-announcements-input-group {
             flex-direction: column;
+            gap: 12px;
           }
           .events-announcements-input {
             border-radius: 12px;
@@ -262,6 +262,7 @@ export default function EventsSection() {
             border-radius: 12px;
             padding: 10px 16px;
             font-size: 10px;
+            align-self: center;
           }
         }
         @media (min-width: 769px) and (max-width: 1024px) {

@@ -27,7 +27,7 @@ export default function AboutSection() {
           width: 100%;
           padding: 80px 40px 60px 40px;
           border-top: 1px solid rgba(26, 28, 26, 0.15);
-          background: linear-gradient(rgba(250, 249, 246, 0.84), rgba(250, 249, 246, 0.84)), url('/topography.avif') repeat;
+          background: linear-gradient(rgba(250, 249, 246, 0.84), rgba(250, 249, 246, 0.84)), url('/topography.png') repeat;
         }
         .about-header-grid {
           display: grid;
@@ -202,7 +202,7 @@ export default function AboutSection() {
         </header>
 
         {/* ── Bento Grid: Vision + Image + Shadows Lighted ── */}
-        <ScrollStack gap={500} animationType="flip-horizontal">
+        <ScrollStack gap={100} animationType="flip-horizontal">
           <ScrollStackItem>
             <div
               style={{
@@ -248,7 +248,7 @@ export default function AboutSection() {
                         className="material-symbols-outlined"
                         style={{ fontSize: "24px" }}
                       >
-                        ads_click
+                        architecture
                       </span>
                     </div>
                     <span
@@ -366,7 +366,7 @@ export default function AboutSection() {
         {/* Upcoming Section Footer */}
         <div
           style={{
-            marginTop: "96px",
+            marginTop: "40px",
             display: "flex",
             flexDirection: "column",
             gap: "24px",

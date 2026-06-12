@@ -38,10 +38,10 @@ export default function GlobalBackground() {
           backgroundSize: `${bgSize}px`,
           backgroundPosition: "center",
           backgroundRepeat: "repeat",
-          
+
           // Koi complex overlay ya brightness filter nahi, direct high opacity constant dark look ke liye
-          opacity: 0.45, 
-          
+          opacity: 0.45,
+
           willChange: "background-size",
         }}
       />
