@@ -202,7 +202,7 @@ export default function AboutSection() {
         </header>
 
         {/* ── Bento Grid: Vision + Image + Shadows Lighted ── */}
-        <ScrollStack gap={500} animationType="flip-horizontal">
+        <ScrollStack gap={100} animationType="flip-horizontal">
           <ScrollStackItem>
             <div
               style={{
@@ -366,7 +366,7 @@ export default function AboutSection() {
         {/* Upcoming Section Footer */}
         <div
           style={{
-            marginTop: "96px",
+            marginTop: "40px",
             display: "flex",
             flexDirection: "column",
             gap: "24px",

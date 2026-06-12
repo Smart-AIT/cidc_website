@@ -60,7 +60,7 @@ export default function RootLayout({
         />
       </head>
       {/* Items-center joda taaki andar ka content browser ke center me alignment banaye rakhe */}
-      <body className="min-h-full flex flex-col items-center bg-[#f4f4f0] relative antialiased w-full overflow-x-hidden">
+      <body className="min-h-full flex flex-col items-center bg-[#f4f4f0] relative antialiased w-full overflow-x-clip">
         {/* Pure website ke piche rehne wala animated layout background */}
         <GlobalBackground />
 

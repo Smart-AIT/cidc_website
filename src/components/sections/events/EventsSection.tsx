@@ -86,13 +86,12 @@ export default function EventsSection() {
         {
           opacity: 1,
           y: 0,
-          ease: "none",
+          duration: 0.6,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 75%",
-            end: "top 20%",
-            scrub: 1,
-            invalidateOnRefresh: true,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
           },
         },
       );
