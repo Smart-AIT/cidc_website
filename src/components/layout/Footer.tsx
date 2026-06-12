@@ -70,7 +70,7 @@ export default function Footer() {
           height: 100%;
           pointer-events: none;
           opacity: 0.16;
-          background-image: url('/topography.png');
+          background-image: url('/topography.avif');
           background-repeat: repeat;
         }
         .footer-root {
